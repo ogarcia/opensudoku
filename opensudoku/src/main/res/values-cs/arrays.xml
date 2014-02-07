@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="game_states">
+		<item>Nehrané</item>
+		<item>Rozehráno</item>
+		<item>Vyřešeno</item>
+	</string-array>
+</resources>

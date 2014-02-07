@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">OpenSudoku</string>
+	<string name="edit_sudoku">Edit sudoku</string>
+
+	<string name="puzzle_folders">OpenSudoku dossiers puzzle</string>
+
+	<string name="version">Version: %s</string>
+	<string name="homepage">Page d\'acceuil: http://opensudoku.eu</string>
+
+	<string name="email">Email: opensudoku@romanmasek.cz</string>
+	<string name="work_in_progress">Actuellement en cours de développement</string>
+	<string name="send_me_bugs">Si vous avez un bug ou une suggestion à soumettre, n\'hésitez pas à me contacter par
+		mail ou utiliser le tracker de bug sur la page d\'acceuil.
+	</string>
+	<string name="close">Fermer</string>
+	<string name="clear">Effacer</string>
+	<string name="save">Sauver</string>
+
+
+	<string name="get_more_puzzles_online">Obtenir plus de puzzles en ligne</string>
+
+	<string name="name">Nom:</string>
+	<string name="note">Note:</string>
+
+	<string name="select_number">Selection chiffre</string>
+	<string name="edit_note">Edite la note</string>
+
+	<string name="add_folder">Ajout dossier</string>
+
+	<string name="about">A propos</string>
+	<string name="rename_folder">Renommer le dossier</string>
+	<string name="delete_folder">Effacer le dossier</string>
+	<string name="rename_folder_title">Renommer %s</string>
+	<string name="delete_folder_title">Effacer %s</string>
+	<string name="delete_folder_confirm">Êtes-vous sûr de vouloir supprimer ce dossier?</string>
+
+	<string name="no_puzzles">Pas de puzzle</string>
+	<string name="one_puzzle">1 puzzle</string>
+	<string name="n_puzzles">%s puzzles</string>
+	<string name="all_solved">tous résolus</string>
+	<string name="n_solved">%s résolu</string>
+	<string name="n_unsolved">%s non résolus</string>
+
+	<string name="n_playing">%s en cours</string>
+
+	<string name="solved">Résolu</string>
+	<string name="playing">En cours</string>
+	<string name="not_started">Non démarré</string>
+	<string name="last_played_at">Joué %s</string>
+	<string name="created_at">Créé %s</string>
+
+	<string name="at_time">à %s</string>
+	<string name="yesterday_at_time">hier à %s</string>
+	<string name="on_date">le %s</string>
+	<string name="add_sudoku">Ajout sudoku</string>
+	<string name="filter">Filtre</string>
+	<string name="filter_by_gamestate">Filtrer par statut</string>
+
+	<string name="folders">Dossiers</string>
+	<string name="delete_puzzle_confirm">Êtes-vous sûr de vouloir effacer le puzzle séléctionné?</string>
+	<string name="reset_puzzle_confirm">Êtes-vous sûr de vouloir reseter le puzzle séléctionné?</string>
+	<string name="play_puzzle">Jouer ce puzzle</string>
+	<string name="reset_puzzle">Reseter le puzzle</string>
+	<string name="edit_puzzle">Editer le puzzle</string>
+
+	<string name="delete_puzzle">Effacer le puzzle</string>
+	<string name="filter_active">Filtré: %s</string>
+
+	<string name="undo">Annuler</string>
+	<string name="clear_all_notes">Effacer toutes les notes</string>
+	<string name="fill_in_notes">Remplir les notes</string>
+	<string name="restart">Redémarrer</string>
+	<string name="congrats">Félicitiations, vous avez résolu le puzzle en %s.</string>
+
+	<string name="restart_confirm">Êtes-vous sûr de vouloir redémarrer ce jeu?</string>
+	<string name="well_done">Bravo!</string>
+	<string name="clear_all_notes_confirm">Êtes-vous sûr de vouloir effacer toutes les notes?</string>
+	<string name="settings">Paramètres</string>
+	<string name="game_settings">Paramètres du jeu</string>
+
+	<string name="game_helpers">Aides de jeu</string>
+
+	<string name="highlight_wrong_values">Souligner les valeurs fausses</string>
+	<string name="highlight_wrong_values_summary">Souligné les valeurs en désacord avec les règles du sudoku.</string>
+	<string name="input_methods">Modes de saisie</string>
+	<string name="popup">Popup</string>
+	<string name="popup_summary">Editer la valeur des cellules et des notes dans un popup.</string>
+	<string name="single_number">Chiffre unique</string>
+
+	<string name="single_number_summary">Selectionnez le chiffre, puis selectionnez la cellule pour indiquer s\'il
+		s\'agit du chiffre ou de la note.
+	</string>
+	<string name="numpad">Clavier numérique</string>
+	<string name="numpad_summary">Affiche le numpad qui agit comme un clavier numérique standard.</string>
+	<string name="numpad_move_right">Move right on press</string>
+	<string name="numpad_move_right_summary">Moves cell selection by one cell right when number button is pressed.
+	</string>
+
+	<string name="numpad_abbr">Num\nPad</string>
+
+	<string name="popup_abbr">Pop</string>
+	<string name="single_number_abbr">SN</string>
+	<string name="welcome">Bienvenue</string>
+	<string name="hint">Conseil</string>
+	<string name="help">Aide</string>
+	<string name="that_is_all">C\'est tout</string>
+
+
+	<string name="first_run_hint">Il existe plusieurs modes de saisie utilisables pour remplir un puzzle. Pour vous
+		familiariser avec ces derniers plusieurs conseils vous seront fournis pendant le jeu.\n\nVous pouvez desactiver
+		ces conseils dans les paramètres du jeu.\n
+	</string>
+	<string name="im_popup_hint">Vous êtes actuellement en mode saisie<i>Popup</i>. Touchez une cellule avec votre doigt
+		pour en éditer le contenu.\n\nAvez-vous remarqué le bouton dans le coin en bas à droite? Vous pouvez utiliser ce
+		dernier pour changer de mode de saisie.\n
+	</string>
+	<string name="im_single_number_hint">Vous êtes maintenant en mode de saisie<i>Chiffre unique</i>. Premièrement
+		séléctionnez le chiffre en le touchant puis tapez la cellule dans laquelle vous voulez placer ce chiffre.\n
+	</string>
+	<string name="im_numpad_hint">Vous êtes finalement en mode de saisie<i>Numpad</i>. Les boutons agisse comme un
+		clavier numérique.\n\nTapez
+		<i>Stylo</i>
+		bouton pour engager l\'édition de la cellule.\n
+	</string>
+	<string name="im_disable_modes_hint">Rappelez vous que vous n\'êtes pas obliger d\'utiliser tous les modes de
+		saisie. Vous pouvez désactiver chacuns d\'eux dans les paramètres du jeu.\n\nVous pouvez également utiliser le
+		clavier et la trackball pour jouer. Si vous souhaitez entrer les notes au clavier, appuyez le chiffre avec alt
+		ou shift.\n
+	</string>
+	<string name="help_text"><b>Contrôles clavier</b>\n\nUtilisez le trackball pour naviguer a la cellule souhaitée et
+		entrez le chiffre a remplir dans cette dernière. Pour éditer la note, appuyez le chiffre avec shift ou alt.\n\n
+		<b>Modes de saisie</b>\n\nVous pouvez passer d\'un mode de saisie à l\'autre en appuyant le bouton en bas à
+		droite de l\'écran. Vous pouvez également désactiver chancuns d\'eux dans les paramètres de jeu - ils seront
+		ainsi complétement cachés.\n\n<b>Mode de saise Popup</b>\n\nUn Popup s\'afficher lorsque vous touchez une
+		cellule. Editez le contenu avec cette boîte de dialogue.\n\n<b>Mode de saisie Chiffre Unique</b>\n\nPremièrement
+		selectionnez un chiffre en l\'appuyant. Ensuite tapez la cellule dans laquelle vous voulez placer ce
+		chiffre.\n\nUtilisez bouton
+		<i>Stylo</i>
+		pour passer entre l\'édtion de la valeur ou de la note.\n\n<b>Mode de saisie Clavier Numérique</b>\n\nLes
+		boutons fonctionnent comme un clavier numérique.\n\nUtilsez
+		<i>Stylo</i>
+		pour passer entre l\'édtion de la valeur ou de la note.\n
+	</string>
+
+
+	<string name="game">Jeu</string>
+	<string name="show_hints">Conseils premier démarrage</string>
+	<string name="show_hints_summary">Afficher les conseils qui vous guideront à travers l\'application.</string>
+	<string name="show_time">Afficher le temps</string>
+	<string name="show_time_summary">Afficher le temps durant la partie.</string>
+
+	<string name="puzzle_inserted">Nouveau puzzle sauvegardé.</string>
+
+	<string name="puzzle_updated">Puzzle mis à jour.</string>
+
+	<string name="puzzles_saved">Puzzles sauvegardés dans le répertoire \'%s\'.</string>
+	<string name="no_puzzles_found">Aucun puzzle trouvé.</string>
+	<string name="unknown_import_error">Erreur inconnue lors de l\'importation des puzzles, importation annulée.
+	</string>
+	<string name="invalid_format">Format invalide, importation annulée.</string>
+
+
+	<string name="credits">Credits:\nRoman Mašek\nVit Hnilica\nMartin Sobola\nMartin Helff</string>
+
+	<!-- Strings added in 0.7.0 -->
+	<string name="loading">Loading...</string>
+
+	<!-- Strings added/changed in 0.7.1 -->
+	<string name="more_settings">More settings</string>
+	<string name="screen_border_size">Screen border size</string>
+	<string name="screen_border_size_summary">Some displays do not react to touches on screen edges. This could help in
+		such case.
+	</string>
+	<string name="highlight_touched_cell">Highlight cell on touch</string>
+	<string name="highlight_touched_cell_summary">Highlights row and column of touched cell.</string>
+	<string name="export">Export</string>
+	<string name="export_folder">Export folder</string>
+	<string name="export_all_folders">Export all folders</string>
+	<string name="folders_created">%s folders have been imported.</string>
+	<string name="importing">Importing puzzles...</string>
+	<string name="exporting">Exporting puzzles...</string>
+	<string name="unknown_export_error">Unknown error occurred while exporting puzzles.</string>
+	<string name="highlight_completed_values">Highlight completed numbers</string>
+	<string name="highlight_completed_values_summary">Highlight buttons for numbers which has been entered 9 times.
+	</string>
+	<string name="save_to_sdcard">Save to sdcard</string>
+	<string name="send_by_mail">Send by mail</string>
+	<string name="theme">Theme</string>
+	<string name="theme_summary">Select color theme for puzzle board.</string>
+	<string name="select_theme">Select theme</string>
+	<string name="filename">Filename</string>
+	<string name="directory">Directory</string>
+	<string name="sdcard_not_found">SD card not found.</string>
+	<string name="puzzles_have_been_exported">Puzzles have been exported to %s.</string>
+	<string name="file_exists">File already exists, do you want to overwrite it?</string>
+	<!-- localization of default folder names -->
+	<string name="difficulty_hard">Hard</string>
+	<string name="difficulty_medium">Medium</string>
+	<string name="difficulty_easy">Easy</string>
+
+	<!-- Strings added/changed in 1.1.0 -->
+	<string name="generate_sudoku">Generiere neues Sudoku</string>
+	<string name="select_difficulty">Schwierigkeit auswählen</string>
+	<string name="generating">Generiere Sudoku-Rätsel...</string>
+
+</resources>

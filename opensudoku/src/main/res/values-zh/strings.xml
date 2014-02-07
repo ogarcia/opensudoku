@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">OpenSudoku</string>
+	<string name="edit_sudoku">编辑sudoku</string>
+
+	<string name="puzzle_folders">OpenSudoku智力游戏文件夹</string>
+
+	<string name="version">版本: %s</string>
+	<string name="homepage">主页: http://opensudoku.eu</string>
+	<string name="email">Email: opensudoku@romanmasek.cz</string>
+	<string name="work_in_progress">请注意该程序正在运行中.</string>
+	<string name="send_me_bugs">当你遇到程序错误有必要修改或者有其他建议的时候，可以通过Email或者主页上发表主题评论联系我。</string>
+
+	<string name="close">关闭</string>
+	<string name="clear">清除</string>
+	<string name="save">保存</string>
+
+	<string name="get_more_puzzles_online">从网上获取更多谜团</string>
+
+	<string name="name">名字:</string>
+	<string name="note">提示:</string>
+
+	<string name="select_number">选择数字</string>
+	<string name="edit_note">编辑提示</string>
+
+	<string name="add_folder">添加文件</string>
+	<string name="about">关于</string>
+	<string name="rename_folder">重命名文件</string>
+	<string name="delete_folder">删除文件</string>
+	<string name="rename_folder_title">重命名 %s</string>
+	<string name="delete_folder_title">删除 %s</string>
+	<string name="delete_folder_confirm">确定要删除此文件吗？</string>
+
+	<string name="no_puzzles">无谜团</string>
+	<string name="one_puzzle">一个谜团</string>
+	<string name="n_puzzles">%s 谜团</string>
+	<string name="all_solved">完全解决</string>
+	<string name="n_solved">%s 解决</string>
+	<string name="n_unsolved">%s 未解决</string>
+	<string name="n_playing">%s 进行中</string>
+
+	<string name="solved">解决</string>
+	<string name="playing">游戏中</string>
+	<string name="not_started">尚未开始</string>
+	<string name="last_played_at">上次游戏 %s</string>
+	<string name="created_at">已创建 %s</string>
+	<string name="at_time">在 %s</string>
+	<string name="yesterday_at_time">昨日在%s</string>
+	<string name="on_date">在 %s</string>
+	<string name="add_sudoku">添加sudoku</string>
+	<string name="filter">排列方式</string>
+	<string name="filter_by_gamestate">按游戏状态排列</string>
+	<string name="folders">文件夹</string>
+	<string name="delete_puzzle_confirm">您确定要删除选定之谜？</string>
+	<string name="reset_puzzle_confirm">您确定要重置选定之谜?</string>
+	<string name="play_puzzle">玩智力谜团</string>
+	<string name="reset_puzzle">重置智力谜团</string>
+	<string name="edit_puzzle">编辑智力谜团</string>
+	<string name="delete_puzzle">删除智力谜团</string>
+	<string name="filter_active">Filtered: %s</string>
+
+	<string name="puzzles_saved">谜团文件已保存至 \'%s\' 文件夹.</string>
+	<string name="no_puzzles_found">没有发现谜团文件.</string>
+	<string name="unknown_import_error">导入谜团文件时发生未知错误，导入已取消.</string>
+	<string name="invalid_format">无效格式, 导入已取消.</string>
+
+	<string name="undo">卸载</string>
+	<string name="clear_all_notes">清除所有提示</string>
+	<string name="fill_in_notes">Fill in notes</string>
+	<string name="restart">重启</string>
+	<string name="congrats">恭喜您已解决所有谜团 %s.</string>
+	<string name="restart_confirm">您确定要重新启动这个游戏？</string>
+	<string name="well_done">干得漂亮</string>
+	<string name="clear_all_notes_confirm">您确定要清楚所有提示？</string>
+	<string name="settings">设置</string>
+	<string name="game_settings">游戏设置</string>
+
+	<string name="game_helpers">游戏帮助</string>
+	<string name="highlight_wrong_values">标明错值</string>
+	<string name="highlight_wrong_values_summary">强调打破Sudoku规则的值.</string>
+	<string name="input_methods">输入模式</string>
+	<string name="popup">弹出</string>
+	<string name="popup_summary">编辑单元格值并弹出标注.</string>
+	<string name="single_number">单一数字</string>
+	<string name="single_number_summary">选择数字，按按钮设置值或提示.</string>
+	<string name="numpad">数字键盘</string>
+	<string name="numpad_summary">显示Numpad作标准数字键盘.</string>
+	<string name="numpad_move_right">向右移</string>
+	<string name="numpad_move_right_summary">按数字键移动单元选项.</string>
+
+	<string name="numpad_abbr">数字键盘</string>
+	<string name="popup_abbr">弹出</string>
+	<string name="single_number_abbr">单个数字</string>
+	<string name="welcome">欢迎</string>
+	<string name="hint">提示</string>
+	<string name="help">帮助</string>
+	<string name="that_is_all">结束</string>
+
+
+	<string name="first_run_hint">这里有几种填补谜团的输入方式.为了帮助您熟悉这些模式还将有一些提示为您呈现.可以通过游戏设置停止这些提示.</string>
+	<string name="im_popup_hint">您现在在弹出输入模式. 点击任意单元编辑内容.注意右下角的按钮.您可以使用这些按钮转换进入另一种输入模式.</string>
+	<string name="im_single_number_hint">您现在在<i>单一数字</i>输入模式. 按任意键选择.敲击单元格填充选定数字.按<i>Pencil</i>按钮在单元提示编辑键切换.\n
+	</string>
+	<string name="im_numpad_hint">您现在在Numpad输入模式.按钮可做标准数字键盘.按Pencil键切换单元提示编辑.</string>
+	<string name="im_disable_modes_hint">请记住您不必使用所有输入模式.您可以在游戏设置中停止这些模式.您也可以使用键盘和轨迹球控制.您若想使用键盘进入提示，按数字加alt或者shift.\n
+	</string>
+	<string name="help_text"><b>键盘控制</b>\n\n使用轨迹球导航到目标单元，而不是按数字填充值. 您若想编辑单元提示，按数字加shift或alt.<b>输入模式</b>
+		您可以使用屏幕右下角按钮在几种输入模式间切换. 也可以在游戏设置中停止任意输入模式并隐藏.<b>弹出输入模式</b>敲击单元格时弹出对话框.您可以使用对话框编辑单元内容.<b>单一数字输入</b>
+		首先选择按任意键选择.敲击单元填充您选择的数字.使用<i>Pencil</i>按钮切换单元值并编辑提示.<b>Numpad输入模式</b>作标准数字键盘的按钮.使用<i>Pencil</i>按钮在单元格间切换并编辑提示
+	</string>
+
+
+	<string name="game">游戏</string>
+	<string name="show_hints">发布第一个提示</string>
+	<string name="show_hints_summary">查找通过实用控制引导您的提示.</string>
+	<string name="show_time">显示时间</string>
+	<string name="show_time_summary">游戏中显示时间.</string>
+
+	<string name="puzzle_inserted">新谜团已保存.</string>
+	<string name="puzzle_updated">谜团已升级.</string>
+
+	<string name="credits">致谢:\nRoman Mašek\nVít Hnilica\nMartin Sobola\nMartin Helff</string>
+
+	<!-- Strings added in 0.7.0 -->
+	<string name="loading">Loading...</string>
+
+	<!-- Strings added/changed in 0.7.1 -->
+	<string name="more_settings">More settings</string>
+	<string name="screen_border_size">Screen border size</string>
+	<string name="screen_border_size_summary">Some displays do not react to touches on screen edges. This could help in
+		such case.
+	</string>
+	<string name="highlight_touched_cell">Highlight cell on touch</string>
+	<string name="highlight_touched_cell_summary">Highlights row and column of touched cell.</string>
+	<string name="export">Export</string>
+	<string name="export_folder">Export folder</string>
+	<string name="export_all_folders">Export all folders</string>
+	<string name="folders_created">%s folders have been imported.</string>
+	<string name="importing">Importing puzzles...</string>
+	<string name="exporting">Exporting puzzles...</string>
+	<string name="unknown_export_error">Unknown error occurred while exporting puzzles.</string>
+	<string name="highlight_completed_values">Highlight completed numbers</string>
+	<string name="highlight_completed_values_summary">Highlight buttons for numbers which has been entered 9 times.
+	</string>
+	<string name="save_to_sdcard">Save to sdcard</string>
+	<string name="send_by_mail">Send by mail</string>
+	<string name="theme">Theme</string>
+	<string name="theme_summary">Select color theme for puzzle board.</string>
+	<string name="select_theme">Select theme</string>
+	<string name="filename">Filename</string>
+	<string name="directory">Directory</string>
+	<string name="sdcard_not_found">SD card not found.</string>
+	<string name="puzzles_have_been_exported">Puzzles have been exported to %s.</string>
+	<string name="file_exists">File already exists, do you want to overwrite it?</string>
+	<!-- localization of default folder names -->
+	<string name="difficulty_hard">Hard</string>
+	<string name="difficulty_medium">Medium</string>
+	<string name="difficulty_easy">Easy</string>
+
+	<!-- Strings added/changed in 1.1.0 -->
+	<string name="generate_sudoku">Generiere neues Sudoku</string>
+	<string name="select_difficulty">Schwierigkeit auswählen</string>
+	<string name="generating">Generiere Sudoku-Rätsel...</string>
+
+</resources>

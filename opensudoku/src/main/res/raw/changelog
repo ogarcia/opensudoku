@@ -1,0 +1,52 @@
+<html>
+<head>
+<style type="text/css">
+	body {font-size: smaller;}
+</style>
+</head>
+<body>
+<b>1.1.5</b>
+<ul>
+<li>Fixes crashing on Android 3 (issue #148).</li>
+</ul>
+<b>1.1.4</b>
+<ul>
+<li>New logo (issue #134, thanks to msal.coding).</li>
+<li>Fixes few minor bugs.</li>
+</ul>
+<b>1.1.3</b>
+<ul>
+<li>Undo checkpoints - press Menu and select "Set checkpoint" while in game. You can later return to 
+this checkpoint by selecting "Undo to checkpoint" (issue #109, thanks to thexbin).</li>
+<li>Some users report problems with install / update, this update hopefully fixes that.</li>
+<li>Fixes bug with undo when under certain circumstances undo information is lost (issue #86).</li>
+</ul>
+<b>1.1.2</b>
+<ul>
+<li>Manual import of puzzles from SD card - just press Menu and select Import (thanks to dracul for this).</li>
+<li>OpenSudoku is now installed on SD card by default.</li>
+</ul>
+<b>1.1.1</b>
+<ul>
+<li>Android 2.2 - move application to SD card support.</li>
+<li>Fixes few bugs reported via new Android 2.2 "Report" button.</li>
+<li>Few visual tweaks for Nexus One.</li>
+<li>"Fill in notes" menu item can now be enabled in game settings.</li>
+</ul>
+<b>1.1.0</b>
+<ul>
+<li>Italian translation (thanks to diego.pierotto)</li>
+<li>Few visual tweaks (thicker lines, some changes in Paper themes)</li>
+<li>New game helper - shows how many times number has been used (thanks to Todd Southen)</li>
+<li>
+Fixed bugs:
+  <ul>
+    <li>QVGA - Screen is sometimes shifted down (issue #82)</li>
+    <li>Undo should be disabled for a completed puzzle (issue #84)</li>
+    <li>List of games does not update (issue #73) </li>
+    <li>Other small fixes</li>
+  </ul>
+</li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">OpenSudoku</string>
+	<string name="edit_sudoku">Sudoku-Rätsel bearbeiten</string>
+
+	<string name="puzzle_folders">OpenSudoku Rätsel-Ordner</string>
+
+	<string name="version">Version: %s</string>
+	<string name="homepage">Homepage: http://opensudoku.eu</string>
+	<string name="email">Email: opensudoku@romanmasek.cz</string>
+	<string name="work_in_progress">Bitte beachten Sie das diese Software ständig weiterentwickelt wird.</string>
+	<string name="send_me_bugs">Falls Sie einen Fehler finden, den Sie gerne behoben haben möchten oder falls Sie
+		Verbesserungsvorschläge haben, zögern Sie nicht uns per E-Mail zu kontaktieren oder nutzen Sie den Issue-Tracker
+		auf der Projekt-Homepage. Alle Anfragen bitte nur in englischer Sprache, vielen Dank!
+	</string>
+
+	<string name="close">Schließen</string>
+	<string name="clear">Löschen</string>
+	<string name="save">Speichern</string>
+
+	<string name="get_more_puzzles_online">Mehr Sudoku-Rätsel herunterladen</string>
+
+	<string name="name">Name:</string>
+	<string name="note">Notiz:</string>
+
+	<string name="select_number">Zahl auswählen</string>
+	<string name="edit_note">Notiz bearbeiten</string>
+
+	<string name="add_folder">Ordner hinzufügen</string>
+	<string name="about">Info</string>
+	<string name="rename_folder">Ordner umbenennen</string>
+	<string name="delete_folder">Ordner löschen</string>
+	<string name="rename_folder_title">%s umbenennen</string>
+	<string name="delete_folder_title">%s löschen</string>
+	<string name="delete_folder_confirm">Möchten Sie diesen Ordner wirklich löschen?</string>
+
+	<string name="no_puzzles">Keine Sudoku-Rätsel</string>
+	<string name="one_puzzle">1 Sudoku-Rätsel</string>
+	<string name="n_puzzles">%s Sudoku-Rätsel</string>
+	<string name="all_solved">Alle gelöst</string>
+	<string name="n_solved">%s gelöst</string>
+	<string name="n_unsolved">%s neu</string>
+	<string name="n_playing">%s in Bearbeitung</string>
+
+	<string name="solved">Gelöst</string>
+	<string name="playing">In Bearbeitung</string>
+	<string name="not_started">Neu</string>
+	<string name="last_played_at">Zuletzt gespielt %s</string>
+	<string name="created_at">Erstellt %s</string>
+	<string name="at_time">um %s</string>
+	<string name="yesterday_at_time">gestern um %s</string>
+	<string name="on_date">am %s</string>
+	<string name="add_sudoku">Sudoku-Rätsel hinzufügen</string>
+	<string name="filter">Filtern</string>
+	<string name="filter_by_gamestate">Filtern nach Spiel-Status</string>
+	<string name="folders">Ordner</string>
+	<string name="delete_puzzle_confirm">Möchten Sie dieses Sudoku-Rätsel wirklich löschen?</string>
+	<string name="reset_puzzle_confirm">Möchten Sie die ausgewählten Sudoku-Rätsel wirklich zurücksetzen?</string>
+	<string name="play_puzzle">Dieses Sudoku-Rätsel spielen</string>
+	<string name="reset_puzzle">Sudoku-Rätsel zurücksetzen</string>
+	<string name="edit_puzzle">Sudoku-Rätsel bearbeiten</string>
+	<string name="delete_puzzle">Sudoku-Rätsel löschen</string>
+	<string name="filter_active">Gefiltert: %s</string>
+
+	<string name="undo">Undo</string>
+	<string name="clear_all_notes">Alle Notizen löschen</string>
+	<string name="fill_in_notes">Notizen eintragen</string>
+	<string name="restart">Spiel neu starten</string>
+	<string name="congrats">Herzlichen Glückwunsch, Du hast das Sudoku-Rätsel in %s gelöst.</string>
+	<string name="restart_confirm">Möchten Sie dieses Spiel wirklich neu starten?</string>
+	<string name="well_done">Gut gemacht!</string>
+	<string name="clear_all_notes_confirm">Möchten Sie wirklich alle Notizen löschen?</string>
+	<string name="settings">Einstellungen</string>
+	<string name="game_settings">Spiel-Einstellungen</string>
+
+	<string name="game_helpers">Spiel-Hilfen</string>
+	<string name="highlight_wrong_values">Falsche Zahlen hervorheben</string>
+	<string name="highlight_wrong_values_summary">Zahlen die gegen die Sudoku-Regeln verstoßen hervorheben.</string>
+	<string name="input_methods">Eingabe-Methoden</string>
+	<string name="popup">Popup</string>
+	<string name="popup_summary">Zahlen in einem Popup-Dialog bearbeiten.</string>
+	<string name="single_number">Einzelne Zahl</string>
+	<string name="single_number_summary">Eine Zahl auswählen, danach auf eine Zelle tippen um den Wert oder die Notiz zu
+		setzen.
+	</string>
+	<string name="numpad">Zahlenblock</string>
+	<string name="numpad_summary">Zahlenblock anzeigen, der wie eine Tastatur funktioniert.</string>
+	<string name="numpad_move_right">Fokus nach rechts verschieben</string>
+	<string name="numpad_move_right_summary">Nach Eingabe einer Zahl den Fokus nach rechts verschieben.</string>
+
+	<string name="numpad_abbr">ZB</string>
+	<string name="popup_abbr">Pop</string>
+	<string name="single_number_abbr">EZ</string>
+	<string name="welcome">Willkommen</string>
+	<string name="hint">Hinweis</string>
+	<string name="help">Hilfe</string>
+	<string name="that_is_all">Das ist alles!</string>
+
+
+	<string name="first_run_hint">Es stehen verschiedene Eingabe-Modi zum lösen der Sudoku-Rätsel zur Verfügung. Um Sie
+		mit diesen Modi vertraut zu machen, sehen Sie nun eine kurze Einführung.\n\nSie können diesen Hilfe-Text in den
+		Spiel-Einstellungen deaktivieren.\n
+	</string>
+	<string name="im_popup_hint">Sie befinden sich nun im<i>Popup</i>-Modus. Tippen Sie mit dem Finger auf eine Zelle um
+		diese zu bearbeiten\n\nBeachten Sie den Schalter in der unteren rechten Ecke. Über diese können Sie jederzeit
+		den Eingabe-Modus wechseln.\n
+	</string>
+	<string name="im_single_number_hint">Sie befinden sich nun im<i>Einzelne Zahl</i>-Modus. Wählen Sie zunächst eine
+		Zahl aus. Dann tippen Sie die Zelle an, in die Sie die Zahl eintragen möchten.\n\nDrücken Sie die<i>Stift</i>
+		-Schaltfläche um Zellen-Notizen zu bearbeiten.\n
+	</string>
+	<string name="im_numpad_hint">Sie befinden sich nun im<i>Zahlenblock</i>-Modus. Die Zahlen von 1 bis 9 werden als
+		Bildschirm-Tastatur angezeigt.\n\nDrücken Sie die<i>Stift</i>-Schaltfläche um Zellen-Notizen zu bearbeiten.\n
+	</string>
+	<string name="im_disable_modes_hint">Bitte beachten Sie, das Sie nicht alle Eingabe-Modi verwenden müssen. Sie
+		können einzelnen Eingabe-Modi in den Einstellungen deaktivieren.\n\nSie können auch den Trackball oder die
+		Tastatur zur Steuerung des Spiels verwenden. Wenn Sie Notizen über die Tastatur eingeben möchten, drücken "Alt"
+		oder "Umschalt" + Zahl.\n
+	</string>
+	<string name="help_text"><b>Tastatur-Steuerung</b>\n\nVerwenden Sie den Trackball um zur gewünschten Zelle zu
+		navigieren und drücken Sie dann eine Zahl auf der Tastatur. Um eine Zellen-Notiz zu bearbeiten, drücken Sie
+		Shift- oder Alt und die entsprechende Zahl.\n\n<b>Eingabe-Modi</b>\n\nÜber die Schaltfläche in der rechten
+		unteren Ecke können Sie zwischen verschiedenen Eingabe-Modi wechseln. Sie können jeden der Eingabe-Modi in den
+		Einstellungen deaktivieren.\n\n<b>Popup-Modus</b>\n\nTippen Sie mit dem Finger auf eine Zelle um diese in einem
+		Dialogfeld zu bearbeiten.\n\n<b>Einzelne Zahl</b>\n\nWählen Sie zunächst eine Zahl aus. Dann tippen Sie die
+		Zelle an, in die Sie die Zahl eintragen möchten.\n\nDrücken Sie die<i>Stift</i>-Schaltfläche um Zellen-Notizen
+		zu bearbeiten.\n
+	</string>
+
+
+	<string name="game">Spiel</string>
+	<string name="show_hints">Zeige Bedienungsanleitung beim ersten Start</string>
+	<string name="show_hints_summary">Zeige Bedienungsanleitung</string>
+	<string name="show_time">Zeige Spiel-Zeit</string>
+	<string name="show_time_summary">Zeige Zeit während das Spiel läuft.</string>
+
+	<string name="puzzle_inserted">Das neue Sudoku-Rätsel wurde gespeichert.</string>
+	<string name="puzzle_updated">Das Sudoku-Rätsel wurde aktualisiert.</string>
+
+	<string name="puzzles_saved">Die Sudoku-Rätsel wurden im Ordner \'%s\' gespeichert.</string>
+	<string name="no_puzzles_found">Keine Sudoku-Rätsel gefunden.</string>
+	<string name="unknown_import_error">Unbekanntes Format, importieren wurde abgebrochen.</string>
+	<string name="invalid_format">Unbekanntes Format, importieren wurde abgebrochen.</string>
+
+	<string name="credits">Autoren:\nRoman Mašek\nVit Hnilica\nMartin Sobola\nMartin Helff</string>
+
+	<!-- Strings added in 0.7.0 -->
+	<string name="loading">Lade...</string>
+
+	<!-- Strings added/changed in 0.7.1 -->
+	<string name="more_settings">Mehr Einstellungen</string>
+	<string name="screen_border_size">Breite des Bildschirmrand</string>
+	<string name="screen_border_size_summary">Spielfeld verkleinern, falls Ihr Bildschirm nicht auf Berührungen am
+		Bildschirmrand reagiert.
+	</string>
+	<string name="highlight_touched_cell">Berührte Zelle hervorheben</string>
+	<string name="highlight_touched_cell_summary">Spalte und Zeile einer berührten Zelle hervorheben.</string>
+	<string name="export">Export</string>
+	<string name="export_folder">Export folder</string>
+	<string name="export_all_folders">Export all folders</string>
+	<string name="folders_created">%s Ordner wurden importiert</string>
+	<string name="importing">Importiere Sudoku-Rätsel...</string>
+	<string name="exporting">Exportiere Sudoku-Rätsel...</string>
+	<string name="unknown_export_error">Ein unbekannter Fehler ist während des Exports aufgetreten.</string>
+	<string name="highlight_completed_values">Markiere vollständige Zahlen</string>
+	<string name="highlight_completed_values_summary">Markiere Zahlen die bereits vollständig eingegeben wurden.
+	</string>
+	<string name="save_to_sdcard">Speichern auf SD-Karte</string>
+	<string name="send_by_mail">Senden per E-Mail</string>
+	<string name="theme">Farbschema</string>
+	<string name="theme_summary">Farbschema für das Spielfeld auswählen.</string>
+	<string name="select_theme">Farbschema auswählen</string>
+	<string name="filename">Dateiname</string>
+	<string name="directory">Verzeichnis</string>
+	<string name="sdcard_not_found">SD-Karte nicht eingelegt.</string>
+	<string name="puzzles_have_been_exported">Sudoku-Rätsel wurden nach %s exportiert.</string>
+	<string name="file_exists">Die Datei existiert bereits, möchten Sie diese überschreiben?</string>
+	<!-- localization of default folder names -->
+	<string name="difficulty_hard">Schwer</string>
+	<string name="difficulty_medium">Mittel</string>
+	<string name="difficulty_easy">Leicht</string>
+
+	<!-- Strings added/changed in 1.1.0 -->
+	<string name="generate_sudoku">Generiere neues Sudoku</string>
+	<string name="select_difficulty">Schwierigkeit auswählen</string>
+	<string name="generating">Generiere Sudoku-Rätsel...</string>
+</resources>

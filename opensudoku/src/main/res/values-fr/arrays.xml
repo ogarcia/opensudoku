@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="game_states">
+		<item>Non joué</item>
+		<item>En cours</item>
+		<item>Résolu</item>
+	</string-array>
+</resources>

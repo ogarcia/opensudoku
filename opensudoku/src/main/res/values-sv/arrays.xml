@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="game_states">
+		<item>Ej påbörjade</item>
+		<item>Påbörjade</item>
+		<item>Lösta</item>
+	</string-array>
+</resources>

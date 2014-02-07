@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">OpenSudoku</string>
+	<string name="edit_sudoku">Redigera sudoku</string>
+
+	<string name="puzzle_folders">OpenSudoku - mappar</string>
+
+	<string name="version">Version: %s</string>
+	<string name="homepage">Webbsida: http://opensudoku.eu</string>
+	<string name="email">E-post: opensudoku@romanmasek.cz</string>
+	<string name="work_in_progress">Detta är ett program under utveckling.</string>
+	<string name="send_me_bugs">Om du stöter på en bugg du vill ha fixad eller har några förslag, tveka inte att
+		kontakta oss via e-post eller använd ärendehanteringssystemet på projektets hemsida.
+	</string>
+
+	<string name="close">Stäng</string>
+	<string name="clear">Töm</string>
+	<string name="save">Spara</string>
+
+	<string name="get_more_puzzles_online">Hämta fler pussel online</string>
+
+	<string name="name">Namn:</string>
+	<string name="note">Notering:</string>
+
+	<string name="select_number">Välj nummer</string>
+	<string name="edit_note">Välj notering</string>
+
+	<string name="add_folder">Lägg till mapp</string>
+	<string name="about">Om</string>
+	<string name="rename_folder">Döp om mapp</string>
+	<string name="delete_folder">Ta bort mapp</string>
+	<string name="rename_folder_title">Döp om %s</string>
+	<string name="delete_folder_title">Ta bort %s</string>
+	<string name="delete_folder_confirm">Är du säker på att du vill ta bort den här mappen?</string>
+
+	<string name="no_puzzles">Inga pussel</string>
+	<string name="one_puzzle">Ett pussel</string>
+	<string name="n_puzzles">%s pussel</string>
+	<string name="all_solved">alla lösta</string>
+	<string name="n_solved">%s lösta</string>
+	<string name="n_unsolved">%s ej lösta</string>
+	<string name="n_playing">%s påbörjade</string>
+
+	<string name="solved">Löst</string>
+	<string name="playing">Påbörjad</string>
+	<string name="not_started">Ej påbörjad</string>
+	<string name="last_played_at">Senast spelad %s</string>
+	<string name="created_at">Skapad %s</string>
+	<string name="at_time">klockan %s</string>
+
+	<string name="yesterday_at_time">igår, klockan %s</string>
+	<string name="on_date">%s</string>
+	<string name="add_sudoku">Lägg till pussel</string>
+	<string name="filter">Filtrera</string>
+	<string name="filter_by_gamestate">Filtrera på spelstatus</string>
+	<string name="folders">Mappar</string>
+	<string name="delete_puzzle_confirm">Är du säker på att du vill ta bort det markerade pusslet?</string>
+	<string name="reset_puzzle_confirm">Är du säker på att du vill återställa det markerade pusslet?</string>
+	<string name="play_puzzle">Påbörja det här pusslet</string>
+	<string name="reset_puzzle">Återställ pussel</string>
+	<string name="edit_puzzle">Redigera pussel</string>
+	<string name="delete_puzzle">Ta bort pussel</string>
+	<string name="filter_active">Filtrerade: %s</string>
+
+	<string name="undo">Ångra</string>
+	<string name="clear_all_notes">Ta bort alla anteckningar</string>
+	<string name="fill_in_notes">Fyll i anteckningar</string>
+	<string name="restart">Starta om</string>
+	<string name="congrats">Grattis, du har löst pusslet på %s.</string>
+	<string name="restart_confirm">Är du säker på att du vill starta om det här spelet?</string>
+	<string name="well_done">Bra gjort!</string>
+	<string name="clear_all_notes_confirm">Är du säker på att du vill ta bort alla anteckningar?</string>
+	<string name="settings">Inställningar</string>
+	<string name="game_settings">Spelinställningar</string>
+
+	<string name="game_helpers">Spelhjälp</string>
+	<string name="highlight_wrong_values">Markera felaktiga nummer</string>
+	<string name="highlight_wrong_values_summary">Markera värden som bryter mot sudokureglerna.</string>
+	<string name="input_methods">Inmatningsläge</string>
+	<string name="popup">Popup</string>
+	<string name="popup_summary">Redigera nummer och anteckning i en popup.</string>
+	<string name="single_number">Enkelt nummer</string>
+	<string name="single_number_summary">Välj nummer, sen klickar du på en ruta för att sätta nummret eller
+		anteckningen.
+	</string>
+	<string name="numpad">Numeriskt tangentbord</string>
+	<string name="numpad_summary">Visa det numeriska tangentbordet.</string>
+	<string name="numpad_move_right">Flytta automatiskt</string>
+	<string name="numpad_move_right_summary">Flytta till nästa nummer automatiskt.</string>
+
+	<string name="numpad_abbr">Num\ntgb</string>
+	<string name="popup_abbr">Pop</string>
+	<string name="single_number_abbr">Enk\nnum</string>
+	<string name="welcome">Välkommen</string>
+	<string name="hint">Hjälp</string>
+	<string name="help">Hjälp</string>
+	<string name="that_is_all">Det är allt!</string>
+
+
+	<string name="first_run_hint">Det finns fler sätt att mata in nummer, för att hjälpa dig komma igång kommer vi visa
+		hjälptexter medans du går igenom alla sätten.\n\nDu kan stänga av dessa hjälptexter i spelinställningarna.\n
+	</string>
+	<string name="im_popup_hint">Du är nu i läget<i>Popup</i>. Klicka på en av rutorna för att välja nummer.\n\nNotera
+		knappen nere i högra hörnet, den används för att växla till nästa inmatningssätt.\n
+	</string>
+	<string name="im_single_number_hint">Du är nu i läget<i>Enkelt nummer</i>. Först väljer du nummer genom att klicka
+		på respektive knapp nedan, sen klickar du på den ruta du vill använda nummret.\n\nTryck på
+		<i>Penn-knappen</i>
+		för att växla mellan anteckningsläge och skrivläge.\n
+	</string>
+	<string name="im_numpad_hint">Du är nu i läget<i>Numeriskt tangentbord</i>. Knapparna fungerar som ett vanligt
+		numeriskt tangentbord. \n\nTryck på
+		<i>Penn-knappen</i>
+		för att växla mellan anteckningsläge och skrivläge.\n
+	</string>
+	<string name="im_disable_modes_hint">Kom ihåg att du inte behöver använda alla inmatningssätt, du kan stänga av de
+		du inte vill använda i spelinställningarna.\n\nDu kan också använda tangentbordet och rullhjulet för att styra
+		spelet, om du vill anteckna nummer håller du nere shift- eller alt-knappen samtidigt som du trycker på
+		nummerknappen.\n
+	</string>
+	<string name="help_text"><b>Tangentbordsinmatning</b>\n\nAnvänd rull-hjulet för att navigera till den önskade rutan
+		och klicka på nummret på tangentbordet för att fylla i värdet. Om du vill anteckna ett nummer håller du nere
+		shift eller alt samtidigt som du matar in nummret.\n\n<b>Inmatningssätt</b>\n\nDu kan välja mellan fler olika
+		inmatningssätt genom att klicka på knappen längst ner till höger på skärmen. Du kan också stänga av de
+		inmatningssätt du inte vill använda i spelinställningarna.\n\n<b>Popupläge</b>\n\nÖppnar en ruta när du klickar
+		på en ruta där du kan välja nummer och anteckningar.\n\n<b>Enkelt nummer</b>\n\nFörst väljer du nummer genom att
+		klicka på respektive sifferknapp, efter det klickar du direkt på den ruta du vill sätta eller anteckna nummret
+		i.\n\nAnvänd
+		<i>Penn-knappen</i>
+		för att växla mellan anteckningsläge och skrivläge.\n\n<b>Numeriskt tangentbord</b>\n\nKnapparna fungerar precis
+		som på ett vanligt numeriskt tangentbord.\n\nAnvänd
+		<i>Penn-knappen</i>
+		för att växla mellan anteckningsläge och skrivläge.\n
+	</string>
+
+
+	<string name="game">Spelomgång</string>
+	<string name="show_hints">Kom igång</string>
+	<string name="show_hints_summary">Visa hjälp som guidar dig igenom spelet.</string>
+	<string name="show_time">Visa tid</string>
+	<string name="show_time_summary">Visa förbrukad tid i spelet.</string>
+
+	<string name="puzzle_inserted">Nya pussel har sparats.</string>
+	<string name="puzzle_updated">Pusslet har uppdaterats.</string>
+
+	<string name="puzzles_saved">Pusslen har sparats till mappen \'%s\'.</string>
+
+	<string name="no_puzzles_found">Inga pussel hittades.</string>
+	<string name="unknown_import_error">Ett okänt fel inträffade under inläsningen av pussel, inläsningen avbröts.
+	</string>
+	<string name="invalid_format">Felaktigt format, inläsningen avbröts.</string>
+
+	<string name="credits">Utvecklare:\nRoman Mašek\nVit Hnilica\nMartin Sobola\nMartin Helff</string>
+
+	<!-- Strings added in 0.7.0 -->
+	<string name="loading">Laddar...</string>
+
+	<!-- Strings added/changed in 0.7.1 -->
+	<string name="more_settings">Fler inställningar</string>
+	<string name="screen_border_size">Storlek på skärmkant</string>
+	<string name="screen_border_size_summary">Vissa pekskärmar reagerar inte närmast kanterna, Den här inställningen kan
+		hjälpa till att motverka detta.
+	</string>
+	<string name="highlight_touched_cell">Markera ruta vid tryck</string>
+	<string name="highlight_touched_cell_summary">Indikera raden och kolumnen för den ruta som precis tryckts ner.
+	</string>
+	<string name="export">Exportera</string>
+	<string name="export_folder">Exportera mapp</string>
+	<string name="export_all_folders">Exportera alla mappar</string>
+	<string name="folders_created">%s mappar har importerats.</string>
+	<string name="importing">Importerar pussel...</string>
+	<string name="exporting">Exporterar pussel...</string>
+	<string name="unknown_export_error">Okänt fel uppstod vid pusselexport.</string>
+	<string name="highlight_completed_values">Markera färdiga nummer</string>
+	<string name="highlight_completed_values_summary">Markera de nummer som använts 9 gånger.</string>
+	<string name="save_to_sdcard">Spara till SD-kort</string>
+	<string name="send_by_mail">Skicka via e-post</string>
+	<string name="theme">Tema</string>
+	<string name="theme_summary">Välj färgschema för spelplanen/pusslet.</string>
+	<string name="select_theme">Välj tema</string>
+	<string name="filename">Filnamn</string>
+	<string name="directory">Mapp</string>
+	<string name="sdcard_not_found">SD-kort kunde inte hittas.</string>
+	<string name="puzzles_have_been_exported">Pusslen har exporterats till %s.</string>
+	<string name="file_exists">Filen finns redan, vill du skriva över den?</string>
+	<!-- localization of default folder names -->
+	<string name="difficulty_hard">Svår</string>
+	<string name="difficulty_medium">Mellan</string>
+	<string name="difficulty_easy">Enkel</string>
+
+	<!-- Strings added/changed in 1.1.0 -->
+	<string name="generate_sudoku">Generiere neues Sudoku</string>
+	<string name="select_difficulty">Schwierigkeit auswählen</string>
+	<string name="generating">Generiere Sudoku-Rätsel...</string>
+
+</resources>

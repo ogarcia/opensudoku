@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/OpenSudoku.iml" filepath="$PROJECT_DIR$/OpenSudoku.iml" />
+      <module fileurl="file://$PROJECT_DIR$/opensudoku/opensudoku.iml" filepath="$PROJECT_DIR$/opensudoku/opensudoku.iml" />
+    </modules>
+  </component>
+</project>
+

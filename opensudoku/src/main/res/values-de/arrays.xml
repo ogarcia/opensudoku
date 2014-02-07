@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="game_states">
+		<item>neu</item>
+		<item>am spielen</item>
+		<item>gelöst</item>
+	</string-array>
+	<string-array name="game_levels">
+		<item>Einfach</item>
+		<item>Medium</item>
+		<item>Schwer</item>
+	</string-array>
+</resources>

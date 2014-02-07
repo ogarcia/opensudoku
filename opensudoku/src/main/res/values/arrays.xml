@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="game_states">
+		<item>Not started</item>
+		<item>Playing</item>
+		<item>Solved</item>
+	</string-array>
+	<string-array name="theme_names">
+		<item>Default</item>
+		<item>Paper I</item>
+		<item>Paper II</item>
+	</string-array>
+	<!-- Theme codes should not change, do not translate this! -->
+	<string-array name="theme_codes">
+		<item>default</item>
+		<item>paperi</item>
+		<item>paperii</item>
+	</string-array>
+	<string-array name="game_levels">
+		<item>Easy</item>
+		<item>Medium</item>
+		<item>Hard</item>
+	</string-array>
+</resources>

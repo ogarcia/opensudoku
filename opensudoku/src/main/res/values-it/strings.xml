@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">OpenSudoku</string>
+	<string name="edit_sudoku">Modifica sudoku</string>
+
+	<string name="puzzle_folders">Cartelle rompicapo OpenSudoku</string>
+
+	<string name="version">Versione: %s</string>
+	<string name="homepage">Sito web: http://opensudoku.eu</string>
+	<string name="email">Email: opensudoku@romanmasek.cz</string>
+	<string name="work_in_progress">Da notare che si tratta ancora di un lavoro in corso.</string>
+	<string name="send_me_bugs">Se trovi un problema che vuio risolvere o qualsiasi suggerimento, non esistare a
+		contattarci tramite email oppure ad usare il sistema di rintracciabilità degli errori nel sito del progetto.
+	</string>
+
+	<string name="close">Chiudi</string>
+	<string name="clear">Rimuovi</string>
+	<string name="save">Salva</string>
+
+	<string name="get_more_puzzles_online">Scarica altri rompicapi online</string>
+
+	<string name="name">Nome:</string>
+	<string name="note">Nota:</string>
+
+	<string name="select_number">Seleziona numero</string>
+	<string name="edit_note">Modifica nota</string>
+
+	<string name="add_folder">Aggiungi cartella</string>
+	<string name="about">Info</string>
+	<string name="rename_folder">Rinomina cartella</string>
+	<string name="delete_folder">Elimina cartella</string>
+	<string name="rename_folder_title">Rinomina %s</string>
+	<string name="delete_folder_title">Elimina %s</string>
+	<string name="delete_folder_confirm">Sei sicuro di voler eliminare questa cartella?</string>
+
+	<string name="no_puzzles">Nessun rompicapo</string>
+	<string name="one_puzzle">1 rompicapo</string>
+	<string name="n_puzzles">%s rompicapi</string>
+	<string name="all_solved">tutti risolti</string>
+	<string name="n_solved">%s risolti</string>
+	<string name="n_unsolved">%s non risolti</string>
+	<string name="n_playing">%s giocati</string>
+
+	<string name="solved">Risolti</string>
+	<string name="playing">Giocati</string>
+	<string name="not_started">Non cominciati</string>
+	<string name="last_played_at">Ultimo giocato %s</string>
+	<string name="created_at">Creato %s</string>
+	<string name="at_time">alle %s</string>
+	<string name="yesterday_at_time">ieri alle %s</string>
+	<string name="on_date">il %s</string>
+	<string name="add_sudoku">Aggiungi sudoku</string>
+	<string name="filter">Filtro</string>
+	<string name="filter_by_gamestate">Filtra per stato gioco</string>
+	<string name="folders">Cartelle</string>
+	<string name="delete_puzzle_confirm">Sei sicuro di voler eliminare i rompicapi selezionati?</string>
+	<string name="reset_puzzle_confirm">Sei sicuro di voler reimpostare i rompicapi selezionati?</string>
+	<string name="play_puzzle">Gioca a questo rompicapo</string>
+	<string name="reset_puzzle">Reimposta rompicato</string>
+	<string name="edit_puzzle">Modifica rompicapo</string>
+	<string name="delete_puzzle">Elimina rompicapo</string>
+	<string name="filter_active">Filtrato: %s</string>
+
+	<string name="undo">Annulla</string>
+	<string name="clear_all_notes">Rimuovi tutte le note</string>
+	<string name="fill_in_notes">Riempi le note</string>
+	<string name="restart">Riavvia</string>
+	<string name="congrats">Congratulazioni, hai risolto il rompicapo in %s.</string>
+	<string name="restart_confirm">Sei sicuro di voler riavviare questo gioco?</string>
+	<string name="well_done">Ben fatto!</string>
+	<string name="clear_all_notes_confirm">Sei sicuro di voler rimuovere tutte le note?</string>
+	<string name="settings">Impostazioni</string>
+	<string name="game_settings">Impostazioni di gioco</string>
+
+	<string name="game_helpers">Aiuti di gioco</string>
+	<string name="highlight_wrong_values">Evidenzia valori errati</string>
+	<string name="highlight_wrong_values_summary">Evidenzia valori che non rispettano le regole di sudoku.</string>
+	<string name="input_methods">Modalità inserimento</string>
+	<string name="popup">Popup</string>
+	<string name="popup_summary">Modifica valore cella e note nel popup.</string>
+	<string name="single_number">Numero singolo</string>
+	<string name="single_number_summary">Seleziona il numero, poi tocca la cella per impostare il valore o la nota.
+	</string>
+	<string name="numpad">Tastierino numerico</string>
+	<string name="numpad_summary">Mostra i tastierini num. che funzionano come classiche tastiere num.</string>
+	<string name="numpad_move_right">Sposta a destra se premuto</string>
+	<string name="numpad_move_right_summary">Sposta la selezione di una cella a destra quando si preme il pulsante
+		numerico.
+	</string>
+
+	<string name="numpad_abbr">Tast.\nNum</string>
+	<string name="popup_abbr">Pop</string>
+	<string name="single_number_abbr">NS</string>
+	<string name="welcome">Benvenuto</string>
+	<string name="hint">Suggerimento</string>
+	<string name="help">Aiuto</string>
+	<string name="that_is_all">Questo è tutto</string>
+
+
+	<string name="first_run_hint">Esistono diverse modalità di inserimento che puoi usare per riempire il rompicapo. Per
+		aiutarti a rendere familiare queste modalità saranno mostrati diversi suggerimenti man mano che vai
+		avanti.\n\nPuoi disabilitare questi suggerimenti nelle impostazioni di gioco.\n
+	</string>
+	<string name="im_popup_hint">Ora sei nella modalità di inserimento<i>Popup</i>. Tocca qualsiasi cella con il dito
+		per modificare il suo contenuto.\n\nDa notare il tasto nella parte inferiore destra. Puoi usare questo tasto per
+		passare ad un\'altra modalità di inserimento.\n
+	</string>
+	<string name="im_single_number_hint">Ora sei nella modalità di inserimento<i>Numero Singolo</i>. Seleziona prima
+		qualsiasi tasto numerico premendolo. Poi premi sulle celle che vuoi riempire con i numeri selezionati.\n\nUsa il
+		tasto
+		<i>Pennello</i>
+		per passare dal valore della cella alla modifica delle note.\n
+	</string>
+	<string name="im_numpad_hint">Ora sei nella modalità di inserimento<i>Tastierino Numerico</i>. I tasti funzionano
+		come una normale tastiera numerica.\n\nUsa il tasto
+		<i>Pennello</i>
+		per passare dal valore della cella alla modifica delle note.\n
+	</string>
+	<string name="im_disable_modes_hint">Ricorda che non devi usare tutte le modalità di inserimento. Puoi disabilitare
+		alcune di esse nelle impostazioni di gioco.\n\nPuoi usare anche la tastiera e la trackball per controllare il
+		gioco. Se vuoi inserire note usando la tastiera premi il numero insieme a Shift o Alt.\n
+	</string>
+	<string name="help_text"><b>Controlli tastiera</b>\n\nUsa la trackball per navigare nella cella desiderata e poi
+		premi il numero sulla tastiera per riempire il valore. Se vuoi modificare la nota della cella premi il numero
+		insieme a Shift o Alt.\n\n<b>Modalità inserimento</b>\n\nPuoi selezionare diverse modalità di inserimento usando
+		il tasto presente nella parte inferiore destra dello schermo. Puoi anche disabilitare qualsiasi modalità di
+		inserimento nelle impostazioni di gioco - esse saranno completamente nascoste.\n\n<b>Modalità inserimento
+			Popup</b>\n\nLa finestra di Popup viene mostrata quando premi una cella. Puoi modificare il contenuto della
+		cella usando questa finestra.\n\n<b>Modalità inserimento Numero Singolo</b>\n\nPrima seleziona qualsiasi tasto
+		numerico premendolo. Poi premi sulle celle che vuoi riempire con i numeri selezionati.\n\nUsa il tasto
+		<i>Pennello</i>
+		per passare dal valore della cella alla modifica delle note.\n\n<b>Modalità inserimento Tastierino Numerico</b>
+		\n\nI tasti funzionano come una normale tastiera numerica.\n\nUsa il tasto
+		<i>Pennello</i>
+		per passare dal valore della cella alla modifica delle note.\n
+	</string>
+
+
+	<string name="game">Gioco</string>
+	<string name="show_hints">Suggerimenti primo avvio</string>
+	<string name="show_hints_summary">Mostra suggerimenti sui controlli del gioco.</string>
+	<string name="show_time">Mostra tempo</string>
+	<string name="show_time_summary">Mostra tempo durante il gioco.</string>
+
+	<string name="puzzle_inserted">Nuovo rompicapo salvato.</string>
+	<string name="puzzle_updated">Rompicapo aggiornato.</string>
+
+	<string name="puzzles_saved">Rompicapi salvati nella cartella \'%s\'.</string>
+	<string name="no_puzzles_found">Nessun rompicapo trovato.</string>
+	<string name="unknown_import_error">Errore sconosciuto durante importazione rompicapi, importazione annullata.
+	</string>
+	<string name="invalid_format">Formato non valido, importazione annullata.</string>
+
+	<string name="credits">Crediti:\nRoman Mašek\nVit Hnilica\nMartin Sobola\nMartin Helff\n\nTraduzione: Diego
+		Pierotto
+	</string>
+
+	<!-- Strings added in 0.7.0 -->
+	<string name="loading">Caricamento...</string>
+
+	<!-- Strings added/changed in 0.7.1 -->
+	<string name="more_settings">Altre impostazioni</string>
+	<string name="screen_border_size">Dimensione bordo schermo</string>
+	<string name="screen_border_size_summary">Alcuni schermi non reagiscono al tocco negli angoli. Questo potrebbe
+		aiutare.
+	</string>
+	<string name="highlight_touched_cell">Evidenzia cella al tocco</string>
+	<string name="highlight_touched_cell_summary">Evidenzia riga e colonna della cella premuta.</string>
+	<string name="export">Esporta</string>
+	<string name="export_folder">Esporta cartella</string>
+	<string name="export_all_folders">Esporta tutte le cartelle</string>
+	<string name="folders_created">%s cartelle importate.</string>
+	<string name="importing">Importazione rompicapi...</string>
+	<string name="exporting">Esportazione rompicapi...</string>
+	<string name="unknown_export_error">Errore sconosciuto durante esportazione rompicapi.</string>
+	<string name="highlight_completed_values">Evidenzia numeri completati</string>
+	<string name="highlight_completed_values_summary">Evidenzia tasti per numeri che sono stati inseriti 9 volte.
+	</string>
+	<string name="save_to_sdcard">Salva in scheda SD</string>
+	<string name="send_by_mail">Invia email</string>
+	<string name="theme">Tema</string>
+	<string name="theme_summary">Seleziona tema colore per tavola rompicapo.</string>
+	<string name="select_theme">Seleziona tema</string>
+	<string name="filename">Nome file</string>
+	<string name="directory">Directory</string>
+	<string name="sdcard_not_found">Scheda SD non trovata.</string>
+	<string name="puzzles_have_been_exported">Rompicapi esportati in %s.</string>
+	<string name="file_exists">File già esistente, vuoi sovrascriverlo?</string>
+	<!-- localization of default folder names -->
+	<string name="difficulty_hard">Difficile</string>
+	<string name="difficulty_medium">Medio</string>
+	<string name="difficulty_easy">Facile</string>
+
+	<!-- Strings added/changed in 1.1.0 -->
+	<string name="generate_sudoku">Genera nuovo gioco</string>
+	<string name="select_difficulty">Seleziona difficoltà</string>
+	<string name="generating">Generazione rompicapo...</string>
+</resources>
