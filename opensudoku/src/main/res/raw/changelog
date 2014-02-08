@@ -5,6 +5,12 @@
 </style>
 </head>
 <body>
+<b>2.0 RC0</b>
+<ul>
+<li>Adapted to Holo Theme.</li>
+<li>New fancy icon.</li>
+<li>Translated to spanish.</li>
+</ul>
 <b>1.1.5</b>
 <ul>
 <li>Fixes crashing on Android 3 (issue #148).</li>

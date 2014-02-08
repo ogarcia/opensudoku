@@ -96,7 +96,7 @@ public class FolderListActivity extends ListActivity {
 		getMorePuzzles.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://code.google.com/p/opensudoku-android/wiki/Puzzles"));
+				Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://opensudoku.moire.org"));
 				intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
 				startActivity(intent);
 			}

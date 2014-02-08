@@ -6,12 +6,23 @@
 	<string name="puzzle_folders">Carpetas de los puzzles de Open Sudoku</string>
 
 	<string name="version">Versión %s</string>
-	<string name="homepage">http://opensudoku.eu</string>
-	<string name="email">Email opensudoku@romanmasek.cz</string>
+	<string name="homepage">http://opensudoku.moire.org</string>
+	<string name="email">&lt;opensudoku@moire.org&gt;</string>
 	<string name="send_me_bugs">Si encuentras algún error y quieres solucionarlo, no dudes en
-        contactarme vía correo electónico o en usar el resgisto de incidencias en la página
+        contactarme vía correo electónico o en usar el resgistro de incidencias en la página
         del proyecto.
 	</string>
+
+    <string name="current_developers_label">Desarrollador principal</string>
+    <string name="current_developers">Óscar García Amor</string>
+
+    <string name="old_developers_label">Antiguos desarrolladores</string>
+    <string name="old_developers">Roman Mašek</string>
+
+    <string name="localization_contributors_label">Traducciones</string>
+    <string name="localization_contributors">
+        Vit Hnilica\nMartin Sobola\nMartin Helff
+    </string>
 
 	<string name="close">Cerrar</string>
 	<string name="clear">Borrar</string>
@@ -149,8 +160,6 @@
 	<string name="no_puzzles_found">No se han encontrado puzzles.</string>
 	<string name="unknown_import_error">Error desconocido importando puzzles, la importación se ha cancelado.</string>
 	<string name="invalid_format">Formato no válido, la importación se ha cancelado.</string>
-
-	<string name="credits">Créditos:\nÓscar García Amor\n\nCréditos de la Version 1.0:\nRoman Mašek\nVit Hnilica\nMartin Sobola\nMartin Helff</string>
 
 	<!-- Strings added in 0.7.0 -->
 	<string name="loading">Cargando...</string>

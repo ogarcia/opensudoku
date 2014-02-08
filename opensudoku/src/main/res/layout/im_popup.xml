@@ -1,79 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-			  android:layout_width="fill_parent"
-			  android:layout_height="fill_parent"
-			  android:orientation="vertical">
-	<LinearLayout
-			android:layout_width="fill_parent"
-			android:layout_height="0dip"
-			android:layout_weight="1"
-			android:orientation="horizontal">
-		<!-- TODO: this is ugly -->
-		<TextView
-				android:layout_width="0dip"
-				android:layout_height="fill_parent"
-				android:layout_weight="1"
-				android:visibility="invisible"/>
-		<TextView
-				android:layout_width="0dip"
-				android:layout_height="fill_parent"
-				android:layout_weight="1"
-				android:visibility="invisible"/>
-		<TextView
-				android:layout_width="0dip"
-				android:layout_height="fill_parent"
-				android:layout_weight="1"
-				android:visibility="invisible"/>
-		<TextView
-				android:layout_width="0dip"
-				android:layout_height="fill_parent"
-				android:layout_weight="1"
-				android:visibility="invisible"/>
-		<TextView
-				android:layout_width="0dip"
-				android:layout_height="fill_parent"
-				android:layout_weight="1"
-				android:visibility="invisible"/>
-		<TextView
-				android:layout_width="0dip"
-				android:layout_height="fill_parent"
-				android:layout_weight="1"
-				android:visibility="invisible"/>
-	</LinearLayout>
-	<LinearLayout
-			android:layout_width="fill_parent"
-			android:layout_height="0dip"
-			android:layout_weight="1"
-			android:orientation="horizontal">
-		<TextView
-				android:layout_width="0dip"
-				android:layout_height="fill_parent"
-				android:layout_weight="1"
-				android:visibility="invisible"/>
-		<TextView
-				android:layout_width="0dip"
-				android:layout_height="fill_parent"
-				android:layout_weight="1"
-				android:visibility="invisible"/>
-		<TextView
-				android:layout_width="0dip"
-				android:layout_height="fill_parent"
-				android:layout_weight="1"
-				android:visibility="invisible"/>
-		<TextView
-				android:layout_width="0dip"
-				android:layout_height="fill_parent"
-				android:layout_weight="1"
-				android:visibility="invisible"/>
-		<TextView
-				android:layout_width="0dip"
-				android:layout_height="fill_parent"
-				android:layout_weight="1"
-				android:visibility="invisible"/>
-		<Button android:id="@+id/switch_input_mode"
-				android:layout_width="0dip"
-				android:layout_height="fill_parent"
-				android:layout_weight="1"
-				/>
-	</LinearLayout>
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1">
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1">
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1"
+            android:visibility="invisible" />
+
+        <Button
+            android:id="@+id/switch_input_mode"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="5" />
+
+    </LinearLayout>
+
 </LinearLayout>

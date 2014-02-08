@@ -5,6 +5,11 @@
 		<item>Jugando</item>
 		<item>Resuelto</item>
 	</string-array>
+    <string-array name="game_levels">
+        <item>Fácil</item>
+        <item>Medio</item>
+        <item>Difícil</item>
+    </string-array>
 	<string-array name="theme_names">
 		<item>Por defecto</item>
 		<item>Papel I</item>
@@ -16,9 +21,5 @@
 		<item>paperi</item>
 		<item>paperii</item>
 	</string-array>
-	<string-array name="game_levels">
-		<item>Fácil</item>
-		<item>Medio</item>
-		<item>Difícil</item>
-	</string-array>
+    <!-- End of theme codes -->
 </resources>

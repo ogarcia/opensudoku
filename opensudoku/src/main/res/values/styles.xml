@@ -1,26 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<style name="im_popup_number_button">
-		<item name="android:layout_width">95sp</item>
-		<item name="android:layout_height">70sp</item>
-	</style>
-	<style name="im_popup_note_number_button">
-		<item name="android:layout_width">95sp</item>
-		<item name="android:layout_height">70sp</item>
-	</style>
-	<style name="im_popup_close_button">
-		<item name="android:layout_width">140sp</item>
-		<item name="android:layout_height">60sp</item>
-		<item name="android:layout_marginTop">10sp</item>
-	</style>
-	<style name="im_popup_clear_button">
-		<item name="android:layout_width">95sp</item>
-		<item name="android:layout_height">60sp</item>
-		<item name="android:layout_marginTop">10sp</item>
-		<item name="android:layout_marginLeft">45sp</item>
-	</style>
 
-	<!-- themes -->
 	<style name="Theme" parent="Theme.AppCompat.Light.DarkActionBar">
 	</style>
 
@@ -35,6 +15,7 @@
 		<item name="backgroundColorTouched">#3232ff</item>
 		<item name="backgroundColorSelected">#ffff00</item>
 	</style>
+
 	<style name="Theme.PaperI">
 		<item name="lineColor">#666666</item>
 		<item name="sectorLineColor">@android:color/black</item>
@@ -45,6 +26,7 @@
 		<item name="backgroundColorTouched">#3232ff</item>
 		<item name="backgroundColorSelected">#ffff00</item>
 	</style>
+
 	<style name="Theme.PaperII">
 		<item name="lineColor">#666666</item>
 		<item name="sectorLineColor">@android:color/black</item>
@@ -56,4 +38,5 @@
 		<item name="backgroundColorTouched">#3232ff</item>
 		<item name="backgroundColorSelected">#ffff00</item>
 	</style>
+
 </resources>

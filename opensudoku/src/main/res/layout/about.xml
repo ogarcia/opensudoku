@@ -1,46 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-			  android:orientation="vertical"
-			  android:layout_width="fill_parent"
-			  android:layout_height="fill_parent"
-		>
 
-	<TextView android:id="@+id/version_label"
-			  android:layout_marginLeft="5sp"
-			  android:layout_width="fill_parent"
-			  android:layout_height="wrap_content"
-			  android:text="@string/version"/>
-	<TextView
-			android:layout_marginLeft="5sp"
-			android:layout_marginTop="5sp"
-			android:layout_marginBottom="5sp"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:text="@string/send_me_bugs"
-			android:autoLink="all"/>
-	<TextView
-			android:layout_marginLeft="5sp"
-			android:layout_marginTop="5sp"
-			android:layout_marginBottom="5sp"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:text="@string/email"
-			android:autoLink="all"/>
-	<TextView
-			android:layout_marginLeft="5sp"
-			android:layout_marginBottom="5sp"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:text="@string/homepage"
-			android:autoLink="all"/>
-	<TextView
-			android:layout_marginLeft="5sp"
-			android:layout_marginTop="5sp"
-			android:layout_marginBottom="5sp"
-			android:layout_width="fill_parent"
-			android:layout_height="wrap_content"
-			android:text="@string/credits"
-			android:autoLink="all"/>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scrollView"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="18dp">
 
-</LinearLayout>
+        <TextView
+            android:id="@+id/version_label"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:text="@string/version" />
+
+        <TextView
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="fill_horizontal"
+            android:text="@string/send_me_bugs"
+            android:autoLink="all" />
+
+        <TextView
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/homepage"
+            android:autoLink="all" />
+
+        <TextView
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/email"
+            android:autoLink="all" />
+
+        <TextView
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="2dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:text="@string/current_developers_label"
+            android:autoLink="all" />
+
+        <TextView
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="6dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/current_developers"
+            android:autoLink="all" />
+
+        <TextView
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="2dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:text="@string/old_developers_label"
+            android:autoLink="all" />
+
+        <TextView
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="6dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/old_developers"
+            android:autoLink="all" />
+
+        <TextView
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="2dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
+            android:text="@string/localization_contributors_label"
+            android:autoLink="all" />
+
+        <TextView
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="6dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/localization_contributors"
+            android:autoLink="all" />
+
+    </LinearLayout>
+
+</ScrollView>
