@@ -156,16 +156,16 @@ public class FolderListActivity extends ListActivity {
 		// new note into the list.
 		menu.add(0, MENU_ITEM_ADD, 0, R.string.add_folder)
 				.setShortcut('3', 'a')
-				.setIcon(android.R.drawable.ic_menu_add);
+				.setIcon(R.drawable.ic_add);
 		menu.add(0, MENU_ITEM_IMPORT, 0, R.string.import_file)
 				.setShortcut('8', 'i')
-				.setIcon(android.R.drawable.ic_menu_upload);
+				.setIcon(R.drawable.ic_cloud_upload);
 		menu.add(0, MENU_ITEM_EXPORT_ALL, 1, R.string.export_all_folders)
 				.setShortcut('7', 'e')
-				.setIcon(android.R.drawable.ic_menu_share);
+				.setIcon(R.drawable.ic_share);
 		menu.add(0, MENU_ITEM_ABOUT, 2, R.string.about)
 				.setShortcut('1', 'h')
-				.setIcon(android.R.drawable.ic_menu_info_details);
+				.setIcon(R.drawable.ic_info);
 
 
 		// Generate any additional actions that can be performed on the
@@ -223,7 +223,7 @@ public class FolderListActivity extends ListActivity {
 				View addFolderView = factory.inflate(R.layout.folder_name, null);
 				mAddFolderNameInput = (TextView) addFolderView.findViewById(R.id.name);
 				return new AlertDialog.Builder(this)
-						.setIcon(android.R.drawable.ic_menu_add)
+						.setIcon(R.drawable.ic_add)
 						.setTitle(R.string.add_folder)
 						.setView(addFolderView)
 						.setPositiveButton(R.string.save, new DialogInterface.OnClickListener() {
@@ -239,7 +239,7 @@ public class FolderListActivity extends ListActivity {
 				mRenameFolderNameInput = (TextView) renameFolderView.findViewById(R.id.name);
 
 				return new AlertDialog.Builder(this)
-						.setIcon(android.R.drawable.ic_menu_edit)
+						.setIcon(R.drawable.ic_edit_grey)
 						.setTitle(R.string.rename_folder_title)
 						.setView(renameFolderView)
 						.setPositiveButton(R.string.save, new DialogInterface.OnClickListener() {
@@ -252,7 +252,7 @@ public class FolderListActivity extends ListActivity {
 						.create();
 			case DIALOG_DELETE_FOLDER:
 				return new AlertDialog.Builder(this)
-						.setIcon(android.R.drawable.ic_delete)
+						.setIcon(R.drawable.ic_delete)
 						.setTitle(R.string.delete_folder_title)
 						.setMessage(R.string.delete_folder_confirm)
 						.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {

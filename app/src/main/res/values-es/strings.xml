@@ -6,23 +6,16 @@
 	<string name="puzzle_folders">Carpetas de los puzzles de Open Sudoku</string>
 
 	<string name="version">Versión %s</string>
-	<string name="homepage">http://opensudoku.moire.org</string>
-	<string name="email">&lt;opensudoku@moire.org&gt;</string>
 	<string name="send_me_bugs">Si encuentras algún error y quieres solucionarlo, no dudes en
         contactarme vía correo electónico o en usar el resgistro de incidencias en la página
         del proyecto.
 	</string>
 
     <string name="current_developers_label">Desarrollador principal</string>
-    <string name="current_developers">Óscar García Amor</string>
 
-    <string name="old_developers_label">Antiguos desarrolladores</string>
-    <string name="old_developers">Roman Mašek</string>
+	<string name="old_developers_label">Antiguos desarrolladores</string>
 
-    <string name="localization_contributors_label">Traducciones</string>
-    <string name="localization_contributors">
-        Vit Hnilica\nMartin Sobola\nMartin Helff
-    </string>
+	<string name="localization_contributors_label">Traducciones</string>
 
 	<string name="close">Cerrar</string>
 	<string name="clear">Borrar</string>
@@ -210,4 +203,5 @@
 	<string name="undo_to_checkpoint">Deshacer al punto de control</string>
 	<string name="undo_to_checkpoint_confirm">¿Estás seguro de querer deshacer todas las acciones
         desde el último punto de control?</string>
+	<string name="select_difficulty">Seleccionar dificultad</string>
 </resources>

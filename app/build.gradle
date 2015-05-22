@@ -9,7 +9,7 @@ android {
         minSdkVersion 8
         targetSdkVersion 22
         versionCode 20150522
-        versionName "2.0"
+        versionName "2.1"
     }
     buildTypes {
         release {

@@ -203,10 +203,10 @@ public class IMNumpad extends InputMethod {
 	private void update() {
 		switch (mEditMode) {
 			case MODE_EDIT_NOTE:
-				mSwitchNumNoteButton.setImageResource(R.drawable.ic_pencil_enabled);
+				mSwitchNumNoteButton.setImageResource(R.drawable.ic_edit_black);
 				break;
 			case MODE_EDIT_VALUE:
-				mSwitchNumNoteButton.setImageResource(R.drawable.ic_pencil_disabled);
+				mSwitchNumNoteButton.setImageResource(R.drawable.ic_edit_white);
 				break;
 		}
 
@@ -219,7 +219,7 @@ public class IMNumpad extends InputMethod {
 				boolean highlightValue = entry.getValue() >= CellCollection.SUDOKU_SIZE;
 				Button b = mNumberButtons.get(entry.getKey());
 				if (highlightValue) {
-                    b.getBackground().setColorFilter(0xFF008800, PorterDuff.Mode.MULTIPLY);
+                    b.getBackground().setColorFilter(0xFFC8E6C9, PorterDuff.Mode.MULTIPLY);
 				} else {
                     b.getBackground().setColorFilter(null);
 				}

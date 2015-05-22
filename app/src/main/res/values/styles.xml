@@ -13,8 +13,8 @@
 		<item name="textColorNote">@android:color/black</item>
 		<item name="backgroundColor">@android:color/white</item>
 		<item name="backgroundColorReadOnly">#cccccc</item>
-		<item name="backgroundColorTouched">#3232ff</item>
-		<item name="backgroundColorSelected">#ffff00</item>
+		<item name="backgroundColorTouched">#009688</item>
+		<item name="backgroundColorSelected">#b2dfdb</item>
 	</style>
 
 	<style name="Theme.PaperI">
@@ -24,8 +24,8 @@
 		<item name="textColorReadOnly">@android:color/black</item>
 		<item name="textColorNote">#555555</item>
 		<item name="backgroundColor">@android:color/white</item>
-		<item name="backgroundColorTouched">#3232ff</item>
-		<item name="backgroundColorSelected">#ffff00</item>
+		<item name="backgroundColorTouched">#009688</item>
+		<item name="backgroundColorSelected">#b2dfdb</item>
 	</style>
 
 	<style name="Theme.PaperII">
@@ -36,8 +36,8 @@
 		<item name="textColorNote">#555555</item>
 		<item name="backgroundColor">#dddddd</item>
 		<item name="backgroundColorSecondary">@android:color/white</item>
-		<item name="backgroundColorTouched">#3232ff</item>
-		<item name="backgroundColorSelected">#ffff00</item>
+		<item name="backgroundColorTouched">#009688</item>
+		<item name="backgroundColorSelected">#b2dfdb</item>
 	</style>
 
 </resources>

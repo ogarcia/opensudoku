@@ -48,7 +48,7 @@ public class Changelog {
 		webView.loadData(changelog, "text/html", "utf-8");
 
 		AlertDialog changelogDialog = new AlertDialog.Builder(mContext)
-				.setIcon(android.R.drawable.ic_menu_info_details)
+				.setIcon(R.drawable.ic_info)
 				.setTitle(R.string.what_is_new)
 				.setView(webView)
 				.setPositiveButton(R.string.close, null).create();

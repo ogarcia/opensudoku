@@ -200,14 +200,14 @@ public class SudokuListActivity extends ListActivity {
 		// This is our one standard application action -- inserting a
 		// new note into the list.
 		menu.add(0, MENU_ITEM_FOLDERS, 0, R.string.folders).setShortcut('1', 'f')
-				.setIcon(android.R.drawable.ic_menu_sort_by_size);
+				.setIcon(R.drawable.ic_sort);
 		menu.add(0, MENU_ITEM_FILTER, 1, R.string.filter).setShortcut('1', 'f')
-				.setIcon(android.R.drawable.ic_menu_view);
+				.setIcon(R.drawable.ic_view);
 		menu.add(0, MENU_ITEM_INSERT, 2, R.string.add_sudoku).setShortcut('3', 'a')
-				.setIcon(android.R.drawable.ic_menu_add);
+				.setIcon(R.drawable.ic_add);
 		// I'm not sure this one is ready for release
 //		menu.add(0, MENU_ITEM_GENERATE, 3, R.string.generate_sudoku).setShortcut('4', 'g')
-//		.setIcon(android.R.drawable.ic_menu_add);
+//		.setIcon(R.drawable.ic_add);
 
 		// Generate any additional actions that can be performed on the
 		// overall list. In a normal install, there are no additional
@@ -229,7 +229,7 @@ public class SudokuListActivity extends ListActivity {
 		switch (id) {
 			case DIALOG_DELETE_PUZZLE:
 				return new AlertDialog.Builder(this).setIcon(
-						android.R.drawable.ic_delete).setTitle("Puzzle").setMessage(
+						R.drawable.ic_delete).setTitle("Puzzle").setMessage(
 						R.string.delete_puzzle_confirm)
 						.setPositiveButton(android.R.string.yes,
 								new DialogInterface.OnClickListener() {
@@ -246,7 +246,7 @@ public class SudokuListActivity extends ListActivity {
 						null);
 				mEditNoteInput = (TextView) noteView.findViewById(R.id.note);
 				return new AlertDialog.Builder(this).setIcon(
-						android.R.drawable.ic_menu_add).setTitle(R.string.edit_note)
+						R.drawable.ic_add).setTitle(R.string.edit_note)
 						.setView(noteView).setPositiveButton(R.string.save,
 								new DialogInterface.OnClickListener() {
 									public void onClick(DialogInterface dialog,
@@ -260,7 +260,7 @@ public class SudokuListActivity extends ListActivity {
 								}).setNegativeButton(android.R.string.cancel, null).create();
 			case DIALOG_RESET_PUZZLE:
 				return new AlertDialog.Builder(this).setIcon(
-						android.R.drawable.ic_menu_rotate).setTitle("Puzzle")
+						R.drawable.ic_restore).setTitle("Puzzle")
 						.setMessage(R.string.reset_puzzle_confirm)
 						.setPositiveButton(android.R.string.yes,
 								new DialogInterface.OnClickListener() {
@@ -276,7 +276,7 @@ public class SudokuListActivity extends ListActivity {
 								}).setNegativeButton(android.R.string.no, null).create();
 			case DIALOG_FILTER:
 				return new AlertDialog.Builder(this)
-						.setIcon(android.R.drawable.ic_menu_view)
+						.setIcon(R.drawable.ic_view)
 						.setTitle(R.string.filter_by_gamestate)
 						.setMultiChoiceItems(
 								R.array.game_states,

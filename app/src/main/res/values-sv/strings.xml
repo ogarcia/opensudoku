@@ -6,9 +6,6 @@
 	<string name="puzzle_folders">OpenSudoku - mappar</string>
 
 	<string name="version">Version: %s</string>
-	<string name="homepage">Webbsida: http://opensudoku.eu</string>
-	<string name="email">E-post: opensudoku@romanmasek.cz</string>
-	<string name="work_in_progress">Detta är ett program under utveckling.</string>
 	<string name="send_me_bugs">Om du stöter på en bugg du vill ha fixad eller har några förslag, tveka inte att
 		kontakta oss via e-post eller använd ärendehanteringssystemet på projektets hemsida.
 	</string>
@@ -150,8 +147,6 @@
 	</string>
 	<string name="invalid_format">Felaktigt format, inläsningen avbröts.</string>
 
-	<string name="credits">Utvecklare:\nRoman Mašek\nVit Hnilica\nMartin Sobola\nMartin Helff</string>
-
 	<!-- Strings added in 0.7.0 -->
 	<string name="loading">Laddar...</string>
 
@@ -173,8 +168,6 @@
 	<string name="unknown_export_error">Okänt fel uppstod vid pusselexport.</string>
 	<string name="highlight_completed_values">Markera färdiga nummer</string>
 	<string name="highlight_completed_values_summary">Markera de nummer som använts 9 gånger.</string>
-	<string name="save_to_sdcard">Spara till SD-kort</string>
-	<string name="send_by_mail">Skicka via e-post</string>
 	<string name="theme">Tema</string>
 	<string name="theme_summary">Välj färgschema för spelplanen/pusslet.</string>
 	<string name="select_theme">Välj tema</string>
@@ -192,5 +185,6 @@
 	<string name="generate_sudoku">Generiere neues Sudoku</string>
 	<string name="select_difficulty">Schwierigkeit auswählen</string>
 	<string name="generating">Generiere Sudoku-Rätsel...</string>
+	<string name="current_developers_label">Current Developer</string>
 
 </resources>

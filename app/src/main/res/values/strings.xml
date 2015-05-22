@@ -6,23 +6,21 @@
 	<string name="puzzle_folders">OpenSudoku puzzle folders</string>
 
 	<string name="version">Version %s</string>
-	<string name="homepage">http://opensudoku.moire.org</string>
-	<string name="email">&lt;opensudoku@moire.org&gt;</string>
+	<string name="homepage" translatable="false">http://opensudoku.moire.org</string>
+	<string name="email" translatable="false">&lt;opensudoku@moire.org&gt;</string>
 	<string name="send_me_bugs">
         If you run into bug which you want to get fixed, don\'t hesitate to contact me by e-mail
 		or use issue tracker on project\'s homepage.
 	</string>
 
     <string name="current_developers_label">Current Developer</string>
-    <string name="current_developers">Óscar García Amor</string>
+    <string name="current_developers" translatable="false">Óscar García Amor</string>
 
     <string name="old_developers_label">Old Developers</string>
-    <string name="old_developers">Roman Mašek</string>
+    <string name="old_developers" translatable="false">Roman Mašek</string>
 
     <string name="localization_contributors_label">Localization Contributors</string>
-    <string name="localization_contributors">
-        Vit Hnilica\nMartin Sobola\nMartin Helff
-    </string>
+    <string name="localization_contributors" translatable="false">Vit Hnilica\nMartin Sobola\nMartin Helff\nDiego Pierotto</string>
 
 	<string name="close">Close</string>
 	<string name="clear">Clear</string>

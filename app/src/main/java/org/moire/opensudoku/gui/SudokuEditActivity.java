@@ -203,10 +203,10 @@ public class SudokuEditActivity extends Activity {
 		// new note into the list.
 		menu.add(0, MENU_ITEM_SAVE, 0, R.string.save)
 				.setShortcut('1', 's')
-				.setIcon(android.R.drawable.ic_menu_save);
+				.setIcon(R.drawable.ic_save);
 		menu.add(0, MENU_ITEM_CANCEL, 1, android.R.string.cancel)
 				.setShortcut('3', 'c')
-				.setIcon(android.R.drawable.ic_menu_close_clear_cancel);
+				.setIcon(R.drawable.ic_close);
 
 		// Generate any additional actions that can be performed on the
 		// overall list.  In a normal install, there are no additional

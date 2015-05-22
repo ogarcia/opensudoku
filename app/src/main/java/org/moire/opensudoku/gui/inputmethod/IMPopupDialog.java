@@ -126,7 +126,7 @@ public class IMPopupDialog extends Dialog {
                 b.setTextColor(Color.WHITE);
 				//b.setTextAppearance(mContext, android.R.style.TextAppearance_Inverse);
 				//b.getBackground().setColorFilter(selBkgColorFilter);
-                b.getBackground().setColorFilter(new LightingColorFilter(Color.CYAN, 0));
+                b.getBackground().setColorFilter(new LightingColorFilter(Color.parseColor("#009688"), 0));
 			} else {
 				//b.setTextAppearance(mContext, android.R.style.TextAppearance_Widget_Button);
                 b.setTextColor(Color.BLACK);

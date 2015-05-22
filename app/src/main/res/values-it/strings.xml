@@ -6,9 +6,6 @@
 	<string name="puzzle_folders">Cartelle rompicapo OpenSudoku</string>
 
 	<string name="version">Versione: %s</string>
-	<string name="homepage">Sito web: http://opensudoku.eu</string>
-	<string name="email">Email: opensudoku@romanmasek.cz</string>
-	<string name="work_in_progress">Da notare che si tratta ancora di un lavoro in corso.</string>
 	<string name="send_me_bugs">Se trovi un problema che vuio risolvere o qualsiasi suggerimento, non esistare a
 		contattarci tramite email oppure ad usare il sistema di rintracciabilità degli errori nel sito del progetto.
 	</string>
@@ -151,10 +148,6 @@
 	</string>
 	<string name="invalid_format">Formato non valido, importazione annullata.</string>
 
-	<string name="credits">Crediti:\nRoman Mašek\nVit Hnilica\nMartin Sobola\nMartin Helff\n\nTraduzione: Diego
-		Pierotto
-	</string>
-
 	<!-- Strings added in 0.7.0 -->
 	<string name="loading">Caricamento...</string>
 
@@ -176,8 +169,6 @@
 	<string name="highlight_completed_values">Evidenzia numeri completati</string>
 	<string name="highlight_completed_values_summary">Evidenzia tasti per numeri che sono stati inseriti 9 volte.
 	</string>
-	<string name="save_to_sdcard">Salva in scheda SD</string>
-	<string name="send_by_mail">Invia email</string>
 	<string name="theme">Tema</string>
 	<string name="theme_summary">Seleziona tema colore per tavola rompicapo.</string>
 	<string name="select_theme">Seleziona tema</string>
@@ -195,4 +186,5 @@
 	<string name="generate_sudoku">Genera nuovo gioco</string>
 	<string name="select_difficulty">Seleziona difficoltà</string>
 	<string name="generating">Generazione rompicapo...</string>
+	<string name="current_developers_label">Current Developer</string>
 </resources>
