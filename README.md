@@ -7,7 +7,7 @@ You can install Open Sudoku via [Google Play Store](https://play.google.com/stor
 ## Authors and Contributors
 Current version of Open Sudoku is authored by [Óscar García Amor](http://ogarcia.me).
 
-The first version of Open Sudoku was developed by [Roman Mašek](https://github.com/romario333) and contributed by Vit Hnilica, Martin Sobola and Martin Helff.
+The first version of Open Sudoku was developed by [Roman Mašek](https://github.com/romario333) and contributed by Vit Hnilica, Martin Sobola, Martin Helff and Diego Pierotto.
 
 ## Support or Contact
 Having trouble with Open Sudoku? Fill an issue in https://github.com/ogarcia/opensudoku/issues or contact me vía opensudoku@moire.org and I'll help you sort it out.
