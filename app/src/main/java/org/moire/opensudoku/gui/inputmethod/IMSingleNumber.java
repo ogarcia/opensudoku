@@ -24,6 +24,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.LightingColorFilter;
 import android.graphics.PorterDuff;
 import android.os.Handler;
@@ -185,10 +186,10 @@ public class IMSingleNumber extends InputMethod {
 	private void update() {
 		switch (mEditMode) {
 			case MODE_EDIT_NOTE:
-				mSwitchNumNoteButton.setImageResource(R.drawable.ic_edit_black);
+				mSwitchNumNoteButton.setImageResource(R.drawable.ic_edit_white);
 				break;
 			case MODE_EDIT_VALUE:
-				mSwitchNumNoteButton.setImageResource(R.drawable.ic_edit_white);
+				mSwitchNumNoteButton.setImageResource(R.drawable.ic_edit_grey);
 				break;
 		}
 
@@ -199,7 +200,7 @@ public class IMSingleNumber extends InputMethod {
 			public void run() {
 				for (Button b : mNumberButtons.values()) {
 					if (b.getTag().equals(mSelectedNumber)) {
-						b.setTextAppearance(mContext, android.R.style.TextAppearance_Large_Inverse);
+						b.setTextAppearance(mContext, android.R.style.TextAppearance_Large);
                         /* Use focus instead color */
 						/*LightingColorFilter selBkgColorFilter = new LightingColorFilter(
 								mContext.getResources().getColor(R.color.im_number_button_selected_background), 0);
@@ -227,7 +228,8 @@ public class IMSingleNumber extends InputMethod {
                                 b.getBackground().setColorFilter(0xFF008800, PorterDuff.Mode.MULTIPLY);
 							}*/
                             // Only set background color
-                            b.getBackground().setColorFilter(0xFFC8E6C9, PorterDuff.Mode.MULTIPLY);
+                            b.getBackground().setColorFilter(0xFF2E7D32, PorterDuff.Mode.MULTIPLY);
+							b.setTextColor(Color.WHITE);
 						}
 					}
 				}

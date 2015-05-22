@@ -16,7 +16,7 @@
 		<item>Paper II</item>
 	</string-array>
 	<!-- Theme codes should not change, do not translate this! -->
-	<string-array name="theme_codes">
+	<string-array name="theme_codes" translatable="false">
 		<item>default</item>
 		<item>paperi</item>
 		<item>paperii</item>

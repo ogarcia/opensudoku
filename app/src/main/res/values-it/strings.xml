@@ -187,4 +187,15 @@
 	<string name="select_difficulty">Seleziona difficoltà</string>
 	<string name="generating">Generazione rompicapo...</string>
 	<string name="current_developers_label">Current Developer</string>
+	<string name="fill_in_notes_summary">Enable "Fill in notes" menu item.</string>
+	<string name="import_file">Import</string>
+	<string name="import_file_title">Import file %s</string>
+	<string name="localization_contributors_label">Localization Contributors</string>
+	<string name="old_developers_label">Old Developers</string>
+	<string name="set_checkpoint">Set checkpoint</string>
+	<string name="show_number_totals">Show Number Totals</string>
+	<string name="show_number_totals_summary">Displays count of each number placed.</string>
+	<string name="undo_to_checkpoint">Undo to checkpoint</string>
+	<string name="undo_to_checkpoint_confirm">Are you sure you want to undo all actions since last checkpoint?</string>
+	<string name="what_is_new">What\'s new</string>
 </resources>

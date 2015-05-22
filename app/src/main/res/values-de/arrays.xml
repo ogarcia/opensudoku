@@ -10,4 +10,9 @@
 		<item>Medium</item>
 		<item>Schwer</item>
 	</string-array>
+	<string-array name="theme_names">
+		<item>Default</item>
+		<item>Paper I</item>
+		<item>Paper II</item>
+	</string-array>
 </resources>

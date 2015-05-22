@@ -15,11 +15,4 @@
 		<item>Papel I</item>
 		<item>Papel II</item>
 	</string-array>
-	<!-- Theme codes should not change, do not translate this! -->
-	<string-array name="theme_codes">
-		<item>default</item>
-		<item>paperi</item>
-		<item>paperii</item>
-	</string-array>
-    <!-- End of theme codes -->
 </resources>

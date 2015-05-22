@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<style name="Theme" parent="Theme.AppCompat.Light.DarkActionBar">
-		<item name="android:panelBackground">@android:color/background_light</item>
-	</style>
+	<style name="Theme" parent="Base.ThemeOverlay.AppCompat.Dark.ActionBar" />
 
 	<style name="Theme.Default">
 		<item name="lineColor">#666666</item>

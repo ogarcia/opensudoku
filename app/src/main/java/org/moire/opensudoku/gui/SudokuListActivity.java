@@ -525,7 +525,7 @@ public class SudokuListActivity extends ListActivity {
 						// TODO: read colors from android resources
 						label.setTextColor(Color.rgb(150, 150, 150));
 					} else {
-						label.setTextColor(Color.rgb(0, 0, 0));
+						label.setTextColor(Color.rgb(255, 255, 255));
 						//label.setTextColor(SudokuListActivity.this.getResources().getColor(R.));
 					}
 					break;
@@ -543,7 +543,7 @@ public class SudokuListActivity extends ListActivity {
 						// TODO: read colors from android resources
 						label.setTextColor(Color.rgb(150, 150, 150));
 					} else {
-						label.setTextColor(Color.rgb(0, 0, 0));
+						label.setTextColor(Color.rgb(255, 255, 255));
 					}
 					break;
 				case R.id.last_played:

@@ -91,7 +91,7 @@
 	<string name="numpad_move_right">Mover a la derecha</string>
 	<string name="numpad_move_right_summary">Mueve la seleccion de la celda una a la derecha cuando se presiona un botón.</string>
 
-	<string name="numpad_abbr">PN</string>
+	<string name="numpad_abbr">Pad\nNum</string>
 	<string name="popup_abbr">VE</string>
 	<string name="single_number_abbr">NS</string>
 	<string name="welcome">Bienvenido</string>
@@ -204,4 +204,6 @@
 	<string name="undo_to_checkpoint_confirm">¿Estás seguro de querer deshacer todas las acciones
         desde el último punto de control?</string>
 	<string name="select_difficulty">Seleccionar dificultad</string>
+	<string name="generate_sudoku">Generate new game</string>
+	<string name="generating">Generating puzzle...</string>
 </resources>
