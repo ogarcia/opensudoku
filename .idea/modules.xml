@@ -3,8 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/OpenSudoku.iml" filepath="$PROJECT_DIR$/OpenSudoku.iml" />
-      <module fileurl="file://$PROJECT_DIR$/opensudoku/opensudoku.iml" filepath="$PROJECT_DIR$/opensudoku/opensudoku.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>
   </component>
 </project>
-

@@ -1,1 +1,1 @@
-include ':opensudoku'
+include ':app'
