@@ -219,7 +219,7 @@ public class IMNumpad extends InputMethod {
 				boolean highlightValue = entry.getValue() >= CellCollection.SUDOKU_SIZE;
 				Button b = mNumberButtons.get(entry.getKey());
 				if (highlightValue) {
-                    b.getBackground().setColorFilter(0xFF2E7D32, PorterDuff.Mode.MULTIPLY);
+                    b.getBackground().setColorFilter(0xFF1B5E20, PorterDuff.Mode.MULTIPLY);
 				} else {
                     b.getBackground().setColorFilter(null);
 				}

@@ -126,7 +126,8 @@ public class IMPopupDialog extends Dialog {
                 b.setTextColor(Color.WHITE);
 				//b.setTextAppearance(mContext, android.R.style.TextAppearance_Inverse);
 				//b.getBackground().setColorFilter(selBkgColorFilter);
-                b.getBackground().setColorFilter(new LightingColorFilter(Color.parseColor("#2E7d32"), 0));
+                //b.getBackground().setColorFilter(new LightingColorFilter(Color.parseColor("#00695c"), 0));
+				b.getBackground().setColorFilter(0x44FFFFFF, PorterDuff.Mode.MULTIPLY);
 			} else {
 				//b.setTextAppearance(mContext, android.R.style.TextAppearance_Widget_Button);
                 b.setTextColor(Color.WHITE);
@@ -172,13 +173,18 @@ public class IMPopupDialog extends Dialog {
 		//int completedTextColor = mContext.getResources().getColor(R.color.im_number_button_completed_text);
 
 		if (number == mSelectedNumber) {
-			mNumberButtons.get(number).setTextColor(Color.argb(255,0,180,0));
+			// Set color of completed and selected number
+			mNumberButtons.get(number).getBackground().setColorFilter(0xFF2E7D32, PorterDuff.Mode.MULTIPLY);
+		//	mNumberButtons.get(number).setTextColor(Color.parseColor("#a5d6a7"));
 		} else {
+			// Set color of completed number but not selected
+			mNumberButtons.get(number).getBackground().setColorFilter(0xFF1B5E20, PorterDuff.Mode.MULTIPLY);
+			//mNumberButtons.get(number).setTextColor(Color.parseColor("#000000"));
 			//mNumberButtons.get(number).setBackgroundResource(R.drawable.btn_completed_bg);
-            mNumberButtons.get(number).getBackground().setColorFilter(0xFF008800, PorterDuff.Mode.MULTIPLY);
 		}
 
-        mNoteNumberButtons.get(number).getBackground().setColorFilter(0xFF008800, PorterDuff.Mode.MULTIPLY);
+		// Set color of completed numbers in notes section
+        mNoteNumberButtons.get(number).getBackground().setColorFilter(0xFF1B5E20, PorterDuff.Mode.MULTIPLY);
 		//mNoteNumberButtons.get(number).setBackgroundResource(R.drawable.btn_toggle_completed_bg);
 	}
 

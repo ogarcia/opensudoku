@@ -228,7 +228,7 @@ public class IMSingleNumber extends InputMethod {
                                 b.getBackground().setColorFilter(0xFF008800, PorterDuff.Mode.MULTIPLY);
 							}*/
                             // Only set background color
-                            b.getBackground().setColorFilter(0xFF2E7D32, PorterDuff.Mode.MULTIPLY);
+                            b.getBackground().setColorFilter(0xFF1B5E20, PorterDuff.Mode.MULTIPLY);
 							b.setTextColor(Color.WHITE);
 						}
 					}
