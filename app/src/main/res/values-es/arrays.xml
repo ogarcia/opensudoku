@@ -14,5 +14,8 @@
 		<item>Por defecto</item>
 		<item>Papel I</item>
 		<item>Papel II</item>
+		<item>Claro</item>
+		<item>Papel claro I</item>
+		<item>Papel claro II</item>
 	</string-array>
 </resources>

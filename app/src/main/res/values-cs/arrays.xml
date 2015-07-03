@@ -14,5 +14,8 @@
 		<item>Default</item>
 		<item>Paper I</item>
 		<item>Paper II</item>
+		<item>Light</item>
+		<item>Paper Light I</item>
+		<item>Paper Light II</item>
 	</string-array>
 </resources>

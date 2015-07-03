@@ -14,5 +14,8 @@
 		<item>Predefinito</item>
 		<item>Carta I</item>
 		<item>Carta II</item>
+		<item>Chiaro</item>
+		<item>Carta chiara I</item>
+		<item>Carta chiara II</item>
 	</string-array>
 </resources>
