@@ -8,15 +8,15 @@
 function generateSudoku (level="easy", number=10) {
   var date = new Date().toJSON().slice(0,10);
   var header = '<?xml version="1.0" encoding="UTF-8"?>\n<opensudoku>\n';
-  header += '  <name>Sudoku ' + level + ' generated at ' + date + '</name>\n';
+  header += '  <name>' + level + ' generated at ' + date + '</name>\n';
   header += '  <author>ogarcia</author>\n';
-  header += '  <description>OpenSudoku levels automagically generated</description>\n';
-  header += '  <comment>Generated levels</comment>\n';
+  header += '  <description></description>\n';
+  header += '  <comment></comment>\n';
   header += '  <created>' + date + '</created>\n';
   header += '  <source>opensudoku-web-generator</source>\n';
   header += '  <level>' + level + '</level>\n';
   header += '  <sourceURL>http://opensudoku.moire.org/#about-puzzles</sourceURL>\n'
-  var footer = '</opensudoku>';
+  var footer = '</opensudoku>\n';
   var puzzles = '';
   for (i = 0; i < number; i++) {
     var puzzle = sudoku.generate(level);
@@ -43,14 +43,14 @@ window.onload = function() {
 
   easy.onclick = function() {
     var blob = new Blob([generateSudoku("easy", 20)], {type: "text/xml"});
-    saveAs(blob, "easy-generated.opensudoku");
+    saveAs(blob, "easy_generated.opensudoku");
   }
   medium.onclick = function() {
     var blob = new Blob([generateSudoku("medium", 20)], {type: "text/xml"});
-    saveAs(blob, "medium-generated.opensudoku");
+    saveAs(blob, "medium_generated.opensudoku");
   }
   hard.onclick = function() {
     var blob = new Blob([generateSudoku("hard", 20)], {type: "text/xml"});
-    saveAs(blob, "hard-generated.opensudoku");
+    saveAs(blob, "hard_generated.opensudoku");
   }
 }
