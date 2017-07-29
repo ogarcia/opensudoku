@@ -15,6 +15,7 @@ function generateSudoku (level="easy", number=10) {
   header += '  <created>' + date + '</created>\n';
   header += '  <source>opensudoku-web-generator</source>\n';
   header += '  <level>' + level + '</level>\n';
+  header += '  <sourceURL>http://opensudoku.moire.org/#about-puzzles</sourceURL>\n'
   var footer = '</opensudoku>';
   var puzzles = '';
   for (i = 0; i < number; i++) {
@@ -41,15 +42,15 @@ window.onload = function() {
   var properties = {type: 'text/xml'};
 
   easy.onclick = function() {
-    var blob = new Blob([generateSudoku("easy", 50)], {type: "text/xml;charset=utf-8"});
+    var blob = new Blob([generateSudoku("easy", 20)], {type: "text/xml"});
     saveAs(blob, "easy-generated.opensudoku");
   }
   medium.onclick = function() {
-    var blob = new Blob([generateSudoku("medium", 50)], {type: "text/xml;charset=utf-8"});
+    var blob = new Blob([generateSudoku("medium", 20)], {type: "text/xml"});
     saveAs(blob, "medium-generated.opensudoku");
   }
   hard.onclick = function() {
-    var blob = new Blob([generateSudoku("hard", 50)], {type: "text/xml;charset=utf-8"});
+    var blob = new Blob([generateSudoku("hard", 20)], {type: "text/xml"});
     saveAs(blob, "hard-generated.opensudoku");
   }
 }
