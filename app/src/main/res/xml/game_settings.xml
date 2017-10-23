@@ -15,6 +15,11 @@
 				android:summary="@string/highlight_completed_values_summary"
 				android:defaultValue="true"/>
 		<CheckBoxPreference
+			android:key="highlight_similar_cells"
+			android:title="@string/highlight_similar_cells"
+			android:summary="@string/highlight_similar_cells_summary"
+			android:defaultValue="true"/>
+		<CheckBoxPreference
 				android:key="show_number_totals"
 				android:title="@string/show_number_totals"
 				android:summary="@string/show_number_totals_summary"

@@ -13,6 +13,7 @@
 		<item name="backgroundColorReadOnly">#616161</item>
 		<item name="backgroundColorTouched">#009688</item>
 		<item name="backgroundColorSelected">#b2dfdb</item>
+		<item name="backgroundColorHighlighted">#009900</item>
 	</style>
 
 	<style name="Theme.PaperI">
@@ -24,6 +25,7 @@
 		<item name="backgroundColor">#424242</item>
 		<item name="backgroundColorTouched">#009688</item>
 		<item name="backgroundColorSelected">#b2dfdb</item>
+		<item name="backgroundColorHighlighted">#009900</item>
 	</style>
 
 	<style name="Theme.PaperII">
@@ -36,6 +38,7 @@
 		<item name="backgroundColorSecondary">#616161</item>
 		<item name="backgroundColorTouched">#009688</item>
 		<item name="backgroundColorSelected">#b2dfdb</item>
+		<item name="backgroundColorHighlighted">#009900</item>
 	</style>
 
 	<style name="Theme.Light">
@@ -48,6 +51,7 @@
 		<item name="backgroundColorReadOnly">#cccccc</item>
 		<item name="backgroundColorTouched">#009688</item>
 		<item name="backgroundColorSelected">#b2dfdb</item>
+		<item name="backgroundColorHighlighted">#009900</item>
 	</style>
 
 	<style name="Theme.PaperLightI">
@@ -59,6 +63,7 @@
 		<item name="backgroundColor">@android:color/white</item>
 		<item name="backgroundColorTouched">#009688</item>
 		<item name="backgroundColorSelected">#b2dfdb</item>
+		<item name="backgroundColorHighlighted">#009900</item>
 	</style>
 
 	<style name="Theme.PaperLightII">
@@ -71,6 +76,7 @@
 		<item name="backgroundColorSecondary">@android:color/white</item>
 		<item name="backgroundColorTouched">#009688</item>
 		<item name="backgroundColorSelected">#b2dfdb</item>
+		<item name="backgroundColorHighlighted">#009900</item>
 	</style>
 
 </resources>

@@ -179,6 +179,7 @@ public class SudokuPlayActivity extends Activity {
 
 		mSudokuBoard.setHighlightWrongVals(gameSettings.getBoolean("highlight_wrong_values", true));
 		mSudokuBoard.setHighlightTouchedCell(gameSettings.getBoolean("highlight_touched_cell", true));
+		mSudokuBoard.setHighlightSimilarCell(gameSettings.getBoolean("highlight_similar_cells", true));
 
 		mShowTime = gameSettings.getBoolean("show_time", true);
 		if (mSudokuGame.getState() == SudokuGame.GAME_STATE_PLAYING) {
