@@ -63,6 +63,7 @@ public class SudokuBoardView extends View {
 	private boolean mHighlightWrongVals = true;
 	private boolean mHighlightTouchedCell = true;
 	private boolean mAutoHideTouchedCellHint = true;
+	private boolean mHighlightSimilarCells = true;
 
 	private SudokuGame mGame;
 	private CellCollection mCells;
@@ -83,6 +84,7 @@ public class SudokuBoardView extends View {
 	private Paint mBackgroundColorReadOnly;
 	private Paint mBackgroundColorTouched;
 	private Paint mBackgroundColorSelected;
+	private Paint mBackgroundColorHighlighted;
 
 	private Paint mCellValueInvalidPaint;
 
@@ -111,6 +113,7 @@ public class SudokuBoardView extends View {
 		mBackgroundColorReadOnly = new Paint();
 		mBackgroundColorTouched = new Paint();
 		mBackgroundColorSelected = new Paint();
+		mBackgroundColorHighlighted = new Paint();
 
 		mCellValuePaint.setAntiAlias(true);
 		mCellValueReadonlyPaint.setAntiAlias(true);
@@ -130,6 +133,7 @@ public class SudokuBoardView extends View {
 		setBackgroundColorReadOnly(a.getColor(R.styleable.SudokuBoardView_backgroundColorReadOnly, NO_COLOR));
 		setBackgroundColorTouched(a.getColor(R.styleable.SudokuBoardView_backgroundColorTouched, Color.rgb(50, 50, 255)));
 		setBackgroundColorSelected(a.getColor(R.styleable.SudokuBoardView_backgroundColorSelected, Color.YELLOW));
+		setBackgroundColorHighlighted(a.getColor(R.styleable.SudokuBoardView_backgroundColorHighlighted, Color.GREEN));
 
 		a.recycle();
 	}
@@ -208,6 +212,15 @@ public class SudokuBoardView extends View {
 		mBackgroundColorSelected.setAlpha(100);
 	}
 
+	public int getBackgroundColorHighlighted() {
+		return mBackgroundColorHighlighted.getColor();
+	}
+
+	public void setBackgroundColorHighlighted(int color) {
+		mBackgroundColorHighlighted.setColor(color);
+		mBackgroundColorHighlighted.setAlpha(100);
+	}
+
 	public void setGame(SudokuGame game) {
 		mGame = game;
 		setCells(game.getCells());
@@ -273,6 +286,14 @@ public class SudokuBoardView extends View {
 
 	public boolean getAutoHideTouchedCellHint() {
 		return mAutoHideTouchedCellHint;
+	}
+
+	public void setHighlightSimilarCell(boolean highlightSimilarCell) {
+		mHighlightSimilarCells = highlightSimilarCell;
+	}
+
+	public boolean getHighlightSimilarCell() {
+		return mHighlightSimilarCells;
 	}
 
 	/**
@@ -423,6 +444,12 @@ public class SudokuBoardView extends View {
 			float numberAscent = mCellValuePaint.ascent();
 			float noteAscent = mCellNotePaint.ascent();
 			float noteWidth = mCellWidth / 3f;
+
+			int selectedValue = 0;
+			if (mHighlightSimilarCells && mSelectedCell != null) {
+				selectedValue = mSelectedCell.getValue();
+			}
+
 			for (int row = 0; row < 9; row++) {
 				for (int col = 0; col < 9; col++) {
 					Cell cell = mCells.getCell(row, col);
@@ -437,6 +464,16 @@ public class SudokuBoardView extends View {
 									cellLeft, cellTop,
 									cellLeft + mCellWidth, cellTop + mCellHeight,
 									mBackgroundColorReadOnly);
+						}
+					}
+
+					// highlight similar cells
+					if (selectedValue != 0 && selectedValue == cell.getValue()) {
+						if (mBackgroundColorHighlighted.getColor() != NO_COLOR) {
+							canvas.drawRect(
+									cellLeft, cellTop,
+									cellLeft + mCellWidth, cellTop + mCellHeight,
+									mBackgroundColorHighlighted);
 						}
 					}
 

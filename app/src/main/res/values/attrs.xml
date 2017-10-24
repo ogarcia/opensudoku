@@ -17,5 +17,6 @@
 		<attr name="backgroundColorReadOnly" format="color"/>
 		<attr name="backgroundColorTouched" format="color"/>
 		<attr name="backgroundColorSelected" format="color"/>
+		<attr name="backgroundColorHighlighted" format="color"/>
 	</declare-styleable>
 </resources>
