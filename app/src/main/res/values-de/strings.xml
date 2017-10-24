@@ -189,4 +189,6 @@
 	<string name="undo_to_checkpoint">Undo to checkpoint</string>
 	<string name="undo_to_checkpoint_confirm">Are you sure you want to undo all actions since last checkpoint?</string>
 	<string name="what_is_new">What\'s new</string>
+    <string name="highlight_similar_cells">Highlight similar cells</string>
+	<string name="highlight_similar_cells_summary">Highlight cells with similar values</string>
 </resources>

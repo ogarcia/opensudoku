@@ -9,5 +9,10 @@ Current version of Open Sudoku is authored by [Óscar García Amor](http://ogarc
 
 The first version of Open Sudoku was developed by [Roman Mašek](https://github.com/romario333) and contributed by Vit Hnilica, Martin Sobola, Martin Helff and Diego Pierotto.
 
+### Contributors
+
+* [Sergey Pimanov](https://github.com/spimanov), added functionality to
+  highlight cells with similar values.
+
 ## Support or Contact
 Having trouble with Open Sudoku? Fill an issue in https://github.com/ogarcia/opensudoku/issues or contact me vía opensudoku@moire.org and I'll help you sort it out.

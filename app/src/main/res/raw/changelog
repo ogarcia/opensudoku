@@ -1,6 +1,9 @@
 <html>
 <head><style type="text/css">body {font-size: smaller;}</style></head>
 <body>
+  <b>2.3.0</b>
+  <ul><li>Highlight similar cells - Now you can activate a new option to highlight cells with
+  similar values. Thanks @spimanov!</li></ul>
   <b>2.2.1</b>
   <ul><li>Added turkish language. Thanks @gokaykayki!</li></ul>
   <b>2.2</b>

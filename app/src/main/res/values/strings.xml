@@ -86,8 +86,6 @@
 	<string name="game_helpers">Game Helpers</string>
 	<string name="highlight_wrong_values">Highlight wrong values</string>
 	<string name="highlight_wrong_values_summary">Highlight values which break rules of sudoku.</string>
-	<string name="highlight_similar_cells">Highlight similar cells</string>
-	<string name="highlight_similar_cells_summary">Highlight cells with similar values</string>
 	<string name="input_methods">Input Modes</string>
 	<string name="popup">Popup</string>
 	<string name="popup_summary">Edit cell value and note in popup.</string>
@@ -212,4 +210,8 @@
 	<string name="set_checkpoint">Set checkpoint</string>
 	<string name="undo_to_checkpoint">Undo to checkpoint</string>
 	<string name="undo_to_checkpoint_confirm">Are you sure you want to undo all actions since last checkpoint?</string>
+
+	<!-- Strings added/changed in 2.3.0 -->
+	<string name="highlight_similar_cells">Highlight similar cells</string>
+	<string name="highlight_similar_cells_summary">Highlight cells with similar values</string>
 </resources>
