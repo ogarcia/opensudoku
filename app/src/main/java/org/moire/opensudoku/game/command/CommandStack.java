@@ -58,13 +58,16 @@ public class CommandStack {
 	public void setCheckpoint() {
 		if (!mCommandStack.empty()) {
 			AbstractCommand c = mCommandStack.peek();
-			c.setCheckpoint(true);
+			if (c instanceof CheckpointCommand)
+				return;
 		}
+		AbstractCommand command = AbstractCommand.newInstance(CheckpointCommand.class.getSimpleName());
+		push(command);
 	}
 
 	public boolean hasCheckpoint() {
 		for (AbstractCommand c : mCommandStack) {
-			if (c.isCheckpoint())
+			if (c instanceof CheckpointCommand)
 				return true;
 		}
 		return false;
@@ -80,7 +83,7 @@ public class CommandStack {
 			c = mCommandStack.pop();
 			c.undo();
 
-			if (mCommandStack.empty() || mCommandStack.peek().isCheckpoint()) {
+			if (mCommandStack.empty() || c instanceof CheckpointCommand) {
 				break;
 			}
 		}

@@ -38,27 +38,17 @@ public abstract class AbstractCommand {
 			return new FillInNotesCommand();
 		} else if (commandClass.equals(SetCellValueCommand.class.getSimpleName())) {
 			return new SetCellValueCommand();
+		} else if (commandClass.equals(CheckpointCommand.class.getSimpleName())) {
+			return new CheckpointCommand();
 		} else {
 			throw new IllegalArgumentException(String.format("Unknown command class '%s'.", commandClass));
 		}
 	}
 
-	private boolean mIsCheckpoint;
-
 	void saveState(Bundle outState) {
-		outState.putBoolean("isCheckpoint", mIsCheckpoint);
 	}
 
 	void restoreState(Bundle inState) {
-		mIsCheckpoint = inState.getBoolean("isCheckpoint");
-	}
-
-	public boolean isCheckpoint() {
-		return mIsCheckpoint;
-	}
-
-	public void setCheckpoint(boolean isCheckpoint) {
-		mIsCheckpoint = isCheckpoint;
 	}
 
 	public String getCommandClass() {
