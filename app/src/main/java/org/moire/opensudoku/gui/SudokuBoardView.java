@@ -713,7 +713,7 @@ public class SudokuBoardView extends View {
 	 * @param col Columnd index of cell which should be selected.
 	 * @return True, if cell was successfuly selected.
 	 */
-	private boolean moveCellSelectionTo(int row, int col) {
+	public boolean moveCellSelectionTo(int row, int col) {
 		if (col >= 0 && col < CellCollection.SUDOKU_SIZE
 				&& row >= 0 && row < CellCollection.SUDOKU_SIZE) {
 			mSelectedCell = mCells.getCell(row, col);

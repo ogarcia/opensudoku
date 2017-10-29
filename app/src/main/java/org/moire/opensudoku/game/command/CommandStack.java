@@ -1,5 +1,7 @@
 package org.moire.opensudoku.game.command;
 
+import java.util.Iterator;
+import java.util.ListIterator;
 import java.util.Stack;
 
 import org.moire.opensudoku.game.CellCollection;
@@ -61,8 +63,7 @@ public class CommandStack {
 			if (c instanceof CheckpointCommand)
 				return;
 		}
-		AbstractCommand command = AbstractCommand.newInstance(CheckpointCommand.class.getSimpleName());
-		push(command);
+		push(new CheckpointCommand());
 	}
 
 	public boolean hasCheckpoint() {
@@ -83,9 +84,8 @@ public class CommandStack {
 			c = mCommandStack.pop();
 			c.undo();
 
-			if (mCommandStack.empty() || c instanceof CheckpointCommand) {
-				break;
-			}
+			if (c instanceof CheckpointCommand)
+			    break;
 		}
 		validateCells();
 	}
@@ -95,10 +95,21 @@ public class CommandStack {
 		return mCommandStack.size() != 0;
 	}
 
+	public AbstractSingleCellCommand findLatestSingleCellCommand() {
+        ListIterator<AbstractCommand> iter = mCommandStack.listIterator(mCommandStack.size());
+        while (iter.hasPrevious()) {
+            AbstractCommand o = iter.previous();
+            if (o instanceof AbstractSingleCellCommand)
+                return (AbstractSingleCellCommand) o;
+        }
+
+        return null;
+    }
+
 	private void push(AbstractCommand command) {
 		if (command instanceof AbstractCellCommand) {
 			((AbstractCellCommand) command).setCells(mCells);
-		}
+        }
 		mCommandStack.push(command);
 	}
 

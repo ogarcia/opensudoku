@@ -24,16 +24,13 @@ import android.os.Bundle;
 import org.moire.opensudoku.game.Cell;
 import org.moire.opensudoku.game.CellNote;
 
-public class EditCellNoteCommand extends AbstractCellCommand {
+public class EditCellNoteCommand extends AbstractSingleCellCommand {
 
-	private int mCellRow;
-	private int mCellColumn;
 	private CellNote mNote;
 	private CellNote mOldNote;
 
 	public EditCellNoteCommand(Cell cell, CellNote note) {
-		mCellRow = cell.getRowIndex();
-		mCellColumn = cell.getColumnIndex();
+		super(cell);
 		mNote = note;
 	}
 
@@ -45,8 +42,6 @@ public class EditCellNoteCommand extends AbstractCellCommand {
 	void saveState(Bundle outState) {
 		super.saveState(outState);
 
-		outState.putInt("cellRow", mCellRow);
-		outState.putInt("cellColumn", mCellColumn);
 		outState.putString("note", mNote.serialize());
 		outState.putString("oldNote", mOldNote.serialize());
 	}
@@ -55,22 +50,20 @@ public class EditCellNoteCommand extends AbstractCellCommand {
 	void restoreState(Bundle inState) {
 		super.restoreState(inState);
 
-		mCellRow = inState.getInt("cellRow");
-		mCellColumn = inState.getInt("cellColumn");
 		mNote = CellNote.deserialize(inState.getString("note"));
 		mOldNote = CellNote.deserialize(inState.getString("oldNote"));
 	}
 
 	@Override
 	void execute() {
-		Cell cell = getCells().getCell(mCellRow, mCellColumn);
+		Cell cell = getCell();
 		mOldNote = cell.getNote();
 		cell.setNote(mNote);
 	}
 
 	@Override
 	void undo() {
-		Cell cell = getCells().getCell(mCellRow, mCellColumn);
+		Cell cell = getCell();
 		cell.setNote(mOldNote);
 	}
 

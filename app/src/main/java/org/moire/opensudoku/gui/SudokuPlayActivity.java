@@ -42,6 +42,7 @@ import org.moire.opensudoku.R;
 import org.moire.opensudoku.db.SudokuDatabase;
 import org.moire.opensudoku.game.SudokuGame;
 import org.moire.opensudoku.game.SudokuGame.OnPuzzleSolvedListener;
+import org.moire.opensudoku.game.SudokuGame.OnUndoOccurredListener;
 import org.moire.opensudoku.gui.inputmethod.IMControlPanel;
 import org.moire.opensudoku.gui.inputmethod.IMControlPanelStatePersister;
 import org.moire.opensudoku.gui.inputmethod.IMNumpad;
@@ -152,6 +153,7 @@ public class SudokuPlayActivity extends Activity {
 
 		mSudokuBoard.setGame(mSudokuGame);
 		mSudokuGame.setOnPuzzleSolvedListener(onSolvedListener);
+		mSudokuGame.setOnUndoOccurredListener(onUndoOccurredListener);
 
 		mHintsQueue.showOneTimeHint("welcome", R.string.welcome, R.string.first_run_hint);
 
@@ -447,6 +449,13 @@ public class SudokuPlayActivity extends Activity {
 			showDialog(DIALOG_WELL_DONE);
 		}
 
+	};
+
+	private OnUndoOccurredListener onUndoOccurredListener = new OnUndoOccurredListener() {
+		@Override
+		public void onUndoOccurred(int selectedCellRow, int selectedCellColumn) {
+			mSudokuBoard.moveCellSelectionTo(selectedCellRow, selectedCellColumn);
+		}
 	};
 
 	/**

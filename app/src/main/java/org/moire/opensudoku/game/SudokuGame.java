@@ -22,6 +22,7 @@ package org.moire.opensudoku.game;
 
 import android.os.Bundle;
 import android.os.SystemClock;
+import org.moire.opensudoku.game.command.AbstractSingleCellCommand;
 import org.moire.opensudoku.game.command.ClearAllNotesCommand;
 import org.moire.opensudoku.game.command.AbstractCommand;
 import org.moire.opensudoku.game.command.CommandStack;
@@ -44,6 +45,7 @@ public class SudokuGame {
 	private CellCollection mCells;
 
 	private OnPuzzleSolvedListener mOnPuzzleSolvedListener;
+    private OnUndoOccurredListener mOnUndoOccurredListener;
 	private CommandStack mCommandStack;
 	// Time when current activity has become active. 
 	private long mActiveFromTime = -1;
@@ -95,6 +97,10 @@ public class SudokuGame {
 	public void setOnPuzzleSolvedListener(OnPuzzleSolvedListener l) {
 		mOnPuzzleSolvedListener = l;
 	}
+
+    public void setOnUndoOccurredListener(SudokuGame.OnUndoOccurredListener l) {
+        mOnUndoOccurredListener = l;
+    }
 
 	public void setNote(String note) {
 		mNote = note;
@@ -223,6 +229,7 @@ public class SudokuGame {
 	 */
 	public void undo() {
 		mCommandStack.undo();
+        notifyUndoOccurredListeners();
 	}
 
 	public boolean hasSomethingToUndo() {
@@ -235,14 +242,31 @@ public class SudokuGame {
 
 	public void undoToCheckpoint() {
 		mCommandStack.undoToCheckpoint();
+        notifyUndoOccurredListeners();
 	}
 
 	public boolean hasUndoCheckpoint() {
 		return mCommandStack.hasCheckpoint();
 	}
 
+    private void notifyUndoOccurredListeners() {
 
-	/**
+        if (mOnUndoOccurredListener == null)
+            return;
+
+        AbstractSingleCellCommand c = mCommandStack.findLatestSingleCellCommand();
+        int mSelectedCellRow = 0;
+        int mSelectedCellColumn = 0;
+
+        if (c != null) {
+            mSelectedCellRow = c.getCellRow();
+            mSelectedCellColumn = c.getCellColumn();
+        }
+
+        mOnUndoOccurredListener.onUndoOccurred(mSelectedCellRow, mSelectedCellColumn);
+    }
+
+    /**
 	 * Start game-play.
 	 */
 	public void start() {
@@ -328,4 +352,12 @@ public class SudokuGame {
 		void onPuzzleSolved();
 	}
 
+	public interface OnUndoOccurredListener {
+		/**
+		 * Occurs when undo command called.
+		 *
+		 * @return
+		 */
+		void onUndoOccurred(int selectedCellRow, int selectedCellColumn);
+	}
 }
