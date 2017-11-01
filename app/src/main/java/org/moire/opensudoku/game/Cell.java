@@ -260,7 +260,7 @@ public class Cell {
 	public void serialize(StringBuilder data) {
 		data.append(mValue).append("|");
 		if (mNote == null || mNote.isEmpty()) {
-			data.append("-").append("|");
+			data.append("0").append("|");
 		} else {
 			mNote.serialize(data);
 			data.append("|");

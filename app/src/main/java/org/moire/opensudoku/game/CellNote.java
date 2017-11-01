@@ -20,8 +20,10 @@
 
 package org.moire.opensudoku.game;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 
@@ -29,19 +31,22 @@ import java.util.StringTokenizer;
  * Note attached to cell. This object is immutable by design.
  *
  * @author romario
+ *
+ * 30.10.2017
+ * updated by spimanov. Sets were replaced by bitwise operations
  */
 public class CellNote {
-	// TODO: int would be better
-	private final Set<Integer> mNotedNumbers;
+
+	private final short mNotedNumbers;
 
 	public static final CellNote EMPTY = new CellNote();
 
 	public CellNote() {
-		mNotedNumbers = Collections.unmodifiableSet(new HashSet<Integer>());
+		mNotedNumbers = 0;
 	}
 
-	private CellNote(Set<Integer> notedNumbers) {
-		mNotedNumbers = Collections.unmodifiableSet(notedNumbers);
+	private CellNote(short notedNumbers) {
+		mNotedNumbers = notedNumbers;
 	}
 
 	/**
@@ -52,39 +57,28 @@ public class CellNote {
 	 * @param note
 	 */
 	public static CellNote deserialize(String note) {
-		// TODO: optimalization: CellNote object don't have to be created for empty note
 
-		Set<Integer> notedNumbers = new HashSet<Integer>();
-		if (note != null && !note.equals("")) {
-			StringTokenizer tokenizer = new StringTokenizer(note, ",");
-			while (tokenizer.hasMoreTokens()) {
-				String value = tokenizer.nextToken();
-				if (!value.equals("-")) {
-					notedNumbers.add(Integer.parseInt(value));
-				}
-			}
-		}
+		if (note == null || note.equals("") || note.equals("0"))
+		    return new CellNote((short)0);
 
-		return new CellNote(notedNumbers);
+        return new CellNote((short)Integer.parseInt(note));
 	}
 
 
-	// TODO: this should be int[]
-
 	/**
-	 * Creates note instance from given <code>Integer</code> array.
+	 * Creates note instance from given <code>int</code> array.
 	 *
 	 * @param notedNums Array of integers, which should be part of note.
 	 * @return New note instance.
 	 */
 	public static CellNote fromIntArray(Integer[] notedNums) {
-		Set<Integer> notedNumbers = new HashSet<Integer>();
+		int notedNumbers = 0;
 
 		for (Integer n : notedNums) {
-			notedNumbers.add(n);
+			notedNumbers = (short) (notedNumbers | (1 << (n - 1)));
 		}
 
-		return new CellNote(notedNumbers);
+		return new CellNote((short)notedNumbers);
 	}
 
 
@@ -95,13 +89,7 @@ public class CellNote {
 	 * @param data
 	 */
 	public void serialize(StringBuilder data) {
-		if (mNotedNumbers.size() == 0) {
-			data.append("-");
-		} else {
-			for (Integer num : mNotedNumbers) {
-				data.append(num).append(",");
-			}
-		}
+        data.append((int)mNotedNumbers);
 	}
 
 	public String serialize() {
@@ -115,8 +103,18 @@ public class CellNote {
 	 *
 	 * @return
 	 */
-	public Set<Integer> getNotedNumbers() {
-		return mNotedNumbers;
+	public List<Integer> getNotedNumbers() {
+
+        List<Integer> result = new ArrayList<>();
+	    int c = 1;
+	    for (int i =0; i<9; i++){
+	        if ((mNotedNumbers & (short)c) != 0) {
+                result.add(i + 1);
+            }
+            c = (c << 1);
+        }
+
+		return result;
 	}
 
 	/**
@@ -129,14 +127,7 @@ public class CellNote {
 		if (number < 1 || number > 9)
 			throw new IllegalArgumentException("Number must be between 1-9.");
 
-		Set<Integer> notedNumbers = new HashSet<Integer>(getNotedNumbers());
-		if (notedNumbers.contains(number)) {
-			notedNumbers.remove(number);
-		} else {
-			notedNumbers.add(number);
-		}
-
-		return new CellNote(notedNumbers);
+		return new CellNote((short) (mNotedNumbers ^ (1 << (number - 1))));
 	}
 
 	/**
@@ -149,10 +140,7 @@ public class CellNote {
 		if (number < 1 || number > 9)
 			throw new IllegalArgumentException("Number must be between 1-9.");
 
-		Set<Integer> notedNumbers = new HashSet<Integer>(getNotedNumbers());
-		notedNumbers.add(number);
-
-		return new CellNote(notedNumbers);
+		return new CellNote((short) (mNotedNumbers | (1 << (number - 1))));
 	}
 
 	/**
@@ -165,10 +153,7 @@ public class CellNote {
 		if (number < 1 || number > 9)
 			throw new IllegalArgumentException("Number must be between 1-9.");
 
-		Set<Integer> notedNumbers = new HashSet<Integer>(getNotedNumbers());
-		notedNumbers.remove(number);
-
-		return new CellNote(notedNumbers);
+		return new CellNote((short) (mNotedNumbers & ~(1 << (number - 1))));
 	}
 
 	public CellNote clear() {
@@ -181,7 +166,7 @@ public class CellNote {
 	 * @return True if note is empty.
 	 */
 	public boolean isEmpty() {
-		return mNotedNumbers.size() == 0;
+		return mNotedNumbers == 0;
 	}
 
 }
