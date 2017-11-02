@@ -40,9 +40,9 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import org.moire.opensudoku.R;
 import org.moire.opensudoku.db.SudokuDatabase;
+import org.moire.opensudoku.game.Cell;
 import org.moire.opensudoku.game.SudokuGame;
 import org.moire.opensudoku.game.SudokuGame.OnPuzzleSolvedListener;
-import org.moire.opensudoku.game.SudokuGame.OnUndoOccurredListener;
 import org.moire.opensudoku.gui.inputmethod.IMControlPanel;
 import org.moire.opensudoku.gui.inputmethod.IMControlPanelStatePersister;
 import org.moire.opensudoku.gui.inputmethod.IMNumpad;
@@ -153,7 +153,7 @@ public class SudokuPlayActivity extends Activity {
 
 		mSudokuBoard.setGame(mSudokuGame);
 		mSudokuGame.setOnPuzzleSolvedListener(onSolvedListener);
-		mSudokuGame.setOnUndoOccurredListener(onUndoOccurredListener);
+		selectLastChangedCell();
 
 		mHintsQueue.showOneTimeHint("welcome", R.string.welcome, R.string.first_run_hint);
 
@@ -344,6 +344,7 @@ public class SudokuPlayActivity extends Activity {
 				return true;
 			case MENU_ITEM_UNDO:
 				mSudokuGame.undo();
+				selectLastChangedCell();
 				return true;
 			case MENU_ITEM_SETTINGS:
 				Intent i = new Intent();
@@ -429,6 +430,7 @@ public class SudokuPlayActivity extends Activity {
 						.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int whichButton) {
 								mSudokuGame.undoToCheckpoint();
+								selectLastChangedCell();
 							}
 						})
 						.setNegativeButton(android.R.string.no, null)
@@ -438,9 +440,15 @@ public class SudokuPlayActivity extends Activity {
 		return null;
 	}
 
-	/**
-	 * Occurs when puzzle is solved.
-	 */
+	private void selectLastChangedCell() {
+		Cell cell = mSudokuGame.getLastChangedCell();
+		if (cell != null)
+			mSudokuBoard.moveCellSelectionTo(cell.getRowIndex(), cell.getColumnIndex());
+	};
+
+/**
+ * Occurs when puzzle is solved.
+ */
 	private OnPuzzleSolvedListener onSolvedListener = new OnPuzzleSolvedListener() {
 
 		@Override
@@ -449,13 +457,6 @@ public class SudokuPlayActivity extends Activity {
 			showDialog(DIALOG_WELL_DONE);
 		}
 
-	};
-
-	private OnUndoOccurredListener onUndoOccurredListener = new OnUndoOccurredListener() {
-		@Override
-		public void onUndoOccurred(int selectedCellRow, int selectedCellColumn) {
-			mSudokuBoard.moveCellSelectionTo(selectedCellRow, selectedCellColumn);
-		}
 	};
 
 	/**

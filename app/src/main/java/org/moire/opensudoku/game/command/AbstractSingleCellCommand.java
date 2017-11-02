@@ -37,15 +37,8 @@ public abstract class AbstractSingleCellCommand extends AbstractCellCommand {
         mCellColumn  = Integer.parseInt(data.nextToken());
     }
 
-    Cell getCell() {
+    public Cell getCell() {
         return getCells().getCell(mCellRow, mCellColumn);
     }
 
-    public int getCellRow() {
-        return mCellRow;
-    }
-
-    public int getCellColumn() {
-        return mCellColumn;
-    }
 }

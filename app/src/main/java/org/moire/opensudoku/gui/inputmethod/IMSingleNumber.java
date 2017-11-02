@@ -201,6 +201,7 @@ public class IMSingleNumber extends InputMethod {
 				for (Button b : mNumberButtons.values()) {
 					if (b.getTag().equals(mSelectedNumber)) {
 						b.setTextAppearance(mContext, android.R.style.TextAppearance_Large);
+						b.getBackground().setColorFilter(null);
                         /* Use focus instead color */
 						/*LightingColorFilter selBkgColorFilter = new LightingColorFilter(
 								mContext.getResources().getColor(R.color.im_number_button_selected_background), 0);
