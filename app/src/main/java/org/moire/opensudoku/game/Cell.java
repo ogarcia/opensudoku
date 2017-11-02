@@ -243,7 +243,7 @@ public class Cell {
 	 * created by {@link #serialize(StringBuilder)} or {@link #serialize()} method).
 	 * earlier.
 	 *
-	 * @param note
+	 * @param cellData
 	 */
 	public static Cell deserialize(String cellData) {
 		StringTokenizer data = new StringTokenizer(cellData, "|");

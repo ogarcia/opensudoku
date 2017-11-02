@@ -107,7 +107,7 @@ public class CellNote {
 
         List<Integer> result = new ArrayList<>();
 	    int c = 1;
-	    for (int i =0; i<9; i++){
+	    for (int i = 0; i < 9; i++) {
 	        if ((mNotedNumbers & (short)c) != 0) {
                 result.add(i + 1);
             }
