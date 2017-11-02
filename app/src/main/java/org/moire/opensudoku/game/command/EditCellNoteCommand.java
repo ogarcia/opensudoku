@@ -20,9 +20,9 @@
 
 package org.moire.opensudoku.game.command;
 
-import android.os.Bundle;
 import org.moire.opensudoku.game.Cell;
 import org.moire.opensudoku.game.CellNote;
+import java.util.StringTokenizer;
 
 public class EditCellNoteCommand extends AbstractSingleCellCommand {
 
@@ -39,19 +39,19 @@ public class EditCellNoteCommand extends AbstractSingleCellCommand {
 	}
 
 	@Override
-	void saveState(Bundle outState) {
-		super.saveState(outState);
+	public void serialize(StringBuilder data) {
+		super.serialize(data);
 
-		outState.putString("note", mNote.serialize());
-		outState.putString("oldNote", mOldNote.serialize());
+		mNote.serialize(data);
+		mOldNote.serialize(data);
 	}
 
 	@Override
-	void restoreState(Bundle inState) {
-		super.restoreState(inState);
+	protected void _deserialize(StringTokenizer data) {
+		super._deserialize(data);
 
-		mNote = CellNote.deserialize(inState.getString("note"));
-		mOldNote = CellNote.deserialize(inState.getString("oldNote"));
+		mNote = CellNote.deserialize(data.nextToken());
+		mOldNote = CellNote.deserialize(data.nextToken());
 	}
 
 	@Override

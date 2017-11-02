@@ -20,8 +20,8 @@
 
 package org.moire.opensudoku.game.command;
 
-import android.os.Bundle;
 import org.moire.opensudoku.game.Cell;
+import java.util.StringTokenizer;
 
 public class SetCellValueCommand extends AbstractSingleCellCommand {
 
@@ -38,19 +38,19 @@ public class SetCellValueCommand extends AbstractSingleCellCommand {
 	}
 
 	@Override
-	void saveState(Bundle outState) {
-		super.saveState(outState);
+	public void serialize(StringBuilder data) {
+		super.serialize(data);
 
-		outState.putInt("value", mValue);
-		outState.putInt("oldValue", mOldValue);
+		data.append(mValue).append("|");
+		data.append(mOldValue).append("|");
 	}
 
 	@Override
-	void restoreState(Bundle inState) {
-		super.restoreState(inState);
+	protected void _deserialize(StringTokenizer data) {
+		super._deserialize(data);
 
-		mValue = inState.getInt("value");
-		mOldValue = inState.getInt("oldValue");
+		mValue = Integer.parseInt(data.nextToken());
+		mOldValue = Integer.parseInt(data.nextToken());
 	}
 
 	@Override

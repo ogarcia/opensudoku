@@ -90,6 +90,7 @@ public class CellNote {
 	 */
 	public void serialize(StringBuilder data) {
         data.append((int)mNotedNumbers);
+		data.append("|");
 	}
 
 	public String serialize() {

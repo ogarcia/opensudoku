@@ -47,7 +47,7 @@ public class SudokuGame {
 	private OnPuzzleSolvedListener mOnPuzzleSolvedListener;
     private OnUndoOccurredListener mOnUndoOccurredListener;
 	private CommandStack mCommandStack;
-	// Time when current activity has become active. 
+	// Time when current activity has become active.
 	private long mActiveFromTime = -1;
 
 	public static SudokuGame createEmptyGame() {
@@ -74,8 +74,7 @@ public class SudokuGame {
 		outState.putLong("time", mTime);
 		outState.putLong("lastPlayed", mLastPlayed);
 		outState.putString("cells", mCells.serialize());
-
-		mCommandStack.saveState(outState);
+		outState.putString("command_stack", mCommandStack.serialize());
 	}
 
 	public void restoreState(Bundle inState) {
@@ -86,9 +85,7 @@ public class SudokuGame {
 		mTime = inState.getLong("time");
 		mLastPlayed = inState.getLong("lastPlayed");
 		mCells = CellCollection.deserialize(inState.getString("cells"));
-
-		mCommandStack = new CommandStack(mCells);
-		mCommandStack.restoreState(inState);
+		mCommandStack = CommandStack.deserialize(inState.getString("command_stack"), mCells);
 
 		validate();
 	}
@@ -172,6 +169,14 @@ public class SudokuGame {
 
 	public long getId() {
 		return mId;
+	}
+
+		public void setCommandStack(CommandStack commandStack) {
+		mCommandStack = commandStack;
+	}
+
+	public CommandStack getCommandStack() {
+		return mCommandStack;
 	}
 
 	/**
@@ -284,7 +289,7 @@ public class SudokuGame {
 	 * Pauses game-play (for example if activity pauses).
 	 */
 	public void pause() {
-		// save time we have spent playing so far - it will be reseted after resuming 
+		// save time we have spent playing so far - it will be reseted after resuming
 		mTime += SystemClock.uptimeMillis() - mActiveFromTime;
 		mActiveFromTime = -1;
 

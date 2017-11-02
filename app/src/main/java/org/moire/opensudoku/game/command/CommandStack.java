@@ -1,12 +1,9 @@
 package org.moire.opensudoku.game.command;
 
-import java.util.Iterator;
 import java.util.ListIterator;
 import java.util.Stack;
-
+import java.util.StringTokenizer;
 import org.moire.opensudoku.game.CellCollection;
-
-import android.os.Bundle;
 
 public class CommandStack {
 	private Stack<AbstractCommand> mCommandStack = new Stack<AbstractCommand>();
@@ -19,26 +16,35 @@ public class CommandStack {
 		mCells = cells;
 	}
 
-	public void saveState(Bundle outState) {
-		outState.putInt("cmdStack.size", mCommandStack.size());
-		for (int i = 0; i < mCommandStack.size(); i++) {
-			AbstractCommand command = mCommandStack.get(i);
-			Bundle commandState = new Bundle();
-			commandState.putString("commandClass", command.getCommandClass());
-			command.saveState(commandState);
-			outState.putBundle("cmdStack." + i, commandState);
-		}
-	}
+    public static CommandStack deserialize(String data, CellCollection cells) {
+        StringTokenizer st = new StringTokenizer(data, "|");
+        return deserialize(st, cells);
+    }
 
-	public void restoreState(Bundle inState) {
-		int stackSize = inState.getInt("cmdStack.size");
-		for (int i = 0; i < stackSize; i++) {
-			Bundle commandState = inState.getBundle("cmdStack." + i);
-			AbstractCommand command = AbstractCommand.newInstance(commandState.getString("commandClass"));
-			command.restoreState(commandState);
-			push(command);
-		}
-	}
+    public static CommandStack deserialize(StringTokenizer data, CellCollection cells) {
+	    CommandStack result = new CommandStack(cells);
+        int stackSize = Integer.parseInt(data.nextToken());
+        for (int i = 0; i < stackSize; i++) {
+            AbstractCommand command = AbstractCommand.deserialize(data);
+            result.push(command);
+        }
+
+        return result;
+    }
+
+    public String serialize() {
+        StringBuilder sb = new StringBuilder();
+        serialize(sb);
+        return sb.toString();
+    }
+
+    public void serialize(StringBuilder data) {
+        data.append(mCommandStack.size()).append("|");
+        for (int i = 0; i < mCommandStack.size(); i++) {
+            AbstractCommand command = mCommandStack.get(i);
+            command.serialize(data);
+        }
+    }
 
 	public boolean empty() {
 		return mCommandStack.empty();
