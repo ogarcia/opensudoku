@@ -406,6 +406,7 @@ public class SudokuPlayActivity extends Activity {
 								if (mShowTime) {
 									mGameTimer.start();
 								}
+								removeDialog(DIALOG_WELL_DONE);
 							}
 						})
 						.setNegativeButton(android.R.string.no, null)
@@ -453,6 +454,9 @@ public class SudokuPlayActivity extends Activity {
 
 		@Override
 		public void onPuzzleSolved() {
+			if (mShowTime) {
+				mGameTimer.stop();
+			}
 			mSudokuBoard.setReadOnly(true);
 			showDialog(DIALOG_WELL_DONE);
 		}

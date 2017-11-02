@@ -309,7 +309,6 @@ public class SudokuGame {
 		mCommandStack = new CommandStack(mCells);
 		validate();
 		setTime(0);
-        resume();
 		setLastPlayed(0);
 		mState = GAME_STATE_NOT_STARTED;
 	}
