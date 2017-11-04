@@ -20,6 +20,11 @@
 			android:summary="@string/highlight_similar_cells_summary"
 			android:defaultValue="true"/>
 		<CheckBoxPreference
+			android:key="bidirectional_selection"
+			android:title="@string/bidirectional_selection"
+			android:summary="@string/bidirectional_selection_summary"
+			android:defaultValue="true"/>
+		<CheckBoxPreference
 				android:key="show_number_totals"
 				android:title="@string/show_number_totals"
 				android:summary="@string/show_number_totals_summary"

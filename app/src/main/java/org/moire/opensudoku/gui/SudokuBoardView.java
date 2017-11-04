@@ -333,6 +333,10 @@ public class SudokuBoardView extends View {
 		}
 	}
 
+	public void invokeOnCellSelected() {
+		onCellSelected(mSelectedCell);
+	}
+
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		int widthMode = MeasureSpec.getMode(widthMeasureSpec);

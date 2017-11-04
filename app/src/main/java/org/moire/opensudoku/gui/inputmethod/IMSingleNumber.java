@@ -25,7 +25,6 @@ import java.util.Map;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.graphics.LightingColorFilter;
 import android.graphics.PorterDuff;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -42,6 +41,7 @@ import org.moire.opensudoku.game.SudokuGame;
 import org.moire.opensudoku.game.CellCollection.OnChangeListener;
 import org.moire.opensudoku.gui.HintsQueue;
 import org.moire.opensudoku.gui.SudokuBoardView;
+import org.moire.opensudoku.gui.SudokuPlayActivity;
 import org.moire.opensudoku.gui.inputmethod.IMControlPanelStatePersister.StateBundle;
 
 /**
@@ -57,6 +57,8 @@ public class IMSingleNumber extends InputMethod {
 
 	private boolean mHighlightCompletedValues = true;
 	private boolean mShowNumberTotals = false;
+	private boolean mBidirectionalSelection = true;
+	private boolean mHighlightSimilar = true;
 
 	private int mSelectedNumber = 1;
 	private int mEditMode = MODE_EDIT_VALUE;
@@ -64,6 +66,8 @@ public class IMSingleNumber extends InputMethod {
 	private Handler mGuiHandler;
 	private Map<Integer, Button> mNumberButtons;
 	private ImageButton mSwitchNumNoteButton;
+
+	private SudokuPlayActivity.OnSelectedNumberChangedListener mOnSelectedNumberChangedListener = null;
 
 	public IMSingleNumber() {
 		super();
@@ -91,6 +95,26 @@ public class IMSingleNumber extends InputMethod {
 
 	public void setShowNumberTotals(boolean showNumberTotals) {
 		mShowNumberTotals = showNumberTotals;
+	}
+
+	public boolean getBidirectionalSelection() {
+		return mBidirectionalSelection;
+	}
+
+	public void setBidirectionalSelection(boolean bidirectionalSelection) {
+		mBidirectionalSelection = bidirectionalSelection;
+	}
+
+	public boolean getHighlightSimilar() {
+		return mHighlightSimilar;
+	}
+
+	public void setHighlightSimilar(boolean highlightSimilar) {
+		mHighlightSimilar = highlightSimilar;
+	}
+
+	public void setmOnSelectedNumberChangedListener(SudokuPlayActivity.OnSelectedNumberChangedListener l) {
+		mOnSelectedNumberChangedListener = l;
 	}
 
 	@Override
@@ -158,6 +182,7 @@ public class IMSingleNumber extends InputMethod {
         @Override
         public boolean onTouch(View view, MotionEvent motionEvent) {
             mSelectedNumber = (Integer) view.getTag();
+			onSelectedNumberChanged();
             update();
             return true;
         }
@@ -168,7 +193,7 @@ public class IMSingleNumber extends InputMethod {
 		@Override
 		public void onClick(View v) {
 			mSelectedNumber = (Integer) v.getTag();
-
+			onSelectedNumberChanged();
 			update();
 		}
 	};
@@ -251,6 +276,25 @@ public class IMSingleNumber extends InputMethod {
 	@Override
 	protected void onActivated() {
 		update();
+	}
+
+	@Override
+	protected void onCellSelected(Cell cell) {
+		super.onCellSelected(cell);
+
+		if (mBidirectionalSelection) {
+			int v = cell.getValue();
+			if (v != 0 && v != mSelectedNumber) {
+				mSelectedNumber = cell.getValue();
+				update();
+			}
+		}
+	}
+
+	private void onSelectedNumberChanged() {
+		if (mBidirectionalSelection && mHighlightSimilar && mOnSelectedNumberChangedListener != null) {
+			mOnSelectedNumberChangedListener.onSelectedNumberChanged(mSelectedNumber);
+		}
 	}
 
 	@Override
