@@ -208,4 +208,7 @@
 	<string name="generating">Generating puzzle...</string>
     <string name="highlight_similar_cells">Resaltar celdas similares</string>
 	<string name="highlight_similar_cells_summary">Resaltar celdas con valores similares</string>
+    <string name="contributors_label">Colaboradores</string>
+	<string name="bidirectional_selection">Selección bidireccional</string>
+	<string name="bidirectional_selection_summary">En el método de entrada de número simple, la selección de una celda no editable automáticamente selecciona el botón correspondiente y viceversa.</string>
 </resources>

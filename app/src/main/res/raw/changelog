@@ -1,6 +1,21 @@
 <html>
 <head><style type="text/css">body {font-size: smaller;}</style></head>
 <body>
+  <b>2.4.0</b>
+  <ul>
+    <li>Checkpoint issue - Now app saves undo history for games which are in "Playing" status. As
+    well as checkpoints.</li>
+    <li>After performing an undo, the previously edited cell will be selected.</li>
+    <li>New option has been added - Bidirectional selection for Single Number input panel. Any
+    selection of a cell will automatically select a corresponding number of the input panel and vice
+    versa. If user selects a number on input panel, all corresponding cells will be highlighted (in
+    case if option Highlight Similar is also enabled).</li>
+    <li>Fixed a small issue with the congratulation message: "Congratulations, you have solved the
+    puzzle in nn:nn". How to reproduce: solve a puzzle, get a message, restart the puzzle, solve it
+    again, and get the same message (with the same time) as the first.</li>
+    <li>Fixed a small issue with SN input panel - selected number stays in "completed" status after
+    a puzzle restart.</li>
+  </ul>
   <b>2.3.0</b>
   <ul><li>Highlight similar cells - Now you can activate a new option to highlight cells with
   similar values. Thanks @spimanov!</li></ul>

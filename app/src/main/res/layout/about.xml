@@ -74,6 +74,25 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:textStyle="bold"
+            android:text="@string/contributors_label"
+            android:autoLink="all" />
+
+        <TextView
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="6dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:text="@string/contributors"
+            android:autoLink="all" />
+
+        <TextView
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="2dp"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:textStyle="bold"
             android:text="@string/old_developers_label"
             android:autoLink="all" />
 

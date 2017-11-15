@@ -216,6 +216,8 @@
 	<string name="highlight_similar_cells_summary">Highlight cells with similar values</string>
 
 	<!-- Strings added/changed in 2.4.0 -->
-	<string name="bidirectional_selection">SingleNumber panel mode - Auto selection</string>
-	<string name="bidirectional_selection_summary">A selection of a cell automatically selects a corresponding button of the SN input panel. And vice versa </string>
+	<string name="bidirectional_selection">Bidirectional selection</string>
+	<string name="bidirectional_selection_summary">In single number input panel, the selection of a non editable cell automatically selects the corresponding button and vice versa.</string>
+	<string name="contributors_label">Contributors</string>
+	<string name="contributors" translatable="false">Sergey Pimanov</string>
 </resources>
