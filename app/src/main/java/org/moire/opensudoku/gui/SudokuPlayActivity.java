@@ -40,6 +40,7 @@ import android.view.WindowManager;
 import android.widget.TextView;
 import org.moire.opensudoku.R;
 import org.moire.opensudoku.db.SudokuDatabase;
+import org.moire.opensudoku.game.Cell;
 import org.moire.opensudoku.game.SudokuGame;
 import org.moire.opensudoku.game.SudokuGame.OnPuzzleSolvedListener;
 import org.moire.opensudoku.gui.inputmethod.IMControlPanel;
@@ -163,6 +164,12 @@ public class SudokuPlayActivity extends Activity {
 		mIMPopup = mIMControlPanel.getInputMethod(IMControlPanel.INPUT_METHOD_POPUP);
 		mIMSingleNumber = mIMControlPanel.getInputMethod(IMControlPanel.INPUT_METHOD_SINGLE_NUMBER);
 		mIMNumpad = mIMControlPanel.getInputMethod(IMControlPanel.INPUT_METHOD_NUMPAD);
+
+        Cell cell = mSudokuGame.getLastChangedCell();
+        if (cell != null)
+            mSudokuBoard.moveCellSelectionTo(cell.getRowIndex(), cell.getColumnIndex());
+        else
+            mSudokuBoard.moveCellSelectionTo(0, 0);
 	}
 
 	@Override
@@ -199,11 +206,15 @@ public class SudokuPlayActivity extends Activity {
 		mIMPopup.setShowNumberTotals(gameSettings.getBoolean("show_number_totals", false));
 		mIMSingleNumber.setHighlightCompletedValues(gameSettings.getBoolean("highlight_completed_values", true));
 		mIMSingleNumber.setShowNumberTotals(gameSettings.getBoolean("show_number_totals", false));
+        mIMSingleNumber.setBidirectionalSelection(gameSettings.getBoolean("bidirectional_selection", true));
+        mIMSingleNumber.setHighlightSimilar(gameSettings.getBoolean("highlight_similar", true));
+        mIMSingleNumber.setmOnSelectedNumberChangedListener(onSelectedNumberChangedListener);
 		mIMNumpad.setHighlightCompletedValues(gameSettings.getBoolean("highlight_completed_values", true));
 		mIMNumpad.setShowNumberTotals(gameSettings.getBoolean("show_number_totals", false));
 
 		mIMControlPanel.activateFirstInputMethod(); // make sure that some input method is activated
 		mIMControlPanelStatePersister.restoreState(mIMControlPanel);
+        mSudokuBoard.invokeOnCellSelected();
 
 		updateTime();
 	}
@@ -342,6 +353,7 @@ public class SudokuPlayActivity extends Activity {
 				return true;
 			case MENU_ITEM_UNDO:
 				mSudokuGame.undo();
+				selectLastChangedCell();
 				return true;
 			case MENU_ITEM_SETTINGS:
 				Intent i = new Intent();
@@ -403,6 +415,7 @@ public class SudokuPlayActivity extends Activity {
 								if (mShowTime) {
 									mGameTimer.start();
 								}
+								removeDialog(DIALOG_WELL_DONE);
 							}
 						})
 						.setNegativeButton(android.R.string.no, null)
@@ -427,6 +440,7 @@ public class SudokuPlayActivity extends Activity {
 						.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog, int whichButton) {
 								mSudokuGame.undoToCheckpoint();
+								selectLastChangedCell();
 							}
 						})
 						.setNegativeButton(android.R.string.no, null)
@@ -436,18 +450,43 @@ public class SudokuPlayActivity extends Activity {
 		return null;
 	}
 
-	/**
-	 * Occurs when puzzle is solved.
-	 */
+	private void selectLastChangedCell() {
+		Cell cell = mSudokuGame.getLastChangedCell();
+		if (cell != null)
+			mSudokuBoard.moveCellSelectionTo(cell.getRowIndex(), cell.getColumnIndex());
+	};
+
+/**
+ * Occurs when puzzle is solved.
+ */
 	private OnPuzzleSolvedListener onSolvedListener = new OnPuzzleSolvedListener() {
 
 		@Override
 		public void onPuzzleSolved() {
+			if (mShowTime) {
+				mGameTimer.stop();
+			}
 			mSudokuBoard.setReadOnly(true);
 			showDialog(DIALOG_WELL_DONE);
 		}
 
 	};
+
+    public interface OnSelectedNumberChangedListener {
+        void onSelectedNumberChanged(int number);
+    }
+
+	private OnSelectedNumberChangedListener onSelectedNumberChangedListener = new OnSelectedNumberChangedListener() {
+        @Override
+        public void onSelectedNumberChanged(int number) {
+            if (number != 0) {
+                Cell cell = mSudokuGame.getCells().findFirstCell(number);
+                if (cell != null) {
+                    mSudokuBoard.moveCellSelectionTo(cell.getRowIndex(), cell.getColumnIndex());
+                }
+            }
+        }
+    };
 
 	/**
 	 * Update the time of game-play.

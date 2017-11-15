@@ -2,8 +2,7 @@ package org.moire.opensudoku.game.command;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import android.os.Bundle;
+import java.util.StringTokenizer;
 import org.moire.opensudoku.game.Cell;
 import org.moire.opensudoku.game.CellCollection;
 import org.moire.opensudoku.game.CellGroup;
@@ -17,37 +16,28 @@ public class FillInNotesCommand extends AbstractCellCommand {
 	}
 
 	@Override
-	void saveState(Bundle outState) {
-		super.saveState(outState);
+	public void serialize(StringBuilder data) {
+		super.serialize(data);
 
-		int[] rows = new int[mOldNotes.size()];
-		int[] cols = new int[mOldNotes.size()];
-		String[] notes = new String[mOldNotes.size()];
+		data.append(mOldNotes.size()).append("|");
 
-		int i = 0;
 		for (NoteEntry ne : mOldNotes) {
-			rows[i] = ne.rowIndex;
-			cols[i] = ne.colIndex;
-			notes[i] = ne.note.serialize();
-			i++;
+			data.append(ne.rowIndex).append("|");
+			data.append(ne.colIndex).append("|");
+			ne.note.serialize(data);
 		}
-
-		outState.putIntArray("rows", rows);
-		outState.putIntArray("cols", cols);
-		outState.putStringArray("notes", notes);
 	}
 
 	@Override
-	void restoreState(Bundle inState) {
-		super.restoreState(inState);
+	protected void _deserialize(StringTokenizer data) {
+		super._deserialize(data);
 
-		int[] rows = inState.getIntArray("rows");
-		int[] cols = inState.getIntArray("cols");
-		String[] notes = inState.getStringArray("notes");
+		int notesSize = Integer.parseInt(data.nextToken());
+		for (int i = 0; i < notesSize; i++) {
+			int row = Integer.parseInt(data.nextToken());
+			int col = Integer.parseInt(data.nextToken());
 
-		for (int i = 0; i < rows.length; i++) {
-			mOldNotes.add(new NoteEntry(rows[i], cols[i], CellNote
-					.deserialize(notes[i])));
+			mOldNotes.add(new NoteEntry(row, col, CellNote.deserialize(data.nextToken())));
 		}
 	}
 

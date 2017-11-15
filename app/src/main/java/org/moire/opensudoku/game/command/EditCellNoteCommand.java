@@ -20,20 +20,17 @@
 
 package org.moire.opensudoku.game.command;
 
-import android.os.Bundle;
 import org.moire.opensudoku.game.Cell;
 import org.moire.opensudoku.game.CellNote;
+import java.util.StringTokenizer;
 
-public class EditCellNoteCommand extends AbstractCellCommand {
+public class EditCellNoteCommand extends AbstractSingleCellCommand {
 
-	private int mCellRow;
-	private int mCellColumn;
 	private CellNote mNote;
 	private CellNote mOldNote;
 
 	public EditCellNoteCommand(Cell cell, CellNote note) {
-		mCellRow = cell.getRowIndex();
-		mCellColumn = cell.getColumnIndex();
+		super(cell);
 		mNote = note;
 	}
 
@@ -42,35 +39,31 @@ public class EditCellNoteCommand extends AbstractCellCommand {
 	}
 
 	@Override
-	void saveState(Bundle outState) {
-		super.saveState(outState);
+	public void serialize(StringBuilder data) {
+		super.serialize(data);
 
-		outState.putInt("cellRow", mCellRow);
-		outState.putInt("cellColumn", mCellColumn);
-		outState.putString("note", mNote.serialize());
-		outState.putString("oldNote", mOldNote.serialize());
+		mNote.serialize(data);
+		mOldNote.serialize(data);
 	}
 
 	@Override
-	void restoreState(Bundle inState) {
-		super.restoreState(inState);
+	protected void _deserialize(StringTokenizer data) {
+		super._deserialize(data);
 
-		mCellRow = inState.getInt("cellRow");
-		mCellColumn = inState.getInt("cellColumn");
-		mNote = CellNote.deserialize(inState.getString("note"));
-		mOldNote = CellNote.deserialize(inState.getString("oldNote"));
+		mNote = CellNote.deserialize(data.nextToken());
+		mOldNote = CellNote.deserialize(data.nextToken());
 	}
 
 	@Override
 	void execute() {
-		Cell cell = getCells().getCell(mCellRow, mCellColumn);
+		Cell cell = getCell();
 		mOldNote = cell.getNote();
 		cell.setNote(mNote);
 	}
 
 	@Override
 	void undo() {
-		Cell cell = getCells().getCell(mCellRow, mCellColumn);
+		Cell cell = getCell();
 		cell.setNote(mOldNote);
 	}
 

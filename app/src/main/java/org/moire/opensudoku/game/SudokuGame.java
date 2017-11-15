@@ -22,6 +22,9 @@ package org.moire.opensudoku.game;
 
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.support.annotation.Nullable;
+
+import org.moire.opensudoku.game.command.AbstractSingleCellCommand;
 import org.moire.opensudoku.game.command.ClearAllNotesCommand;
 import org.moire.opensudoku.game.command.AbstractCommand;
 import org.moire.opensudoku.game.command.CommandStack;
@@ -45,7 +48,7 @@ public class SudokuGame {
 
 	private OnPuzzleSolvedListener mOnPuzzleSolvedListener;
 	private CommandStack mCommandStack;
-	// Time when current activity has become active. 
+	// Time when current activity has become active.
 	private long mActiveFromTime = -1;
 
 	public static SudokuGame createEmptyGame() {
@@ -72,8 +75,7 @@ public class SudokuGame {
 		outState.putLong("time", mTime);
 		outState.putLong("lastPlayed", mLastPlayed);
 		outState.putString("cells", mCells.serialize());
-
-		mCommandStack.saveState(outState);
+		outState.putString("command_stack", mCommandStack.serialize());
 	}
 
 	public void restoreState(Bundle inState) {
@@ -84,9 +86,7 @@ public class SudokuGame {
 		mTime = inState.getLong("time");
 		mLastPlayed = inState.getLong("lastPlayed");
 		mCells = CellCollection.deserialize(inState.getString("cells"));
-
-		mCommandStack = new CommandStack(mCells);
-		mCommandStack.restoreState(inState);
+		mCommandStack = CommandStack.deserialize(inState.getString("command_stack"), mCells);
 
 		validate();
 	}
@@ -168,6 +168,14 @@ public class SudokuGame {
 		return mId;
 	}
 
+	public void setCommandStack(CommandStack commandStack) {
+		mCommandStack = commandStack;
+	}
+
+	public CommandStack getCommandStack() {
+		return mCommandStack;
+	}
+
 	/**
 	 * Sets value for the given cell. 0 means empty cell.
 	 *
@@ -241,8 +249,18 @@ public class SudokuGame {
 		return mCommandStack.hasCheckpoint();
 	}
 
+    @Nullable
+    public Cell getLastChangedCell() {
 
-	/**
+        AbstractSingleCellCommand c = mCommandStack.findLatestSingleCellCommand();
+
+        if (c != null) {
+            return c.getCell();
+        }
+        return null;
+    }
+
+    /**
 	 * Start game-play.
 	 */
 	public void start() {
@@ -260,7 +278,7 @@ public class SudokuGame {
 	 * Pauses game-play (for example if activity pauses).
 	 */
 	public void pause() {
-		// save time we have spent playing so far - it will be reseted after resuming 
+		// save time we have spent playing so far - it will be reseted after resuming
 		mTime += SystemClock.uptimeMillis() - mActiveFromTime;
 		mActiveFromTime = -1;
 
@@ -288,6 +306,7 @@ public class SudokuGame {
 				}
 			}
 		}
+		mCommandStack = new CommandStack(mCells);
 		validate();
 		setTime(0);
 		setLastPlayed(0);
@@ -327,5 +346,4 @@ public class SudokuGame {
 		 */
 		void onPuzzleSolved();
 	}
-
 }

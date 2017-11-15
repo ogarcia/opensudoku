@@ -9,6 +9,7 @@ public class SudokuImportParams {
 	public long lastPlayed;
 	public String data;
 	public String note;
+	public String command_stack;
 
 	public void clear() {
 		created = 0;
@@ -17,5 +18,6 @@ public class SudokuImportParams {
 		lastPlayed = 0;
 		data = null;
 		note = null;
+		command_stack = null;
 	}
 }

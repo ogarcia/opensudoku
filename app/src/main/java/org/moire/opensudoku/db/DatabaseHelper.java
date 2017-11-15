@@ -34,7 +34,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 	private static final String TAG = "DatabaseHelper";
 
-	public static final int DATABASE_VERSION = 8;
+	public static final int DATABASE_VERSION = 9;
 
 	private Context mContext;
 
@@ -53,7 +53,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 				+ SudokuColumns.TIME + " INTEGER,"
 				+ SudokuColumns.LAST_PLAYED + " INTEGER,"
 				+ SudokuColumns.DATA + " Text,"
-				+ SudokuColumns.PUZZLE_NOTE + " Text"
+				+ SudokuColumns.PUZZLE_NOTE + " Text,"
+				+ SudokuColumns.COMMAND_STACK + " Text"
 				+ ");");
 
 		db.execSQL("CREATE TABLE " + SudokuDatabase.FOLDER_TABLE_NAME + " ("
@@ -166,7 +167,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
 	// TODO: sudokuName is not used
 	private void insertSudoku(SQLiteDatabase db, long folderID, long sudokuID, String sudokuName, String data) {
-		String sql = "INSERT INTO " + SudokuDatabase.SUDOKU_TABLE_NAME + " VALUES (" + sudokuID + ", " + folderID + ", 0, " + SudokuGame.GAME_STATE_NOT_STARTED + ", 0, null, '" + data + "', null);";
+		String sql = "INSERT INTO " + SudokuDatabase.SUDOKU_TABLE_NAME + " VALUES (" + sudokuID + ", " + folderID + ", 0, " + SudokuGame.GAME_STATE_NOT_STARTED + ", 0, null, '" + data + "', null, null);";
 		db.execSQL(sql);
 	}
 
@@ -174,8 +175,13 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 	public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 		Log.i(TAG, "Upgrading database from version " + oldVersion + " to "
 				+ newVersion + "");
+		if (oldVersion <=7 ) {
+			createIndexes(db);
+		}
 
-		createIndexes(db);
+		if (oldVersion <= 8) {
+			db.execSQL("ALTER TABLE " + SudokuDatabase.SUDOKU_TABLE_NAME + " ADD COLUMN " + SudokuColumns.COMMAND_STACK + " TEXT");
+		}
 	}
 
 	private void createIndexes(SQLiteDatabase db) {

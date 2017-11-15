@@ -20,19 +20,16 @@
 
 package org.moire.opensudoku.game.command;
 
-import android.os.Bundle;
 import org.moire.opensudoku.game.Cell;
+import java.util.StringTokenizer;
 
-public class SetCellValueCommand extends AbstractCellCommand {
+public class SetCellValueCommand extends AbstractSingleCellCommand {
 
-	private int mCellRow;
-	private int mCellColumn;
 	private int mValue;
 	private int mOldValue;
 
 	public SetCellValueCommand(Cell cell, int value) {
-		mCellRow = cell.getRowIndex();
-		mCellColumn = cell.getColumnIndex();
+		super(cell);
 		mValue = value;
 	}
 
@@ -41,35 +38,31 @@ public class SetCellValueCommand extends AbstractCellCommand {
 	}
 
 	@Override
-	void saveState(Bundle outState) {
-		super.saveState(outState);
+	public void serialize(StringBuilder data) {
+		super.serialize(data);
 
-		outState.putInt("cellRow", mCellRow);
-		outState.putInt("cellColumn", mCellColumn);
-		outState.putInt("value", mValue);
-		outState.putInt("oldValue", mOldValue);
+		data.append(mValue).append("|");
+		data.append(mOldValue).append("|");
 	}
 
 	@Override
-	void restoreState(Bundle inState) {
-		super.restoreState(inState);
+	protected void _deserialize(StringTokenizer data) {
+		super._deserialize(data);
 
-		mCellRow = inState.getInt("cellRow");
-		mCellColumn = inState.getInt("cellColumn");
-		mValue = inState.getInt("value");
-		mOldValue = inState.getInt("oldValue");
+		mValue = Integer.parseInt(data.nextToken());
+		mOldValue = Integer.parseInt(data.nextToken());
 	}
 
 	@Override
 	void execute() {
-		Cell cell = getCells().getCell(mCellRow, mCellColumn);
+		Cell cell = getCell();
 		mOldValue = cell.getValue();
 		cell.setValue(mValue);
 	}
 
 	@Override
 	void undo() {
-		Cell cell = getCells().getCell(mCellRow, mCellColumn);
+		Cell cell = getCell();
 		cell.setValue(mOldValue);
 	}
 

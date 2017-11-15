@@ -143,6 +143,19 @@ public class CellCollection {
 		return mCells[rowIndex][colIndex];
 	}
 
+
+	public Cell findFirstCell(int val) {
+		for (int r = 0; r < SUDOKU_SIZE; r++) {
+			for (int c = 0; c < SUDOKU_SIZE; c++) {
+				Cell cell = mCells[r][c];
+				if (cell.getValue() == val)
+					return cell;
+			}
+		}
+		return null;
+	}
+
+
 	public void markAllCellsAsValid() {
 		mOnChangeEnabled = false;
 		for (int r = 0; r < SUDOKU_SIZE; r++) {

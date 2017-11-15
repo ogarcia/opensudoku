@@ -30,6 +30,7 @@ import android.database.sqlite.SQLiteStatement;
 import org.moire.opensudoku.game.CellCollection;
 import org.moire.opensudoku.game.FolderInfo;
 import org.moire.opensudoku.game.SudokuGame;
+import org.moire.opensudoku.game.command.CommandStack;
 import org.moire.opensudoku.gui.SudokuListFilter;
 
 /**
@@ -330,6 +331,13 @@ public class SudokuDatabase {
 				s.setState(state);
 				s.setTime(time);
 				s.setNote(note);
+
+				if (s.getState() == SudokuGame.GAME_STATE_PLAYING) {
+				    String command_stack =  c.getString(c.getColumnIndex(SudokuColumns.COMMAND_STACK));
+				    if (command_stack != null  && command_stack != "") {
+                        s.setCommandStack(CommandStack.deserialize(command_stack, s.getCells()));
+                    }
+                }
 			}
 		} finally {
 			if (c != null) c.close();
@@ -357,6 +365,11 @@ public class SudokuDatabase {
 		values.put(SudokuColumns.TIME, sudoku.getTime());
 		values.put(SudokuColumns.PUZZLE_NOTE, sudoku.getNote());
 		values.put(SudokuColumns.FOLDER_ID, folderID);
+        String command_stack = "";
+        if (sudoku.getState() == SudokuGame.GAME_STATE_PLAYING) {
+            command_stack =  sudoku.getCommandStack().serialize();
+        }
+        values.put(SudokuColumns.COMMAND_STACK, command_stack);
 
 		long rowId = db.insert(SUDOKU_TABLE_NAME, FolderColumns.NAME, values);
 		if (rowId > 0) {
@@ -382,7 +395,7 @@ public class SudokuDatabase {
 		if (mInsertSudokuStatement == null) {
 			SQLiteDatabase db = mOpenHelper.getWritableDatabase();
 			mInsertSudokuStatement = db.compileStatement(
-					"insert into sudoku (folder_id, created, state, time, last_played, data, puzzle_note) values (?, ?, ?, ?, ?, ?, ?)"
+					"insert into sudoku (folder_id, created, state, time, last_played, data, puzzle_note, command_stack) values (?, ?, ?, ?, ?, ?, ?, ?)"
 			);
 		}
 
@@ -397,6 +410,12 @@ public class SudokuDatabase {
 		} else {
 			mInsertSudokuStatement.bindString(7, pars.note);
 		}
+        if (pars.command_stack == null) {
+            mInsertSudokuStatement.bindNull(8);
+        } else {
+            mInsertSudokuStatement.bindString(8, pars.command_stack);
+        }
+
 
 		long rowId = mInsertSudokuStatement.executeInsert();
 		if (rowId > 0) {
@@ -445,6 +464,11 @@ public class SudokuDatabase {
 		values.put(SudokuColumns.STATE, sudoku.getState());
 		values.put(SudokuColumns.TIME, sudoku.getTime());
 		values.put(SudokuColumns.PUZZLE_NOTE, sudoku.getNote());
+        String command_stack = "";
+        if (sudoku.getState() == SudokuGame.GAME_STATE_PLAYING) {
+            command_stack =  sudoku.getCommandStack().serialize();
+        }
+        values.put(SudokuColumns.COMMAND_STACK, command_stack);
 
 		SQLiteDatabase db = mOpenHelper.getWritableDatabase();
 		db.update(SUDOKU_TABLE_NAME, values, SudokuColumns._ID + "=" + sudoku.getId(), null);

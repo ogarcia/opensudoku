@@ -20,7 +20,7 @@
 
 package org.moire.opensudoku.game.command;
 
-import android.os.Bundle;
+import java.util.StringTokenizer;
 
 /**
  * Generic interface for command in application.
@@ -29,37 +29,74 @@ import android.os.Bundle;
  */
 public abstract class AbstractCommand {
 
-	public static AbstractCommand newInstance(String commandClass) {
-		if (commandClass.equals(ClearAllNotesCommand.class.getSimpleName())) {
-			return new ClearAllNotesCommand();
-		} else if (commandClass.equals(EditCellNoteCommand.class.getSimpleName())) {
-			return new EditCellNoteCommand();
-		} else if (commandClass.equals(FillInNotesCommand.class.getSimpleName())) {
-			return new FillInNotesCommand();
-		} else if (commandClass.equals(SetCellValueCommand.class.getSimpleName())) {
-			return new SetCellValueCommand();
-		} else {
-			throw new IllegalArgumentException(String.format("Unknown command class '%s'.", commandClass));
-		}
-	}
+    private interface CommandCreatorFunction {
+        AbstractCommand create();
+    }
 
-	private boolean mIsCheckpoint;
+    private static class CommandDef {
+        String mLongName;
+        String mShortName;
+        CommandCreatorFunction mCreator;
 
-	void saveState(Bundle outState) {
-		outState.putBoolean("isCheckpoint", mIsCheckpoint);
-	}
+        public CommandDef(String longName, String shortName, CommandCreatorFunction creator){
+            mLongName = longName;
+            mShortName = shortName;
+            mCreator = creator;
+        }
 
-	void restoreState(Bundle inState) {
-		mIsCheckpoint = inState.getBoolean("isCheckpoint");
-	}
+        public AbstractCommand create() {
+            return mCreator.create();
+        }
 
-	public boolean isCheckpoint() {
-		return mIsCheckpoint;
-	}
+        public String getLongName() {
+            return mLongName;
+        }
 
-	public void setCheckpoint(boolean isCheckpoint) {
-		mIsCheckpoint = isCheckpoint;
-	}
+        public String getShortName() {
+            return mShortName;
+        }
+    }
+
+    private static final CommandDef[] commands = {
+            new CommandDef(ClearAllNotesCommand.class.getSimpleName(),"c1",
+                    new CommandCreatorFunction() { public AbstractCommand create() {return new ClearAllNotesCommand();} }),
+            new CommandDef(EditCellNoteCommand.class.getSimpleName(),"c2",
+                    new CommandCreatorFunction() { public AbstractCommand create() {return new EditCellNoteCommand();} }),
+            new CommandDef(FillInNotesCommand.class.getSimpleName(),"c3",
+                    new CommandCreatorFunction() { public AbstractCommand create() {return new FillInNotesCommand();} }),
+            new CommandDef(SetCellValueCommand.class.getSimpleName(),"c4",
+                    new CommandCreatorFunction() { public AbstractCommand create() {return new SetCellValueCommand();} }),
+            new CommandDef(CheckpointCommand.class.getSimpleName(),"c5",
+                    new CommandCreatorFunction() { public AbstractCommand create() {return new CheckpointCommand();} })
+    };
+
+	public static AbstractCommand deserialize(StringTokenizer data) {
+		String cmdShortName = data.nextToken();
+        for (CommandDef cmdDef: commands) {
+            if (cmdDef.getShortName().equals(cmdShortName)) {
+                AbstractCommand cmd = cmdDef.create();
+                cmd._deserialize(data);
+                return cmd;
+            }
+        }
+        throw new IllegalArgumentException(String.format("Unknown command class '%s'.", cmdShortName));
+    }
+
+    protected void _deserialize(StringTokenizer data) {
+
+    }
+
+    public void serialize(StringBuilder data) {
+        String cmdLongName = getCommandClass();
+        for (CommandDef cmdDef: commands) {
+            if (cmdDef.getLongName().equals(cmdLongName)) {
+                data.append(cmdDef.getShortName()).append("|");
+                return;
+            }
+        }
+
+        throw new IllegalArgumentException(String.format("Unknown command class '%s'.", cmdLongName));
+    }
 
 	public String getCommandClass() {
 		return getClass().getSimpleName();

@@ -1,10 +1,9 @@
 package org.moire.opensudoku.game.command;
 
+import java.util.ListIterator;
 import java.util.Stack;
-
+import java.util.StringTokenizer;
 import org.moire.opensudoku.game.CellCollection;
-
-import android.os.Bundle;
 
 public class CommandStack {
 	private Stack<AbstractCommand> mCommandStack = new Stack<AbstractCommand>();
@@ -17,26 +16,35 @@ public class CommandStack {
 		mCells = cells;
 	}
 
-	public void saveState(Bundle outState) {
-		outState.putInt("cmdStack.size", mCommandStack.size());
-		for (int i = 0; i < mCommandStack.size(); i++) {
-			AbstractCommand command = mCommandStack.get(i);
-			Bundle commandState = new Bundle();
-			commandState.putString("commandClass", command.getCommandClass());
-			command.saveState(commandState);
-			outState.putBundle("cmdStack." + i, commandState);
-		}
-	}
+    public static CommandStack deserialize(String data, CellCollection cells) {
+        StringTokenizer st = new StringTokenizer(data, "|");
+        return deserialize(st, cells);
+    }
 
-	public void restoreState(Bundle inState) {
-		int stackSize = inState.getInt("cmdStack.size");
-		for (int i = 0; i < stackSize; i++) {
-			Bundle commandState = inState.getBundle("cmdStack." + i);
-			AbstractCommand command = AbstractCommand.newInstance(commandState.getString("commandClass"));
-			command.restoreState(commandState);
-			push(command);
-		}
-	}
+    public static CommandStack deserialize(StringTokenizer data, CellCollection cells) {
+	    CommandStack result = new CommandStack(cells);
+        int stackSize = Integer.parseInt(data.nextToken());
+        for (int i = 0; i < stackSize; i++) {
+            AbstractCommand command = AbstractCommand.deserialize(data);
+            result.push(command);
+        }
+
+        return result;
+    }
+
+    public String serialize() {
+        StringBuilder sb = new StringBuilder();
+        serialize(sb);
+        return sb.toString();
+    }
+
+    public void serialize(StringBuilder data) {
+        data.append(mCommandStack.size()).append("|");
+        for (int i = 0; i < mCommandStack.size(); i++) {
+            AbstractCommand command = mCommandStack.get(i);
+            command.serialize(data);
+        }
+    }
 
 	public boolean empty() {
 		return mCommandStack.empty();
@@ -58,13 +66,15 @@ public class CommandStack {
 	public void setCheckpoint() {
 		if (!mCommandStack.empty()) {
 			AbstractCommand c = mCommandStack.peek();
-			c.setCheckpoint(true);
+			if (c instanceof CheckpointCommand)
+				return;
 		}
+		push(new CheckpointCommand());
 	}
 
 	public boolean hasCheckpoint() {
 		for (AbstractCommand c : mCommandStack) {
-			if (c.isCheckpoint())
+			if (c instanceof CheckpointCommand)
 				return true;
 		}
 		return false;
@@ -80,9 +90,8 @@ public class CommandStack {
 			c = mCommandStack.pop();
 			c.undo();
 
-			if (mCommandStack.empty() || mCommandStack.peek().isCheckpoint()) {
-				break;
-			}
+			if (c instanceof CheckpointCommand)
+			    break;
 		}
 		validateCells();
 	}
@@ -92,10 +101,21 @@ public class CommandStack {
 		return mCommandStack.size() != 0;
 	}
 
+	public AbstractSingleCellCommand findLatestSingleCellCommand() {
+        ListIterator<AbstractCommand> iter = mCommandStack.listIterator(mCommandStack.size());
+        while (iter.hasPrevious()) {
+            AbstractCommand o = iter.previous();
+            if (o instanceof AbstractSingleCellCommand)
+                return (AbstractSingleCellCommand) o;
+        }
+
+        return null;
+    }
+
 	private void push(AbstractCommand command) {
 		if (command instanceof AbstractCellCommand) {
 			((AbstractCellCommand) command).setCells(mCells);
-		}
+        }
 		mCommandStack.push(command);
 	}
 
