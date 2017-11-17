@@ -71,7 +71,7 @@ public class CellNote {
                     String value = tokenizer.nextToken();
                     if (!value.equals("-")) {
                         int number = Integer.parseInt(value);
-                        noteValue |= (1 << number);
+                        noteValue |= (1 << (number - 1));
                     }
                 }
             } else {
