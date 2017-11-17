@@ -386,10 +386,8 @@ public class SudokuDatabase {
 			throw new SudokuInvalidFormatException(pars.data);
 		}
 
-		if (!CellCollection.isValid(pars.data, CellCollection.DATA_VERSION_PLAIN)) {
-			if (!CellCollection.isValid(pars.data, CellCollection.DATA_VERSION_1)) {
-				throw new SudokuInvalidFormatException(pars.data);
-			}
+		if (!CellCollection.isValid(pars.data)) {
+			throw new SudokuInvalidFormatException(pars.data);
 		}
 
 		if (mInsertSudokuStatement == null) {
