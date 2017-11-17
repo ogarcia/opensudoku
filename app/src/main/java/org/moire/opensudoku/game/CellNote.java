@@ -56,12 +56,31 @@ public class CellNote {
 	 *
 	 * @param note
 	 */
-	public static CellNote deserialize(String note) {
+    public static CellNote deserialize(String note) {
+        return deserialize(note, CellCollection.DATA_VERSION);
+    }
 
-		if (note == null || note.equals("") || note.equals("0"))
-		    return new CellNote((short)0);
+	public static CellNote deserialize(String note, int version) {
 
-        return new CellNote((short)Integer.parseInt(note));
+	    int noteValue = 0;
+		if (note != null && !note.equals("") && !note.equals("-"))
+        {
+            if (version == CellCollection.DATA_VERSION_1) {
+                StringTokenizer tokenizer = new StringTokenizer(note, ",");
+                while (tokenizer.hasMoreTokens()) {
+                    String value = tokenizer.nextToken();
+                    if (!value.equals("-")) {
+                        int number = Integer.parseInt(value);
+                        noteValue |= (1 << number);
+                    }
+                }
+            } else {
+                //CellCollection.DATA_VERSION_2
+                noteValue = Integer.parseInt(note);
+            }
+        }
+
+        return new CellNote((short)noteValue);
 	}
 
 

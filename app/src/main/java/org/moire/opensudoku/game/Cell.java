@@ -229,10 +229,10 @@ public class Cell {
 	 * @param data
 	 * @return
 	 */
-	public static Cell deserialize(StringTokenizer data) {
+	public static Cell deserialize(StringTokenizer data, int version) {
 		Cell cell = new Cell();
 		cell.setValue(Integer.parseInt(data.nextToken()));
-		cell.setNote(CellNote.deserialize(data.nextToken()));
+		cell.setNote(CellNote.deserialize(data.nextToken(), version));
 		cell.setEditable(data.nextToken().equals("1"));
 
 		return cell;
@@ -247,7 +247,7 @@ public class Cell {
 	 */
 	public static Cell deserialize(String cellData) {
 		StringTokenizer data = new StringTokenizer(cellData, "|");
-		return deserialize(data);
+		return deserialize(data, CellCollection.DATA_VERSION);
 	}
 
 
