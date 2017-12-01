@@ -193,5 +193,6 @@
     <string name="contributors_label">Contributors</string>
 	<string name="bidirectional_selection">Bidirectional selection</string>
 	<string name="bidirectional_selection_summary">In single number input panel, the selection of a non editable cell automatically selects the corresponding button and vice versa.</string>
+    <string name="input_panel_clear">C</string>
 
 </resources>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Open Sudoku</string>
+    <string name="edit_sudoku">编辑数独</string>
+
+    <string name="puzzle_folders">OpenSudoku 数独文件夹</string>
+
+    <string name="version">版本 %s</string>
+    <string name="send_me_bugs">如果你发现了Bug，可以通过E-mail联系我，或者提交到项目首页的\"问题跟踪\"。</string>
+
+    <string name="current_developers_label">当前版本开发者</string>
+
+    <string name="old_developers_label">原开发者</string>
+
+    <string name="localization_contributors_label">本地化贡献者</string>
+
+    <string name="clear">清除</string>
+    <string name="save">保存</string>
+    <string name="close">关闭</string>
+    <string name="get_more_puzzles_online">在线获取更多数独</string>
+
+    <string name="name">名称：</string>
+    <string name="note">标注：</string>
+
+    <string name="select_number">选择数字</string>
+    <string name="edit_note">编辑标注</string>
+
+    <string name="add_folder">添加文件夹</string>
+    <string name="import_file">导入</string>
+    <string name="import_file_title">导入文件 %s</string>
+    <string name="about">关于</string>
+    <string name="rename_folder">重命名文件夹</string>
+    <string name="delete_folder">删除文件夹</string>
+    <string name="rename_folder_title">重命名 %s</string>
+    <string name="delete_folder_title">删除 %s</string>
+    <string name="delete_folder_confirm">你确认要删除这个文件夹吗？</string>
+
+    <string name="no_puzzles">没有数独</string>
+    <string name="one_puzzle">1个数独</string>
+    <string name="n_puzzles">%s个数独</string>
+    <string name="all_solved">已完成全部</string>
+    <string name="n_solved">%s已完成</string>
+    <string name="n_unsolved">%s未完成</string>
+    <string name="n_playing">%s进行中</string>
+
+    <string name="solved">已完成</string>
+    <string name="playing">进行中</string>
+    <string name="not_started">未开始</string>
+    <string name="last_played_at">上次游玩于 %s</string>
+    <string name="created_at">创建于 %s</string>
+    <string name="at_time">%s</string>
+    <string name="yesterday_at_time">昨天%s</string>
+    <string name="on_date">%s</string>
+    <string name="add_sudoku">添加数独</string>
+    <string name="filter">过滤</string>
+    <string name="filter_by_gamestate">按状态过滤</string>
+    <string name="folders">文件夹</string>
+    <string name="delete_puzzle_confirm">你确认要删除选中的数独吗？</string>
+    <string name="reset_puzzle_confirm">你确认要重置选中的数独吗？</string>
+    <string name="play_puzzle">开始解题</string>
+    <string name="reset_puzzle">重置</string>
+    <string name="edit_puzzle">编辑</string>
+    <string name="delete_puzzle">删除</string>
+    <string name="filter_active">过滤条件: %s</string>
+
+    <string name="undo">撤销</string>
+    <string name="clear_all_notes">清除所有标注</string>
+    <string name="fill_in_notes">自动标注</string>
+    <string name="restart">重新开始</string>
+    <string name="congrats">恭喜，你已经完成这个数独 %s.</string>
+    <string name="restart_confirm">你确认要重新开始吗？</string>
+    <string name="well_done">漂亮！</string>
+    <string name="clear_all_notes_confirm">你确认要清除所有标注吗？</string>
+    <string name="settings">设置</string>
+    <string name="game_settings">游戏设置</string>
+
+    <string name="game_helpers">游戏助手</string>
+    <string name="highlight_wrong_values">高亮错误数字</string>
+    <string name="highlight_wrong_values_summary">高亮不符合数独规则的数字</string>
+    <string name="input_methods">输入模式</string>
+    <string name="popup">弹窗</string>
+    <string name="popup_summary">通过弹窗来编辑单元格上的数字或者标注</string>
+    <string name="single_number">单数</string>
+    <string name="single_number_summary">选中数字，再轻点单元格即可输入该数字或者做标注</string>
+    <string name="numpad">数字键盘</string>
+    <string name="numpad_summary">以普通键盘的形式显示数字</string>
+    <string name="numpad_move_right">键入时向右移动</string>
+    <string name="numpad_move_right_summary">按数字键输入后，自动向右移动单元格</string>
+
+    <string name="numpad_abbr">数字\n键盘</string>
+    <string name="popup_abbr">弹窗</string>
+    <string name="single_number_abbr">单数</string>
+    <string name="welcome">Welcome</string>
+    <string name="hint">提示</string>
+    <string name="help">帮助</string>
+    <string name="that_is_all">这些就是全部的提示</string>
+
+
+    <string name="first_run_hint">有几种输入模式可以用来填写数独谜题。为了帮助您熟悉这些模式，
+        您将会看到一些有用的引导提示。\n\n您可以在游戏设置中禁用这些提示。\n
+    </string>
+    <string name="im_popup_hint">您现在用的是 <i>弹窗</i> 输入模式。
+        点击任何单元格就可以编辑其内容了。\n\n注意到右下角的按钮了吗？
+        您可以使用此按钮切换到另一种输入模式。\n
+    </string>
+    <string name="im_single_number_hint">您现在用的是 <i>单数</i> 输入模式。
+        首先按任意数字按钮，然后只需点击你想要的填写选中数字的单元格。\n\n
+        按钮 <i>笔</i> 切换标注模式\n
+    </string>
+    <string name="im_numpad_hint">您现在用的是
+        <i>数字键盘</i>  输入模式。 按钮就是一个标准的数字键盘。\n\n
+        按钮 <i>笔</i> 切换标注模式\n
+    </string>
+    <string name="im_disable_modes_hint">请注意，您不必使用所有的输入模式，
+        可以到设置里只启用您喜欢的模式。\n\n您还可以使用键盘和鼠标（外接）来控制游戏。
+        如需输入标注，则请同时按Alt或Shift键即可。\n
+    </string>
+    <string name="help_text"><b>键盘控制</b>\n\n使用轨迹球导航到所需的单元格，然后按
+键盘上的数字来填写数值。如果要编辑单元格的标注，请按shift键或按Alt键。\n\n
+<b>输入模式</b>\n\n您可以使用屏幕右下角的按钮在几种输入模式之间切换。
+您也可以在游戏设置中禁用任何输入模式 - 它将完全隐藏\n\n
+<b>弹窗输入模式</b>\n\n点击单元格时会显示弹出对话框，您可以使用此对话框编辑格子的内容。\n\n
+<b>单个数字输入模式</b>\n\n首先按任意数字按钮。 然后，只需点击您想要填充选定数字的单元格。\n\n按钮
+<i>笔</i> 可切换标注模式\n\n
+<b>数字键盘输入模式</b>\n\n按钮就是一个标准的数字键盘。\n按钮
+<i>笔</i> 切换标注模式\n
+    </string>
+
+
+    <string name="game">游戏</string>
+    <string name="show_hints">显示启动提示</string>
+    <string name="show_hints_summary">显示游戏的操作引导提示</string>
+    <string name="show_time">显示时长</string>
+    <string name="show_time_summary">游戏中显示计时</string>
+
+    <string name="puzzle_inserted">新数独已经保存</string>
+    <string name="puzzle_updated">数独已经更新</string>
+
+    <string name="puzzles_saved">数独已经保存到\'%s\'文件夹。</string>
+    <string name="no_puzzles_found">没有找到数独</string>
+    <string name="unknown_import_error">发生未知错误，导入被取消</string>
+    <string name="invalid_format">不能导入不识别的格式</string>
+
+    <!-- Strings added in 0.7.0 -->
+    <string name="loading">加载中...</string>
+
+    <!-- Strings added/changed in 0.7.1 -->
+    <string name="more_settings">更多设置</string>
+    <string name="screen_border_size">屏幕边距</string>
+    <string name="screen_border_size_summary">一些显示器不会响应在边缘的触摸事件，
+        这个选项可以帮助解决这个问题。
+    </string>
+    <string name="highlight_touched_cell">触碰时高亮单元格</string>
+    <string name="highlight_touched_cell_summary">高亮被触碰单元格所在的列和行</string>
+    <string name="export">导出</string>
+    <string name="export_folder">导出文件夹</string>
+    <string name="export_all_folders">导出所有文件夹</string>
+    <string name="folders_created">已导入%s个文件</string>
+    <string name="importing">导入中...</string>
+    <string name="exporting">导出中...</string>
+    <string name="unknown_export_error">导出时发生未知错误</string>
+    <string name="highlight_completed_values">高亮已完成的数字</string>
+    <string name="highlight_completed_values_summary">高亮已经填入9次的数字按钮</string>
+    <string name="theme">主题</string>
+    <string name="theme_summary">选择颜色主题</string>
+    <string name="select_theme">选择主题</string>
+    <string name="filename">文件名</string>
+    <string name="directory">目录</string>
+    <string name="sdcard_not_found">SD 卡不存在</string>
+    <string name="puzzles_have_been_exported">数独已经导出到 %s</string>
+    <string name="file_exists">文件已存在，是否要覆盖？</string>
+    <!-- localization of default folder names -->
+    <string name="difficulty_hard">困难</string>
+    <string name="difficulty_medium">普通</string>
+    <string name="difficulty_easy">简单</string>
+
+    <!-- Strings added/changed in 1.1.0 -->
+    <string name="generate_sudoku">创建新数独</string>
+    <string name="select_difficulty">选择难度</string>
+    <string name="generating">正在创建数独中...</string>
+    <string name="show_number_totals">显示总数</string>
+    <string name="show_number_totals_summary">显示每个数字已经出现的次数</string>
+    <string name="what_is_new">新内容</string>
+
+    <!-- Strings added/changed in 1.1.1 -->
+    <string name="fill_in_notes_summary">是否启用 "自动标注" 菜单项</string>
+
+    <!-- Strings added/changed in 1.1.2 -->
+    <string name="set_checkpoint">设置标记点</string>
+    <string name="undo_to_checkpoint">撤回到标记点</string>
+    <string name="undo_to_checkpoint_confirm">你确认要撤销标记点后的所有操作吗？</string>
+
+    <!-- Strings added/changed in 2.3.0 -->
+    <string name="highlight_similar_cells">高亮相同格子</string>
+    <string name="highlight_similar_cells_summary">高亮数字相同的单元格</string>
+
+    <!-- Strings added/changed in 2.4.0 -->
+    <string name="bidirectional_selection">双向选择</string>
+    <string name="bidirectional_selection_summary">在"单数"输入面板中，
+选择不可编辑的单元格会自动选择相应的按钮，反之亦然。
+    </string>
+    <string name="contributors_label">供献者</string>
+    <string name="input_panel_clear">清除</string>
+</resources>
