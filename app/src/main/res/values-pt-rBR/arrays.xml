@@ -18,14 +18,4 @@
 		<item>Paper Light I</item>
 		<item>Paper Light II</item>
 	</string-array>
-	<!-- Theme codes should not change, do not translate this! -->
-	<string-array name="theme_codes" translatable="false">
-		<item>default</item>
-		<item>paperi</item>
-		<item>paperii</item>
-		<item>light</item>
-		<item>paperlighti</item>
-		<item>paperlightii</item>
-	</string-array>
-    <!-- End of theme codes -->
 </resources>
