@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="game_states">
+		<item>Não iniciado</item>
+		<item>Jogando</item>
+		<item>Resolvido</item>
+	</string-array>
+    <string-array name="game_levels">
+        <item>Fácil</item>
+        <item>Médio</item>
+        <item>Difícil</item>
+    </string-array>
+	<string-array name="theme_names">
+		<item>Padrão</item>
+		<item>Paper I</item>
+		<item>Paper II</item>
+		<item>Light</item>
+		<item>Paper Light I</item>
+		<item>Paper Light II</item>
+	</string-array>
+	<!-- Theme codes should not change, do not translate this! -->
+	<string-array name="theme_codes" translatable="false">
+		<item>default</item>
+		<item>paperi</item>
+		<item>paperii</item>
+		<item>light</item>
+		<item>paperlighti</item>
+		<item>paperlightii</item>
+	</string-array>
+    <!-- End of theme codes -->
+</resources>

@@ -20,7 +20,7 @@
     <string name="old_developers" translatable="false">Roman Mašek</string>
 
     <string name="localization_contributors_label">Localization Contributors</string>
-    <string name="localization_contributors" translatable="false">Vit Hnilica\nMartin Sobola\nMartin Helff\nDiego Pierotto\nGokay Can Kayki</string>
+    <string name="localization_contributors" translatable="false">Vit Hnilica\nMartin Sobola\nMartin Helff\nDiego Pierotto\nGokay Can Kayki\nPaulo Schopf</string>
 
 	<string name="close">Close</string>
 	<string name="clear">Clear</string>

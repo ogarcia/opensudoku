@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string name="app_name">Open Sudoku</string>
+	<string name="edit_sudoku">Editar Sudoku</string>
+
+	<string name="puzzle_folders">Pastas de jogos OpenSudoku</string>
+
+	<string name="version">Versão %s</string>
+	<string name="homepage" translatable="false">http://opensudoku.moire.org</string>
+	<string name="email" translatable="false">&lt;opensudoku@moire.org&gt;</string>
+	<string name="send_me_bugs">
+        Se você encontrar um erro, não hesite em contatar-me por email
+		ou use o rastreador de problemas na homepage do projeto.
+	</string>
+
+    <string name="current_developers_label">Desenvolvedor Atual</string>
+    <string name="current_developers" translatable="false">Óscar García Amor</string>
+
+    <string name="old_developers_label">Desenvolvedor Anterior</string>
+    <string name="old_developers" translatable="false">Roman Mašek</string>
+
+    <string name="localization_contributors_label">Colaboradores das Traduções</string>
+    <string name="localization_contributors" translatable="false">Vit Hnilica\nMartin Sobola\nMartin Helff\nDiego Pierotto\nGokay Can Kayki\nPaulo Schopf</string>
+
+	<string name="close">Fechar</string>
+	<string name="clear">Limpar</string>
+	<string name="save">Salvar</string>
+
+	<string name="get_more_puzzles_online">Obtenha mais jogos online</string>
+
+	<string name="name">Nome:</string>
+	<string name="note">Anotação:</string>
+
+	<string name="select_number">Selecionar número</string>
+	<string name="edit_note">Editar anotação</string>
+
+	<string name="add_folder">Adicionar pasta</string>
+	<string name="import_file">Importar</string>
+	<string name="import_file_title">Importar arquivo %s</string>
+	<string name="about">Sobre</string>
+	<string name="rename_folder">Renomear pasta</string>
+	<string name="delete_folder">Excluir pasta</string>
+	<string name="rename_folder_title">Renomear %s</string>
+	<string name="delete_folder_title">Excluir %s</string>
+	<string name="delete_folder_confirm">Quer realmente excluir esta pasta?</string>
+
+	<string name="no_puzzles">Nenhum jogo</string>
+	<string name="one_puzzle">1 jogo</string>
+	<string name="n_puzzles">%s jogos</string>
+	<string name="all_solved">todos resolvidos</string>
+	<string name="n_solved">%s resolvidos</string>
+	<string name="n_unsolved">%s não resolvidos</string>
+	<string name="n_playing">jogando %s</string>
+
+	<string name="solved">Resolvido</string>
+	<string name="playing">Jogando</string>
+	<string name="not_started">Não iniciados</string>
+	<string name="last_played_at">Último jogo: %s</string>
+	<string name="created_at">Criado %s</string>
+	<string name="at_time">às %s</string>
+	<string name="yesterday_at_time">ontem às %s</string>
+	<string name="on_date">em %s</string>
+	<string name="add_sudoku">Adicionar sudoku</string>
+	<string name="filter">Filtros</string>
+	<string name="filter_by_gamestate">Filtrar pelo status do jogo</string>
+	<string name="folders">Pastas</string>
+	<string name="delete_puzzle_confirm">Quer realmente excluir o jogo selecionado?</string>
+	<string name="reset_puzzle_confirm">Quer realmente resetar o jogo selecionado?</string>
+	<string name="play_puzzle">Jogar</string>
+	<string name="reset_puzzle">Resetar jogo</string>
+	<string name="edit_puzzle">Editar jogo</string>
+	<string name="delete_puzzle">Excluir jogo</string>
+	<string name="filter_active">Filtrar: %s</string>
+
+	<string name="undo">Limpar</string>
+	<string name="clear_all_notes">Limpar todas as anotações</string>
+	<string name="fill_in_notes">Preencher anotação</string>
+	<string name="restart">Reiniciar</string>
+	<string name="congrats">Parabéns, você resolveu o jogo em %s.</string>
+	<string name="restart_confirm">Quer realmente reiniciar este jogo?</string>
+	<string name="well_done">Bom Trabalho!</string>
+	<string name="clear_all_notes_confirm">Quer realmente limpar todas as anotações?</string>
+	<string name="settings">Configurações</string>
+	<string name="game_settings">Configurações do jogo</string>
+
+	<string name="game_helpers">Ajudantes de Jogo</string>
+	<string name="highlight_wrong_values">Destacar valores errados</string>
+	<string name="highlight_wrong_values_summary">Destaca valores em desacordo com as regras.</string>
+	<string name="input_methods">Modos de Entrada</string>
+	<string name="popup">Popup</string>
+	<string name="popup_summary">Edite o valor e a anotação numa janela popup.</string>
+	<string name="single_number">Número Simples</string>
+	<string name="single_number_summary">Selecione o número e toque na célula para definir seu valor ou anotação.</string>
+	<string name="numpad">Teclado</string>
+	<string name="numpad_summary">Mostra um teclado numérico que age como tal.</string>
+	<string name="numpad_move_right">Move para a direita ao pressionar</string>
+	<string name="numpad_move_right_summary">Move uma casa para a direita quando é escolhido um número.
+	</string>
+
+	<string name="numpad_abbr">Tec</string>
+	<string name="popup_abbr">Pop</string>
+	<string name="single_number_abbr">NS</string>
+	<string name="welcome">Bem-vindo</string>
+	<string name="hint">Dica</string>
+	<string name="help">Ajuda</string>
+	<string name="that_is_all">Isso é tudo</string>
+
+
+	<string name="first_run_hint">Existem vários modos de entrada no jogo. A fim de ajudar a se familiarizar com
+		isso, várias dicas serão mostradas ao entrar no jogo.\n\nVocê pode desabilitar estas dicas nas configurações.\n
+	</string>
+	<string name="im_popup_hint">Você está agora no modo de entrada 
+		<i>Popup</i>. Pressione qualquer célula para editar seu conteúdo.\n\nObserve o botão no canto inferior direito que alterna
+		entre os modos de entrada.\n
+	</string>
+	<string name="im_single_number_hint">Você está agora no modo de entrada 
+		<i>Número Simples</i>. Pressione um botão numérico e escolha qualquer célula para preencher com o número selecionado.\n\n
+		Pressione o botão com um 
+		<i>Lápis</i>
+		para editar a observação da célula.\n
+	</string>
+	<string name="im_numpad_hint">Você está agora no modo de entrada 
+		<i>Teclado</i>. Os botões agem como um teclado numérico padrão.\n\n
+		Pressione o botão com um 
+		<i>Lápis</i>
+		para editar a observação da célula.\n
+	</string>
+	<string name="im_disable_modes_hint">Lembre-se que você não precisa usar todos os modos de entrada. Você pode
+		desabilitá-los nas configurações.\n\nVocê pode também usar o teclado e o trackball no jogo. Querendo editar
+		as observações com o teclado, pressione o número com ALT ou SHIFT.\n
+	</string>
+	<string name="help_text"><b>Controle de teclado</b>\n\nUse o trackball para navegar para a célula desejada e
+		pressione o número no teclado para preencher com o valor. Para editar a observação da célula, pressione o
+		número com ALT ou SHIFT.\n\n<b>
+			Modos de entrada</b>\n\nVocê pode alternar entre os modos de entrada usando o botão no canto inferior 
+		direito da tela. Você pode também desabilitar qualquer modo de entrada nas configurações do jogo - isso irá
+		escondê-los totalmente.\n\n
+		<b>Modo de entrada Popup</b>\n\nUma janela popup é mostrada ao pressionar uma célula. Você pode editar o valor
+		da célula ou da observação usando esta janela.\n\n
+		<b>Modo de entrada Número Simples</b>\n\nInicialmente selecione qualquer número pressionando-o. Então toque
+		na célula para ter o conteúdo preenchido com o número.\n\n
+		Use o botão com um <i>Lápis</i> para alternar entre a edição do valor ou da observação.\n\n
+		<b>Modo de entrada Teclado</b>\n\nOs botões agem como um teclado numérico padrão.\n\n
+		Use o botão com um <i>Lápis</i> para alternar entre a edição do valor ou da observação.\n
+	</string>
+
+
+	<string name="game">Jogo</string>
+	<string name="show_hints">Mostra dicas ao iniciar</string>
+	<string name="show_hints_summary">Mostra dicas que ajudarão com os controles da aplicação.</string>
+	<string name="show_time">Mostrar horário</string>
+	<string name="show_time_summary">Mostra horário durante o jogo.</string>
+
+	<string name="puzzle_inserted">Novos jogos foram salvos.</string>
+	<string name="puzzle_updated">Jogos foram atualizados.</string>
+
+	<string name="puzzles_saved">Jogos foram salvos na pasta \'%s\'.</string>
+	<string name="no_puzzles_found">Nenhum jogo encontrado.</string>
+	<string name="unknown_import_error">Erro desconhecido ao importar jogos. A importação foi cancelada.</string>
+	<string name="invalid_format">Formato inválido. A importação foi cancelada.</string>
+
+	<!-- Strings added in 0.7.0 -->
+	<string name="loading">Carregando...</string>
+
+	<!-- Strings added/changed in 0.7.1 -->
+	<string name="more_settings">Mais configurações</string>
+	<string name="screen_border_size">Tamanho da borda</string>
+	<string name="screen_border_size_summary">Algumas telas não respondem bem a toques nas bordas. Isso pode ajudar
+		neste caso.
+	</string>
+	<string name="highlight_touched_cell">Destacar células no toque</string>
+	<string name="highlight_touched_cell_summary">Destaca linha e coluna da célula tocada.</string>
+	<string name="export">Exportação</string>
+	<string name="export_folder">Exportar pasta</string>
+	<string name="export_all_folders">Exportar todas as pastas</string>
+	<string name="folders_created">%s pastas foram importadas.</string>
+	<string name="importing">Importando jogos...</string>
+	<string name="exporting">Exportando jogos...</string>
+	<string name="unknown_export_error">Erro desconhecido ao exportar jogos.</string>
+	<string name="highlight_completed_values">Destacar números finalizados</string>
+	<string name="highlight_completed_values_summary">Destaca botões dos números que já foram usados 9 vezes.
+	</string>
+	<string name="theme">Tema</string>
+	<string name="theme_summary">Seleciona a cor do tema para o jogo.</string>
+	<string name="select_theme">Selecionar tema</string>
+	<string name="filename">Nome de arquivo</string>
+	<string name="directory">Diretório</string>
+	<string name="sdcard_not_found">Cartão SD não encontrado.</string>
+	<string name="puzzles_have_been_exported">Os jogos foram exportados para %s.</string>
+	<string name="file_exists">Arquivo já existe. Sobrepô-lo?</string>
+	<!-- localization of default folder names -->
+	<string name="difficulty_hard">Difícil</string>
+	<string name="difficulty_medium">Médio</string>
+	<string name="difficulty_easy">Fácil</string>
+
+	<!-- Strings added/changed in 1.1.0 -->
+	<string name="generate_sudoku">Gerar novo jogo</string>
+	<string name="select_difficulty">Selecionar dificuldade</string>
+	<string name="generating">Gerando jogo...</string>
+	<string name="show_number_totals">Mostrar totais dos números</string>
+	<string name="show_number_totals_summary">Mostra a contagem de cada número colocado.</string>
+	<string name="what_is_new">Novidades</string>
+
+	<!-- Strings added/changed in 1.1.1 -->
+	<string name="fill_in_notes_summary">Ativa o item de menu "Preencher nas observações".</string>
+
+	<!-- Strings added/changed in 1.1.2 -->
+	<string name="set_checkpoint">Definir checkpoint</string>
+	<string name="undo_to_checkpoint">Desfaz até o checkpoint</string>
+	<string name="undo_to_checkpoint_confirm">Quer realmente desfazer tudo até o último checkpoint?</string>
+
+	<!-- Strings added/changed in 2.3.0 -->
+	<string name="highlight_similar_cells">Destacar células semelhantes</string>
+	<string name="highlight_similar_cells_summary">Destaca células com valores semelhantes.</string>
+
+	<!-- Strings added/changed in 2.4.0 -->
+	<string name="bidirectional_selection">Seleção bidirecional</string>
+	<string name="bidirectional_selection_summary">No modo de entrada Número Simples, a seleção de uma célula não
+	editável automaticamente seleciona o botão correspondente e vice-versa.</string>
+	<string name="contributors_label">Colaboradores</string>
+	<string name="contributors" translatable="false">Sergey Pimanov</string>
+</resources>
