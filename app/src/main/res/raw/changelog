@@ -1,6 +1,10 @@
 <html>
 <head><style type="text/css">body {font-size: smaller;}</style></head>
 <body>
+  <b>2.4.2</b>
+  <ul><li>Added brazilian portuguese language. Thanks @prschopf!</li></ul>
+  <b>2.4.1</b>
+  <ul><li>Minor bug importing version 1 notes fixed.</li></ul>
   <b>2.4.0</b>
   <ul>
     <li>Checkpoint issue - Now app saves undo history for games which are in "Playing" status. As
