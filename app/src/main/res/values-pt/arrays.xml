@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="game_states">
+		<item>Não inicilizado</item>
+		<item>Jogando</item>
+		<item>Resolvido</item>
+	</string-array>
+    <string-array name="game_levels">
+        <item>Fácil</item>
+        <item>Médio</item>
+        <item>Difícil</item>
+    </string-array>
+	<string-array name="theme_names">
+		<item>Padrão</item>
+		<item>Paper I</item>
+		<item>Paper II</item>
+		<item>Light</item>
+		<item>Paper Light I</item>
+		<item>Paper Light II</item>
+	</string-array>
+</resources>
