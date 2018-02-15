@@ -131,6 +131,7 @@ public class FileExportTask extends AsyncTask<FileExportTaskParams, Integer, Voi
 					attribute(serializer, "last_played", cursor, SudokuColumns.LAST_PLAYED);
 					attribute(serializer, "data", cursor, SudokuColumns.DATA);
 					attribute(serializer, "note", cursor, SudokuColumns.PUZZLE_NOTE);
+					attribute(serializer, "command_stack", cursor, SudokuColumns.COMMAND_STACK);
 					serializer.endTag("", "game");
 				}
 			}
