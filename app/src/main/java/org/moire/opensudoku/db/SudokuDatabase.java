@@ -430,7 +430,7 @@ public class SudokuDatabase {
 	 * @return
 	 */
 	public Cursor exportFolder(long folderID) {
-		String query = "select f._id as folder_id, f.name as folder_name, f.created as folder_created, s.created, s.state, s.time, s.last_played, s.data, s.puzzle_note from folder f left outer join sudoku s on f._id = s.folder_id";
+		String query = "select f._id as folder_id, f.name as folder_name, f.created as folder_created, s.created, s.state, s.time, s.last_played, s.data, s.puzzle_note, s.command_stack from folder f left outer join sudoku s on f._id = s.folder_id";
 		SQLiteDatabase db = mOpenHelper.getReadableDatabase();
 		if (folderID != -1) {
 			query += " where f._id = ?";
@@ -445,7 +445,7 @@ public class SudokuDatabase {
 	 * @return
 	 */
 	public Cursor exportSudoku(long sudokuID) {
-		String query = "select f._id as folder_id, f.name as folder_name, f.created as folder_created, s.created, s.state, s.time, s.last_played, s.data, s.puzzle_note from sudoku s inner join folder f on s.folder_id = f._id where s._id = ?";
+		String query = "select f._id as folder_id, f.name as folder_name, f.created as folder_created, s.created, s.state, s.time, s.last_played, s.data, s.puzzle_note, s.command_stack from sudoku s inner join folder f on s.folder_id = f._id where s._id = ?";
 		SQLiteDatabase db = mOpenHelper.getReadableDatabase();
 		return db.rawQuery(query, new String[]{String.valueOf(sudokuID)});
 	}
@@ -462,7 +462,7 @@ public class SudokuDatabase {
 		values.put(SudokuColumns.STATE, sudoku.getState());
 		values.put(SudokuColumns.TIME, sudoku.getTime());
 		values.put(SudokuColumns.PUZZLE_NOTE, sudoku.getNote());
-        String command_stack = "";
+        String command_stack = null;
         if (sudoku.getState() == SudokuGame.GAME_STATE_PLAYING) {
             command_stack =  sudoku.getCommandStack().serialize();
         }

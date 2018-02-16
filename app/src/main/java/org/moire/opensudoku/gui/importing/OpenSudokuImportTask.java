@@ -123,6 +123,7 @@ public class OpenSudokuImportTask extends AbstractImportTask {
 					importParams.lastPlayed = parseLong(parser.getAttributeValue(null, "last_played"), 0);
 					importParams.data = parser.getAttributeValue(null, "data");
 					importParams.note = parser.getAttributeValue(null, "note");
+					importParams.command_stack = parser.getAttributeValue(null, "command_stack");
 
 					importGame(importParams);
 				}
