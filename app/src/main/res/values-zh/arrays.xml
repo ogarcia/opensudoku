@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<string-array name="game_states">
+		<item>未开始</item>
+		<item>进行中</item>
+		<item>已完成</item>
+	</string-array>
+    <string-array name="game_levels">
+        <item>简单</item>
+        <item>普通</item>
+        <item>困难</item>
+    </string-array>
+</resources>
