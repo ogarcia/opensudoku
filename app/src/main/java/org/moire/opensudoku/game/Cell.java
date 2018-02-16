@@ -263,7 +263,6 @@ public class Cell {
 			data.append("0").append("|");
 		} else {
 			mNote.serialize(data);
-			data.append("|");
 		}
 		data.append(mEditable ? "1" : "0").append("|");
 	}
