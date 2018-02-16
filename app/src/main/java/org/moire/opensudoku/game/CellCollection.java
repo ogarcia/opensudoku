@@ -53,7 +53,15 @@ public class CellCollection {
 	 */
 	public static int DATA_VERSION_2 = 2;
 
-	public static int DATA_VERSION = DATA_VERSION_2;
+	/**
+	 * There was a bug in the version 2. Notes stored with an additional bar character |.
+	 * So, it was impossible to get the import regex matched.
+	 * The V2 regex was modified to allow double bar symbols
+	 * Bug was fixed, but version has to be changed
+	 */
+	public static int DATA_VERSION_3 = 3;
+
+	public static int DATA_VERSION = DATA_VERSION_3;
 
 	// TODO: An array of ints is a much better than an array of Integers, but this also generalizes to the fact that two parallel arrays of ints are also a lot more efficient than an array of (int,int) objects
 	// Cell's data.
@@ -400,7 +408,9 @@ public class CellCollection {
 	 * @return
 	 */
 	public void serialize(StringBuilder data) {
-		data.append("version: 2\n");
+		data.append("version: ");
+		data.append(DATA_VERSION);
+		data.append("\n");
 
 		for (int r = 0; r < SUDOKU_SIZE; r++) {
 			for (int c = 0; c < SUDOKU_SIZE; c++) {
@@ -412,7 +422,8 @@ public class CellCollection {
 
 	private static Pattern DATA_PATTERN_VERSION_PLAIN = Pattern.compile("^\\d{81}$");
 	private static Pattern DATA_PATTERN_VERSION_1 = Pattern.compile("^version: 1\\n((?#value)\\d\\|(?#note)((\\d,)+|-)\\|(?#editable)[01]\\|){0,81}$");
-	private static Pattern DATA_PATTERN_VERSION_2 = Pattern.compile("^version: 2\\n((?#value)\\d\\|(?#note)(\\d){1,3}\\|(?#editable)[01]\\|){0,81}$");
+	private static Pattern DATA_PATTERN_VERSION_2 = Pattern.compile("^version: 2\\n((?#value)\\d\\|(?#note)(\\d){1,3}\\|{1,2}(?#editable)[01]\\|){0,81}$");
+	private static Pattern DATA_PATTERN_VERSION_3 = Pattern.compile("^version: 3\\n((?#value)\\d\\|(?#note)(\\d){1,3}\\|(?#editable)[01]\\|){0,81}$");
 
 	/**
 	 * Returns true, if given <code>data</code> conform to format of given data version.
@@ -428,6 +439,8 @@ public class CellCollection {
 			return DATA_PATTERN_VERSION_1.matcher(data).matches();
 		} else if (dataVersion == DATA_VERSION_2) {
 			return DATA_PATTERN_VERSION_2.matcher(data).matches();
+		} else if (dataVersion == DATA_VERSION_3) {
+			return DATA_PATTERN_VERSION_3.matcher(data).matches();
 		} else {
 			throw new IllegalArgumentException("Unknown version: " + dataVersion);
 		}
@@ -442,7 +455,8 @@ public class CellCollection {
     public static boolean isValid(String data) {
         return (DATA_PATTERN_VERSION_PLAIN.matcher(data).matches() ||
                 DATA_PATTERN_VERSION_1.matcher(data).matches() ||
-                DATA_PATTERN_VERSION_2.matcher(data).matches()
+				DATA_PATTERN_VERSION_2.matcher(data).matches() ||
+				DATA_PATTERN_VERSION_3.matcher(data).matches()
                 );
     }
 
