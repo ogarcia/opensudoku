@@ -213,4 +213,59 @@
 	<string name="bidirectional_selection">Bidirectional selection</string>
 	<string name="bidirectional_selection_summary">In single number input panel, the selection of a non editable cell automatically selects the corresponding button and vice versa.</string>
 
+	<!-- Strings added/changed in 2.5.0 -->
+	<string name="game_state_not_started">Non joué</string>
+	<string name="game_state_playing">En cours</string>
+	<string name="game_state_solved">Résolu</string>
+
+	<string name="game_level_easy">Easy</string>
+	<string name="game_level_medium">Medium</string>
+	<string name="game_level_hard">Hard</string>
+
+    <string name="theme_default">Default</string>
+    <string name="theme_paper">Paper</string>
+    <string name="theme_graph_paper">Graph Paper</string>
+    <string name="theme_light">Light</string>
+    <string name="theme_paper_light">Paper Light</string>
+    <string name="theme_graph_paper_light">Graph Paper Light</string>
+    <string name="theme_high_contrast">High Contrast</string>
+    <string name="theme_inverted_high_contrast">Inverted High Contrast</string>
+    <string name="theme_custom">Custom Theme</string>
+
+    <string name="screen_custom_theme">Custom Theme colors</string>
+    <string name="screen_custom_theme_summary">Customize colors of the Custom Theme.</string>
+    <string name="screen_custom_theme_summary_disabled">Choose \"Custom Theme\" in \"Theme\" setting above to enable this section.</string>
+
+    <string name="default_lineColor">Line</string>
+    <string name="default_lineColor_summary">Border color around a cell.</string>
+
+    <string name="default_sectorLineColor">Sector line</string>
+    <string name="default_sectorLineColor_summary">Border color around a block of 3x3 cells.</string>
+
+    <string name="default_textColor">Text</string>
+    <string name="default_textColor_summary">Text color of an editable cell.</string>
+
+    <string name="default_textColorReadOnly">Read-only text</string>
+    <string name="default_textColorReadOnly_summary">Text color of a non editable cell.</string>
+
+    <string name="default_textColorNote">Note text</string>
+    <string name="default_textColorNote_summary">Color of a note text of an editable cell.</string>
+
+    <string name="default_backgroundColor">Primary background</string>
+    <string name="default_backgroundColor_summary">Background color of odd groups of 3x3 cells.</string>
+
+    <string name="default_backgroundColorSecondary">Secondary background</string>
+    <string name="default_backgroundColorSecondary_summary">Background color of even groups of 3x3 cells.</string>
+
+    <string name="default_backgroundColorReadOnly">Background of read-only cells</string>
+    <string name="default_backgroundColorReadOnly_summary">Background color of a non editable cells.</string>
+
+    <string name="default_backgroundColorTouched">Selector</string>
+    <string name="default_backgroundColorTouched_summary">Color of the selection cross that appears when you press on any cell.</string>
+
+    <string name="default_backgroundColorSelected">Selected cell background</string>
+    <string name="default_backgroundColorSelected_summary">Background color of the selected cell.</string>
+
+    <string name="default_backgroundColorHighlighted">Highlighted cell background</string>
+    <string name="default_backgroundColorHighlighted_summary">Background color of the highlighted cells.</string>
 </resources>

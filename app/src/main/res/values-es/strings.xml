@@ -211,4 +211,60 @@
     <string name="contributors_label">Colaboradores</string>
 	<string name="bidirectional_selection">Selección bidireccional</string>
 	<string name="bidirectional_selection_summary">En el método de entrada de número simple, la selección de una celda no editable automáticamente selecciona el botón correspondiente y viceversa.</string>
+
+	<!-- Strings added/changed in 2.5.0 -->
+	<string name="game_state_not_started">Sin comenzar</string>
+	<string name="game_state_playing">Jugando</string>
+	<string name="game_state_solved">Resuelto</string>
+
+	<string name="game_level_easy">Fácil</string>
+	<string name="game_level_medium">Medio</string>
+	<string name="game_level_hard">Difícil</string>
+
+	<string name="theme_default">Por defecto</string>
+	<string name="theme_paper">Papel</string>
+    <string name="theme_graph_paper">Papel cuadriculado</string>
+	<string name="theme_light">Claro</string>
+	<string name="theme_paper_light">Papel claro</string>
+    <string name="theme_graph_paper_light">Papel cuadriculado claro</string>
+    <string name="theme_high_contrast">Alto contraste</string>
+    <string name="theme_inverted_high_contrast">Alto contraste invertido</string>
+	<string name="theme_custom">Tema personalizado</string>
+
+	<string name="screen_custom_theme">Colores del tema personalizado</string>
+	<string name="screen_custom_theme_summary">Personaliza los colores del tema.</string>
+	<string name="screen_custom_theme_summary_disabled">Escoge \"Tema personalizado\" en el ajuste anterior \"Tema\" para habilitar esta sección.</string>
+
+	<string name="default_lineColor">Línea</string>
+	<string name="default_lineColor_summary">Color del borde de alrededor de una celda.</string>
+
+	<string name="default_sectorLineColor">Línea del sector</string>
+	<string name="default_sectorLineColor_summary">Color del borde de alrededor de un bloque de 3x3 celdas.</string>
+
+	<string name="default_textColor">Texto</string>
+	<string name="default_textColor_summary">Color del texto de las celdas editables.</string>
+
+	<string name="default_textColorReadOnly">Texto de solo lectura</string>
+	<string name="default_textColorReadOnly_summary">Color del texto de las celdas no editables.</string>
+
+	<string name="default_textColorNote">Texto de las notas</string>
+	<string name="default_textColorNote_summary">Color de las anotaciones en una celda editable.</string>
+
+	<string name="default_backgroundColor">Fondo primario</string>
+	<string name="default_backgroundColor_summary">Color de fondo de los grupos impares de 3x3 celdas.</string>
+
+	<string name="default_backgroundColorSecondary">Fondo secundario</string>
+	<string name="default_backgroundColorSecondary_summary">Color de fondo de los grupos pares de 3x3 celdas.</string>
+
+	<string name="default_backgroundColorReadOnly">Fondo de las celdas de solo lectura</string>
+	<string name="default_backgroundColorReadOnly_summary">Color de fondo de las celdas no editables.</string>
+
+	<string name="default_backgroundColorTouched">Selector</string>
+	<string name="default_backgroundColorTouched_summary">Color de la cruz de selección que aparece al presionar cualquier celda.</string>
+
+	<string name="default_backgroundColorSelected">Fondo de celda seleccionada</string>
+	<string name="default_backgroundColorSelected_summary">Color de fondo de la celda seleccionada.</string>
+
+	<string name="default_backgroundColorHighlighted">Fondo de celda resaltada</string>
+	<string name="default_backgroundColorHighlighted_summary">Color de fondo de las celdas resaltadas.</string>
 </resources>

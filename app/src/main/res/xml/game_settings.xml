@@ -88,9 +88,7 @@
 		<PreferenceScreen
 			android:key="screen_custom_theme"
 			android:title="@string/screen_custom_theme"
-            android:summary="@string/screen_custom_theme_summary"
-            >
-
+            android:summary="@string/screen_custom_theme_summary">
             <net.margaritov.preference.colorpicker.ColorPickerPreference
                 android:key="custom_theme_lineColor"
                 android:title="@string/default_lineColor"

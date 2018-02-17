@@ -38,16 +38,20 @@ public class AndroidUtils {
 		String theme = gameSettings.getString("theme", "default");
 		if (theme.equals("default")) {
 			context.setTheme(R.style.Theme_Default);
-		} else if (theme.equals("paperi")) {
-			context.setTheme(R.style.Theme_PaperI);
-		} else if (theme.equals("paperii")) {
-			context.setTheme(R.style.Theme_PaperII);
+		} else if (theme.equals("paper")) {
+			context.setTheme(R.style.Theme_Paper);
+		} else if (theme.equals("graphpaper")) {
+			context.setTheme(R.style.Theme_GraphPaper);
 		} else if (theme.equals("light")) {
 			context.setTheme(R.style.Theme_Light);
-        } else if (theme.equals("paperlighti")) {
-            context.setTheme(R.style.Theme_PaperLightI);
-        } else if (theme.equals("paperlightii")) {
-            context.setTheme(R.style.Theme_PaperLightII);
+        } else if (theme.equals("paperlight")) {
+            context.setTheme(R.style.Theme_PaperLight);
+        } else if (theme.equals("graphpaperlight")) {
+            context.setTheme(R.style.Theme_GraphPaperLight);
+        } else if (theme.equals("highcontrast")) {
+            context.setTheme(R.style.Theme_HighContrast);
+        } else if (theme.equals("invertedhighcontrast")) {
+            context.setTheme(R.style.Theme_InvertedHighContrast);
 		} else {
 			context.setTheme(R.style.Theme_Default);
 		}
