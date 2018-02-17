@@ -22,11 +22,16 @@ package org.moire.opensudoku.gui;
 
 import org.moire.opensudoku.R;
 import android.os.Bundle;
+import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
 import android.preference.Preference.OnPreferenceChangeListener;
 
 public class GameSettingsActivity extends PreferenceActivity {
+
+	private Preference mScreenCustomTheme;
+	private ListPreference mTheme;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -34,6 +39,12 @@ public class GameSettingsActivity extends PreferenceActivity {
 		addPreferencesFromResource(R.xml.game_settings);
 
 		findPreference("show_hints").setOnPreferenceChangeListener(mShowHintsChanged);
+
+		mTheme = (ListPreference)findPreference("theme");
+		mTheme.setOnPreferenceChangeListener(mThemeChanged);
+
+		mScreenCustomTheme = findPreference("screen_custom_theme");
+        enableScreenCustomTheme(mTheme.getValue());
 	}
 
 	private OnPreferenceChangeListener mShowHintsChanged = new OnPreferenceChangeListener() {
@@ -46,10 +57,27 @@ public class GameSettingsActivity extends PreferenceActivity {
 			if (newVal) {
 				hm.resetOneTimeHints();
 			}
-			;
 			return true;
 		}
 
 	};
 
+	private OnPreferenceChangeListener mThemeChanged = new OnPreferenceChangeListener() {
+
+		@Override
+		public boolean onPreferenceChange(Preference preference, Object newValue) {
+            enableScreenCustomTheme((String) newValue);
+			return true;
+		}
+
+	};
+
+
+	private void enableScreenCustomTheme(String themeName) {
+	    boolean enable = themeName.equals("custom");
+        mScreenCustomTheme.setEnabled(enable);
+        mScreenCustomTheme.setSummary(enable ?
+                    R.string.screen_custom_theme_summary:
+                    R.string.screen_custom_theme_summary_disabled);
+    }
 }

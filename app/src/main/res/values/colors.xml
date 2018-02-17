@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <color name="default_lineColor">#757575</color>
+    <color name="default_sectorLineColor">#9e9e9e</color>
+    <color name="default_textColor">#010101</color>
+    <color name="default_textColorReadOnly">#fdfdfd</color>
+    <color name="default_textColorNote">#f3f3f3</color>
+    <color name="default_backgroundColor">#424242</color>
+    <color name="default_backgroundColorSecondary">#424242</color>_
+    <color name="default_backgroundColorReadOnly">#616161</color>
+    <color name="default_backgroundColorTouched">#5ba3cc</color>
+    <color name="default_backgroundColorSelected">#2b35cf</color>
+    <color name="default_backgroundColorHighlighted">#277a2e</color>
+</resources>

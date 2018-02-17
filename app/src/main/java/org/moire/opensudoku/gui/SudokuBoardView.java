@@ -200,7 +200,6 @@ public class SudokuBoardView extends View {
 
 	public void setBackgroundColorTouched(int color) {
 		mBackgroundColorTouched.setColor(color);
-		mBackgroundColorTouched.setAlpha(100);
 	}
 
 	public int getBackgroundColorSelected() {
@@ -209,7 +208,6 @@ public class SudokuBoardView extends View {
 
 	public void setBackgroundColorSelected(int color) {
 		mBackgroundColorSelected.setColor(color);
-		mBackgroundColorSelected.setAlpha(100);
 	}
 
 	public int getBackgroundColorHighlighted() {
@@ -218,7 +216,6 @@ public class SudokuBoardView extends View {
 
 	public void setBackgroundColorHighlighted(int color) {
 		mBackgroundColorHighlighted.setColor(color);
-		mBackgroundColorHighlighted.setAlpha(100);
 	}
 
 	public void setGame(SudokuGame game) {
@@ -462,51 +459,26 @@ public class SudokuBoardView extends View {
 					cellTop = Math.round((row * mCellHeight) + paddingTop);
 
 					// draw read-only field background
-					if (!cell.isEditable() && hasBackgroundColorReadOnly) {
-						if (mBackgroundColorReadOnly.getColor() != NO_COLOR) {
-							canvas.drawRect(
-									cellLeft, cellTop,
-									cellLeft + mCellWidth, cellTop + mCellHeight,
-									mBackgroundColorReadOnly);
-						}
+					if (!cell.isEditable() && hasBackgroundColorReadOnly &&
+                        (mSelectedCell == null || mSelectedCell != cell)) {
+                            if (mBackgroundColorReadOnly.getColor() != NO_COLOR) {
+                                canvas.drawRect(
+                                    cellLeft, cellTop,
+                                    cellLeft + mCellWidth, cellTop + mCellHeight,
+                                    mBackgroundColorReadOnly);
+                            }
 					}
 
 					// highlight similar cells
-					if (selectedValue != 0 && selectedValue == cell.getValue()) {
-						if (mBackgroundColorHighlighted.getColor() != NO_COLOR) {
-							canvas.drawRect(
+					if (selectedValue != 0 && selectedValue == cell.getValue() &&
+						(mSelectedCell == null || mSelectedCell != cell)) {
+						    if (mBackgroundColorHighlighted.getColor() != NO_COLOR) {
+							    canvas.drawRect(
 									cellLeft, cellTop,
 									cellLeft + mCellWidth, cellTop + mCellHeight,
 									mBackgroundColorHighlighted);
-						}
+						    }
 					}
-
-					// draw cell Text
-					int value = cell.getValue();
-					if (value != 0) {
-						Paint cellValuePaint = cell.isEditable() ? mCellValuePaint : mCellValueReadonlyPaint;
-
-						if (mHighlightWrongVals && !cell.isValid()) {
-							cellValuePaint = mCellValueInvalidPaint;
-						}
-						canvas.drawText(Integer.toString(value),
-								cellLeft + mNumberLeft,
-								cellTop + mNumberTop - numberAscent,
-								cellValuePaint);
-					} else {
-						if (!cell.getNote().isEmpty()) {
-							Collection<Integer> numbers = cell.getNote().getNotedNumbers();
-							for (Integer number : numbers) {
-								int n = number - 1;
-								int c = n % 3;
-								int r = n / 3;
-								//canvas.drawText(Integer.toString(number), cellLeft + c*noteWidth + 2, cellTop + noteAscent + r*noteWidth - 1, mNotePaint);
-								canvas.drawText(Integer.toString(number), cellLeft + c * noteWidth + 2, cellTop + mNoteTop - noteAscent + r * noteWidth - 1, mCellNotePaint);
-							}
-						}
-					}
-
-
 				}
 			}
 
@@ -535,6 +507,40 @@ public class SudokuBoardView extends View {
 						mBackgroundColorTouched);
 			}
 
+            for (int row = 0; row < 9; row++) {
+                for (int col = 0; col < 9; col++) {
+                    Cell cell = mCells.getCell(row, col);
+
+                    cellLeft = Math.round((col * mCellWidth) + paddingLeft);
+                    cellTop = Math.round((row * mCellHeight) + paddingTop);
+
+                    // draw cell Text
+                    int value = cell.getValue();
+                    if (value != 0) {
+                        Paint cellValuePaint = cell.isEditable() ? mCellValuePaint : mCellValueReadonlyPaint;
+
+                        if (mHighlightWrongVals && !cell.isValid()) {
+                            cellValuePaint = mCellValueInvalidPaint;
+                        }
+
+                        canvas.drawText(Integer.toString(value),
+                                cellLeft + mNumberLeft,
+                                cellTop + mNumberTop - numberAscent,
+                                cellValuePaint);
+                    } else {
+                        if (!cell.getNote().isEmpty()) {
+                            Collection<Integer> numbers = cell.getNote().getNotedNumbers();
+                            for (Integer number : numbers) {
+                                int n = number - 1;
+                                int c = n % 3;
+                                int r = n / 3;
+                                //canvas.drawText(Integer.toString(number), cellLeft + c*noteWidth + 2, cellTop + noteAscent + r*noteWidth - 1, mNotePaint);
+                                canvas.drawText(Integer.toString(number), cellLeft + c * noteWidth + 2, cellTop + mNoteTop - noteAscent + r * noteWidth - 1, mCellNotePaint);
+                            }
+                        }
+                    }
+                }
+            }
 		}
 
 		// draw vertical lines
