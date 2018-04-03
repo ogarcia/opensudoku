@@ -37,6 +37,7 @@ window.onload = function() {
   var easy = document.getElementById('easy');
   var medium = document.getElementById("medium");
   var hard = document.getElementById("hard");
+  var veryhard = document.getElementById("veryhard");
 
   var data = [];
   var properties = {type: 'text/xml'};
