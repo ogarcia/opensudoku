@@ -53,4 +53,8 @@ window.onload = function() {
     var blob = new Blob([generateSudoku("hard", 20)], {type: "text/xml"});
     saveAs(blob, "hard_generated.opensudoku");
   }
+  veryhard.onclick = function() {
+    var blob = new Blob([generateSudoku("veryhard", 20)], {type: "text/xml"});
+    saveAs(blob, "very_hard_generated.opensudoku");
+  }
 }
