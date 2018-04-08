@@ -72,7 +72,7 @@
 
 	<string name="game_helpers">Spiel-Hilfen</string>
 	<string name="highlight_wrong_values">Falsche Zahlen hervorheben</string>
-	<string name="highlight_wrong_values_summary">Zahlen die gegen die Sudoku-Regeln verstoßen hervorheben.</string>
+	<string name="highlight_wrong_values_summary">Zahlen, die gegen die Sudoku-Regeln verstoßen, hervorheben.</string>
 	<string name="input_methods">Eingabe-Methoden</string>
 	<string name="popup">Popup</string>
 	<string name="popup_summary">Zahlen in einem Popup-Dialog bearbeiten.</string>
@@ -151,15 +151,14 @@
 	<string name="highlight_touched_cell">Berührte Zelle hervorheben</string>
 	<string name="highlight_touched_cell_summary">Spalte und Zeile einer berührten Zelle hervorheben.</string>
 	<string name="export">Export</string>
-	<string name="export_folder">Export folder</string>
-	<string name="export_all_folders">Export all folders</string>
+	<string name="export_folder">Exportiere Ordner</string>
+	<string name="export_all_folders">Exportiere alle Ordner</string>
 	<string name="folders_created">%s Ordner wurden importiert</string>
 	<string name="importing">Importiere Sudoku-Rätsel...</string>
 	<string name="exporting">Exportiere Sudoku-Rätsel...</string>
 	<string name="unknown_export_error">Ein unbekannter Fehler ist während des Exports aufgetreten.</string>
 	<string name="highlight_completed_values">Markiere vollständige Zahlen</string>
-	<string name="highlight_completed_values_summary">Markiere Zahlen die bereits vollständig eingegeben wurden.
-	</string>
+	<string name="highlight_completed_values_summary">Markiere Zahlen die bereits vollständig eingegeben wurden.</string>
 	<string name="theme">Farbschema</string>
 	<string name="theme_summary">Farbschema für das Spielfeld auswählen.</string>
 	<string name="select_theme">Farbschema auswählen</string>
@@ -177,23 +176,23 @@
 	<string name="generate_sudoku">Generiere neues Sudoku</string>
 	<string name="select_difficulty">Schwierigkeit auswählen</string>
 	<string name="generating">Generiere Sudoku-Rätsel...</string>
-	<string name="current_developers_label">Current Developer</string>
-	<string name="fill_in_notes_summary">Enable "Fill in notes" menu item.</string>
+	<string name="current_developers_label">Aktive Entwickler</string>
+	<string name="fill_in_notes_summary">Aktiviere den Menüpunkt \"Notizen eintragen\" im Spielmenü.</string>
 	<string name="import_file">Import</string>
-	<string name="import_file_title">Import file %s</string>
-	<string name="localization_contributors_label">Localization Contributors</string>
-	<string name="old_developers_label">Old Developers</string>
-	<string name="set_checkpoint">Set checkpoint</string>
-	<string name="show_number_totals">Show Number Totals</string>
-	<string name="show_number_totals_summary">Displays count of each number placed.</string>
-	<string name="undo_to_checkpoint">Undo to checkpoint</string>
-	<string name="undo_to_checkpoint_confirm">Are you sure you want to undo all actions since last checkpoint?</string>
-	<string name="what_is_new">What\'s new</string>
-    <string name="highlight_similar_cells">Highlight similar cells</string>
-	<string name="highlight_similar_cells_summary">Highlight cells with similar values</string>
-    <string name="contributors_label">Contributors</string>
-	<string name="bidirectional_selection">Bidirectional selection</string>
-	<string name="bidirectional_selection_summary">In single number input panel, the selection of a non editable cell automatically selects the corresponding button and vice versa.</string>
+	<string name="import_file_title">Importiere Datei %s file</string>
+	<string name="localization_contributors_label">Mitwirkende Lokalisierung</string>
+	<string name="old_developers_label">Ehemalige Entwickler</string>
+	<string name="set_checkpoint">Setze Sicherungspunkt</string>
+	<string name="show_number_totals">Zeige Anzahl gesetzter Zahlen</string>
+	<string name="show_number_totals_summary">Zeigt auf der Tastatur, wie oft die jeweilige Zahl schon gesetzt wurde.</string>
+	<string name="undo_to_checkpoint">Zurück zu Sicherungspunkt</string>
+	<string name="undo_to_checkpoint_confirm">Sind Sie sicher, alle Eingaben bis zum letzten Sicherungspunkt zu Verwerfen?</string>
+	<string name="what_is_new">Neues</string>
+    <string name="highlight_similar_cells">Hervorhebung ähnlicher Zellen</string>
+	<string name="highlight_similar_cells_summary">Hebe Zellen mit gleichen Zahlen hervor.</string>
+    <string name="contributors_label">Mitwirkende</string>
+	<string name="bidirectional_selection">Bidirektionale Auswahl</string>
+	<string name="bidirectional_selection_summary">Im EZ Modus übernimmt die Auswahl einer feste Zahl die Zahl als nächste Eingabe.</string>
 
 	<!-- Strings added/changed in 2.5.0 -->
 	<string name="game_state_not_started">neu</string>
@@ -204,50 +203,50 @@
 	<string name="game_level_medium">Medium</string>
 	<string name="game_level_hard">Schwer</string>
 
-    <string name="theme_default">Default</string>
-    <string name="theme_paper">Paper</string>
-    <string name="theme_graph_paper">Graph Paper</string>
-    <string name="theme_light">Light</string>
-    <string name="theme_paper_light">Paper Light</string>
-    <string name="theme_graph_paper_light">Graph Paper Light</string>
-    <string name="theme_high_contrast">High Contrast</string>
-    <string name="theme_inverted_high_contrast">Inverted High Contrast</string>
-    <string name="theme_custom">Custom Theme</string>
+    <string name="theme_default">Standard</string>
+    <string name="theme_paper">Papier</string>
+    <string name="theme_graph_paper">Karopapier</string>
+    <string name="theme_light">Hell</string>
+    <string name="theme_paper_light">Papier Hell</string>
+    <string name="theme_graph_paper_light">Karopapier Hell</string>
+    <string name="theme_high_contrast">Hoher Kontrast</string>
+    <string name="theme_inverted_high_contrast">Invertierter Hoher Kontrast</string>
+    <string name="theme_custom">Eigenes Thema</string>
 
-    <string name="screen_custom_theme">Custom Theme colors</string>
-    <string name="screen_custom_theme_summary">Customize colors of the Custom Theme.</string>
-    <string name="screen_custom_theme_summary_disabled">Choose \"Custom Theme\" in \"Theme\" setting above to enable this section.</string>
+    <string name="screen_custom_theme">Eigene Themenfarben</string>
+    <string name="screen_custom_theme_summary">Verändere Farben des eigenen Themas.</string>
+    <string name="screen_custom_theme_summary_disabled">Wählen Sie \"Eigenes Thema\" in der Themenauswahl, um diese Einstellungen zu Aktivieren.</string>
 
-    <string name="default_lineColor">Line</string>
-    <string name="default_lineColor_summary">Border color around a cell.</string>
+    <string name="default_lineColor">Zellrahmen</string>
+    <string name="default_lineColor_summary">Rahmen um eine einzelne Zelle</string>
 
-    <string name="default_sectorLineColor">Sector line</string>
-    <string name="default_sectorLineColor_summary">Border color around a block of 3x3 cells.</string>
+    <string name="default_sectorLineColor">Sektorrahmen</string>
+    <string name="default_sectorLineColor_summary">Rahmen um einen Block 3x3 Zellen</string>
 
-    <string name="default_textColor">Text</string>
-    <string name="default_textColor_summary">Text color of an editable cell.</string>
+    <string name="default_textColor">Eingefügte Zahl</string>
+    <string name="default_textColor_summary">Textfarbe einer editierbaren Zelle</string>
 
-    <string name="default_textColorReadOnly">Read-only text</string>
-    <string name="default_textColorReadOnly_summary">Text color of a non editable cell.</string>
+    <string name="default_textColorReadOnly">Vorgegebene Zahl</string>
+    <string name="default_textColorReadOnly_summary">Textfarbe einer vorgegebenen Zelle</string>
 
-    <string name="default_textColorNote">Note text</string>
-    <string name="default_textColorNote_summary">Color of a note text of an editable cell.</string>
+    <string name="default_textColorNote">Notiztext</string>
+    <string name="default_textColorNote_summary">Textfarbe der Notizen</string>
 
-    <string name="default_backgroundColor">Primary background</string>
-    <string name="default_backgroundColor_summary">Background color of odd groups of 3x3 cells.</string>
+    <string name="default_backgroundColor">Hintergrund ungerader Block</string>
+    <string name="default_backgroundColor_summary">Hintergrundfarbe ungerader Zellblöcke (A, C, E, G, I)</string>
 
-    <string name="default_backgroundColorSecondary">Secondary background</string>
-    <string name="default_backgroundColorSecondary_summary">Background color of even groups of 3x3 cells.</string>
+    <string name="default_backgroundColorSecondary">Hintergrund gerader Block</string>
+    <string name="default_backgroundColorSecondary_summary">Hintergrundfarbe gerader Zellblöcke (B, D, F, H)</string>
 
-    <string name="default_backgroundColorReadOnly">Background of read-only cells</string>
-    <string name="default_backgroundColorReadOnly_summary">Background color of a non editable cells.</string>
+    <string name="default_backgroundColorReadOnly">Hintergrund vorgegebene Zelle</string>
+    <string name="default_backgroundColorReadOnly_summary">Hintergrundfarbe vorgegebener Zellen</string>
 
-    <string name="default_backgroundColorTouched">Selector</string>
-    <string name="default_backgroundColorTouched_summary">Color of the selection cross that appears when you press on any cell.</string>
+    <string name="default_backgroundColorTouched">Fadenkreuz</string>
+    <string name="default_backgroundColorTouched_summary">Hintergrundfarbe der aktuellen Reihe und Spalte während dem Auswählen einer neuen Zelle</string>
 
-    <string name="default_backgroundColorSelected">Selected cell background</string>
-    <string name="default_backgroundColorSelected_summary">Background color of the selected cell.</string>
+    <string name="default_backgroundColorSelected">Aktuelle Zelle</string>
+    <string name="default_backgroundColorSelected_summary">Hintergrundfarbe der aktuell ausgewählten Zelle</string>
 
-    <string name="default_backgroundColorHighlighted">Highlighted cell background</string>
-    <string name="default_backgroundColorHighlighted_summary">Background color of the highlighted cells.</string>
+    <string name="default_backgroundColorHighlighted">Hintergrund hervorgehebene Zelle</string>
+    <string name="default_backgroundColorHighlighted_summary">Hintergrundfarbe der Zellen, die die gleiche Zahl wie die aktuellen Zelle haben</string>
 </resources>
