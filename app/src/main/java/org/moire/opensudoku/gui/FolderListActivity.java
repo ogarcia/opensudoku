@@ -64,6 +64,7 @@ public class FolderListActivity extends ListActivity {
 	public static final int MENU_ITEM_EXPORT = Menu.FIRST + 4;
 	public static final int MENU_ITEM_EXPORT_ALL = Menu.FIRST + 5;
 	public static final int MENU_ITEM_IMPORT = Menu.FIRST + 6;
+	public static final int MENU_ITEM_SETTINGS = Menu.FIRST + 7;
 
 	private static final int DIALOG_ABOUT = 0;
 	private static final int DIALOG_ADD_FOLDER = 1;
@@ -163,6 +164,9 @@ public class FolderListActivity extends ListActivity {
 		menu.add(0, MENU_ITEM_EXPORT_ALL, 1, R.string.export_all_folders)
 				.setShortcut('7', 'e')
 				.setIcon(R.drawable.ic_share);
+		menu.add(0, MENU_ITEM_SETTINGS, 2, R.string.settings)
+				.setShortcut('6', 's')
+				.setIcon(R.drawable.ic_settings);
 		menu.add(0, MENU_ITEM_ABOUT, 2, R.string.about)
 				.setShortcut('1', 'h')
 				.setIcon(R.drawable.ic_info);
@@ -341,6 +345,11 @@ public class FolderListActivity extends ListActivity {
 				intent = new Intent();
 				intent.setClass(this, SudokuExportActivity.class);
 				intent.putExtra(SudokuExportActivity.EXTRA_FOLDER_ID, SudokuExportActivity.ALL_FOLDERS);
+				startActivity(intent);
+				return true;
+			case MENU_ITEM_SETTINGS:
+				intent = new Intent();
+				intent.setClass(this, GameSettingsActivity.class);
 				startActivity(intent);
 				return true;
 			case MENU_ITEM_ABOUT:

@@ -74,6 +74,7 @@ public class SudokuListActivity extends ListActivity {
 	public static final int MENU_ITEM_EDIT_NOTE = Menu.FIRST + 5;
 	public static final int MENU_ITEM_FILTER = Menu.FIRST + 6;
 	public static final int MENU_ITEM_FOLDERS = Menu.FIRST + 7;
+	public static final int MENU_ITEM_SETTINGS = Menu.FIRST + 8;
 
 	private static final int DIALOG_DELETE_PUZZLE = 0;
 	private static final int DIALOG_RESET_PUZZLE = 1;
@@ -205,6 +206,8 @@ public class SudokuListActivity extends ListActivity {
 				.setIcon(R.drawable.ic_view);
 		menu.add(0, MENU_ITEM_INSERT, 2, R.string.add_sudoku).setShortcut('3', 'a')
 				.setIcon(R.drawable.ic_add);
+		menu.add(0, MENU_ITEM_SETTINGS, 2, R.string.settings).setShortcut('4', 's')
+				.setIcon(R.drawable.ic_settings);
 		// I'm not sure this one is ready for release
 //		menu.add(0, MENU_ITEM_GENERATE, 3, R.string.generate_sudoku).setShortcut('4', 'g')
 //		.setIcon(R.drawable.ic_add);
@@ -400,20 +403,25 @@ public class SudokuListActivity extends ListActivity {
 
 	@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
+		Intent i;
 		switch (item.getItemId()) {
 			case MENU_ITEM_INSERT: {
 				// Launch activity to insert a new item
-				Intent i = new Intent(this, SudokuEditActivity.class);
+				i = new Intent(this, SudokuEditActivity.class);
 				i.setAction(Intent.ACTION_INSERT);
 				i.putExtra(SudokuEditActivity.EXTRA_FOLDER_ID, mFolderID);
 				startActivity(i);
 				return true;
 			}
+			case MENU_ITEM_SETTINGS:
+				i = new Intent(this, GameSettingsActivity.class);
+				startActivity(i);
+				return true;
 			case MENU_ITEM_FILTER:
 				showDialog(DIALOG_FILTER);
 				return true;
 			case MENU_ITEM_FOLDERS: {
-				Intent i = new Intent(this, FolderListActivity.class);
+				i = new Intent(this, FolderListActivity.class);
 				startActivity(i);
 				finish();
 				return true;
