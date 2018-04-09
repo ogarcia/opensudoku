@@ -8,8 +8,8 @@ android {
         applicationId "org.moire.opensudoku"
         minSdkVersion 8
         targetSdkVersion 22
-        versionCode 20180217
-        versionName "2.5.0"
+        versionCode 20180409
+        versionName "2.5.1"
     }
     buildTypes {
         release {
