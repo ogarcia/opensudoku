@@ -1,6 +1,13 @@
 <html>
 <head><style type="text/css">body {font-size: smaller;}</style></head>
 <body>
+  <b>2.5.2</b>
+  <ul><li>Added chinese language. Thanks @kevinshq!</li></ul>
+  <b>2.5.1</b>
+  <ul>
+    <li>Expose the settings menu everywhere. Thanks @bebehei!</li>
+    <li>Updated german translation. Thanks @Stunkymonkey and @bebehei!</li>
+  </ul>
   <b>2.5.0</b>
   <ul><li>Added new themes and custom theme settings. Thanks @spimanov!</li></ul>
   <b>2.4.4</b>
