@@ -6,15 +6,15 @@
 	<string name="puzzle_folders">OpenSudoku - mappar</string>
 
 	<string name="version">Version: %s</string>
-	<string name="send_me_bugs">Om du stöter på en bugg du vill ha fixad eller har några förslag, tveka inte att
-		kontakta oss via e-post eller använd ärendehanteringssystemet på projektets hemsida.
+	<string name="send_me_bugs">Om du stöter på ett fel du vill ha åtgärdad eller har några förslag, tveka inte att
+		kontakta oss via e-post eller använd ärendehanteringssystemet på projektets webbplats.
 	</string>
 
 	<string name="close">Stäng</string>
 	<string name="clear">Töm</string>
 	<string name="save">Spara</string>
 
-	<string name="get_more_puzzles_online">Hämta fler pussel online</string>
+	<string name="get_more_puzzles_online">Hämta fler pussel på nätet</string>
 
 	<string name="name">Namn:</string>
 	<string name="note">Notering:</string>
@@ -148,7 +148,7 @@
 	<string name="invalid_format">Felaktigt format, inläsningen avbröts.</string>
 
 	<!-- Strings added in 0.7.0 -->
-	<string name="loading">Laddar...</string>
+	<string name="loading">Läser in...</string>
 
 	<!-- Strings added/changed in 0.7.1 -->
 	<string name="more_settings">Fler inställningar</string>
@@ -182,80 +182,80 @@
 	<string name="difficulty_easy">Enkel</string>
 
 	<!-- Strings added/changed in 1.1.0 -->
-	<string name="generate_sudoku">Generiere neues Sudoku</string>
-	<string name="select_difficulty">Schwierigkeit auswählen</string>
-	<string name="generating">Generiere Sudoku-Rätsel...</string>
-	<string name="current_developers_label">Current Developer</string>
-	<string name="fill_in_notes_summary">Enable "Fill in notes" menu item.</string>
-	<string name="import_file">Import</string>
-	<string name="import_file_title">Import file %s</string>
-	<string name="localization_contributors_label">Localization Contributors</string>
-	<string name="old_developers_label">Old Developers</string>
-	<string name="set_checkpoint">Set checkpoint</string>
-	<string name="show_number_totals">Show Number Totals</string>
-	<string name="show_number_totals_summary">Displays count of each number placed.</string>
-	<string name="undo_to_checkpoint">Undo to checkpoint</string>
-	<string name="undo_to_checkpoint_confirm">Are you sure you want to undo all actions since last checkpoint?</string>
-	<string name="what_is_new">What\'s new</string>
-    <string name="highlight_similar_cells">Highlight similar cells</string>
-	<string name="highlight_similar_cells_summary">Highlight cells with similar values</string>
-    <string name="contributors_label">Contributors</string>
-	<string name="bidirectional_selection">Bidirectional selection</string>
-	<string name="bidirectional_selection_summary">In single number input panel, the selection of a non editable cell automatically selects the corresponding button and vice versa.</string>
+	<string name="generate_sudoku">Generera nytt spel</string>
+	<string name="select_difficulty">Välj svårighet</string>
+	<string name="generating">Genererar pussel...</string>
+	<string name="current_developers_label">Nuvarande Utvecklare</string>
+	<string name="fill_in_notes_summary">Aktivera menyalternativet "Fyll i anteckningar".</string>
+	<string name="import_file">Importera</string>
+	<string name="import_file_title">Importera filen %s</string>
+	<string name="localization_contributors_label">Lokaliserings bidragsgivare</string>
+	<string name="old_developers_label">Gamla utvecklare</string>
+	<string name="set_checkpoint">Ställ in checkpoint</string>
+	<string name="show_number_totals">Visa totalsummor</string>
+	<string name="show_number_totals_summary">Visar antal av varje nummer som placeras.</string>
+	<string name="undo_to_checkpoint">Ångra checkpoint</string>
+	<string name="undo_to_checkpoint_confirm">Är du säker på att du vill ångra alla åtgärder efter senaste checkpoint?</string>
+	<string name="what_is_new">Vad är nytt</string>
+    <string name="highlight_similar_cells">Märk liknande celler</string>
+	<string name="highlight_similar_cells_summary">Märk celler med liknande värden</string>
+    <string name="contributors_label">Bidragsgivare</string>
+	<string name="bidirectional_selection">Dubbelriktat urval</string>
+	<string name="bidirectional_selection_summary">I inmatningspanelen för enstaka nummer väljer valet av en icke redigerbar cell automatiskt motsvarande knapp och vice versa.</string>
 
 	<!-- Strings added/changed in 2.5.0 -->
 	<string name="game_state_not_started">Ej påbörjade</string>
 	<string name="game_state_playing">Påbörjade</string>
 	<string name="game_state_solved">Lösta</string>
 
-	<string name="game_level_easy">Easy</string>
-	<string name="game_level_medium">Medium</string>
-	<string name="game_level_hard">Hard</string>
+	<string name="game_level_easy">Enkel</string>
+	<string name="game_level_medium">Mellan</string>
+	<string name="game_level_hard">Svår</string>
 
-    <string name="theme_default">Default</string>
-    <string name="theme_paper">Paper</string>
-    <string name="theme_graph_paper">Graph Paper</string>
-    <string name="theme_light">Light</string>
-    <string name="theme_paper_light">Paper Light</string>
-    <string name="theme_graph_paper_light">Graph Paper Light</string>
-    <string name="theme_high_contrast">High Contrast</string>
-    <string name="theme_inverted_high_contrast">Inverted High Contrast</string>
-    <string name="theme_custom">Custom Theme</string>
+    <string name="theme_default">Standard</string>
+    <string name="theme_paper">Papper</string>
+    <string name="theme_graph_paper">Diagrampapper</string>
+    <string name="theme_light">Ljust</string>
+    <string name="theme_paper_light">Papper ljust</string>
+    <string name="theme_graph_paper_light">Diagrampapper ljust</string>
+    <string name="theme_high_contrast">Hög kontrast</string>
+    <string name="theme_inverted_high_contrast">Inverterad hög kontrast</string>
+    <string name="theme_custom">Anpassat tema</string>
 
-    <string name="screen_custom_theme">Custom Theme colors</string>
-    <string name="screen_custom_theme_summary">Customize colors of the Custom Theme.</string>
-    <string name="screen_custom_theme_summary_disabled">Choose \"Custom Theme\" in \"Theme\" setting above to enable this section.</string>
+    <string name="screen_custom_theme">Anpassade temafärger</string>
+    <string name="screen_custom_theme_summary">Anpassa färger för anpassat tema.</string>
+    <string name="screen_custom_theme_summary_disabled">Välj \"anpassat tema\" i \"Tema\"-inställning ovan för att aktivera detta avsnitt.</string>
 
-    <string name="default_lineColor">Line</string>
-    <string name="default_lineColor_summary">Border color around a cell.</string>
+    <string name="default_lineColor">Rad</string>
+    <string name="default_lineColor_summary">Kantfärg runt en cell.</string>
 
-    <string name="default_sectorLineColor">Sector line</string>
-    <string name="default_sectorLineColor_summary">Border color around a block of 3x3 cells.</string>
+    <string name="default_sectorLineColor">Sektorlinje</string>
+    <string name="default_sectorLineColor_summary">Kantfärg runt ett block av 3x3 celler.</string>
 
     <string name="default_textColor">Text</string>
-    <string name="default_textColor_summary">Text color of an editable cell.</string>
+    <string name="default_textColor_summary">Textfärg för en redigerbar cell.</string>
 
-    <string name="default_textColorReadOnly">Read-only text</string>
-    <string name="default_textColorReadOnly_summary">Text color of a non editable cell.</string>
+    <string name="default_textColorReadOnly">Skrivskyddad text</string>
+    <string name="default_textColorReadOnly_summary">Textfärg för en icke redigerbar cell.</string>
 
-    <string name="default_textColorNote">Note text</string>
-    <string name="default_textColorNote_summary">Color of a note text of an editable cell.</string>
+    <string name="default_textColorNote">Noteringstext</string>
+    <string name="default_textColorNote_summary">Färg på en noteringstext i en redigerbar cell.</string>
 
-    <string name="default_backgroundColor">Primary background</string>
-    <string name="default_backgroundColor_summary">Background color of odd groups of 3x3 cells.</string>
+    <string name="default_backgroundColor">Primär bakgrund</string>
+    <string name="default_backgroundColor_summary">Bakgrundsfärg av udda grupper av 3x3 celler.</string>
 
-    <string name="default_backgroundColorSecondary">Secondary background</string>
-    <string name="default_backgroundColorSecondary_summary">Background color of even groups of 3x3 cells.</string>
+    <string name="default_backgroundColorSecondary">Sekundär bakgrund</string>
+    <string name="default_backgroundColorSecondary_summary">Bakgrundsfärg för jämn grupper av 3x3 celler.</string>
 
-    <string name="default_backgroundColorReadOnly">Background of read-only cells</string>
-    <string name="default_backgroundColorReadOnly_summary">Background color of a non editable cells.</string>
+    <string name="default_backgroundColorReadOnly">Bakgrund av skrivskyddade celler</string>
+    <string name="default_backgroundColorReadOnly_summary">Bakgrundsfärg för en icke redigerbara celler.</string>
 
-    <string name="default_backgroundColorTouched">Selector</string>
-    <string name="default_backgroundColorTouched_summary">Color of the selection cross that appears when you press on any cell.</string>
+    <string name="default_backgroundColorTouched">Väljare</string>
+    <string name="default_backgroundColorTouched_summary">Färg på markeringskorset som visas när du trycker på någon cell.</string>
 
-    <string name="default_backgroundColorSelected">Selected cell background</string>
-    <string name="default_backgroundColorSelected_summary">Background color of the selected cell.</string>
+    <string name="default_backgroundColorSelected">Vald cellbakgrund</string>
+    <string name="default_backgroundColorSelected_summary">Bakgrundsfärg för den valda cellen.</string>
 
-    <string name="default_backgroundColorHighlighted">Highlighted cell background</string>
-    <string name="default_backgroundColorHighlighted_summary">Background color of the highlighted cells.</string>
+    <string name="default_backgroundColorHighlighted">Märkt cellbakgrund</string>
+    <string name="default_backgroundColorHighlighted_summary">Bakgrundsfärg för de märkta cellerna.</string>
 </resources>
