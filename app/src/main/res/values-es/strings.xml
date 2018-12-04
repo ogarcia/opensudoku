@@ -41,11 +41,11 @@
 
 	<string name="no_puzzles">Sin puzzles</string>
 	<string name="one_puzzle">1 puzzle</string>
-	<string name="n_puzzles">%s puzzles</string>
+	<string name="n_puzzles">%d puzzles</string>
 	<string name="all_solved">todos resueltos</string>
 	<string name="n_solved">%s resuelto</string>
-	<string name="n_unsolved">%s sin resolver</string>
-	<string name="n_playing">%s jugando</string>
+	<string name="n_unsolved">%d sin resolver</string>
+	<string name="n_playing">%d jugando</string>
 
 	<string name="solved">Resuelto</string>
 	<string name="playing">Jugando</string>
@@ -155,7 +155,7 @@
 	<string name="invalid_format">Formato no válido, la importación se ha cancelado.</string>
 
 	<!-- Strings added in 0.7.0 -->
-	<string name="loading">Cargando...</string>
+	<string name="loading">Cargando…</string>
 
 	<!-- Strings added/changed in 0.7.1 -->
 	<string name="more_settings">Mas ajustes</string>
@@ -168,9 +168,9 @@
 	<string name="export">Exportar</string>
 	<string name="export_folder">Exportar carpeta</string>
 	<string name="export_all_folders">Exportar todas las carpetas</string>
-	<string name="folders_created">%s carpeta(s) ha(n) sido importada(s).</string>
-	<string name="importing">Importando puzzles...</string>
-	<string name="exporting">Exportando puzzles...</string>
+	<string name="folders_created">%d carpeta(s) ha(n) sido importada(s).</string>
+	<string name="importing">Importando puzzles…</string>
+	<string name="exporting">Exportando puzzles…</string>
 	<string name="unknown_export_error">Error desconocido exportando puzzles.</string>
 	<string name="highlight_completed_values">Resaltar completados</string>
 	<string name="highlight_completed_values_summary">Resalta los botones de los números que ya se han introducido nueve veces.
@@ -205,7 +205,7 @@
         desde el último punto de control?</string>
 	<string name="select_difficulty">Seleccionar dificultad</string>
 	<string name="generate_sudoku">Generate new game</string>
-	<string name="generating">Generating puzzle...</string>
+	<string name="generating">Generating puzzle…</string>
     <string name="highlight_similar_cells">Resaltar celdas similares</string>
 	<string name="highlight_similar_cells_summary">Resaltar celdas con valores similares</string>
     <string name="contributors_label">Colaboradores</string>

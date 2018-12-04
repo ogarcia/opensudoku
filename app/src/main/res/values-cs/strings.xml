@@ -32,11 +32,11 @@
 
 	<string name="no_puzzles">Žádné sudoku</string>
 	<string name="one_puzzle">1 sudoku</string>
-	<string name="n_puzzles">%s sudoku</string>
+	<string name="n_puzzles">%d sudoku</string>
 	<string name="all_solved">všechna vyřešena</string>
 	<string name="n_solved">%s vyřešeno</string>
-	<string name="n_unsolved">%s nevyřešeno</string>
-	<string name="n_playing">%s rozehráno</string>
+	<string name="n_unsolved">%d nevyřešeno</string>
+	<string name="n_playing">%d rozehráno</string>
 
 	<string name="solved">Vyřešeno</string>
 	<string name="playing">Rozehráno</string>
@@ -139,7 +139,7 @@
 	<string name="invalid_format">Neplatný formát, import byl zrušen.</string>
 
 	<!-- Strings added in 0.7.0 -->
-	<string name="loading">Loading...</string>
+	<string name="loading">Loading…</string>
 
 	<!-- Strings added/changed in 0.7.1 -->
 	<string name="more_settings">Více nastavení</string>
@@ -152,9 +152,9 @@
 	<string name="export">Export</string>
 	<string name="export_folder">Exportovat složku</string>
 	<string name="export_all_folders">Exportovat všechny složky</string>
-	<string name="folders_created">Bylo naimportováno %s složek.</string>
-	<string name="importing">Importuji sudoku...</string>
-	<string name="exporting">Exportuji sudoku...</string>
+	<string name="folders_created">Bylo naimportováno %d složek.</string>
+	<string name="importing">Importuji sudoku…</string>
+	<string name="exporting">Exportuji sudoku…</string>
 	<string name="unknown_export_error">Při exportu sudoku došlo k neznámé chybě.</string>
 	<string name="highlight_completed_values">Zvýrazni dokončená čísla</string>
 	<string name="highlight_completed_values_summary">Zvýrazní tlačítka čísel, která byla zadána víc než 9-krát.
@@ -175,7 +175,7 @@
 	<!-- Strings added/changed in 1.1.0 -->
 	<string name="generate_sudoku">Vygeneruj sudoku</string>
 	<string name="select_difficulty">Vyber obtížnost</string>
-	<string name="generating">Generuji sudoku...</string>
+	<string name="generating">Generuji sudoku…</string>
 	<string name="current_developers_label">Current Developer</string>
 	<string name="fill_in_notes_summary">Enable "Fill in notes" menu item.</string>
 	<string name="import_file">Import</string>

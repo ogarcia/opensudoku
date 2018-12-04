@@ -46,11 +46,11 @@
 
 	<string name="no_puzzles">No puzzles</string>
 	<string name="one_puzzle">1 puzzle</string>
-	<string name="n_puzzles">%s puzzles</string>
+	<string name="n_puzzles">%d puzzles</string>
 	<string name="all_solved">all solved</string>
 	<string name="n_solved">%s solved</string>
-	<string name="n_unsolved">%s unsolved</string>
-	<string name="n_playing">%s playing</string>
+	<string name="n_unsolved">%d unsolved</string>
+	<string name="n_playing">%d playing</string>
 
 	<string name="solved">Solved</string>
 	<string name="playing">Playing</string>
@@ -162,7 +162,7 @@
 	<string name="invalid_format">Invalid format, import was canceled.</string>
 
 	<!-- Strings added in 0.7.0 -->
-	<string name="loading">Loading...</string>
+	<string name="loading">Loading…</string>
 
 	<!-- Strings added/changed in 0.7.1 -->
 	<string name="more_settings">More settings</string>
@@ -175,9 +175,9 @@
 	<string name="export">Export</string>
 	<string name="export_folder">Export folder</string>
 	<string name="export_all_folders">Export all folders</string>
-	<string name="folders_created">%s folders have been imported.</string>
-	<string name="importing">Importing puzzles...</string>
-	<string name="exporting">Exporting puzzles...</string>
+	<string name="folders_created">%d folders have been imported.</string>
+	<string name="importing">Importing puzzles…</string>
+	<string name="exporting">Exporting puzzles…</string>
 	<string name="unknown_export_error">Unknown error occurred while exporting puzzles.</string>
 	<string name="highlight_completed_values">Highlight completed numbers</string>
 	<string name="highlight_completed_values_summary">Highlight buttons for numbers which has been entered 9 times.</string>
@@ -197,7 +197,7 @@
 	<!-- Strings added/changed in 1.1.0 -->
 	<string name="generate_sudoku">Generate new game</string>
 	<string name="select_difficulty">Select difficulty</string>
-	<string name="generating">Generating puzzle...</string>
+	<string name="generating">Generating puzzle…</string>
 	<string name="show_number_totals">Show Number Totals</string>
 	<string name="show_number_totals_summary">Displays count of each number placed.</string>
 	<string name="what_is_new">What\'s new</string>

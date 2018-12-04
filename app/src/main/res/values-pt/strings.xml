@@ -30,11 +30,11 @@
 	<string name="delete_folder_confirm">Quer realmente excluir esta pasta?</string>
 	<string name="no_puzzles">Nenhum jogo</string>
 	<string name="one_puzzle">1 jogo</string>
-	<string name="n_puzzles">%s jogos</string>
+	<string name="n_puzzles">%d jogos</string>
 	<string name="all_solved">todos Concluídos</string>
 	<string name="n_solved">%s Concluídos</string>
-	<string name="n_unsolved">%s não Concluídos</string>
-	<string name="n_playing">jogando %s</string>
+	<string name="n_unsolved">%d não Concluídos</string>
+	<string name="n_playing">jogando %d</string>
 	<string name="solved">Concluído</string>
 	<string name="playing">Jogando</string>
 	<string name="not_started">Não Inicializados</string>
@@ -135,7 +135,7 @@
 	<string name="invalid_format">Formato inválido. A importação foi cancelada.</string>
 
 	<!-- Strings added in 0.7.0 -->
-	<string name="loading">Carregando...</string>
+	<string name="loading">Carregando…</string>
 
 	<!-- Strings added/changed in 0.7.1 -->
 	<string name="more_settings">Mais configurações</string>
@@ -148,9 +148,9 @@
 	<string name="export">Exportação</string>
 	<string name="export_folder">Exportar pasta</string>
 	<string name="export_all_folders">Exportar todas as pastas</string>
-	<string name="folders_created">%s pastas foram importadas.</string>
-	<string name="importing">Importando jogos...</string>
-	<string name="exporting">Exportando jogos...</string>
+	<string name="folders_created">%d pastas foram importadas.</string>
+	<string name="importing">Importando jogos…</string>
+	<string name="exporting">Exportando jogos…</string>
 	<string name="unknown_export_error">Erro desconhecido ao exportar jogos.</string>
 	<string name="highlight_completed_values">Destacar números finalizados</string>
 	<string name="highlight_completed_values_summary">Destaca botões dos números que já foram usados 9 vezes.
@@ -171,7 +171,7 @@
 	<!-- Strings added/changed in 1.1.0 -->
 	<string name="generate_sudoku">Gerar novo jogo</string>
 	<string name="select_difficulty">Selecionar dificuldade</string>
-	<string name="generating">Gerando jogo...</string>
+	<string name="generating">Gerando jogo…</string>
 	<string name="show_number_totals">Mostrar totais dos números</string>
 	<string name="show_number_totals_summary">Mostra a contagem de cada número colocado.</string>
 	<string name="what_is_new">Novidades</string>

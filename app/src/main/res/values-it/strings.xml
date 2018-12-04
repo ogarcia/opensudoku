@@ -32,11 +32,11 @@
 
 	<string name="no_puzzles">Nessun rompicapo</string>
 	<string name="one_puzzle">1 rompicapo</string>
-	<string name="n_puzzles">%s rompicapi</string>
+	<string name="n_puzzles">%d rompicapi</string>
 	<string name="all_solved">tutti risolti</string>
 	<string name="n_solved">%s risolti</string>
-	<string name="n_unsolved">%s non risolti</string>
-	<string name="n_playing">%s giocati</string>
+	<string name="n_unsolved">%d non risolti</string>
+	<string name="n_playing">%d giocati</string>
 
 	<string name="solved">Risolti</string>
 	<string name="playing">Giocati</string>
@@ -149,7 +149,7 @@
 	<string name="invalid_format">Formato non valido, importazione annullata.</string>
 
 	<!-- Strings added in 0.7.0 -->
-	<string name="loading">Caricamento...</string>
+	<string name="loading">Caricamento…</string>
 
 	<!-- Strings added/changed in 0.7.1 -->
 	<string name="more_settings">Altre impostazioni</string>
@@ -162,9 +162,9 @@
 	<string name="export">Esporta</string>
 	<string name="export_folder">Esporta cartella</string>
 	<string name="export_all_folders">Esporta tutte le cartelle</string>
-	<string name="folders_created">%s cartelle importate.</string>
-	<string name="importing">Importazione rompicapi...</string>
-	<string name="exporting">Esportazione rompicapi...</string>
+	<string name="folders_created">%d cartelle importate.</string>
+	<string name="importing">Importazione rompicapi…</string>
+	<string name="exporting">Esportazione rompicapi…</string>
 	<string name="unknown_export_error">Errore sconosciuto durante esportazione rompicapi.</string>
 	<string name="highlight_completed_values">Evidenzia numeri completati</string>
 	<string name="highlight_completed_values_summary">Evidenzia tasti per numeri che sono stati inseriti 9 volte.
@@ -185,7 +185,7 @@
 	<!-- Strings added/changed in 1.1.0 -->
 	<string name="generate_sudoku">Genera nuovo gioco</string>
 	<string name="select_difficulty">Seleziona difficoltà</string>
-	<string name="generating">Generazione rompicapo...</string>
+	<string name="generating">Generazione rompicapo…</string>
 	<string name="current_developers_label">Current Developer</string>
 	<string name="fill_in_notes_summary">Enable "Fill in notes" menu item.</string>
 	<string name="import_file">Import</string>
