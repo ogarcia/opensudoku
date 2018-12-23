@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">Open Sudoku</string>
-	<string name="edit_sudoku">Edit sudoku</string>
+    <string name="app_name">Open Sudoku</string>
+    <string name="edit_sudoku">Edit sudoku</string>
 
-	<string name="puzzle_folders">OpenSudoku puzzle folders</string>
+    <string name="puzzle_folders">OpenSudoku puzzle folders</string>
 
-	<string name="version">Version %s</string>
-	<string name="homepage" translatable="false">http://opensudoku.moire.org</string>
-	<string name="email" translatable="false">&lt;opensudoku@moire.org&gt;</string>
-	<string name="send_me_bugs">
-        If you run into bug which you want to get fixed, don\'t hesitate to contact me by e-mail
-		or use issue tracker on project\'s homepage.
+    <string name="version">Version %s</string>
+    <string name="homepage" translatable="false">https://opensudoku.moire.org/</string>
+    <string name="email" translatable="false">&lt;opensudoku@moire.org&gt;</string>
+    <string name="send_me_bugs">
+        If you run into a bug, don\'t hesitate to contact me by e-mail
+		or use the issue tracker on the project\'s homepage.
 	</string>
 
     <string name="current_developers_label">Current Developer</string>
@@ -20,207 +20,234 @@
     <string name="old_developers" translatable="false">Roman Mašek</string>
 
     <string name="localization_contributors_label">Localization Contributors</string>
-    <string name="localization_contributors" translatable="false">Vit Hnilica\nMartin Sobola\nMartin Helff\nDiego Pierotto\nGokay Can Kayki\nPaulo Schopf\nJoaquim Pedroto Costa</string>
+    <string name="localization_contributors" translatable="false">
+        Vit Hnilica\n
+        Martin Sobola\n
+        Martin Helff\n
+        Diego Pierotto\n
+        Gokay Can Kayki\n
+        Paulo Schopf\n
+        Joaquim Pedroto Costa
+    </string>
 
-	<string name="close">Close</string>
-	<string name="clear">Clear</string>
-	<string name="save">Save</string>
+    <string name="close">Close</string>
+    <string name="clear">Clear</string>
+    <string name="save">Save</string>
 
-	<string name="get_more_puzzles_online">Get more puzzles online</string>
+    <string name="get_more_puzzles_online">Get more puzzles online</string>
 
-	<string name="name">Name:</string>
-	<string name="note">Note:</string>
+    <string name="name">Name:</string>
+    <string name="note">Note:</string>
 
-	<string name="select_number">Select number</string>
-	<string name="edit_note">Edit note</string>
+    <string name="select_number">Select number</string>
+    <string name="edit_note">Edit note</string>
 
-	<string name="add_folder">Add folder</string>
-	<string name="import_file">Import</string>
-	<string name="import_file_title">Import file %s</string>
-	<string name="about">About</string>
-	<string name="rename_folder">Rename folder</string>
-	<string name="delete_folder">Delete folder</string>
-	<string name="rename_folder_title">Rename %s</string>
-	<string name="delete_folder_title">Delete %s</string>
-	<string name="delete_folder_confirm">Are you sure you want to delete this folder?</string>
+    <string name="add_folder">Add folder</string>
+    <string name="import_file">Import</string>
+    <string name="import_file_title">Import file %s</string>
+    <string name="about">About</string>
+    <string name="rename_folder">Rename folder</string>
+    <string name="delete_folder">Delete folder</string>
+    <string name="rename_folder_title">Rename %s</string>
+    <string name="delete_folder_title">Delete %s</string>
+    <string name="delete_folder_confirm">Are you sure you want to delete this folder?</string>
 
-	<string name="no_puzzles">No puzzles</string>
-	<string name="one_puzzle">1 puzzle</string>
-	<string name="n_puzzles">%s puzzles</string>
-	<string name="all_solved">all solved</string>
-	<string name="n_solved">%s solved</string>
-	<string name="n_unsolved">%s unsolved</string>
-	<string name="n_playing">%s playing</string>
+    <string name="no_puzzles">No puzzles</string>
+    <string name="one_puzzle">1 puzzle</string>
+    <string name="n_puzzles">%s puzzles</string>
+    <string name="all_solved">all solved</string>
+    <string name="n_solved">%s solved</string>
+    <string name="n_unsolved">%s unsolved</string>
+    <string name="n_playing">%s playing</string>
 
-	<string name="solved">Solved</string>
-	<string name="playing">Playing</string>
-	<string name="not_started">Not started</string>
-	<string name="last_played_at">Last played %s</string>
-	<string name="created_at">Created %s</string>
-	<string name="at_time">at %s</string>
-	<string name="yesterday_at_time">yesterday at %s</string>
-	<string name="on_date">on %s</string>
-	<string name="add_sudoku">Add sudoku</string>
-	<string name="filter">Filter</string>
-	<string name="filter_by_gamestate">Filter by game state</string>
-	<string name="folders">Folders</string>
-	<string name="delete_puzzle_confirm">Are you sure you want to delete selected puzzle?</string>
-	<string name="reset_puzzle_confirm">Are you sure you want to reset selected puzzle?</string>
-	<string name="play_puzzle">Play this puzzle</string>
-	<string name="reset_puzzle">Reset puzzle</string>
-	<string name="edit_puzzle">Edit puzzle</string>
-	<string name="delete_puzzle">Delete puzzle</string>
-	<string name="filter_active">Filtered: %s</string>
+    <string name="solved">Solved</string>
+    <string name="playing">Playing</string>
+    <string name="not_started">Not started</string>
+    <string name="last_played_at">Last played %s</string>
+    <string name="created_at">Created %s</string>
+    <string name="at_time">at %s</string>
+    <string name="yesterday_at_time">yesterday at %s</string>
+    <string name="on_date">on %s</string>
+    <string name="add_sudoku">Add sudoku</string>
+    <string name="filter">Filter</string>
+    <string name="filter_by_gamestate">Filter by game state</string>
+    <string name="folders">Folders</string>
+    <string name="delete_puzzle_confirm">Are you sure you want to delete selected puzzle?</string>
+    <string name="reset_puzzle_confirm">Are you sure you want to reset selected puzzle?</string>
+    <string name="play_puzzle">Play this puzzle</string>
+    <string name="reset_puzzle">Reset puzzle</string>
+    <string name="edit_puzzle">Edit puzzle</string>
+    <string name="delete_puzzle">Delete puzzle</string>
+    <string name="filter_active">Filtered: %s</string>
 
-	<string name="undo">Undo</string>
-	<string name="clear_all_notes">Clear all notes</string>
-	<string name="fill_in_notes">Fill in notes</string>
-	<string name="restart">Restart</string>
-	<string name="congrats">Congratulations, you have solved the puzzle in %s.</string>
-	<string name="restart_confirm">Are you sure you want to restart this game?</string>
-	<string name="well_done">Well Done!</string>
-	<string name="clear_all_notes_confirm">Are you sure you want to clear all notes?</string>
-	<string name="settings">Settings</string>
-	<string name="game_settings">Game settings</string>
+    <string name="undo">Undo</string>
+    <string name="clear_all_notes">Clear all notes</string>
+    <string name="fill_in_notes">Fill in notes</string>
+    <string name="restart">Restart</string>
+    <string name="congrats">Congratulations, you have solved the puzzle in %s!</string>
+    <string name="restart_confirm">Are you sure you want to restart this game?</string>
+    <string name="well_done">Well done!</string>
+    <string name="clear_all_notes_confirm">Are you sure you want to clear all notes?</string>
+    <string name="settings">Settings</string>
+    <string name="game_settings">Game Settings</string>
 
-	<string name="game_helpers">Game Helpers</string>
-	<string name="highlight_wrong_values">Highlight wrong values</string>
-	<string name="highlight_wrong_values_summary">Highlight values which break rules of sudoku.</string>
-	<string name="input_methods">Input Modes</string>
-	<string name="popup">Popup</string>
-	<string name="popup_summary">Edit cell value and note in popup.</string>
-	<string name="single_number">Single number</string>
-	<string name="single_number_summary">Select number, then just tap on cell to set its value or note.</string>
-	<string name="numpad">Numpad</string>
-	<string name="numpad_summary">Show numpad which acts as standard numeric keyobard.</string>
-	<string name="numpad_move_right">Move right on press</string>
-	<string name="numpad_move_right_summary">Moves cell selection by one cell right when number button is pressed.
+    <string name="game_helpers">Game Helpers</string>
+    <string name="highlight_wrong_values">Highlight wrong values</string>
+    <string name="highlight_wrong_values_summary">Highlight values that break rules of sudoku.</string>
+    <string name="input_methods">Input Modes</string>
+    <string name="popup">Popup</string>
+    <string name="popup_summary">Edit cell value and note in popup.</string>
+    <string name="single_number">Single number</string>
+    <string name="single_number_summary">Select number, then just tap on cell to set its value or note.</string>
+    <string name="numpad">Numpad</string>
+    <string name="numpad_summary">Show numpad (acts as standard numeric keyboard)</string>
+    <string name="numpad_move_right">Move right on press</string>
+    <string name="numpad_move_right_summary">Moves cell selection by one cell to the right when number button is pressed.
 	</string>
 
-	<string name="numpad_abbr">Num\nPad</string>
-	<string name="popup_abbr">Pop</string>
-	<string name="single_number_abbr">SN</string>
-	<string name="welcome">Welcome</string>
-	<string name="hint">Hint</string>
-	<string name="help">Help</string>
-	<string name="that_is_all">That\'s all</string>
+    <string name="numpad_abbr">Num\nPad</string>
+    <string name="popup_abbr">Pop</string>
+    <string name="single_number_abbr">SN</string>
+    <string name="welcome">Welcome</string>
+    <string name="hint">Hint</string>
+    <string name="help">Help</string>
+    <string name="that_is_all">That\'s all</string>
 
-
-	<string name="first_run_hint">There are several input modes which you can use to fill in the puzzle. In order to
-		help you get familiar with these modes there will be several hints displayed as you go through them.\n\nYou can
-		disable these hints in game settings.\n
-	</string>
-	<string name="im_popup_hint">You\'re now in the
-		<i>Popup</i>
-		input mode. Tap any cell with finger to edit its content.\n\nNotice the button in the lower right corner. You
-		can use this button to switch to another input mode.\n
-	</string>
-	<string name="im_single_number_hint">You\'re now in the
-		<i>Single number</i>
-		input mode. First select any number button by pressing it. Then just tap on cells in which you want to have
-		selected number filled.\n\nPress
-		<i>Pencil</i>
-		button to toggle cell\'s note editing.\n
-	</string>
-	<string name="im_numpad_hint">You\'re now in the
-		<i>Numpad</i>
-		input mode. Buttons act as a standard numeric keyboard.\n\nPress
-		<i>Pencil</i>
-		button to toggle cell\'s note editing.\n
-	</string>
-	<string name="im_disable_modes_hint">Please remember that you don\'t have to use all input modes. You can disable
-		any of them in the game settings.\n\nYou can also use the keyboard and trackball to control the game. If you
-		want to enter notes using keyboard, press number with alt or shift.\n
-	</string>
-	<string name="help_text"><b>Keyboard controls</b>\n\nUse trackball to navigate to the desired cell and then press
-		number on keyboard to fill in value. If you want to edit cell\'s note, press number with shift or alt.\n\n<b>
-			Input modes</b>\n\nYou can switch between several input modes using button in the lower right corner of the
-		screen. You can also disable any input mode in game settings - it will be completely hidden then.\n\n<b>Popup
-			input mode</b>\n\nPopup dialog is shown when you tap the cell. You can edit cell\'s content using this
-		dialog.\n\n<b>Single Number input mode</b>\n\nFirst select any number button by pressing it. Then just tap on
-		cells in which you want to have selected number filled.\n\nUse
-		<i>Pencil</i>
-		button to toggle between cell\'s value and note editing.\n\n<b>Numpad input mode</b>\n\nButtons act as a
-		standard numeric keyboard.\n\nUse
-		<i>Pencil</i>
-		button to toggle between cell\'s value and note editing.\n
+    <string name="first_run_hint">
+        There are several input modes which you can use to fill in the puzzle.
+        In order to help you get familiar with these modes, there will be several hints displayed as you go through them.
+        \n\nYou can disable these hints in game settings.\n
 	</string>
 
-
-	<string name="game">Game</string>
-	<string name="show_hints">First launch hints</string>
-	<string name="show_hints_summary">Show hints which will guide you through application controls.</string>
-	<string name="show_time">Show time</string>
-	<string name="show_time_summary">Show time during gameplay.</string>
-
-	<string name="puzzle_inserted">New puzzle has been saved.</string>
-	<string name="puzzle_updated">Puzzle has been updated.</string>
-
-	<string name="puzzles_saved">Puzzles have been saved into \'%s\' folder.</string>
-	<string name="no_puzzles_found">No puzzles found.</string>
-	<string name="unknown_import_error">Unknown error occurred while importing puzzles, import was canceled.</string>
-	<string name="invalid_format">Invalid format, import was canceled.</string>
-
-	<!-- Strings added in 0.7.0 -->
-	<string name="loading">Loading...</string>
-
-	<!-- Strings added/changed in 0.7.1 -->
-	<string name="more_settings">More settings</string>
-	<string name="screen_border_size">Screen border size</string>
-	<string name="screen_border_size_summary">Some displays do not react to touches on screen edges. This could help in
-		such case.
+    <string name="im_popup_hint">
+        You\'re now in the <i>Popup</i> input mode.
+        Tap any cell with finger to edit its content.
+        \n\nNotice the button in the lower right corner.
+        You can use this button to switch to another input mode.\n
 	</string>
-	<string name="highlight_touched_cell">Highlight cell on touch</string>
-	<string name="highlight_touched_cell_summary">Highlights row and column of touched cell.</string>
-	<string name="export">Export</string>
-	<string name="export_folder">Export folder</string>
-	<string name="export_all_folders">Export all folders</string>
-	<string name="folders_created">%s folders have been imported.</string>
-	<string name="importing">Importing puzzles...</string>
-	<string name="exporting">Exporting puzzles...</string>
-	<string name="unknown_export_error">Unknown error occurred while exporting puzzles.</string>
-	<string name="highlight_completed_values">Highlight completed numbers</string>
-	<string name="highlight_completed_values_summary">Highlight buttons for numbers which has been entered 9 times.</string>
-	<string name="theme">Theme</string>
-	<string name="theme_summary">Select color theme for puzzle board.</string>
-	<string name="select_theme">Select theme</string>
-	<string name="filename">Filename</string>
-	<string name="directory">Directory</string>
-	<string name="sdcard_not_found">SD card not found.</string>
-	<string name="puzzles_have_been_exported">Puzzles have been exported to %s.</string>
-	<string name="file_exists">File already exists, do you want to overwrite it?</string>
-	<!-- localization of default folder names -->
-	<string name="difficulty_hard">Hard</string>
-	<string name="difficulty_medium">Medium</string>
-	<string name="difficulty_easy">Easy</string>
 
-	<!-- Strings added/changed in 1.1.0 -->
-	<string name="generate_sudoku">Generate new game</string>
-	<string name="select_difficulty">Select difficulty</string>
-	<string name="generating">Generating puzzle...</string>
-	<string name="show_number_totals">Show Number Totals</string>
-	<string name="show_number_totals_summary">Displays count of each number placed.</string>
-	<string name="what_is_new">What\'s new</string>
+    <string name="im_single_number_hint">
+        You\'re now in the <i>Single number</i> input mode.
+        First select any number button by pressing it.
+        Then just tap on cells in which you want to have the selected number filled.
+        \n\nPress <i>Pencil</i> button to toggle the cell\'s note editing.\n
+	</string>
 
-	<!-- Strings added/changed in 1.1.1 -->
-	<string name="fill_in_notes_summary">Enable "Fill in notes" menu item.</string>
+    <string name="im_numpad_hint">
+        You\'re now in the <i>Numpad</i> input mode.
+        Buttons act as a standard numeric keyboard.
+        \n\nPress <i>Pencil</i> button to toggle the cell\'s note editing.\n
+	</string>
 
-	<!-- Strings added/changed in 1.1.2 -->
-	<string name="set_checkpoint">Set checkpoint</string>
-	<string name="undo_to_checkpoint">Undo to checkpoint</string>
-	<string name="undo_to_checkpoint_confirm">Are you sure you want to undo all actions since last checkpoint?</string>
+    <string name="im_disable_modes_hint">
+        Please remember that you don\'t have to use all input modes.
+        You can disable any of them in the game settings.
+        \n\nYou can also use the keyboard and trackball to control the game.
+        If you want to enter notes using the keyboard, press number with alt or shift.\n
+	</string>
 
-	<!-- Strings added/changed in 2.3.0 -->
-	<string name="highlight_similar_cells">Highlight similar cells</string>
-	<string name="highlight_similar_cells_summary">Highlight cells with similar values</string>
+    <string name="help_text">
+        <b>Keyboard controls</b>
+        \n\nUse trackball to navigate to the desired cell and then press a number on the keyboard to fill in the value.
+        If you want to edit the cell\'s note, press number with shift or alt.\n\n
 
-	<!-- Strings added/changed in 2.4.0 -->
-	<string name="bidirectional_selection">Bidirectional selection</string>
-	<string name="bidirectional_selection_summary">In single number input panel, the selection of a non editable cell automatically selects the corresponding button and vice versa.</string>
-	<string name="contributors_label">Contributors</string>
-	<string name="contributors" translatable="false">Sergey Pimanov</string>
+        <b>Input modes</b>
+        \n\nYou can switch between several input modes using the button in the lower right corner of the screen.
+        You can also disable any input mode in game settings - it will become completely hidden.\n\n
 
-	<!-- Strings added/changed in 2.5.0 -->
+        <b>Pop-up input mode</b>
+        \n\nA pop-up dialog is shown when you tap the cell.
+        You can edit cell\'s content using this dialog.\n\n
+
+        <b>Single number input mode</b>
+        \n\nFirst select any number button by pressing it.
+        Then just tap on cells in which you want to have the selected number filled.
+        \n\nUse <i>Pencil</i> button to toggle between the cell\'s value and note editing.\n\n
+
+        <b>Numpad input mode</b>
+        \n\nButtons act as a standard numeric keyboard.
+        \n\nUse <i>Pencil</i> button to toggle between the cell\'s value and note editing.\n
+	</string>
+
+
+    <string name="game">Game</string>
+    <string name="show_hints">First launch hints</string>
+    <string name="show_hints_summary">Show hints that guide you through application controls</string>
+    <string name="show_time">Show time</string>
+    <string name="show_time_summary">Show time during gameplay</string>
+
+    <string name="puzzle_inserted">New puzzle has been saved</string>
+    <string name="puzzle_updated">Puzzle has been updated</string>
+
+    <string name="puzzles_saved">Puzzles have been saved into \'%s\' folder</string>
+    <string name="no_puzzles_found">No puzzles found</string>
+    <string name="unknown_import_error">Unknown error occurred while importing puzzles; import was cancelled</string>
+    <string name="invalid_format">Invalid format; import was cancelled</string>
+
+    <!-- Strings added in 0.7.0 -->
+    <string name="loading">Loading…</string>
+
+    <!-- Strings added/changed in 0.7.1 -->
+    <string name="more_settings">More Settings</string>
+    <string name="screen_border_size">Screen border size</string>
+    <string name="screen_border_size_summary">
+        Some displays do not react to touches on screen edges.
+        This could help in such cases.
+	</string>
+    <string name="highlight_touched_cell">Highlight cell on touch</string>
+    <string name="highlight_touched_cell_summary">Highlights row and column of touched cell</string>
+    <string name="export">Export</string>
+    <string name="export_folder">Export folder</string>
+    <string name="export_all_folders">Export all folders</string>
+    <string name="folders_created">%s folders have been imported</string>
+    <string name="importing">Importing puzzles…</string>
+    <string name="exporting">Exporting puzzles…</string>
+    <string name="unknown_export_error">An unknown error occurred while exporting puzzles</string>
+    <string name="highlight_completed_values">Highlight completed numbers</string>
+    <string name="highlight_completed_values_summary">Highlight buttons for numbers which have been entered 9 times</string>
+    <string name="theme">Theme</string>
+    <string name="theme_summary">Select color theme for puzzle board</string>
+    <string name="select_theme">Select theme</string>
+    <string name="filename">Filename</string>
+    <string name="directory">Directory</string>
+    <string name="sdcard_not_found">SD card not found</string>
+    <string name="puzzles_have_been_exported">Puzzles have been exported to \'%s\'</string>
+    <string name="file_exists">File already exists. Overwrite?</string>
+    <!-- localization of default folder names -->
+    <string name="difficulty_hard">Hard</string>
+    <string name="difficulty_medium">Medium</string>
+    <string name="difficulty_easy">Easy</string>
+
+    <!-- Strings added/changed in 1.1.0 -->
+    <string name="generate_sudoku">Generate new game</string>
+    <string name="select_difficulty">Select difficulty</string>
+    <string name="generating">Generating puzzle…</string>
+    <string name="show_number_totals">Show Number Totals</string>
+    <string name="show_number_totals_summary">Displays count of each number placed</string>
+    <string name="what_is_new">What\'s new?</string>
+
+    <!-- Strings added/changed in 1.1.1 -->
+    <string name="fill_in_notes_summary">Enable "Fill in notes" menu item</string>
+
+    <!-- Strings added/changed in 1.1.2 -->
+    <string name="set_checkpoint">Set checkpoint</string>
+    <string name="undo_to_checkpoint">Undo to checkpoint</string>
+    <string name="undo_to_checkpoint_confirm">Are you sure you want to undo all actions since the last checkpoint?</string>
+
+    <!-- Strings added/changed in 2.3.0 -->
+    <string name="highlight_similar_cells">Highlight similar cells</string>
+    <string name="highlight_similar_cells_summary">Highlight cells with similar values</string>
+
+    <!-- Strings added/changed in 2.4.0 -->
+    <string name="bidirectional_selection">Bidirectional selection</string>
+    <string name="bidirectional_selection_summary">
+        In single number input panel, the selection of a non editable cell automatically
+        selects the corresponding button (and vice versa).
+    </string>
+    <string name="contributors_label">Contributors</string>
+    <string name="contributors" translatable="false">Sergey Pimanov</string>
+
+    <!-- Strings added/changed in 2.5.0 -->
     <string name="game_state_not_started">Not started</string>
     <string name="game_state_playing">Playing</string>
     <string name="game_state_solved">Solved</string>
@@ -237,42 +264,46 @@
     <string name="theme_graph_paper_light">Graph Paper Light</string>
     <string name="theme_high_contrast">High Contrast</string>
     <string name="theme_inverted_high_contrast">Inverted High Contrast</string>
-	<string name="theme_custom">Custom Theme</string>
+    <string name="theme_custom">Custom Theme</string>
 
-	<string name="screen_custom_theme">Custom Theme colors</string>
-	<string name="screen_custom_theme_summary">Customize colors of the Custom Theme.</string>
-	<string name="screen_custom_theme_summary_disabled">Choose \"Custom Theme\" in \"Theme\" setting above to enable this section.</string>
+    <string name="screen_custom_theme">Custom theme colors</string>
+    <string name="screen_custom_theme_summary">Customize colors of the custom theme</string>
+    <string name="screen_custom_theme_summary_disabled">
+        Choose \"Custom Theme\" in the \"Theme\" setting above to enable this section
+    </string>
 
-	<string name="default_lineColor">Line</string>
-	<string name="default_lineColor_summary">Border color around a cell.</string>
+    <string name="default_lineColor">Line</string>
+    <string name="default_lineColor_summary">Border color around a cell</string>
 
     <string name="default_sectorLineColor">Sector line</string>
-    <string name="default_sectorLineColor_summary">Border color around a block of 3x3 cells.</string>
+    <string name="default_sectorLineColor_summary">Border color around a block of 3x3 cells</string>
 
     <string name="default_textColor">Text</string>
-    <string name="default_textColor_summary">Text color of an editable cell.</string>
+    <string name="default_textColor_summary">Text color of an editable cell</string>
 
     <string name="default_textColorReadOnly">Read-only text</string>
-    <string name="default_textColorReadOnly_summary">Text color of a non editable cell.</string>
+    <string name="default_textColorReadOnly_summary">Text color of a non-editable cell</string>
 
     <string name="default_textColorNote">Note text</string>
-    <string name="default_textColorNote_summary">Color of a note text of an editable cell.</string>
+    <string name="default_textColorNote_summary">Color of a note text of an editable cell</string>
 
     <string name="default_backgroundColor">Primary background</string>
-    <string name="default_backgroundColor_summary">Background color of odd groups of 3x3 cells.</string>
+    <string name="default_backgroundColor_summary">Background color of odd groups of 3x3 cells</string>
 
     <string name="default_backgroundColorSecondary">Secondary background</string>
-    <string name="default_backgroundColorSecondary_summary">Background color of even groups of 3x3 cells.</string>
+    <string name="default_backgroundColorSecondary_summary">Background color of even groups of 3x3 cells</string>
 
     <string name="default_backgroundColorReadOnly">Background of read-only cells</string>
-    <string name="default_backgroundColorReadOnly_summary">Background color of a non editable cells.</string>
+    <string name="default_backgroundColorReadOnly_summary">Background color of a non editable cells</string>
 
     <string name="default_backgroundColorTouched">Selector</string>
-    <string name="default_backgroundColorTouched_summary">Color of the selection cross that appears when you press on any cell.</string>
+    <string name="default_backgroundColorTouched_summary">
+        Color of the selection cross that appears when you press on any cell
+    </string>
 
     <string name="default_backgroundColorSelected">Selected cell background</string>
-    <string name="default_backgroundColorSelected_summary">Background color of the selected cell.</string>
+    <string name="default_backgroundColorSelected_summary">Background color of the selected cell</string>
 
     <string name="default_backgroundColorHighlighted">Highlighted cell background</string>
-    <string name="default_backgroundColorHighlighted_summary">Background color of the highlighted cells.</string>
+    <string name="default_backgroundColorHighlighted_summary">Background color of the highlighted cells</string>
 </resources>

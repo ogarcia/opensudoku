@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string-array name="game_states">
-		<item>@string/game_state_not_started</item>
-		<item>@string/game_state_playing</item>
-		<item>@string/game_state_solved</item>
-	</string-array>
+    <string-array name="game_states">
+        <item>@string/game_state_not_started</item>
+        <item>@string/game_state_playing</item>
+        <item>@string/game_state_solved</item>
+    </string-array>
     <string-array name="game_levels">
         <item>@string/game_level_easy</item>
         <item>@string/game_level_medium</item>
         <item>@string/game_level_hard</item>
     </string-array>
-	<string-array name="theme_names">
-		<item>@string/theme_default</item>
-		<item>@string/theme_paper</item>
+    <string-array name="theme_names">
+        <item>@string/theme_default</item>
+        <item>@string/theme_paper</item>
         <item>@string/theme_graph_paper</item>
-		<item>@string/theme_light</item>
+        <item>@string/theme_light</item>
         <item>@string/theme_paper_light</item>
         <item>@string/theme_graph_paper_light</item>
         <item>@string/theme_high_contrast</item>
         <item>@string/theme_inverted_high_contrast</item>
-		<item>@string/theme_custom</item>
-	</string-array>
-	<!-- Theme codes should not change -->
-	<string-array name="theme_codes" translatable="false">
-		<item>default</item>
-		<item>paper</item>
+        <item>@string/theme_custom</item>
+    </string-array>
+    <!-- Theme codes should not change -->
+    <string-array name="theme_codes" translatable="false">
+        <item>default</item>
+        <item>paper</item>
         <item>graphpaper</item>
-		<item>light</item>
-		<item>paperlight</item>
+        <item>light</item>
+        <item>paperlight</item>
         <item>graphpaperlight</item>
         <item>highcontrast</item>
         <item>invertedhighcontrast</item>
-		<item>custom</item>
-	</string-array>
+        <item>custom</item>
+    </string-array>
     <!-- End of theme codes -->
 </resources>

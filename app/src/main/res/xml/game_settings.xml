@@ -1,178 +1,173 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen
-		xmlns:android="http://schemas.android.com/apk/res/android"
-		xmlns:os="http://schemas.android.com/apk/res/org.moire.opensudoku">
-	<PreferenceCategory
-			android:title="@string/game_helpers">
-		<CheckBoxPreference
-				android:key="highlight_wrong_values"
-				android:title="@string/highlight_wrong_values"
-				android:summary="@string/highlight_wrong_values_summary"
-				android:defaultValue="true"/>
-		<CheckBoxPreference
-				android:key="highlight_completed_values"
-				android:title="@string/highlight_completed_values"
-				android:summary="@string/highlight_completed_values_summary"
-				android:defaultValue="true"/>
-		<CheckBoxPreference
-			android:key="highlight_similar_cells"
-			android:title="@string/highlight_similar_cells"
-			android:summary="@string/highlight_similar_cells_summary"
-			android:defaultValue="true"/>
-		<CheckBoxPreference
-			android:key="bidirectional_selection"
-			android:title="@string/bidirectional_selection"
-			android:summary="@string/bidirectional_selection_summary"
-			android:defaultValue="true"/>
-		<CheckBoxPreference
-				android:key="show_number_totals"
-				android:title="@string/show_number_totals"
-				android:summary="@string/show_number_totals_summary"
-				android:defaultValue="false"/>
-		<CheckBoxPreference
-				android:key="fill_in_notes_enabled"
-				android:title="@string/fill_in_notes"
-				android:summary="@string/fill_in_notes_summary"
-				android:defaultValue="false"/>
-	</PreferenceCategory>
-	<PreferenceCategory
-			android:title="@string/input_methods">
-		<CheckBoxPreference
-				android:key="im_popup"
-				android:title="@string/popup"
-				android:summary="@string/popup_summary"
-				android:defaultValue="true"/>
-		<CheckBoxPreference
-				android:key="im_single_number"
-				android:title="@string/single_number"
-				android:summary="@string/single_number_summary"
-				android:defaultValue="true"/>
-		<CheckBoxPreference
-				android:key="im_numpad"
-				android:title="@string/numpad"
-				android:summary="@string/numpad_summary"
-				android:defaultValue="true"/>
-		<PreferenceScreen
-				android:key="screen_input_methods_advanced"
-				android:title="@string/more_settings">
-			<PreferenceCategory
-					android:title="@string/numpad">
-				<CheckBoxPreference
-						android:key="im_numpad_move_right"
-						android:title="@string/numpad_move_right"
-						android:summary="@string/numpad_move_right_summary"
-						android:defaultValue="false"/>
-			</PreferenceCategory>
-		</PreferenceScreen>
-	</PreferenceCategory>
-	<PreferenceCategory
-			android:title="@string/game">
-		<CheckBoxPreference
-				android:key="show_time"
-				android:title="@string/show_time"
-				android:summary="@string/show_time_summary"
-				android:defaultValue="true"/>
-		<CheckBoxPreference
-				android:key="show_hints"
-				android:title="@string/show_hints"
-				android:summary="@string/show_hints_summary"
-				android:defaultValue="true"/>
-		<ListPreference
-				android:key="theme"
-				android:title="@string/theme"
-				android:summary="@string/theme_summary"
-				android:entries="@array/theme_names"
-				android:entryValues="@array/theme_codes"
-				android:dialogTitle="@string/select_theme"
-				android:defaultValue="default"/>
-		<PreferenceScreen
-			android:key="screen_custom_theme"
-			android:title="@string/screen_custom_theme"
-            android:summary="@string/screen_custom_theme_summary">
-            <net.margaritov.preference.colorpicker.ColorPickerPreference
-                android:key="custom_theme_lineColor"
-                android:title="@string/default_lineColor"
-                android:summary="@string/default_lineColor_summary"
-                android:defaultValue="@color/default_lineColor"
-                alphaSlider="true"/>
-            <net.margaritov.preference.colorpicker.ColorPickerPreference
-                android:key="custom_theme_sectorLineColor"
-                android:title="@string/default_sectorLineColor"
-                android:summary="@string/default_sectorLineColor_summary"
-                android:defaultValue="@color/default_sectorLineColor"
-                alphaSlider="true"/>
-            <net.margaritov.preference.colorpicker.ColorPickerPreference
-                android:key="custom_theme_textColor"
-                android:title="@string/default_textColor"
-                android:summary="@string/default_textColor_summary"
-                android:defaultValue="@color/default_textColor"
-                alphaSlider="true"/>
-            <net.margaritov.preference.colorpicker.ColorPickerPreference
-                android:key="custom_theme_textColorReadOnly"
-                android:title="@string/default_textColorReadOnly"
-                android:summary="@string/default_textColorReadOnly_summary"
-                android:defaultValue="@color/default_textColorReadOnly"
-                alphaSlider="true"/>
-            <net.margaritov.preference.colorpicker.ColorPickerPreference
-                android:key="custom_theme_textColorNote"
-                android:title="@string/default_textColorNote"
-                android:summary="@string/default_textColorNote_summary"
-                android:defaultValue="@color/default_textColorNote"
-                alphaSlider="true"/>
-            <net.margaritov.preference.colorpicker.ColorPickerPreference
-                android:key="custom_theme_backgroundColor"
-                android:title="@string/default_backgroundColor"
-                android:summary="@string/default_backgroundColor_summary"
-                android:defaultValue="@color/default_backgroundColor"
-                alphaSlider="true"/>
-            <net.margaritov.preference.colorpicker.ColorPickerPreference
-                android:key="custom_theme_backgroundColorSecondary"
-                android:title="@string/default_backgroundColorSecondary"
-                android:summary="@string/default_backgroundColorSecondary_summary"
-                android:defaultValue="@color/default_backgroundColorSecondary"
-                alphaSlider="true"/>
-            <net.margaritov.preference.colorpicker.ColorPickerPreference
-                android:key="custom_theme_backgroundColorReadOnly"
-                android:title="@string/default_backgroundColorReadOnly"
-                android:summary="@string/default_backgroundColorReadOnly_summary"
-                android:defaultValue="@color/default_backgroundColorReadOnly"
-                alphaSlider="true"/>
-            <net.margaritov.preference.colorpicker.ColorPickerPreference
-                android:key="custom_theme_backgroundColorTouched"
-                android:title="@string/default_backgroundColorTouched"
-                android:summary="@string/default_backgroundColorTouched_summary"
-                android:defaultValue="@color/default_backgroundColorTouched"
-                alphaSlider="true"/>
-            <net.margaritov.preference.colorpicker.ColorPickerPreference
-                android:key="custom_theme_backgroundColorSelected"
-                android:title="@string/default_backgroundColorSelected"
-                android:summary="@string/default_backgroundColorSelected_summary"
-                android:defaultValue="@color/default_backgroundColorSelected"
-                alphaSlider="true"/>
-            <net.margaritov.preference.colorpicker.ColorPickerPreference
-                android:key="custom_theme_backgroundColorHighlighted"
-                android:title="@string/default_backgroundColorHighlighted"
-                android:summary="@string/default_backgroundColorHighlighted_summary"
-                android:defaultValue="@color/default_backgroundColorHighlighted"
-                alphaSlider="true"/>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:os="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory android:title="@string/game_helpers">
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="highlight_wrong_values"
+            android:summary="@string/highlight_wrong_values_summary"
+            android:title="@string/highlight_wrong_values" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="highlight_completed_values"
+            android:summary="@string/highlight_completed_values_summary"
+            android:title="@string/highlight_completed_values" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="highlight_similar_cells"
+            android:summary="@string/highlight_similar_cells_summary"
+            android:title="@string/highlight_similar_cells" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="bidirectional_selection"
+            android:summary="@string/bidirectional_selection_summary"
+            android:title="@string/bidirectional_selection" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="show_number_totals"
+            android:summary="@string/show_number_totals_summary"
+            android:title="@string/show_number_totals" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="fill_in_notes_enabled"
+            android:summary="@string/fill_in_notes_summary"
+            android:title="@string/fill_in_notes" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/input_methods">
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="im_popup"
+            android:summary="@string/popup_summary"
+            android:title="@string/popup" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="im_single_number"
+            android:summary="@string/single_number_summary"
+            android:title="@string/single_number" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="im_numpad"
+            android:summary="@string/numpad_summary"
+            android:title="@string/numpad" />
+        <PreferenceScreen
+            android:key="screen_input_methods_advanced"
+            android:title="@string/more_settings">
+            <PreferenceCategory android:title="@string/numpad">
+                <CheckBoxPreference
+                    android:defaultValue="false"
+                    android:key="im_numpad_move_right"
+                    android:summary="@string/numpad_move_right_summary"
+                    android:title="@string/numpad_move_right" />
+            </PreferenceCategory>
         </PreferenceScreen>
-		<PreferenceScreen
-				android:key="screen_game_advanced"
-				android:title="@string/more_settings">
-			<org.moire.opensudoku.gui.SeekBarPreference
-					android:key="screen_border_size"
-					android:title="@string/screen_border_size"
-					android:summary="@string/screen_border_size_summary"
-					android:dialogTitle="@string/screen_border_size"
-					android:defaultValue="0"
-					os:max="30"
-					os:min="0"
-					os:valueFormat="%s pixels"/>
-			<CheckBoxPreference
-					android:key="highlight_touched_cell"
-					android:title="@string/highlight_touched_cell"
-					android:summary="@string/highlight_touched_cell_summary"
-					android:defaultValue="true"/>
-		</PreferenceScreen>
-	</PreferenceCategory>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/game">
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="show_time"
+            android:summary="@string/show_time_summary"
+            android:title="@string/show_time" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="show_hints"
+            android:summary="@string/show_hints_summary"
+            android:title="@string/show_hints" />
+        <ListPreference
+            android:defaultValue="default"
+            android:dialogTitle="@string/select_theme"
+            android:entries="@array/theme_names"
+            android:entryValues="@array/theme_codes"
+            android:key="theme"
+            android:summary="@string/theme_summary"
+            android:title="@string/theme" />
+        <PreferenceScreen
+            android:key="screen_custom_theme"
+            android:summary="@string/screen_custom_theme_summary"
+            android:title="@string/screen_custom_theme">
+            <net.margaritov.preference.colorpicker.ColorPickerPreference
+                alphaSlider="true"
+                android:defaultValue="@color/default_lineColor"
+                android:key="custom_theme_lineColor"
+                android:summary="@string/default_lineColor_summary"
+                android:title="@string/default_lineColor" />
+            <net.margaritov.preference.colorpicker.ColorPickerPreference
+                alphaSlider="true"
+                android:defaultValue="@color/default_sectorLineColor"
+                android:key="custom_theme_sectorLineColor"
+                android:summary="@string/default_sectorLineColor_summary"
+                android:title="@string/default_sectorLineColor" />
+            <net.margaritov.preference.colorpicker.ColorPickerPreference
+                alphaSlider="true"
+                android:defaultValue="@color/default_textColor"
+                android:key="custom_theme_textColor"
+                android:summary="@string/default_textColor_summary"
+                android:title="@string/default_textColor" />
+            <net.margaritov.preference.colorpicker.ColorPickerPreference
+                alphaSlider="true"
+                android:defaultValue="@color/default_textColorReadOnly"
+                android:key="custom_theme_textColorReadOnly"
+                android:summary="@string/default_textColorReadOnly_summary"
+                android:title="@string/default_textColorReadOnly" />
+            <net.margaritov.preference.colorpicker.ColorPickerPreference
+                alphaSlider="true"
+                android:defaultValue="@color/default_textColorNote"
+                android:key="custom_theme_textColorNote"
+                android:summary="@string/default_textColorNote_summary"
+                android:title="@string/default_textColorNote" />
+            <net.margaritov.preference.colorpicker.ColorPickerPreference
+                alphaSlider="true"
+                android:defaultValue="@color/default_backgroundColor"
+                android:key="custom_theme_backgroundColor"
+                android:summary="@string/default_backgroundColor_summary"
+                android:title="@string/default_backgroundColor" />
+            <net.margaritov.preference.colorpicker.ColorPickerPreference
+                alphaSlider="true"
+                android:defaultValue="@color/default_backgroundColorSecondary"
+                android:key="custom_theme_backgroundColorSecondary"
+                android:summary="@string/default_backgroundColorSecondary_summary"
+                android:title="@string/default_backgroundColorSecondary" />
+            <net.margaritov.preference.colorpicker.ColorPickerPreference
+                alphaSlider="true"
+                android:defaultValue="@color/default_backgroundColorReadOnly"
+                android:key="custom_theme_backgroundColorReadOnly"
+                android:summary="@string/default_backgroundColorReadOnly_summary"
+                android:title="@string/default_backgroundColorReadOnly" />
+            <net.margaritov.preference.colorpicker.ColorPickerPreference
+                alphaSlider="true"
+                android:defaultValue="@color/default_backgroundColorTouched"
+                android:key="custom_theme_backgroundColorTouched"
+                android:summary="@string/default_backgroundColorTouched_summary"
+                android:title="@string/default_backgroundColorTouched" />
+            <net.margaritov.preference.colorpicker.ColorPickerPreference
+                alphaSlider="true"
+                android:defaultValue="@color/default_backgroundColorSelected"
+                android:key="custom_theme_backgroundColorSelected"
+                android:summary="@string/default_backgroundColorSelected_summary"
+                android:title="@string/default_backgroundColorSelected" />
+            <net.margaritov.preference.colorpicker.ColorPickerPreference
+                alphaSlider="true"
+                android:defaultValue="@color/default_backgroundColorHighlighted"
+                android:key="custom_theme_backgroundColorHighlighted"
+                android:summary="@string/default_backgroundColorHighlighted_summary"
+                android:title="@string/default_backgroundColorHighlighted" />
+        </PreferenceScreen>
+        <PreferenceScreen
+            android:key="screen_game_advanced"
+            android:title="@string/more_settings">
+            <org.moire.opensudoku.gui.SeekBarPreference
+                android:defaultValue="0"
+                android:dialogTitle="@string/screen_border_size"
+                android:key="screen_border_size"
+                android:summary="@string/screen_border_size_summary"
+                android:title="@string/screen_border_size"
+                os:max="30"
+                os:min="0"
+                os:valueFormat="%s pixels" />
+            <CheckBoxPreference
+                android:defaultValue="true"
+                android:key="highlight_touched_cell"
+                android:summary="@string/highlight_touched_cell_summary"
+                android:title="@string/highlight_touched_cell" />
+        </PreferenceScreen>
+    </PreferenceCategory>
 </PreferenceScreen>

@@ -87,12 +87,11 @@
     <string name="show_hints_summary">显示提示来引导你使用应用。</string>
     <string name="show_time_summary">显示游戏持续时间</string>
     <string name="puzzle_inserted">新谜题被保存</string>
-    <string name="puzzle_updatedn">谜题被更新</string>
     <string name="puzzles_saved">谜题被保存到\'%s\'分类</string>
     <string name="no_puzzles_found">没有发现谜题</string>
     <string name="unknown_import_error">导入谜题时出现未知错误，取消导入。</string>
     <string name="invalid_format">无效的格式，取消导入</string>
-    <string name="loading">装载...</string>
+    <string name="loading">装载…</string>
     <string name="more_settings">更多设置</string>
     <string name="screen_border_size">屏幕边框大小</string>
     <string name="highlight_touched_cell">高亮点击的格子</string>
@@ -101,8 +100,8 @@
     <string name="export_folder">导出分类</string>
     <string name="export_all_folders">导出所有分类</string>
     <string name="folders_created">%s分类被导入</string>
-    <string name="importing">导入谜题...</string>
-    <string name="exporting">导出谜题...</string>
+    <string name="importing">导入谜题…</string>
+    <string name="exporting">导出谜题…</string>
     <string name="unknown_export_error">导出谜题时发生未知错误。</string>
     <string name="highlight_completed_values">高亮完成的数字</string>
     <string name="highlight_completed_values_summary">高亮输入了9次的数字按钮</string>
@@ -117,7 +116,7 @@
     <string name="difficulty_easy">简单</string>
     <string name="generate_sudoku">生成新游戏</string>
     <string name="select_difficulty">选择难度</string>
-    <string name="generating">生成谜题...</string>
+    <string name="generating">生成谜题…</string>
     <string name="current_developers_label">当前开发者</string>
     <string name="import_file">导入</string>
     <string name="import_file_title">导入文件%s</string>

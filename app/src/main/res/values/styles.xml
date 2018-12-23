@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-	<style name="Theme" parent="Base.ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme" parent="Base.ThemeOverlay.AppCompat.Dark.ActionBar" />
 
-	<style name="Theme.Default">
-		<item name="lineColor">@color/default_lineColor</item>
-		<item name="sectorLineColor">@color/default_sectorLineColor</item>
-		<item name="textColor">@color/default_textColor</item>
-		<item name="textColorReadOnly">@color/default_textColorReadOnly</item>
-		<item name="textColorNote">@color/default_textColorNote</item>
-		<item name="backgroundColor">@color/default_backgroundColor</item>
+    <style name="Theme.Default">
+        <item name="lineColor">@color/default_lineColor</item>
+        <item name="sectorLineColor">@color/default_sectorLineColor</item>
+        <item name="textColor">@color/default_textColor</item>
+        <item name="textColorReadOnly">@color/default_textColorReadOnly</item>
+        <item name="textColorNote">@color/default_textColorNote</item>
+        <item name="backgroundColor">@color/default_backgroundColor</item>
         <item name="backgroundColorSecondary">@color/default_backgroundColorSecondary</item>
-		<item name="backgroundColorReadOnly">@color/default_backgroundColorReadOnly</item>
-		<item name="backgroundColorTouched">@color/default_backgroundColorTouched</item>
-		<item name="backgroundColorSelected">@color/default_backgroundColorSelected</item>
-		<item name="backgroundColorHighlighted">@color/default_backgroundColorHighlighted</item>
-	</style>
+        <item name="backgroundColorReadOnly">@color/default_backgroundColorReadOnly</item>
+        <item name="backgroundColorTouched">@color/default_backgroundColorTouched</item>
+        <item name="backgroundColorSelected">@color/default_backgroundColorSelected</item>
+        <item name="backgroundColorHighlighted">@color/default_backgroundColorHighlighted</item>
+    </style>
 
-	<style name="Theme.Paper">
-		<item name="lineColor">@color/default_lineColor</item>
-		<item name="sectorLineColor">@color/default_sectorLineColor</item>
-		<item name="textColor">@color/default_textColor</item>
-		<item name="textColorReadOnly">@color/default_textColorReadOnly</item>
-		<item name="textColorNote">@color/default_textColorNote</item>
-		<item name="backgroundColor">@color/default_backgroundColor</item>
-		<item name="backgroundColorSecondary">@color/default_backgroundColor</item>
-		<item name="backgroundColorReadOnly">@color/default_backgroundColor</item>
-		<item name="backgroundColorTouched">@color/default_backgroundColorTouched</item>
-		<item name="backgroundColorSelected">@color/default_backgroundColorSelected</item>
-		<item name="backgroundColorHighlighted">@color/default_backgroundColorHighlighted</item>
-	</style>
+    <style name="Theme.Paper">
+        <item name="lineColor">@color/default_lineColor</item>
+        <item name="sectorLineColor">@color/default_sectorLineColor</item>
+        <item name="textColor">@color/default_textColor</item>
+        <item name="textColorReadOnly">@color/default_textColorReadOnly</item>
+        <item name="textColorNote">@color/default_textColorNote</item>
+        <item name="backgroundColor">@color/default_backgroundColor</item>
+        <item name="backgroundColorSecondary">@color/default_backgroundColor</item>
+        <item name="backgroundColorReadOnly">@color/default_backgroundColor</item>
+        <item name="backgroundColorTouched">@color/default_backgroundColorTouched</item>
+        <item name="backgroundColorSelected">@color/default_backgroundColorSelected</item>
+        <item name="backgroundColorHighlighted">@color/default_backgroundColorHighlighted</item>
+    </style>
 
-	<style name="Theme.GraphPaper">
+    <style name="Theme.GraphPaper">
         <item name="lineColor">@color/default_lineColor</item>
         <item name="sectorLineColor">@color/default_sectorLineColor</item>
         <item name="textColor">@color/default_textColor</item>
@@ -42,23 +42,23 @@
         <item name="backgroundColorTouched">@color/default_backgroundColorTouched</item>
         <item name="backgroundColorSelected">@color/default_backgroundColorSelected</item>
         <item name="backgroundColorHighlighted">@color/default_backgroundColorHighlighted</item>
-	</style>
+    </style>
 
-	<style name="Theme.Light">
-		<item name="lineColor">@color/light_lineColor</item>
-		<item name="sectorLineColor">@color/light_sectorLineColor</item>
-		<item name="textColor">@color/light_textColor</item>
-		<item name="textColorReadOnly">@color/light_textColorReadOnly</item>
-		<item name="textColorNote">@color/light_textColorNote</item>
+    <style name="Theme.Light">
+        <item name="lineColor">@color/light_lineColor</item>
+        <item name="sectorLineColor">@color/light_sectorLineColor</item>
+        <item name="textColor">@color/light_textColor</item>
+        <item name="textColorReadOnly">@color/light_textColorReadOnly</item>
+        <item name="textColorNote">@color/light_textColorNote</item>
         <item name="backgroundColor">@color/light_backgroundColor</item>
         <item name="backgroundColorSecondary">@color/light_backgroundColorSecondary</item>
         <item name="backgroundColorReadOnly">@color/light_backgroundColorReadOnly</item>
         <item name="backgroundColorTouched">@color/light_backgroundColorTouched</item>
         <item name="backgroundColorSelected">@color/light_backgroundColorSelected</item>
         <item name="backgroundColorHighlighted">@color/light_backgroundColorHighlighted</item>
-	</style>
+    </style>
 
-	<style name="Theme.PaperLight">
+    <style name="Theme.PaperLight">
         <item name="lineColor">@color/light_lineColor</item>
         <item name="sectorLineColor">@color/light_sectorLineColor</item>
         <item name="textColor">@color/light_textColor</item>
@@ -70,9 +70,9 @@
         <item name="backgroundColorTouched">@color/light_backgroundColorTouched</item>
         <item name="backgroundColorSelected">@color/light_backgroundColorSelected</item>
         <item name="backgroundColorHighlighted">@color/light_backgroundColorHighlighted</item>
-	</style>
+    </style>
 
-	<style name="Theme.GraphPaperLight">
+    <style name="Theme.GraphPaperLight">
         <item name="lineColor">@color/light_lineColor</item>
         <item name="sectorLineColor">@color/light_sectorLineColor</item>
         <item name="textColor">@color/light_textColor</item>
@@ -83,7 +83,7 @@
         <item name="backgroundColorTouched">@color/light_backgroundColorTouched</item>
         <item name="backgroundColorSelected">@color/light_backgroundColorSelected</item>
         <item name="backgroundColorHighlighted">@color/light_backgroundColorHighlighted</item>
-	</style>
+    </style>
 
     <style name="Theme.HighContrast">
         <item name="lineColor">@color/highcontrast_bright</item>
