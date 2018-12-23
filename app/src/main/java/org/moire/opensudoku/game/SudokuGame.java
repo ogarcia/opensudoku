@@ -22,7 +22,8 @@ package org.moire.opensudoku.game;
 
 import android.os.Bundle;
 import android.os.SystemClock;
-import android.support.annotation.Nullable;
+
+import androidx.annotation.Nullable;
 
 import org.moire.opensudoku.game.command.AbstractCommand;
 import org.moire.opensudoku.game.command.AbstractSingleCellCommand;
