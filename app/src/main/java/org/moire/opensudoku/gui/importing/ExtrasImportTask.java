@@ -9,27 +9,27 @@ import org.moire.opensudoku.db.SudokuInvalidFormatException;
  */
 public class ExtrasImportTask extends AbstractImportTask {
 
-	private String mFolderName;
-	private String mGames;
-	private boolean mAppendToFolder;
+    private String mFolderName;
+    private String mGames;
+    private boolean mAppendToFolder;
 
-	public ExtrasImportTask(String folderName, String games, boolean appendToFolder) {
-		mFolderName = folderName;
-		mGames = games;
-		mAppendToFolder = appendToFolder;
-	}
+    public ExtrasImportTask(String folderName, String games, boolean appendToFolder) {
+        mFolderName = folderName;
+        mGames = games;
+        mAppendToFolder = appendToFolder;
+    }
 
-	@Override
-	protected void processImport() throws SudokuInvalidFormatException {
-		if (mAppendToFolder) {
-			appendToFolder(mFolderName);
-		} else {
-			importFolder(mFolderName);
-		}
+    @Override
+    protected void processImport() throws SudokuInvalidFormatException {
+        if (mAppendToFolder) {
+            appendToFolder(mFolderName);
+        } else {
+            importFolder(mFolderName);
+        }
 
-		for (String game : mGames.split("\n")) {
-			importGame(game);
-		}
-	}
+        for (String game : mGames.split("\n")) {
+            importGame(game);
+        }
+    }
 
 }

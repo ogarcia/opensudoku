@@ -9,14 +9,14 @@ import org.moire.opensudoku.game.CellCollection;
  */
 public abstract class AbstractCellCommand extends AbstractCommand {
 
-	private CellCollection mCells;
+    private CellCollection mCells;
 
-	protected CellCollection getCells() {
-		return mCells;
-	}
+    protected CellCollection getCells() {
+        return mCells;
+    }
 
-	protected void setCells(CellCollection mCells) {
-		this.mCells = mCells;
-	}
+    protected void setCells(CellCollection mCells) {
+        this.mCells = mCells;
+    }
 
 }

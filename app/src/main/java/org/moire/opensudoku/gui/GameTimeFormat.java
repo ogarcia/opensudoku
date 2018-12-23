@@ -31,7 +31,6 @@ public class GameTimeFormat {
 	private static final int TIME_99_99 = 99 * 99 * 1000;
 
 	private StringBuilder mTimeText = new StringBuilder();
-	;
 	private Formatter mGameTimeFormatter = new Formatter(mTimeText);
 
 	/**
