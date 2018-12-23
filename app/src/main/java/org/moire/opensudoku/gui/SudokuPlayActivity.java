@@ -20,8 +20,6 @@
 
 package org.moire.opensudoku.gui;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.Intent;
@@ -29,6 +27,8 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.preference.PreferenceManager;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -50,7 +50,7 @@ import org.moire.opensudoku.gui.inputmethod.IMPopup;
 import org.moire.opensudoku.gui.inputmethod.IMSingleNumber;
 import org.moire.opensudoku.utils.AndroidUtils;
 
-public class SudokuPlayActivity extends Activity {
+public class SudokuPlayActivity extends AppCompatActivity {
 
     public static final String EXTRA_SUDOKU_ID = "sudoku_id";
 

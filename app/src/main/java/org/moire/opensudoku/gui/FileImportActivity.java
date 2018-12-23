@@ -20,9 +20,9 @@
 
 package org.moire.opensudoku.gui;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 /**
  * This activity handles import of files with extension.
@@ -35,7 +35,7 @@ import android.os.Bundle;
  *
  * @author romario
  */
-public class FileImportActivity extends Activity {
+public class FileImportActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

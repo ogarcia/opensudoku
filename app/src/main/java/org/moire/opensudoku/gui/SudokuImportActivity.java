@@ -1,9 +1,9 @@
 package org.moire.opensudoku.gui;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Window;
 import android.widget.ProgressBar;
@@ -22,7 +22,7 @@ import org.moire.opensudoku.utils.Const;
  *
  * @author romario
  */
-public class SudokuImportActivity extends Activity {
+public class SudokuImportActivity extends AppCompatActivity {
     /**
      * Name of folder to which games should be imported.
      */

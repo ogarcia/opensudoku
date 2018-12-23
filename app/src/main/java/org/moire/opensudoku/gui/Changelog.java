@@ -1,9 +1,9 @@
 package org.moire.opensudoku.gui;
 
-import android.app.AlertDialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.webkit.WebView;
 

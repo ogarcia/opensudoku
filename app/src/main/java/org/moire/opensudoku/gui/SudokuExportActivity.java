@@ -1,11 +1,11 @@
 package org.moire.opensudoku.gui;
 
-import android.app.Activity;
-import android.app.AlertDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View.OnClickListener;
@@ -22,7 +22,7 @@ import org.moire.opensudoku.gui.exporting.FileExportTaskParams;
 import java.io.File;
 import java.util.Date;
 
-public class SudokuExportActivity extends Activity {
+public class SudokuExportActivity extends AppCompatActivity {
 
     /**
      * Id of folder to export. If -1, all folders will be exported.

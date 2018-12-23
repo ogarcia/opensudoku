@@ -20,16 +20,16 @@
 
 package org.moire.opensudoku.gui;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 /**
  * This activity is here to keep backward compatibility, use {@link SudokuImportActivity} instead.
  *
  * @author romario
  */
-public class ImportSudokuActivity extends Activity {
+public class ImportSudokuActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

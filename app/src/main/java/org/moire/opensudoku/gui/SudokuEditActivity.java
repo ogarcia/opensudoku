@@ -20,11 +20,11 @@
 
 package org.moire.opensudoku.gui;
 
-import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Display;
 import android.view.Menu;
@@ -46,7 +46,7 @@ import org.moire.opensudoku.utils.AndroidUtils;
  *
  * @author romario
  */
-public class SudokuEditActivity extends Activity {
+public class SudokuEditActivity extends AppCompatActivity {
 
     /**
      * When inserting new data, I need to know folder in which will new sudoku be stored.
