@@ -2,14 +2,14 @@
 
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/scrollView"
-    android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="fill_parent" >
+    android:layout_height="fill_parent"
+    android:orientation="vertical">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
         android:padding="18dp">
 
         <TextView
@@ -17,112 +17,112 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:textStyle="bold"
+            android:text="@string/version"
             android:textSize="16sp"
-            android:text="@string/version" />
+            android:textStyle="bold" />
 
         <TextView
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="6dp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:autoLink="all"
             android:gravity="fill_horizontal"
-            android:text="@string/send_me_bugs"
-            android:autoLink="all" />
+            android:text="@string/send_me_bugs" />
 
         <TextView
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="6dp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="@string/homepage"
-            android:autoLink="all" />
-
-        <TextView
             android:layout_marginTop="6dp"
             android:layout_marginBottom="6dp"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:autoLink="all"
             android:gravity="center_horizontal"
-            android:text="@string/email"
-            android:autoLink="all" />
+            android:text="@string/homepage" />
 
         <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="6dp"
+            android:autoLink="all"
+            android:gravity="center_horizontal"
+            android:text="@string/email" />
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="2dp"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:autoLink="all"
             android:gravity="center_horizontal"
-            android:textStyle="bold"
             android:text="@string/current_developers_label"
-            android:autoLink="all" />
+            android:textStyle="bold" />
 
         <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:layout_marginBottom="6dp"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:autoLink="all"
             android:gravity="center_horizontal"
-            android:text="@string/current_developers"
-            android:autoLink="all" />
+            android:text="@string/current_developers" />
 
         <TextView
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="2dp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="2dp"
+            android:autoLink="all"
             android:gravity="center_horizontal"
-            android:textStyle="bold"
             android:text="@string/contributors_label"
-            android:autoLink="all" />
+            android:textStyle="bold" />
 
         <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="2dp"
             android:layout_marginBottom="6dp"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:autoLink="all"
             android:gravity="center_horizontal"
-            android:text="@string/contributors"
-            android:autoLink="all" />
+            android:text="@string/contributors" />
 
         <TextView
-            android:layout_marginTop="6dp"
-            android:layout_marginBottom="2dp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginBottom="2dp"
+            android:autoLink="all"
             android:gravity="center_horizontal"
-            android:textStyle="bold"
             android:text="@string/old_developers_label"
-            android:autoLink="all" />
+            android:textStyle="bold" />
 
         <TextView
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="6dp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="6dp"
+            android:autoLink="all"
             android:gravity="center_horizontal"
-            android:text="@string/old_developers"
-            android:autoLink="all" />
+            android:text="@string/old_developers" />
 
         <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
             android:layout_marginTop="6dp"
             android:layout_marginBottom="2dp"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
+            android:autoLink="all"
             android:gravity="center_horizontal"
-            android:textStyle="bold"
             android:text="@string/localization_contributors_label"
-            android:autoLink="all" />
+            android:textStyle="bold" />
 
         <TextView
-            android:layout_marginTop="2dp"
-            android:layout_marginBottom="6dp"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="6dp"
+            android:autoLink="all"
             android:gravity="center_horizontal"
-            android:text="@string/localization_contributors"
-            android:autoLink="all" />
+            android:text="@string/localization_contributors" />
 
     </LinearLayout>
 

@@ -7,7 +7,7 @@
     <color name="default_textColorReadOnly">#fdfdfd</color>
     <color name="default_textColorNote">#f3f3f3</color>
     <color name="default_backgroundColor">#424242</color>
-    <color name="default_backgroundColorSecondary">#424242</color>_
+    <color name="default_backgroundColorSecondary">#424242</color>
     <color name="default_backgroundColorReadOnly">#616161</color>
     <color name="default_backgroundColorTouched">#00695c</color>
     <color name="default_backgroundColorSelected">#546e7a</color>
@@ -19,7 +19,7 @@
     <color name="light_textColorReadOnly">#020202</color>
     <color name="light_textColorNote">#0c0c0c</color>
     <color name="light_backgroundColor">#fdfdfd</color>
-    <color name="light_backgroundColorSecondary">#fdfdfd</color>_
+    <color name="light_backgroundColorSecondary">#fdfdfd</color>
     <color name="light_backgroundColorReadOnly">#cecece</color>
     <color name="light_backgroundColorTouched">#b2dfdb</color>
     <color name="light_backgroundColorSelected">#b0bec5</color>

@@ -6,7 +6,7 @@
     <string name="puzzle_folders">OpenSudoku bulmaca dosyaları</string>
 
     <string name="version">Versiyon %s</string>
- 
+
     <string name="send_me_bugs">
         Eğer bir hata ile karşılaşırsan, bu hatayı bana bildirmek veya gidermek için benimle iletişime geçmekten çekinme. Bunun için mail atabilir veya proje sayfasını kullanabilirsin.
     </string>
@@ -127,7 +127,7 @@
     <string name="invalid_format">Bilinmeyen format. İçeri aktarma iptal edildi.</string>
 
     <!-- Strings added in 0.7.0 -->
-    <string name="loading">Yükleniyor...</string>
+    <string name="loading">Yükleniyor…</string>
 
     <!-- Strings added/changed in 0.7.1 -->
     <string name="more_settings">Daha Fazla Seçenek</string>
@@ -140,8 +140,8 @@
     <string name="export_folder">Klasörü Dışarı Aktar</string>
     <string name="export_all_folders">Klasörleri Dışarı Aktar</string>
     <string name="folders_created">%s klasör içeri aktarıldı.</string>
-    <string name="importing">Bulmacalar içeri aktarılıyor...</string>
-    <string name="exporting">Bulmacalar dışarı aktarılıyor...</string>
+    <string name="importing">Bulmacalar içeri aktarılıyor…</string>
+    <string name="exporting">Bulmacalar dışarı aktarılıyor…</string>
     <string name="unknown_export_error">Bulmacalar dışarı aktarılırken bilinmeyen bir hata oluştu.</string>
     <string name="highlight_completed_values">Tamamlanan Rakamları Göster</string>
     <string name="highlight_completed_values_summary">9 defa kullanılan rakamları gösterir.</string>
@@ -161,7 +161,7 @@
     <!-- Strings added/changed in 1.1.0 -->
     <string name="generate_sudoku">Sudodu Oluştur</string>
     <string name="select_difficulty">Zorluk Seç</string>
-    <string name="generating">Bulmaca oluşturuluyor...</string>
+    <string name="generating">Bulmaca oluşturuluyor…</string>
     <string name="show_number_totals">Yerleştirilen Rakam Sayısı</string>
     <string name="show_number_totals_summary">Rakamların kaçar defa yerleştirildiğini gösterir.</string>
     <string name="what_is_new">Yenilikler</string>
