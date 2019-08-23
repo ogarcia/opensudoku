@@ -1,0 +1,6 @@
+1. Translate strings to other languages
+
+2. Currently shows same message as when the puzzle is solved naturally and
+saves the state as such
+
+3. Should display a message if there is no solution that the solver can find
