@@ -18,6 +18,30 @@ public class SudokuSolver {
         initializeLinkedList();
     }
 
+    /**
+     * Modifies linked list based on the current state of the board
+     */
+    public void setPuzzle(CellCollection mCells) {
+        Cell[][] board = mCells.getCells();
+
+        for (int row = 0; row < 9; row++) {
+            for (int col = 0; col < 9; col++) {
+                int val = board[row][col].getValue();
+                if (val != 0) {
+                    int matrixRow = cellToRow(row, col, val-1, true);
+                    int matrixCol = 9*row + col; // calculates column of node based on cell constraint
+
+                    Node rowNode = mLinkedList[matrixRow][matrixCol];
+                    Node rightNode = rowNode;
+                    do {
+                        cover(rightNode);
+                        rightNode = rightNode.right;
+                    } while (rightNode != rowNode);
+                }
+            }
+        }
+    }
+
     private void initializeConstraintMatrix() {
         // add row of 1's for column headers
         mConstraintMatrix = new int[NUM_ROWS * NUM_COLS * NUM_VALS + 1][NUM_CELLS * NUM_CONSTRAINTS];
@@ -162,4 +186,23 @@ public class SudokuSolver {
     private int moveRight (int j, int numCols) {return (j + 1) % numCols;}
     private int moveUp (int i, int numRows) {return i - 1 < 0 ? numRows - 1 : i -1;}
     private int moveDown (int i, int numRows) {return (i + 1) % numRows;}
+
+    /**
+     * Unlinks node from linked list
+     */
+    private void cover(Node node) {
+        Node colNode = node.columnHeader;
+        colNode.left.right = colNode.right;
+        colNode.right.left = colNode.left;
+
+        Node rowNode;
+        for (rowNode = colNode.down; rowNode != colNode; rowNode = rowNode.down) {
+            Node rightNode;
+            for (rightNode = rowNode.right; rightNode != rowNode; rightNode = rightNode.right) {
+                rightNode.up.down = rightNode.down;
+                rightNode.down.up = rightNode.up;
+                rightNode.columnHeader.count--;
+            }
+        }
+    }
 }
