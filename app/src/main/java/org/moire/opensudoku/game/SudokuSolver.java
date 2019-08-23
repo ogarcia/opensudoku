@@ -1,6 +1,8 @@
 package org.moire.opensudoku.game;
 
 
+import java.util.ArrayList;
+
 public class SudokuSolver {
 
     private int NUM_ROWS = 9;
@@ -12,11 +14,14 @@ public class SudokuSolver {
     private int[][] mConstraintMatrix;
     private Node[][] mLinkedList;
     private Node mHead;
+    private ArrayList<Node> mSolution;
 
     public SudokuSolver() {
         initializeConstraintMatrix();
         initializeLinkedList();
     }
+
+    /* ---------------CALLABLE FUNCTIONS--------------- */
 
     /**
      * Modifies linked list based on the current state of the board
@@ -42,6 +47,21 @@ public class SudokuSolver {
         }
     }
 
+    public ArrayList<int[]> solve() {
+        mSolution = new ArrayList<>();
+        mSolution = DLX();
+
+        ArrayList<int[]> finalValues = new ArrayList<>();
+        for (Node node : mSolution) {
+            int matrixRow = node.rowID;
+            int[] rowColVal = rowToCell(matrixRow, true);
+            finalValues.add(rowColVal);
+        }
+
+        return finalValues;
+    }
+
+    /* ---------------FUNCTIONS TO IMPLEMENT SOLVER--------------- */
     private void initializeConstraintMatrix() {
         // add row of 1's for column headers
         mConstraintMatrix = new int[NUM_ROWS * NUM_COLS * NUM_VALS + 1][NUM_CELLS * NUM_CONSTRAINTS];
@@ -160,8 +180,47 @@ public class SudokuSolver {
         mLinkedList[0][cols - 1].right = mHead;
     }
 
+    /**
+     * Dancing links algorithm
+     * @return array of solution nodes or empty array if no solution exists
+     */
+    public ArrayList<Node> DLX() {
+        if (mHead.right == mHead) {
+            return mSolution;
+        }
+        else {
+            Node colNode = chooseColumn();
+            cover(colNode);
 
-    /* UTILITY FUNCTIONS */
+            Node rowNode;
+            for (rowNode = colNode.down; rowNode != colNode; rowNode = rowNode.down) {
+                mSolution.add(rowNode);
+
+                Node rightNode;
+                for (rightNode = rowNode.right; rightNode != rowNode; rightNode = rightNode.right) {
+                    cover(rightNode);
+                }
+
+                ArrayList<Node> tempSolution = DLX();
+                if (!tempSolution.isEmpty()) {
+                    return tempSolution;
+                }
+
+                // undo operations and try the next row
+                mSolution.remove(mSolution.size() - 1);
+                colNode = rowNode.columnHeader;
+                Node leftNode;
+                for (leftNode = rowNode.left; leftNode != rowNode; leftNode = leftNode.left) {
+                    uncover(leftNode);
+                }
+            }
+            uncover(colNode);
+        }
+        return new ArrayList<>();
+    }
+
+
+    /* ---------------UTILITY FUNCTIONS--------------- */
 
     /**
      * Converts from puzzle cell to constraint matrix
@@ -177,6 +236,18 @@ public class SudokuSolver {
             matrixRow++;
         }
         return matrixRow;
+    }
+
+    private int[] rowToCell(int matrixRow, boolean headersInMatrix) {
+        int[] rowColVal = new int[3];
+        if (headersInMatrix) {
+            matrixRow--;
+        }
+
+        rowColVal[0] = matrixRow / 81;
+        rowColVal[1] = matrixRow % 81 / 9;
+        rowColVal[2] = matrixRow % 9 + 1;
+        return rowColVal;
     }
 
     /**
@@ -204,5 +275,39 @@ public class SudokuSolver {
                 rightNode.columnHeader.count--;
             }
         }
+    }
+
+    private void uncover(Node node) {
+        Node colNode = node.columnHeader;
+        Node upNode;
+        for (upNode = colNode.up; upNode != colNode; upNode = upNode.up) {
+            Node leftNode;
+            for (leftNode = upNode.left; leftNode != upNode; leftNode = leftNode.left) {
+                leftNode.up.down = leftNode;
+                leftNode.down.up = leftNode;
+
+                leftNode.columnHeader.count++;
+            }
+        }
+        colNode.left.right = colNode;
+        colNode.right.left = colNode;
+    }
+
+    /**
+     * Returns column node with lowest # of nodes
+     */
+    private Node chooseColumn() {
+        Node bestNode = null;
+        int lowestNum = 100000;
+
+        Node currentNode = mHead.right;
+        while (currentNode != mHead) {
+            if (currentNode.count < lowestNum) {
+                bestNode = currentNode;
+                lowestNum = currentNode.count;
+            }
+            currentNode = currentNode.right;
+        }
+        return bestNode;
     }
 }
