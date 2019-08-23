@@ -62,14 +62,15 @@ public class SudokuPlayActivity extends AppCompatActivity {
     public static final int MENU_ITEM_UNDO = Menu.FIRST + 3;
     public static final int MENU_ITEM_HELP = Menu.FIRST + 4;
     public static final int MENU_ITEM_SETTINGS = Menu.FIRST + 5;
-
     public static final int MENU_ITEM_SET_CHECKPOINT = Menu.FIRST + 6;
     public static final int MENU_ITEM_UNDO_TO_CHECKPOINT = Menu.FIRST + 7;
+    public static final int MENU_ITEM_SOLVE = Menu.FIRST + 8;
 
     private static final int DIALOG_RESTART = 1;
     private static final int DIALOG_WELL_DONE = 2;
     private static final int DIALOG_CLEAR_NOTES = 3;
     private static final int DIALOG_UNDO_TO_CHECKPOINT = 4;
+    private static final int DIALOG_SOLVE_PUZZLE = 5;
 
     private static final int REQUEST_SETTINGS = 1;
 
@@ -314,6 +315,8 @@ public class SudokuPlayActivity extends AppCompatActivity {
                 .setShortcut('9', 's')
                 .setIcon(R.drawable.ic_settings);
 
+	menu.add(0, MENU_ITEM_SOLVE, 8, R.string.solve_puzzle);
+
         // Generate any additional actions that can be performed on the
         // overall list.  In a normal install, there are no additional
         // actions found here, but this allows other applications to extend
@@ -379,7 +382,9 @@ public class SudokuPlayActivity extends AppCompatActivity {
             case MENU_ITEM_UNDO_TO_CHECKPOINT:
                 showDialog(DIALOG_UNDO_TO_CHECKPOINT);
                 return true;
-
+            case MENU_ITEM_SOLVE:
+		showDialog(DIALOG_SOLVE_PUZZLE);
+		return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -447,6 +452,17 @@ public class SudokuPlayActivity extends AppCompatActivity {
                         })
                         .setNegativeButton(android.R.string.no, null)
                         .create();
+	    case DIALOG_SOLVE_PUZZLE:
+		return new AlertDialog.Builder(this)
+			.setTitle(R.string.app_name)
+			.setMessage(R.string.solve_puzzle_confirm)
+			.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+				public void onClick(DialogInterface dialog, int whichButton) {
+
+				}
+			})
+			.setNegativeButton(android.R.string.no, null)
+			.create();
 
         }
         return null;
