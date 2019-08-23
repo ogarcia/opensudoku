@@ -33,8 +33,11 @@ import org.moire.opensudoku.game.command.EditCellNoteCommand;
 import org.moire.opensudoku.game.command.FillInNotesCommand;
 import org.moire.opensudoku.game.command.SetCellValueCommand;
 
+import java.util.ArrayList;
+
 public class SudokuGame {
 
+<<<<<<< HEAD
     public static final int GAME_STATE_PLAYING = 0;
     public static final int GAME_STATE_NOT_STARTED = 1;
     public static final int GAME_STATE_COMPLETED = 2;
@@ -46,6 +49,7 @@ public class SudokuGame {
     private long mLastPlayed;
     private String mNote;
     private CellCollection mCells;
+    private SudokuSolver mSolver;
 
     private OnPuzzleSolvedListener mOnPuzzleSolvedListener;
     private CommandStack mCommandStack;
@@ -262,6 +266,7 @@ public class SudokuGame {
     }
 
     /**
+<<<<<<< HEAD
      * Start game-play.
      */
     public void start() {
@@ -284,6 +289,22 @@ public class SudokuGame {
         mActiveFromTime = -1;
 
         setLastPlayed(System.currentTimeMillis());
+    }
+
+    /**
+     * Solves puzzle from current state
+     */
+    public void solve() {
+        mSolver = new SudokuSolver();
+        mSolver.setPuzzle(mCells);
+        ArrayList<int[]> finalValues = mSolver.solve();
+        for (int[] rowColVal : finalValues) {
+            int row = rowColVal[0];
+            int col = rowColVal[1];
+            int val = rowColVal[2];
+            Cell cell = mCells.getCell(row, col);
+            this.setCellValue(cell, val);
+        }
     }
 
     /**
