@@ -20,16 +20,22 @@
 
 package org.moire.opensudoku.gui;
 
+import android.Manifest;
 import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.util.Log;
 import android.view.ContextMenu;
@@ -43,6 +49,7 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.SimpleCursorAdapter.ViewBinder;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.moire.opensudoku.R;
 import org.moire.opensudoku.db.FolderColumns;
@@ -71,12 +78,15 @@ public class FolderListActivity extends AppCompatActivity {
     private static final int DIALOG_RENAME_FOLDER = 2;
     private static final int DIALOG_DELETE_FOLDER = 3;
 
+    private int STORAGE_PERMISSION_CODE = 1;
+
     private static final String TAG = "FolderListActivity";
 
     private Cursor mCursor;
     private SudokuDatabase mDatabase;
     private FolderListViewBinder mFolderListBinder;
     private ListView mListView;
+    private Menu mMenu;
 
     // input parameters for dialogs
     private TextView mAddFolderNameInput;
@@ -185,6 +195,7 @@ public class FolderListActivity extends AppCompatActivity {
         menu.addIntentOptions(Menu.CATEGORY_ALTERNATIVE, 0, 0,
                 new ComponentName(this, FolderListActivity.class), null, intent, 0, null);
 
+        mMenu = menu;
         return true;
 
     }
@@ -337,7 +348,13 @@ public class FolderListActivity extends AppCompatActivity {
                 intent = new Intent();
                 intent.setClass(this, FileListActivity.class);
                 intent.putExtra(FileListActivity.EXTRA_FOLDER_NAME, "/sdcard");
-                startActivity(intent);
+                // need to request permission before FileListActivity can even be started
+                if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                    requestStoragePermission();
+                }
+                else {
+                    startActivity(intent);
+                }
                 return true;
             case MENU_ITEM_EXPORT_ALL:
                 intent = new Intent();
@@ -355,6 +372,41 @@ public class FolderListActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    private void requestStoragePermission() {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Permission needed")
+                    .setMessage("This permission is needed in order to access your SD Card")
+                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            ActivityCompat.requestPermissions(FolderListActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
+                        }
+                    })
+                    .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .create().show();
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == STORAGE_PERMISSION_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                onOptionsItemSelected(mMenu.findItem(MENU_ITEM_IMPORT));
+            }
+            else {
+                Toast.makeText(this, "Permission DENIED", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     private void updateList() {
