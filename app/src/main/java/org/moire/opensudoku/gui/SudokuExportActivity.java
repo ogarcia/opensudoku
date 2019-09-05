@@ -1,12 +1,18 @@
 package org.moire.opensudoku.gui;
 
+import android.Manifest;
 import android.app.Dialog;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.text.format.DateFormat;
 import android.util.Log;
@@ -25,7 +31,6 @@ import java.io.File;
 import java.util.Date;
 
 public class SudokuExportActivity extends AppCompatActivity {
-
     /**
      * Id of folder to export. If -1, all folders will be exported.
      */
@@ -34,6 +39,8 @@ public class SudokuExportActivity extends AppCompatActivity {
      * Id of sudoku to export.
      */
 //	public static final String EXTRA_SUDOKU_ID = "SUDOKU_ID";
+
+    private int STORAGE_PERMISSION_CODE = 1;
 
     public static final long ALL_FOLDERS = -1;
 
@@ -119,20 +126,26 @@ public class SudokuExportActivity extends AppCompatActivity {
     }
 
     private void exportToFile() {
-        File sdcard = new File("/sdcard");
-        if (!sdcard.exists()) {
-            Toast.makeText(SudokuExportActivity.this, R.string.sdcard_not_found, Toast.LENGTH_LONG);
-            finish();
+        // check for permission to write to sd card
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+            requestStoragePermission();
         }
+        else {
+            File sdcard = new File("/sdcard");
+            if (!sdcard.exists()) {
+                Toast.makeText(SudokuExportActivity.this, R.string.sdcard_not_found, Toast.LENGTH_LONG).show();
+                finish();
+            }
 
-        String directory = mDirectoryEdit.getText().toString();
-        String filename = mFileNameEdit.getText().toString();
+            String directory = mDirectoryEdit.getText().toString();
+            String filename = mFileNameEdit.getText().toString();
 
-        File file = new File(directory, filename + ".opensudoku");
-        if (file.exists()) {
-            showDialog(DIALOG_FILE_EXISTS);
-        } else {
-            startExportToFileTask();
+            File file = new File(directory, filename + ".opensudoku");
+            if (file.exists()) {
+                showDialog(DIALOG_FILE_EXISTS);
+            } else {
+                startExportToFileTask();
+            }
         }
     }
 
@@ -157,9 +170,42 @@ public class SudokuExportActivity extends AppCompatActivity {
 
         showDialog(DIALOG_PROGRESS);
         mFileExportTask.execute(mExportParams);
-
     }
 
+    private void requestStoragePermission() {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Permission needed")
+                    .setMessage("This permission is needed in order to access your SD Card")
+                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            ActivityCompat.requestPermissions(SudokuExportActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
+                        }
+                    })
+                    .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .create().show();
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == STORAGE_PERMISSION_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                exportToFile();
+            }
+            else {
+                Toast.makeText(this, "Permission DENIED", Toast.LENGTH_SHORT).show();
+            }
+        }
+    }
 /*
     private void exportToMail() {
 
