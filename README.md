@@ -37,6 +37,11 @@ was contributed to by Vit Hnilica, Martin Sobola, Martin Helff, and Diego Pierot
 	* Migrated App to AppCompat
 	* Migrated to AndroidX
 
+* [steve3424](https://github.com/steve3424):
+	* Fixed some bugs
+	* Added permission checks for reading/writing external storage
+	* Added puzzle solver
+
 
 ## Support or Contact
 
