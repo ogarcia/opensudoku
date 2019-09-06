@@ -127,6 +127,7 @@ public class FolderListActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+        registerForContextMenu(mListView);
 
         // show changelog on first run
         Changelog changelog = new Changelog(this);

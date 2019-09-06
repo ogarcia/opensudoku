@@ -151,6 +151,7 @@ public class SudokuListActivity extends AppCompatActivity {
                 playSudoku(id);
             }
         });
+        registerForContextMenu(mListView);
     }
 
     @Override
