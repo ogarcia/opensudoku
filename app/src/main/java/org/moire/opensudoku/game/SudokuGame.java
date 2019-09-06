@@ -49,7 +49,7 @@ public class SudokuGame {
     private String mNote;
     private CellCollection mCells;
     private SudokuSolver mSolver;
-    public boolean mUsedSolver = false;
+    private boolean mUsedSolver = false;
 
     private OnPuzzleSolvedListener mOnPuzzleSolvedListener;
     private CommandStack mCommandStack;
@@ -305,6 +305,10 @@ public class SudokuGame {
             Cell cell = mCells.getCell(row, col);
             this.setCellValue(cell, val);
         }
+    }
+
+    public boolean usedSolver() {
+        return mUsedSolver;
     }
 
     /**

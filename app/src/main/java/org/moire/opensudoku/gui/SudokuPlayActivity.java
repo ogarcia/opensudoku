@@ -497,7 +497,7 @@ public class SudokuPlayActivity extends AppCompatActivity {
                 mGameTimer.stop();
             }
             mSudokuBoard.setReadOnly(true);
-            if (mSudokuGame.mUsedSolver) {
+            if (mSudokuGame.usedSolver()) {
                 showDialog(DIALOG_USED_SOLVER);
             }
             else {
