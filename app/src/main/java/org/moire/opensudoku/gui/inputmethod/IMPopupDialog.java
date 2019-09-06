@@ -71,8 +71,8 @@ public class IMPopupDialog extends Dialog {
         mTabHost = createTabView();
 
         // hide dialog's title
-        TextView title = findViewById(android.R.id.title);
-        title.setVisibility(View.GONE);
+        //TextView title = findViewById(android.R.id.title);
+        //title.setVisibility(View.GONE);
 
         setContentView(mTabHost);
     }
