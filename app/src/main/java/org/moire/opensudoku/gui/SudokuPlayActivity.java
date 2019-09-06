@@ -351,6 +351,7 @@ public class SudokuPlayActivity extends AppCompatActivity {
             }
             menu.findItem(MENU_ITEM_UNDO).setEnabled(false);
             menu.findItem(MENU_ITEM_UNDO_TO_CHECKPOINT).setEnabled(false);
+            menu.findItem(MENU_ITEM_SOLVE).setEnabled(false);
         }
 
         return true;
