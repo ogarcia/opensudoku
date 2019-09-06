@@ -256,6 +256,10 @@
     <string name="game_level_medium">Medium</string>
     <string name="game_level_hard">Hard</string>
 
+    <string name="solve_puzzle">Solve Puzzle</string>
+    <string name="solve_puzzle_confirm">Are you sure you want to see the solution?</string>
+    <string name="used_solver">You used the solver to see the solution!</string>
+
     <string name="theme_default">Default</string>
     <string name="theme_paper">Paper</string>
     <string name="theme_graph_paper">Graph Paper</string>

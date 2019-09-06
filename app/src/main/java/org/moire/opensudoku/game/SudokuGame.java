@@ -49,6 +49,7 @@ public class SudokuGame {
     private String mNote;
     private CellCollection mCells;
     private SudokuSolver mSolver;
+    public boolean mUsedSolver = false;
 
     private OnPuzzleSolvedListener mOnPuzzleSolvedListener;
     private CommandStack mCommandStack;
@@ -293,6 +294,7 @@ public class SudokuGame {
      * Solves puzzle from current state
      */
     public void solve() {
+        mUsedSolver = true;
         mSolver = new SudokuSolver();
         mSolver.setPuzzle(mCells);
         ArrayList<int[]> finalValues = mSolver.solve();
