@@ -87,6 +87,7 @@ public class SudokuPlayActivity extends AppCompatActivity {
     private ViewGroup mRootLayout;
     private SudokuBoardView mSudokuBoard;
     private TextView mTimeLabel;
+    private Menu mOptionsMenu;
 
     private IMControlPanel mIMControlPanel;
     private IMControlPanelStatePersister mIMControlPanelStatePersister;
@@ -331,6 +332,7 @@ public class SudokuPlayActivity extends AppCompatActivity {
         menu.addIntentOptions(Menu.CATEGORY_ALTERNATIVE, 0, 0,
                 new ComponentName(this, SudokuPlayActivity.class), null, intent, 0, null);
 
+        mOptionsMenu = menu;
         return true;
     }
 
@@ -437,6 +439,8 @@ public class SudokuPlayActivity extends AppCompatActivity {
                                 mGameTimer.start();
                             }
                             removeDialog(DIALOG_WELL_DONE);
+                            MenuItem menuItemSolve = mOptionsMenu.findItem(MENU_ITEM_SOLVE);
+                            menuItemSolve.setEnabled(true);
                         })
                         .setNegativeButton(android.R.string.no, null)
                         .create();
