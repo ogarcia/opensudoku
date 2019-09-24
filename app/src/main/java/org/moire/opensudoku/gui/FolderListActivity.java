@@ -20,16 +20,22 @@
 
 package org.moire.opensudoku.gui;
 
+import android.Manifest;
 import android.app.Dialog;
-import android.app.ListActivity;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.util.Log;
 import android.view.ContextMenu;
@@ -43,6 +49,7 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.SimpleCursorAdapter.ViewBinder;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.moire.opensudoku.R;
 import org.moire.opensudoku.db.FolderColumns;
@@ -55,7 +62,7 @@ import org.moire.opensudoku.utils.AndroidUtils;
  *
  * @author romario
  */
-public class FolderListActivity extends ListActivity {
+public class FolderListActivity extends AppCompatActivity {
 
     public static final int MENU_ITEM_ADD = Menu.FIRST;
     public static final int MENU_ITEM_RENAME = Menu.FIRST + 1;
@@ -71,11 +78,15 @@ public class FolderListActivity extends ListActivity {
     private static final int DIALOG_RENAME_FOLDER = 2;
     private static final int DIALOG_DELETE_FOLDER = 3;
 
+    private int STORAGE_PERMISSION_CODE = 1;
+
     private static final String TAG = "FolderListActivity";
 
     private Cursor mCursor;
     private SudokuDatabase mDatabase;
     private FolderListViewBinder mFolderListBinder;
+    private ListView mListView;
+    private Menu mMenu;
 
     // input parameters for dialogs
     private TextView mAddFolderNameInput;
@@ -88,12 +99,9 @@ public class FolderListActivity extends ListActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.folder_list);
-        View getMorePuzzles = findViewById(R.id.get_more_puzzles);
-
         setDefaultKeyMode(DEFAULT_KEYS_SHORTCUT);
-        // Inform the list we provide context menus for items
-        getListView().setOnCreateContextMenuListener(this);
 
+        View getMorePuzzles = findViewById(R.id.get_more_puzzles);
         getMorePuzzles.setOnClickListener(v -> {
             Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://opensudoku.moire.org/"));
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -109,7 +117,17 @@ public class FolderListActivity extends ListActivity {
         mFolderListBinder = new FolderListViewBinder(this);
         adapter.setViewBinder(mFolderListBinder);
 
-        setListAdapter(adapter);
+        mListView = findViewById(android.R.id.list);
+        mListView.setAdapter(adapter);
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent i = new Intent(getApplicationContext(), SudokuListActivity.class);
+                i.putExtra(SudokuListActivity.EXTRA_FOLDER_ID, id);
+                startActivity(i);
+            }
+        });
+        registerForContextMenu(mListView);
 
         // show changelog on first run
         Changelog changelog = new Changelog(this);
@@ -178,6 +196,7 @@ public class FolderListActivity extends ListActivity {
         menu.addIntentOptions(Menu.CATEGORY_ALTERNATIVE, 0, 0,
                 new ComponentName(this, FolderListActivity.class), null, intent, 0, null);
 
+        mMenu = menu;
         return true;
 
     }
@@ -192,7 +211,7 @@ public class FolderListActivity extends ListActivity {
             return;
         }
 
-        Cursor cursor = (Cursor) getListAdapter().getItem(info.position);
+        Cursor cursor = (Cursor) mListView.getAdapter().getItem(info.position);
         if (cursor == null) {
             // For some reason the requested item isn't available, do nothing
             return;
@@ -330,7 +349,13 @@ public class FolderListActivity extends ListActivity {
                 intent = new Intent();
                 intent.setClass(this, FileListActivity.class);
                 intent.putExtra(FileListActivity.EXTRA_FOLDER_NAME, "/sdcard");
-                startActivity(intent);
+                // need to request permission before FileListActivity can even be started
+                if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
+                    requestStoragePermission();
+                }
+                else {
+                    startActivity(intent);
+                }
                 return true;
             case MENU_ITEM_EXPORT_ALL:
                 intent = new Intent();
@@ -350,11 +375,39 @@ public class FolderListActivity extends ListActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    private void requestStoragePermission() {
+        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Permission needed")
+                    .setMessage("This permission is needed in order to access your SD Card")
+                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            ActivityCompat.requestPermissions(FolderListActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
+                        }
+                    })
+                    .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            dialog.dismiss();
+                        }
+                    })
+                    .create().show();
+        } else {
+            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
+        }
+    }
+
     @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
-        Intent i = new Intent(this, SudokuListActivity.class);
-        i.putExtra(SudokuListActivity.EXTRA_FOLDER_ID, id);
-        startActivity(i);
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == STORAGE_PERMISSION_CODE) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                onOptionsItemSelected(mMenu.findItem(MENU_ITEM_IMPORT));
+            }
+            else {
+                Toast.makeText(this, "Permission DENIED", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     private void updateList() {

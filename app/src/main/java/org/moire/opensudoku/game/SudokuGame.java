@@ -25,6 +25,8 @@ import android.os.SystemClock;
 
 import androidx.annotation.Nullable;
 
+import java.util.ArrayList;
+
 import org.moire.opensudoku.game.command.AbstractCommand;
 import org.moire.opensudoku.game.command.AbstractSingleCellCommand;
 import org.moire.opensudoku.game.command.ClearAllNotesCommand;
@@ -46,6 +48,8 @@ public class SudokuGame {
     private long mLastPlayed;
     private String mNote;
     private CellCollection mCells;
+    private SudokuSolver mSolver;
+    private boolean mUsedSolver = false;
 
     private OnPuzzleSolvedListener mOnPuzzleSolvedListener;
     private CommandStack mCommandStack;
@@ -284,6 +288,27 @@ public class SudokuGame {
         mActiveFromTime = -1;
 
         setLastPlayed(System.currentTimeMillis());
+    }
+
+    /**
+     * Solves puzzle from current state
+     */
+    public void solve() {
+        mUsedSolver = true;
+        mSolver = new SudokuSolver();
+        mSolver.setPuzzle(mCells);
+        ArrayList<int[]> finalValues = mSolver.solve();
+        for (int[] rowColVal : finalValues) {
+            int row = rowColVal[0];
+            int col = rowColVal[1];
+            int val = rowColVal[2];
+            Cell cell = mCells.getCell(row, col);
+            this.setCellValue(cell, val);
+        }
+    }
+
+    public boolean usedSolver() {
+        return mUsedSolver;
     }
 
     /**

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme" parent="Base.ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="Theme" parent="Theme.AppCompat" />
 
     <style name="Theme.Default">
         <item name="lineColor">@color/default_lineColor</item>
