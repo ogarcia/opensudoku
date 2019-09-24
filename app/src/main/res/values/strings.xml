@@ -245,7 +245,11 @@
         selects the corresponding button (and vice versa).
     </string>
     <string name="contributors_label">Contributors</string>
-    <string name="contributors" translatable="false">Sergey Pimanov</string>
+    <string name="contributors" translatable="false">
+        Sergey Pimanov\n
+        TacoTheDank\n
+        steve3424
+    </string>
 
     <!-- Strings added/changed in 2.5.0 -->
     <string name="game_state_not_started">Not started</string>
@@ -255,11 +259,6 @@
     <string name="game_level_easy">Easy</string>
     <string name="game_level_medium">Medium</string>
     <string name="game_level_hard">Hard</string>
-
-    <string name="solve_puzzle">Solve Puzzle</string>
-    <string name="solve_puzzle_confirm">Are you sure you want to see the solution?</string>
-    <string name="used_solver">You used the solver to see the solution!</string>
-    <string name="puzzle_not_solved">Puzzle was not solved! Check for errors before using the solver!</string>
 
     <string name="theme_default">Default</string>
     <string name="theme_paper">Paper</string>
@@ -311,4 +310,10 @@
 
     <string name="default_backgroundColorHighlighted">Highlighted cell background</string>
     <string name="default_backgroundColorHighlighted_summary">Background color of the highlighted cells</string>
+
+    <!-- Strings added/changed in 2.6.0 -->
+    <string name="solve_puzzle">Solve Puzzle</string>
+    <string name="solve_puzzle_confirm">Are you sure you want to see the solution?</string>
+    <string name="used_solver">You used the solver to see the solution!</string>
+    <string name="puzzle_not_solved">Puzzle was not solved! Check for errors before using the solver!</string>
 </resources>

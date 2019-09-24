@@ -267,4 +267,10 @@
 
     <string name="default_backgroundColorHighlighted">Fondo de celda resaltada</string>
     <string name="default_backgroundColorHighlighted_summary">Color de fondo de las celdas resaltadas.</string>
+
+    <!-- Strings added/changed in 2.6.0 -->
+    <string name="solve_puzzle">Resolver puzzle</string>
+    <string name="solve_puzzle_confirm">¿Estás seguro de que quieres ver la solución?</string>
+    <string name="used_solver">¡Has usado el solucionador para resolver el puzzle!</string>
+    <string name="puzzle_not_solved">¡El puzzle no se ha resuelto! ¡Comprueba si tienes errores antes de usar el solucionador!</string>
 </resources>
