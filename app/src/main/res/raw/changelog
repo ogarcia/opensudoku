@@ -1,6 +1,8 @@
 <html>
 <head><style type="text/css">body {font-size: smaller;}</style></head>
 <body>
+  <b>2.6.1</b>
+  <ul><li>New adaptive icon!</li></ul>
   <b>2.6.0</b>
   <ul>
     <li>Added permission checks for reading/writing external storage.</li>
