@@ -316,4 +316,6 @@
     <string name="solve_puzzle_confirm">Are you sure you want to see the solution?</string>
     <string name="used_solver">You used the solver to see the solution!</string>
     <string name="puzzle_not_solved">Puzzle was not solved! Check for errors before using the solver!</string>
+
+    <string name="hint_confirm">This will fill in the correct value for the selected cell. Do you want to continue?</string>
 </resources>
