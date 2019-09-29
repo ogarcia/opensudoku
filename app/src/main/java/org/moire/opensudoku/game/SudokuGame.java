@@ -291,7 +291,7 @@ public class SudokuGame {
     }
 
     /**
-     * Solves puzzle from current state
+     * Solves puzzle from original state
      */
     public void solve() {
         mUsedSolver = true;
