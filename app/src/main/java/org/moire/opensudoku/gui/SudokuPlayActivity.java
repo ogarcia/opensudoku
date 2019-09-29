@@ -446,6 +446,9 @@ public class SudokuPlayActivity extends AppCompatActivity {
                             removeDialog(DIALOG_WELL_DONE);
                             MenuItem menuItemSolve = mOptionsMenu.findItem(MENU_ITEM_SOLVE);
                             menuItemSolve.setEnabled(true);
+                            MenuItem menuItemHint = mOptionsMenu.findItem(MENU_ITEM_HINT);
+                            menuItemHint.setEnabled(true);
+
                         })
                         .setNegativeButton(android.R.string.no, null)
                         .create();
