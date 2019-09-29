@@ -312,6 +312,24 @@ public class SudokuGame {
     }
 
     /**
+     * Solves puzzle and fills in correct value for selected cell
+     */
+    public void solve(Cell cell) {
+        mSolver = new SudokuSolver();
+        mSolver.setPuzzle(mCells);
+        ArrayList<int[]> finalValues = mSolver.solve();
+
+        int row = cell.getRowIndex();
+        int col = cell.getColumnIndex();
+        for (int[] rowColVal : finalValues) {
+            if (rowColVal[0] == row && rowColVal[1] == col) {
+                int val = rowColVal[2];
+                this.setCellValue(cell, val);
+            }
+        }
+    }
+
+    /**
      * Finishes game-play. Called when puzzle is solved.
      */
     private void finish() {

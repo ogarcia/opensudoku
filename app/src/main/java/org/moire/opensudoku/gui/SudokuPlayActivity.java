@@ -491,7 +491,8 @@ public class SudokuPlayActivity extends AppCompatActivity {
                         .setMessage(R.string.hint_confirm)
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
-
+                                Cell cell = mSudokuBoard.getSelectedCell();
+                                mSudokuGame.solve(cell);
                             }
                         })
                         .setNegativeButton(android.R.string.no, null)
