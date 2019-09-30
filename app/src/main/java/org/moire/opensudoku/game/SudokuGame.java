@@ -355,6 +355,7 @@ public class SudokuGame {
         setTime(0);
         setLastPlayed(0);
         mState = GAME_STATE_NOT_STARTED;
+        mUsedSolver = false;
     }
 
     /**
