@@ -76,6 +76,7 @@ public class SudokuPlayActivity extends AppCompatActivity {
     private static final int DIALOG_SOLVE_PUZZLE = 5;
     private static final int DIALOG_USED_SOLVER = 6;
     private static final int DIALOG_HINT = 7;
+    private static final int DIALOG_CANNOT_GIVE_HINT = 8;
 
     private static final int REQUEST_SETTINGS = 1;
 
@@ -495,10 +496,21 @@ public class SudokuPlayActivity extends AppCompatActivity {
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
                                 Cell cell = mSudokuBoard.getSelectedCell();
-                                mSudokuGame.solve(cell);
+                                if (cell.isEditable()) {
+                                    mSudokuGame.solve(cell);
+                                }
+                                else {
+                                    showDialog(DIALOG_CANNOT_GIVE_HINT);
+                                }
                             }
                         })
                         .setNegativeButton(android.R.string.no, null)
+                        .create();
+            case DIALOG_CANNOT_GIVE_HINT:
+                return new AlertDialog.Builder(this)
+                        .setTitle(R.string.app_name)
+                        .setMessage(R.string.cannot_give_hint)
+                        .setPositiveButton(android.R.string.ok, null)
                         .create();
         }
         return null;

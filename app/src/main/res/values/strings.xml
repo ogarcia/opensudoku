@@ -317,4 +317,5 @@
     <string name="used_solver">You used the solver to see the solution!</string>
 
     <string name="hint_confirm">This will fill in the correct value for the selected cell. Do you want to continue?</string>
+    <string name="cannot_give_hint">You cannot get a hint for that cell.</string>
 </resources>
