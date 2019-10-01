@@ -75,8 +75,9 @@ public class SudokuPlayActivity extends AppCompatActivity {
     private static final int DIALOG_UNDO_TO_CHECKPOINT = 4;
     private static final int DIALOG_SOLVE_PUZZLE = 5;
     private static final int DIALOG_USED_SOLVER = 6;
-    private static final int DIALOG_HINT = 7;
-    private static final int DIALOG_CANNOT_GIVE_HINT = 8;
+    private static final int DIALOG_PUZZLE_NOT_SOLVED = 7;
+    private static final int DIALOG_HINT = 8;
+    private static final int DIALOG_CANNOT_GIVE_HINT = 9;
 
     private static final int REQUEST_SETTINGS = 1;
 
@@ -478,7 +479,12 @@ public class SudokuPlayActivity extends AppCompatActivity {
                         .setMessage(R.string.solve_puzzle_confirm)
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
-                                mSudokuGame.solve();
+                                if (mSudokuGame.isSolvable()) {
+                                    mSudokuGame.solve();
+                                }
+                                else {
+                                    showDialog(DIALOG_PUZZLE_NOT_SOLVED);
+                                }
                             }
                         })
                         .setNegativeButton(android.R.string.no, null)
@@ -489,6 +495,12 @@ public class SudokuPlayActivity extends AppCompatActivity {
                         .setMessage(R.string.used_solver)
                         .setPositiveButton(android.R.string.ok, null)
                         .create();
+            case DIALOG_PUZZLE_NOT_SOLVED:
+                return new AlertDialog.Builder(this)
+                        .setTitle(R.string.app_name)
+                        .setMessage(R.string.puzzle_not_solved)
+                        .setPositiveButton(android.R.string.ok, null)
+                        .create();
             case DIALOG_HINT:
                 return new AlertDialog.Builder(this)
                         .setTitle(R.string.app_name)
@@ -496,12 +508,18 @@ public class SudokuPlayActivity extends AppCompatActivity {
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
                                 Cell cell = mSudokuBoard.getSelectedCell();
-                                if (cell.isEditable()) {
-                                    mSudokuGame.solve(cell);
+                                if (mSudokuGame.isSolvable()) {
+                                    if (cell.isEditable()) {
+                                        mSudokuGame.solveCell(cell);
+                                    }
+                                    else {
+                                        showDialog(DIALOG_CANNOT_GIVE_HINT);
+                                    }
                                 }
                                 else {
-                                    showDialog(DIALOG_CANNOT_GIVE_HINT);
+                                    showDialog(DIALOG_PUZZLE_NOT_SOLVED);
                                 }
+
                             }
                         })
                         .setNegativeButton(android.R.string.no, null)

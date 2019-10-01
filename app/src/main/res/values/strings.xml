@@ -315,6 +315,7 @@
     <string name="solve_puzzle">Solve Puzzle</string>
     <string name="solve_puzzle_confirm">Are you sure you want to see the solution?</string>
     <string name="used_solver">You used the solver to see the solution!</string>
+    <string name="puzzle_not_solved">This puzzle has no solution.</string>
 
     <string name="hint_confirm">This will fill in the correct value for the selected cell. Do you want to continue?</string>
     <string name="cannot_give_hint">You cannot get a hint for that cell.</string>

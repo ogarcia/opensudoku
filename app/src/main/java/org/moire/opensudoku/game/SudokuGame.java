@@ -291,6 +291,16 @@ public class SudokuGame {
     }
 
     /**
+     * Checks if a solution to the puzzle exists
+     */
+    public boolean isSolvable () {
+        mSolver = new SudokuSolver();
+        mSolver.setPuzzle(mCells);
+        ArrayList<int[]> finalValues = mSolver.solve();
+        return !finalValues.isEmpty();
+    }
+
+    /**
      * Solves puzzle from original state
      */
     public void solve() {
@@ -314,7 +324,7 @@ public class SudokuGame {
     /**
      * Solves puzzle and fills in correct value for selected cell
      */
-    public void solve(Cell cell) {
+    public void solveCell(Cell cell) {
         mSolver = new SudokuSolver();
         mSolver.setPuzzle(mCells);
         ArrayList<int[]> finalValues = mSolver.solve();
