@@ -6,10 +6,10 @@
     android:layout_height="fill_parent">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:gravity="center_horizontal">
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
 
         <org.moire.opensudoku.gui.SudokuBoardView
             android:id="@+id/sudoku_board"
@@ -17,14 +17,14 @@
             android:layout_height="wrap_content"
             android:keepScreenOn="true" />
 
-		<org.moire.opensudoku.gui.inputmethod.IMControlPanel
+        <org.moire.opensudoku.gui.inputmethod.IMControlPanel
             android:id="@+id/input_methods"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent"/>
+            android:layout_height="fill_parent" />
 
-	</LinearLayout>
+    </LinearLayout>
 
-	<TextView
+    <TextView
         android:id="@+id/time_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

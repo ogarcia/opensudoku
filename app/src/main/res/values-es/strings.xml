@@ -1,130 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">Open Sudoku</string>
-	<string name="edit_sudoku">Editar sudoku</string>
+    <string name="app_name">Open Sudoku</string>
+    <string name="edit_sudoku">Editar sudoku</string>
 
-	<string name="puzzle_folders">Carpetas de los puzzles de Open Sudoku</string>
+    <string name="puzzle_folders">Carpetas de los puzzles de Open Sudoku</string>
 
-	<string name="version">Versión %s</string>
-	<string name="send_me_bugs">Si encuentras algún error y quieres solucionarlo, no dudes en
+    <string name="version">Versión %s</string>
+    <string name="send_me_bugs">Si encuentras algún error y quieres solucionarlo, no dudes en
         contactarme vía correo electónico o en usar el resgistro de incidencias en la página
         del proyecto.
 	</string>
 
     <string name="current_developers_label">Desarrollador principal</string>
 
-	<string name="old_developers_label">Antiguos desarrolladores</string>
+    <string name="old_developers_label">Antiguos desarrolladores</string>
 
-	<string name="localization_contributors_label">Traducciones</string>
+    <string name="localization_contributors_label">Traducciones</string>
 
-	<string name="close">Cerrar</string>
-	<string name="clear">Borrar</string>
-	<string name="save">Guardar</string>
+    <string name="close">Cerrar</string>
+    <string name="clear">Borrar</string>
+    <string name="save">Guardar</string>
 
-	<string name="get_more_puzzles_online">Obtener mas puzzles en línea</string>
+    <string name="get_more_puzzles_online">Obtener mas puzzles en línea</string>
 
-	<string name="name">Nombre:</string>
-	<string name="note">Notas:</string>
+    <string name="name">Nombre:</string>
+    <string name="note">Notas:</string>
 
-	<string name="select_number">Seleccionar número</string>
-	<string name="edit_note">Editar notas</string>
+    <string name="select_number">Seleccionar número</string>
+    <string name="edit_note">Editar notas</string>
 
-	<string name="add_folder">Añadir carpeta</string>
-	<string name="import_file">Importar</string>
-	<string name="import_file_title">Importar fichero %s</string>
-	<string name="about">Sobre</string>
-	<string name="rename_folder">Renombrar carpeta</string>
-	<string name="delete_folder">Borrar carpeta</string>
-	<string name="rename_folder_title">Renombrar %s</string>
-	<string name="delete_folder_title">Borrar %s</string>
-	<string name="delete_folder_confirm">¿Estás completamente seguro de que quieres borrar esta carpeta?</string>
+    <string name="add_folder">Añadir carpeta</string>
+    <string name="import_file">Importar</string>
+    <string name="import_file_title">Importar fichero %s</string>
+    <string name="about">Sobre</string>
+    <string name="rename_folder">Renombrar carpeta</string>
+    <string name="delete_folder">Borrar carpeta</string>
+    <string name="rename_folder_title">Renombrar %s</string>
+    <string name="delete_folder_title">Borrar %s</string>
+    <string name="delete_folder_confirm">¿Estás completamente seguro de que quieres borrar esta carpeta?</string>
 
-	<string name="no_puzzles">Sin puzzles</string>
-	<string name="one_puzzle">1 puzzle</string>
-	<string name="n_puzzles">%d puzzles</string>
-	<string name="all_solved">todos resueltos</string>
-	<string name="n_solved">%s resuelto</string>
-	<string name="n_unsolved">%d sin resolver</string>
-	<string name="n_playing">%d jugando</string>
+    <string name="no_puzzles">Sin puzzles</string>
+    <string name="one_puzzle">1 puzzle</string>
+    <string name="n_puzzles">%d puzzles</string>
+    <string name="all_solved">todos resueltos</string>
+    <string name="n_solved">%s resuelto</string>
+    <string name="n_unsolved">%d sin resolver</string>
+    <string name="n_playing">%d jugando</string>
 
-	<string name="solved">Resuelto</string>
-	<string name="playing">Jugando</string>
-	<string name="not_started">Sin comenzar</string>
-	<string name="last_played_at">Jugado por útima vez %s</string>
-	<string name="created_at">Creado %s</string>
-	<string name="at_time">a las %s</string>
-	<string name="yesterday_at_time">ayer a las %s</string>
-	<string name="on_date">en %s</string>
-	<string name="add_sudoku">Añadir sudoku</string>
-	<string name="filter">Filtrar</string>
-	<string name="filter_by_gamestate">Filtrar por estado</string>
-	<string name="folders">Carpetas</string>
-	<string name="delete_puzzle_confirm">¿Estás seguro de que quieres borrar este puzzle?</string>
-	<string name="reset_puzzle_confirm">¿Estás seguro de que quieres reiniciar este puzzle?</string>
-	<string name="play_puzzle">Jugar este puzzle</string>
-	<string name="reset_puzzle">Reiniciar puzzle</string>
-	<string name="edit_puzzle">Editar puzzle</string>
-	<string name="delete_puzzle">Eliminar puzzle</string>
-	<string name="filter_active">Filtrando: %s</string>
+    <string name="solved">Resuelto</string>
+    <string name="playing">Jugando</string>
+    <string name="not_started">Sin comenzar</string>
+    <string name="last_played_at">Jugado por útima vez %s</string>
+    <string name="created_at">Creado %s</string>
+    <string name="at_time">a las %s</string>
+    <string name="yesterday_at_time">ayer a las %s</string>
+    <string name="on_date">en %s</string>
+    <string name="add_sudoku">Añadir sudoku</string>
+    <string name="filter">Filtrar</string>
+    <string name="filter_by_gamestate">Filtrar por estado</string>
+    <string name="folders">Carpetas</string>
+    <string name="delete_puzzle_confirm">¿Estás seguro de que quieres borrar este puzzle?</string>
+    <string name="reset_puzzle_confirm">¿Estás seguro de que quieres reiniciar este puzzle?</string>
+    <string name="play_puzzle">Jugar este puzzle</string>
+    <string name="reset_puzzle">Reiniciar puzzle</string>
+    <string name="edit_puzzle">Editar puzzle</string>
+    <string name="delete_puzzle">Eliminar puzzle</string>
+    <string name="filter_active">Filtrando: %s</string>
 
-	<string name="undo">Deshacer</string>
-	<string name="clear_all_notes">Eliminar todas las anotaciones</string>
-	<string name="fill_in_notes">Autorellenar anotaciones</string>
-	<string name="restart">Reiniciar</string>
-	<string name="congrats">Felicidades, has resuelto el puzzle en %s.</string>
-	<string name="restart_confirm">¿Estas seguro de querer reiniciar el juego?</string>
-	<string name="well_done">¡Bien hecho!</string>
-	<string name="clear_all_notes_confirm">¿Estas seguro de querer borrar todas las anotaciones?</string>
-	<string name="settings">Ajustes</string>
-	<string name="game_settings">Ajustes del juego</string>
+    <string name="undo">Deshacer</string>
+    <string name="clear_all_notes">Eliminar todas las anotaciones</string>
+    <string name="fill_in_notes">Autorellenar anotaciones</string>
+    <string name="restart">Reiniciar</string>
+    <string name="congrats">Felicidades, has resuelto el puzzle en %s.</string>
+    <string name="restart_confirm">¿Estas seguro de querer reiniciar el juego?</string>
+    <string name="well_done">¡Bien hecho!</string>
+    <string name="clear_all_notes_confirm">¿Estas seguro de querer borrar todas las anotaciones?</string>
+    <string name="settings">Ajustes</string>
+    <string name="game_settings">Ajustes del juego</string>
 
-	<string name="game_helpers">Ayudas en el juego</string>
-	<string name="highlight_wrong_values">Resaltar valores erroneos</string>
-	<string name="highlight_wrong_values_summary">Resalta los valores que rompen las reglas del sudoku.</string>
-	<string name="input_methods">Métodos de entrada</string>
-	<string name="popup">Ventana emergente</string>
-	<string name="popup_summary">Editar el valor y las anotaciones de cada celda en una ventana emergente.</string>
-	<string name="single_number">Número Simple</string>
-	<string name="single_number_summary">Selecciona un número y luego pulsa en una celda para fijar ese valor o esa anotación.</string>
-	<string name="numpad">Pad numérico</string>
-	<string name="numpad_summary">Muestra un pad que actua como un teclado numérico estándar.</string>
-	<string name="numpad_move_right">Mover a la derecha</string>
-	<string name="numpad_move_right_summary">Mueve la seleccion de la celda una a la derecha cuando se presiona un botón.</string>
+    <string name="game_helpers">Ayudas en el juego</string>
+    <string name="highlight_wrong_values">Resaltar valores erroneos</string>
+    <string name="highlight_wrong_values_summary">Resalta los valores que rompen las reglas del sudoku.</string>
+    <string name="input_methods">Métodos de entrada</string>
+    <string name="popup">Ventana emergente</string>
+    <string name="popup_summary">Editar el valor y las anotaciones de cada celda en una ventana emergente.</string>
+    <string name="single_number">Número Simple</string>
+    <string name="single_number_summary">Selecciona un número y luego pulsa en una celda para fijar ese valor o esa anotación.</string>
+    <string name="numpad">Pad numérico</string>
+    <string name="numpad_summary">Muestra un pad que actua como un teclado numérico estándar.</string>
+    <string name="numpad_move_right">Mover a la derecha</string>
+    <string name="numpad_move_right_summary">Mueve la seleccion de la celda una a la derecha cuando se presiona un botón.</string>
 
-	<string name="numpad_abbr">Pad\nNum</string>
-	<string name="popup_abbr">VE</string>
-	<string name="single_number_abbr">NS</string>
-	<string name="welcome">Bienvenido</string>
-	<string name="hint">Sugerencias</string>
-	<string name="help">Ayuda</string>
-	<string name="that_is_all">Eso es todo</string>
+    <string name="numpad_abbr">Pad\nNum</string>
+    <string name="popup_abbr">VE</string>
+    <string name="single_number_abbr">NS</string>
+    <string name="welcome">Bienvenido</string>
+    <string name="hint">Sugerencias</string>
+    <string name="help">Ayuda</string>
+    <string name="that_is_all">Eso es todo</string>
 
 
-	<string name="first_run_hint">Existen varios modos de entrada que puedes utilizar para
+    <string name="first_run_hint">Existen varios modos de entrada que puedes utilizar para
         rellenar los puzzles. Con el fin de ayudar a que te familiarices con estos modos habrá
         varios consejos que aparecerán a medida que avanzas a traves de ellos.\n\nPuedes desactivar
         estas sugerencias en la configuración del juego.\n
 	</string>
-	<string name="im_popup_hint">Ahora te encuentras en el modo de entrada de <i>ventana
+    <string name="im_popup_hint">Ahora te encuentras en el modo de entrada de <i>ventana
         emergente</i>. Toca en cualquier celda con el dedo para editar su
         contenido.\n\nObserva el botón de la esquina inferior derecha. Puedes utilizar este botón
         para cambiar a otro modo de entrada.\n
 	</string>
-	<string name="im_single_number_hint">Ahora te encuentras en el modo de entrada de <i>número
+    <string name="im_single_number_hint">Ahora te encuentras en el modo de entrada de <i>número
         simple</i>. Primero selecciona cualquier botón numérico presionandolo. A
         continuación, toca en las celdas en las que deseas poner el número seleccionado.\n\nPresiona
         el <i>botón del lápiz</i> para cambiar al modo de anotaciones.\n
 	</string>
-	<string name="im_numpad_hint">Ahora te encuentras en el modo de entrada <i>teclado numérico</i>.
+    <string name="im_numpad_hint">Ahora te encuentras en el modo de entrada <i>teclado numérico</i>.
         Los botones funcionan como un teclado numérico estándar.\n\nPresiona el <i>botón del
         lápiz</i> para cambiar al modo de anotaciones.\n
 	</string>
-	<string name="im_disable_modes_hint">Por favor, recuerda que no tienes porque utilizar todos
+    <string name="im_disable_modes_hint">Por favor, recuerda que no tienes porque utilizar todos
         los modos de entrada. Puedes desactivar cualquiera de ellos en la configuración del
         juego.\n\nTambién pueden usar el teclado y el <i>trackball</i> para controlar el juego. Si quieres
         introducir anotaciones usando un teclado, presiona el número junto con <i>alt</i> o <i>shift</i>.\n
 	</string>
-	<string name="help_text"><b>Controles de teclado</b>\n\nUsa el <i>trackball</i> para navegar
+    <string name="help_text"><b>Controles de teclado</b>\n\nUsa el <i>trackball</i> para navegar
         hasta la celda deseada y pulsa número en el teclado para llenar el valor. Si quieres editar
         las anotaciones de la celda presiona el número junto con <i>alt</i> o <i>shift</i>.\n\n<b>Modos
         de entrada</b>\n\nPuedes cambiar ente los diferentes modos de entrada utilizando el botón
@@ -140,131 +140,137 @@
 	</string>
 
 
-	<string name="game">Juego</string>
-	<string name="show_hints">Mostrar sugerencias</string>
-	<string name="show_hints_summary">Mostar sugerencias que te guían con los controles de la aplicación.</string>
-	<string name="show_time">Mostrar tiempo</string>
-	<string name="show_time_summary">Mostrar tiempo durante el juego.</string>
+    <string name="game">Juego</string>
+    <string name="show_hints">Mostrar sugerencias</string>
+    <string name="show_hints_summary">Mostar sugerencias que te guían con los controles de la aplicación.</string>
+    <string name="show_time">Mostrar tiempo</string>
+    <string name="show_time_summary">Mostrar tiempo durante el juego.</string>
 
-	<string name="puzzle_inserted">Nuevo puzzle guardado.</string>
-	<string name="puzzle_updated">Puzzle actualizado.</string>
+    <string name="puzzle_inserted">Nuevo puzzle guardado.</string>
+    <string name="puzzle_updated">Puzzle actualizado.</string>
 
-	<string name="puzzles_saved">Puzzles guardados en la carpeta \'%s\'.</string>
-	<string name="no_puzzles_found">No se han encontrado puzzles.</string>
-	<string name="unknown_import_error">Error desconocido importando puzzles, la importación se ha cancelado.</string>
-	<string name="invalid_format">Formato no válido, la importación se ha cancelado.</string>
+    <string name="puzzles_saved">Puzzles guardados en la carpeta \'%s\'.</string>
+    <string name="no_puzzles_found">No se han encontrado puzzles.</string>
+    <string name="unknown_import_error">Error desconocido importando puzzles, la importación se ha cancelado.</string>
+    <string name="invalid_format">Formato no válido, la importación se ha cancelado.</string>
 
-	<!-- Strings added in 0.7.0 -->
-	<string name="loading">Cargando…</string>
+    <!-- Strings added in 0.7.0 -->
+    <string name="loading">Cargando…</string>
 
-	<!-- Strings added/changed in 0.7.1 -->
-	<string name="more_settings">Mas ajustes</string>
-	<string name="screen_border_size">Tamaño del borde de la pantalla</string>
-	<string name="screen_border_size_summary">Algunas pantallas no reaccionan a los toques en los bordes de las mismas.
+    <!-- Strings added/changed in 0.7.1 -->
+    <string name="more_settings">Mas ajustes</string>
+    <string name="screen_border_size">Tamaño del borde de la pantalla</string>
+    <string name="screen_border_size_summary">Algunas pantallas no reaccionan a los toques en los bordes de las mismas.
         Esto podría ayudar en ese caso.
 	</string>
-	<string name="highlight_touched_cell">Resaltar celda al tocar</string>
-	<string name="highlight_touched_cell_summary">Resalta la fila y la columna de la celda seleccionada.</string>
-	<string name="export">Exportar</string>
-	<string name="export_folder">Exportar carpeta</string>
-	<string name="export_all_folders">Exportar todas las carpetas</string>
-	<string name="folders_created">%d carpeta(s) ha(n) sido importada(s).</string>
-	<string name="importing">Importando puzzles…</string>
-	<string name="exporting">Exportando puzzles…</string>
-	<string name="unknown_export_error">Error desconocido exportando puzzles.</string>
-	<string name="highlight_completed_values">Resaltar completados</string>
-	<string name="highlight_completed_values_summary">Resalta los botones de los números que ya se han introducido nueve veces.
+    <string name="highlight_touched_cell">Resaltar celda al tocar</string>
+    <string name="highlight_touched_cell_summary">Resalta la fila y la columna de la celda seleccionada.</string>
+    <string name="export">Exportar</string>
+    <string name="export_folder">Exportar carpeta</string>
+    <string name="export_all_folders">Exportar todas las carpetas</string>
+    <string name="folders_created">%d carpeta(s) ha(n) sido importada(s).</string>
+    <string name="importing">Importando puzzles…</string>
+    <string name="exporting">Exportando puzzles…</string>
+    <string name="unknown_export_error">Error desconocido exportando puzzles.</string>
+    <string name="highlight_completed_values">Resaltar completados</string>
+    <string name="highlight_completed_values_summary">Resalta los botones de los números que ya se han introducido nueve veces.
 	</string>
-	<string name="theme">Tema</string>
-	<string name="theme_summary">Selecciona el tema de color para el tablero.</string>
-	<string name="select_theme">Seleccionar tema</string>
-	<string name="filename">Nombre del fichero</string>
-	<string name="directory">Directorio</string>
-	<string name="sdcard_not_found">Tarjeta SD no encontrada.</string>
-	<string name="puzzles_have_been_exported">Los puzzles se han exportado en %s.</string>
-	<string name="file_exists">El fichero ya existe, ¿deseas sobrescribirlo?</string>
-	<!-- localization of default folder names -->
-	<string name="difficulty_hard">Difícil</string>
-	<string name="difficulty_medium">Medio</string>
-	<string name="difficulty_easy">Fácil</string>
+    <string name="theme">Tema</string>
+    <string name="theme_summary">Selecciona el tema de color para el tablero.</string>
+    <string name="select_theme">Seleccionar tema</string>
+    <string name="filename">Nombre del fichero</string>
+    <string name="directory">Directorio</string>
+    <string name="sdcard_not_found">Tarjeta SD no encontrada.</string>
+    <string name="puzzles_have_been_exported">Los puzzles se han exportado en %s.</string>
+    <string name="file_exists">El fichero ya existe, ¿deseas sobrescribirlo?</string>
+    <!-- localization of default folder names -->
+    <string name="difficulty_hard">Difícil</string>
+    <string name="difficulty_medium">Medio</string>
+    <string name="difficulty_easy">Fácil</string>
 
-	<!-- Strings added/changed in 1.1.0 -->
-	<string name="show_number_totals">Mostrar totales</string>
-	<string name="show_number_totals_summary">Muestra el total de veces que se ha colocado cada número.</string>
-	<string name="what_is_new">Novedades</string>
+    <!-- Strings added/changed in 1.1.0 -->
+    <string name="show_number_totals">Mostrar totales</string>
+    <string name="show_number_totals_summary">Muestra el total de veces que se ha colocado cada número.</string>
+    <string name="what_is_new">Novedades</string>
 
-	<!-- Strings added/changed in 1.1.1 -->
-	<string name="fill_in_notes_summary">Habilitar el elemento del menú que permite que las
+    <!-- Strings added/changed in 1.1.1 -->
+    <string name="fill_in_notes_summary">Habilitar el elemento del menú que permite que las
         anotaciones se cubran de forma automática.
     </string>
 
-	<!-- Strings added/changed in 1.1.2 -->
-	<string name="set_checkpoint">Crear punto de control</string>
-	<string name="undo_to_checkpoint">Deshacer al punto de control</string>
-	<string name="undo_to_checkpoint_confirm">¿Estás seguro de querer deshacer todas las acciones
+    <!-- Strings added/changed in 1.1.2 -->
+    <string name="set_checkpoint">Crear punto de control</string>
+    <string name="undo_to_checkpoint">Deshacer al punto de control</string>
+    <string name="undo_to_checkpoint_confirm">¿Estás seguro de querer deshacer todas las acciones
         desde el último punto de control?</string>
-	<string name="select_difficulty">Seleccionar dificultad</string>
-	<string name="generate_sudoku">Generate new game</string>
-	<string name="generating">Generating puzzle…</string>
+    <string name="select_difficulty">Seleccionar dificultad</string>
+    <string name="generate_sudoku">Generate new game</string>
+    <string name="generating">Generating puzzle…</string>
     <string name="highlight_similar_cells">Resaltar celdas similares</string>
-	<string name="highlight_similar_cells_summary">Resaltar celdas con valores similares</string>
+    <string name="highlight_similar_cells_summary">Resaltar celdas con valores similares</string>
     <string name="contributors_label">Colaboradores</string>
-	<string name="bidirectional_selection">Selección bidireccional</string>
-	<string name="bidirectional_selection_summary">En el método de entrada de número simple, la selección de una celda no editable automáticamente selecciona el botón correspondiente y viceversa.</string>
+    <string name="bidirectional_selection">Selección bidireccional</string>
+    <string name="bidirectional_selection_summary">En el método de entrada de número simple, la selección de una celda no editable automáticamente selecciona el botón correspondiente y viceversa.</string>
 
-	<!-- Strings added/changed in 2.5.0 -->
-	<string name="game_state_not_started">Sin comenzar</string>
-	<string name="game_state_playing">Jugando</string>
-	<string name="game_state_solved">Resuelto</string>
+    <!-- Strings added/changed in 2.5.0 -->
+    <string name="game_state_not_started">Sin comenzar</string>
+    <string name="game_state_playing">Jugando</string>
+    <string name="game_state_solved">Resuelto</string>
 
-	<string name="game_level_easy">Fácil</string>
-	<string name="game_level_medium">Medio</string>
-	<string name="game_level_hard">Difícil</string>
+    <string name="game_level_easy">Fácil</string>
+    <string name="game_level_medium">Medio</string>
+    <string name="game_level_hard">Difícil</string>
 
-	<string name="theme_default">Por defecto</string>
-	<string name="theme_paper">Papel</string>
+    <string name="theme_default">Por defecto</string>
+    <string name="theme_paper">Papel</string>
     <string name="theme_graph_paper">Papel cuadriculado</string>
-	<string name="theme_light">Claro</string>
-	<string name="theme_paper_light">Papel claro</string>
+    <string name="theme_light">Claro</string>
+    <string name="theme_paper_light">Papel claro</string>
     <string name="theme_graph_paper_light">Papel cuadriculado claro</string>
     <string name="theme_high_contrast">Alto contraste</string>
     <string name="theme_inverted_high_contrast">Alto contraste invertido</string>
-	<string name="theme_custom">Tema personalizado</string>
+    <string name="theme_custom">Tema personalizado</string>
 
-	<string name="screen_custom_theme">Colores del tema personalizado</string>
-	<string name="screen_custom_theme_summary">Personaliza los colores del tema.</string>
-	<string name="screen_custom_theme_summary_disabled">Escoge \"Tema personalizado\" en el ajuste anterior \"Tema\" para habilitar esta sección.</string>
+    <string name="screen_custom_theme">Colores del tema personalizado</string>
+    <string name="screen_custom_theme_summary">Personaliza los colores del tema.</string>
+    <string name="screen_custom_theme_summary_disabled">Escoge \"Tema personalizado\" en el ajuste anterior \"Tema\" para habilitar esta sección.</string>
 
-	<string name="default_lineColor">Línea</string>
-	<string name="default_lineColor_summary">Color del borde de alrededor de una celda.</string>
+    <string name="default_lineColor">Línea</string>
+    <string name="default_lineColor_summary">Color del borde de alrededor de una celda.</string>
 
-	<string name="default_sectorLineColor">Línea del sector</string>
-	<string name="default_sectorLineColor_summary">Color del borde de alrededor de un bloque de 3x3 celdas.</string>
+    <string name="default_sectorLineColor">Línea del sector</string>
+    <string name="default_sectorLineColor_summary">Color del borde de alrededor de un bloque de 3x3 celdas.</string>
 
-	<string name="default_textColor">Texto</string>
-	<string name="default_textColor_summary">Color del texto de las celdas editables.</string>
+    <string name="default_textColor">Texto</string>
+    <string name="default_textColor_summary">Color del texto de las celdas editables.</string>
 
-	<string name="default_textColorReadOnly">Texto de solo lectura</string>
-	<string name="default_textColorReadOnly_summary">Color del texto de las celdas no editables.</string>
+    <string name="default_textColorReadOnly">Texto de solo lectura</string>
+    <string name="default_textColorReadOnly_summary">Color del texto de las celdas no editables.</string>
 
-	<string name="default_textColorNote">Texto de las notas</string>
-	<string name="default_textColorNote_summary">Color de las anotaciones en una celda editable.</string>
+    <string name="default_textColorNote">Texto de las notas</string>
+    <string name="default_textColorNote_summary">Color de las anotaciones en una celda editable.</string>
 
-	<string name="default_backgroundColor">Fondo primario</string>
-	<string name="default_backgroundColor_summary">Color de fondo de los grupos impares de 3x3 celdas.</string>
+    <string name="default_backgroundColor">Fondo primario</string>
+    <string name="default_backgroundColor_summary">Color de fondo de los grupos impares de 3x3 celdas.</string>
 
-	<string name="default_backgroundColorSecondary">Fondo secundario</string>
-	<string name="default_backgroundColorSecondary_summary">Color de fondo de los grupos pares de 3x3 celdas.</string>
+    <string name="default_backgroundColorSecondary">Fondo secundario</string>
+    <string name="default_backgroundColorSecondary_summary">Color de fondo de los grupos pares de 3x3 celdas.</string>
 
-	<string name="default_backgroundColorReadOnly">Fondo de las celdas de solo lectura</string>
-	<string name="default_backgroundColorReadOnly_summary">Color de fondo de las celdas no editables.</string>
+    <string name="default_backgroundColorReadOnly">Fondo de las celdas de solo lectura</string>
+    <string name="default_backgroundColorReadOnly_summary">Color de fondo de las celdas no editables.</string>
 
-	<string name="default_backgroundColorTouched">Selector</string>
-	<string name="default_backgroundColorTouched_summary">Color de la cruz de selección que aparece al presionar cualquier celda.</string>
+    <string name="default_backgroundColorTouched">Selector</string>
+    <string name="default_backgroundColorTouched_summary">Color de la cruz de selección que aparece al presionar cualquier celda.</string>
 
-	<string name="default_backgroundColorSelected">Fondo de celda seleccionada</string>
-	<string name="default_backgroundColorSelected_summary">Color de fondo de la celda seleccionada.</string>
+    <string name="default_backgroundColorSelected">Fondo de celda seleccionada</string>
+    <string name="default_backgroundColorSelected_summary">Color de fondo de la celda seleccionada.</string>
 
-	<string name="default_backgroundColorHighlighted">Fondo de celda resaltada</string>
-	<string name="default_backgroundColorHighlighted_summary">Color de fondo de las celdas resaltadas.</string>
+    <string name="default_backgroundColorHighlighted">Fondo de celda resaltada</string>
+    <string name="default_backgroundColorHighlighted_summary">Color de fondo de las celdas resaltadas.</string>
+
+    <!-- Strings added/changed in 2.6.0 -->
+    <string name="solve_puzzle">Resolver puzzle</string>
+    <string name="solve_puzzle_confirm">¿Estás seguro de que quieres ver la solución?</string>
+    <string name="used_solver">¡Has usado el solucionador para resolver el puzzle!</string>
+    <string name="puzzle_not_solved">¡El puzzle no se ha resuelto! ¡Comprueba si tienes errores antes de usar el solucionador!</string>
 </resources>

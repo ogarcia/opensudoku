@@ -11,100 +11,106 @@
         android:layout_height="wrap_content">
 
         <TableRow
-            android:orientation="horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <ToggleButton
                 android:id="@+id/button_1"
-                android:textOn="1"
-                android:textOff="1"
                 android:layout_width="95dp"
-                android:layout_height="70dp" />
+                android:layout_height="70dp"
+                android:textOff="1"
+                android:textOn="1" />
+
             <ToggleButton
                 android:id="@+id/button_2"
-                android:textOn="2"
-                android:textOff="2"
                 android:layout_width="95dp"
-                android:layout_height="70dp" />
+                android:layout_height="70dp"
+                android:textOff="2"
+                android:textOn="2" />
+
             <ToggleButton
                 android:id="@+id/button_3"
-                android:textOn="3"
-                android:textOff="3"
                 android:layout_width="95dp"
-                android:layout_height="70dp" />
+                android:layout_height="70dp"
+                android:textOff="3"
+                android:textOn="3" />
 
         </TableRow>
 
         <TableRow
-            android:orientation="horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <ToggleButton
                 android:id="@+id/button_4"
-                android:textOn="4"
-                android:textOff="4"
                 android:layout_width="95dp"
-                android:layout_height="70dp" />
+                android:layout_height="70dp"
+                android:textOff="4"
+                android:textOn="4" />
+
             <ToggleButton
                 android:id="@+id/button_5"
-                android:textOn="5"
-                android:textOff="5"
                 android:layout_width="95dp"
-                android:layout_height="70dp" />
+                android:layout_height="70dp"
+                android:textOff="5"
+                android:textOn="5" />
+
             <ToggleButton
                 android:id="@+id/button_6"
-                android:textOn="6"
-                android:textOff="6"
                 android:layout_width="95dp"
-                android:layout_height="70dp" />
+                android:layout_height="70dp"
+                android:textOff="6"
+                android:textOn="6" />
 
         </TableRow>
 
         <TableRow
-            android:orientation="horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <ToggleButton
                 android:id="@+id/button_7"
-                android:textOn="7"
-                android:textOff="7"
                 android:layout_width="95dp"
-                android:layout_height="70dp" />
+                android:layout_height="70dp"
+                android:textOff="7"
+                android:textOn="7" />
+
             <ToggleButton
                 android:id="@+id/button_8"
-                android:textOn="8"
-                android:textOff="8"
                 android:layout_width="95dp"
-                android:layout_height="70dp" />
+                android:layout_height="70dp"
+                android:textOff="8"
+                android:textOn="8" />
+
             <ToggleButton
                 android:id="@+id/button_9"
-                android:textOn="9"
-                android:textOff="9"
                 android:layout_width="95dp"
-                android:layout_height="70dp" />
+                android:layout_height="70dp"
+                android:textOff="9"
+                android:textOn="9" />
 
         </TableRow>
 
         <TableRow
-            android:orientation="horizontal"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/button_clear"
-                android:text="@string/clear"
                 android:layout_width="fill_parent"
-                android:layout_height="70dp" />
+                android:layout_height="70dp"
+                android:text="@string/clear" />
 
             <Button
                 android:id="@+id/button_close"
-                android:text="@string/close"
                 android:layout_width="fill_parent"
                 android:layout_height="70dp"
-                android:layout_span="2" />
+                android:layout_span="2"
+                android:text="@string/close" />
 
         </TableRow>
 

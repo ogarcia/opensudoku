@@ -1,6 +1,7 @@
 package org.moire.opensudoku.game.command;
 
 import org.moire.opensudoku.game.Cell;
+
 import java.util.StringTokenizer;
 
 /**
@@ -12,7 +13,7 @@ public abstract class AbstractSingleCellCommand extends AbstractCellCommand {
     private int mCellRow;
     private int mCellColumn;
 
-    public AbstractSingleCellCommand(Cell cell){
+    public AbstractSingleCellCommand(Cell cell) {
         mCellRow = cell.getRowIndex();
         mCellColumn = cell.getColumnIndex();
     }
@@ -34,7 +35,7 @@ public abstract class AbstractSingleCellCommand extends AbstractCellCommand {
         super._deserialize(data);
 
         mCellRow = Integer.parseInt(data.nextToken());
-        mCellColumn  = Integer.parseInt(data.nextToken());
+        mCellColumn = Integer.parseInt(data.nextToken());
     }
 
     public Cell getCell() {

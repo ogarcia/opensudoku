@@ -1,21 +1,21 @@
-/* 
+/*
  * Copyright (C) 2009 Roman Masek
- * 
+ *
  * This file is part of OpenSudoku.
- * 
+ *
  * OpenSudoku is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
- * 
+ *
  * OpenSudoku is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with OpenSudoku.  If not, see <http://www.gnu.org/licenses/>.
- * 
+ *
  */
 
 package org.moire.opensudoku.gui;
@@ -35,6 +35,7 @@ import android.view.ViewParent;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
+
 import org.moire.opensudoku.R;
 
 /**
@@ -51,263 +52,262 @@ import org.moire.opensudoku.R;
  * <p/>
  */
 public class SeekBarPreference extends DialogPreference {
-	/**
-	 * The edit text shown in the dialog.
-	 */
-	private SeekBar mSeekBar;
-	private TextView mValueLabel;
+    /**
+     * The edit text shown in the dialog.
+     */
+    private SeekBar mSeekBar;
+    private TextView mValueLabel;
 
-	private int mMin;
-	private int mMax;
-	private int mValue;
-	private String mValueFormat;
+    private int mMin;
+    private int mMax;
+    private int mValue;
+    private String mValueFormat;
 
-	public SeekBarPreference(Context context, AttributeSet attrs) {
-		super(context, attrs);
+    public SeekBarPreference(Context context, AttributeSet attrs) {
+        super(context, attrs);
 
-		setDialogLayoutResource(R.layout.preference_dialog_seek_bar);
+        setDialogLayoutResource(R.layout.preference_dialog_seek_bar);
 
-		mSeekBar = new SeekBar(context, attrs);
-		// Give it an ID so it can be saved/restored
-		mSeekBar.setId(R.id.seek_bar);
-		mSeekBar.setOnSeekBarChangeListener(mOnSeekBarChangeListener);
+        mSeekBar = new SeekBar(context, attrs);
+        // Give it an ID so it can be saved/restored
+        mSeekBar.setId(R.id.seek_bar);
+        OnSeekBarChangeListener mOnSeekBarChangeListener = new OnSeekBarChangeListener() {
 
-		TypedArray a =
-				context.obtainStyledAttributes(attrs, R.styleable.SeekBarPreference);
-		setMin(a.getInt(R.styleable.SeekBarPreference_min, mMin));
-		setMax(a.getInt(R.styleable.SeekBarPreference_max, mMax));
-		setValue(a.getInt(R.styleable.SeekBarPreference_value, mValue));
-		setValueFormat(a.getString(R.styleable.SeekBarPreference_valueFormat));
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+            }
 
-		a.recycle();
-	}
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+            }
 
-	public SeekBarPreference(Context context) {
-		this(context, null);
-	}
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress,
+                                          boolean fromUser) {
+                updateValueLabel(progress);
+            }
 
-	/**
-	 * Sets minimal value which can be set by this preference object.
-	 *
-	 * @param min
-	 */
-	public void setMin(int min) {
-		mMin = min;
-		mSeekBar.setMax(mMax - mMin);
-		mSeekBar.setProgress(mMin);
-	}
+        };
+        mSeekBar.setOnSeekBarChangeListener(mOnSeekBarChangeListener);
 
-	/**
-	 * Returns minimal value which can be set by this preference object.
-	 *
-	 * @return
-	 */
-	public int getMin() {
-		return mMin;
-	}
+        TypedArray a =
+                context.obtainStyledAttributes(attrs, R.styleable.SeekBarPreference);
+        setMin(a.getInt(R.styleable.SeekBarPreference_min, mMin));
+        setMax(a.getInt(R.styleable.SeekBarPreference_max, mMax));
+        setValue(a.getInt(R.styleable.SeekBarPreference_value, mValue));
+        setValueFormat(a.getString(R.styleable.SeekBarPreference_valueFormat));
 
-	/**
-	 * Sets maximal value which can be set by this preference object.
-	 *
-	 * @param max
-	 */
-	public void setMax(int max) {
-		mMax = max;
-		mSeekBar.setMax(mMax - mMin);
-		mSeekBar.setProgress(mMin);
-	}
+        a.recycle();
+    }
 
-	/**
-	 * Returns maximal value which can be set by this preference object.
-	 *
-	 * @return
-	 */
-	public int getMax() {
-		return mMax;
-	}
+    public SeekBarPreference(Context context) {
+        this(context, null);
+    }
 
-	/**
-	 * Saves the value to the {@link SharedPreferences}.
-	 */
-	public void setValue(int value) {
-		final boolean wasBlocking = shouldDisableDependents();
+    /**
+     * Sets minimal value which can be set by this preference object.
+     *
+     * @param min
+     */
+    public void setMin(int min) {
+        mMin = min;
+        mSeekBar.setMax(mMax - mMin);
+        mSeekBar.setProgress(mMin);
+    }
 
-		if (value > mMax) {
-			mValue = mMax;
-		} else if (value < mMin) {
-			mValue = mMin;
-		} else {
-			mValue = value;
-		}
+    /**
+     * Returns minimal value which can be set by this preference object.
+     *
+     * @return
+     */
+    public int getMin() {
+        return mMin;
+    }
 
-		persistInt(value);
+    /**
+     * Sets maximal value which can be set by this preference object.
+     *
+     * @param max
+     */
+    public void setMax(int max) {
+        mMax = max;
+        mSeekBar.setMax(mMax - mMin);
+        mSeekBar.setProgress(mMin);
+    }
 
-		final boolean isBlocking = shouldDisableDependents();
-		if (isBlocking != wasBlocking) {
-			notifyDependencyChange(isBlocking);
-		}
-	}
+    /**
+     * Returns maximal value which can be set by this preference object.
+     *
+     * @return
+     */
+    public int getMax() {
+        return mMax;
+    }
 
-	/**
-	 * Gets the value from the {@link SharedPreferences}.
-	 *
-	 * @return The current preference value.
-	 */
-	public int getValue() {
-		return mValue;
-	}
+    /**
+     * Saves the value to the {@link SharedPreferences}.
+     */
+    public void setValue(int value) {
+        final boolean wasBlocking = shouldDisableDependents();
 
-	public void setValueFormat(String valueFormat) {
-		mValueFormat = valueFormat;
-	}
+        if (value > mMax) {
+            mValue = mMax;
+        } else if (value < mMin) {
+            mValue = mMin;
+        } else {
+            mValue = value;
+        }
 
-	public String getValueFormat() {
-		return mValueFormat;
-	}
+        persistInt(value);
 
-	@Override
-	protected void onBindDialogView(View view) {
-		super.onBindDialogView(view);
+        final boolean isBlocking = shouldDisableDependents();
+        if (isBlocking != wasBlocking) {
+            notifyDependencyChange(isBlocking);
+        }
+    }
 
-		mValueLabel = (TextView) view.findViewById(R.id.value);
+    /**
+     * Gets the value from the {@link SharedPreferences}.
+     *
+     * @return The current preference value.
+     */
+    public int getValue() {
+        return mValue;
+    }
 
-		SeekBar seekBar = mSeekBar;
-		seekBar.setProgress(getValue() - mMin);
-		updateValueLabel(seekBar.getProgress());
+    public void setValueFormat(String valueFormat) {
+        mValueFormat = valueFormat;
+    }
+
+    public String getValueFormat() {
+        return mValueFormat;
+    }
+
+    @Override
+    protected void onBindDialogView(View view) {
+        super.onBindDialogView(view);
+
+        mValueLabel = view.findViewById(R.id.value);
+
+        SeekBar seekBar = mSeekBar;
+        seekBar.setProgress(getValue() - mMin);
+        updateValueLabel(seekBar.getProgress());
 
 
-		ViewParent oldParent = seekBar.getParent();
-		if (oldParent != view) {
-			if (oldParent != null) {
-				((ViewGroup) oldParent).removeView(seekBar);
-			}
-			onAddSeekBarToDialogView(view, seekBar);
-		}
-	}
+        ViewParent oldParent = seekBar.getParent();
+        if (oldParent != view) {
+            if (oldParent != null) {
+                ((ViewGroup) oldParent).removeView(seekBar);
+            }
+            onAddSeekBarToDialogView(view, seekBar);
+        }
+    }
 
-	/**
-	 * Adds the SeekBar widget of this preference to the dialog's view.
-	 *
-	 * @param dialogView The dialog view.
-	 */
-	protected void onAddSeekBarToDialogView(View dialogView, SeekBar seekBar) {
-		ViewGroup container = (ViewGroup) dialogView
-				.findViewById(R.id.seek_bar_container);
-		if (container != null) {
-			container.addView(seekBar, ViewGroup.LayoutParams.FILL_PARENT,
-					ViewGroup.LayoutParams.WRAP_CONTENT);
-		}
-	}
+    /**
+     * Adds the SeekBar widget of this preference to the dialog's view.
+     *
+     * @param dialogView The dialog view.
+     */
+    protected void onAddSeekBarToDialogView(View dialogView, SeekBar seekBar) {
+        ViewGroup container = dialogView
+                .findViewById(R.id.seek_bar_container);
+        if (container != null) {
+            container.addView(seekBar, ViewGroup.LayoutParams.FILL_PARENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT);
+        }
+    }
 
-	private OnSeekBarChangeListener mOnSeekBarChangeListener = new OnSeekBarChangeListener() {
+    private void updateValueLabel(int progress) {
+        if (mValueLabel != null) {
+            int value = progress + mMin;
+            if (mValueFormat != null && !mValueFormat.equals("")) {
+                mValueLabel.setText(String.format(mValueFormat, value));
+            } else {
+                mValueLabel.setText(String.valueOf(value));
+            }
+        }
+    }
 
-		@Override
-		public void onStopTrackingTouch(SeekBar seekBar) {
-		}
+    @Override
+    protected void onDialogClosed(boolean positiveResult) {
+        super.onDialogClosed(positiveResult);
 
-		@Override
-		public void onStartTrackingTouch(SeekBar seekBar) {
-		}
+        if (positiveResult) {
+            int progress = mSeekBar.getProgress() + mMin;
+            if (callChangeListener(progress)) {
+                setValue(progress);
+            }
+        }
+    }
 
-		@Override
-		public void onProgressChanged(SeekBar seekBar, int progress,
-									  boolean fromUser) {
-			updateValueLabel(progress);
-		}
+    @Override
+    protected Object onGetDefaultValue(TypedArray a, int index) {
+        return a.getString(index);
+    }
 
-	};
+    @Override
+    protected void onSetInitialValue(boolean restoreValue, Object defaultValue) {
+        int defValue = mMin;
+        if (defaultValue != null) {
+            defValue = Integer.parseInt(defaultValue.toString());
+        }
+        setValue(restoreValue ? getPersistedInt(mValue) : defValue);
+    }
 
-	private void updateValueLabel(int progress) {
-		if (mValueLabel != null) {
-			int value = progress + mMin;
-			if (mValueFormat != null && mValueFormat != "") {
-				mValueLabel.setText(String.format(mValueFormat, value));
-			} else {
-				mValueLabel.setText(String.valueOf(value));
-			}
-		}
-	}
+    @Override
+    protected Parcelable onSaveInstanceState() {
+        final Parcelable superState = super.onSaveInstanceState();
+        if (isPersistent()) {
+            // No need to save instance state since it's persistent
+            return superState;
+        }
 
-	@Override
-	protected void onDialogClosed(boolean positiveResult) {
-		super.onDialogClosed(positiveResult);
+        final SavedState myState = new SavedState(superState);
+        myState.value = getValue();
+        return myState;
+    }
 
-		if (positiveResult) {
-			int progress = mSeekBar.getProgress() + mMin;
-			if (callChangeListener(progress)) {
-				setValue(progress);
-			}
-		}
-	}
+    @Override
+    protected void onRestoreInstanceState(Parcelable state) {
+        if (state == null || !state.getClass().equals(SavedState.class)) {
+            // Didn't save state for us in onSaveInstanceState
+            super.onRestoreInstanceState(state);
+            return;
+        }
 
-	@Override
-	protected Object onGetDefaultValue(TypedArray a, int index) {
-		return a.getString(index);
-	}
+        SavedState myState = (SavedState) state;
+        super.onRestoreInstanceState(myState.getSuperState());
+        setValue(myState.value);
+    }
 
-	@Override
-	protected void onSetInitialValue(boolean restoreValue, Object defaultValue) {
-		int defValue = mMin;
-		if (defaultValue != null) {
-			defValue = Integer.parseInt(defaultValue.toString());
-		}
-		setValue(restoreValue ? getPersistedInt(mValue) : defValue);
-	}
+    private static class SavedState extends BaseSavedState {
+        int value;
 
-	@Override
-	protected Parcelable onSaveInstanceState() {
-		final Parcelable superState = super.onSaveInstanceState();
-		if (isPersistent()) {
-			// No need to save instance state since it's persistent
-			return superState;
-		}
+        public SavedState(Parcel source) {
+            super(source);
+            value = source.readInt();
+        }
 
-		final SavedState myState = new SavedState(superState);
-		myState.value = getValue();
-		return myState;
-	}
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            super.writeToParcel(dest, flags);
+            dest.writeInt(value);
+        }
 
-	@Override
-	protected void onRestoreInstanceState(Parcelable state) {
-		if (state == null || !state.getClass().equals(SavedState.class)) {
-			// Didn't save state for us in onSaveInstanceState
-			super.onRestoreInstanceState(state);
-			return;
-		}
+        public SavedState(Parcelable superState) {
+            super(superState);
+        }
 
-		SavedState myState = (SavedState) state;
-		super.onRestoreInstanceState(myState.getSuperState());
-		setValue(myState.value);
-	}
+        public static final Parcelable.Creator<SavedState> CREATOR =
+                new Parcelable.Creator<SavedState>() {
+                    public SavedState createFromParcel(Parcel in) {
+                        return new SavedState(in);
+                    }
 
-	private static class SavedState extends BaseSavedState {
-		int value;
-
-		public SavedState(Parcel source) {
-			super(source);
-			value = source.readInt();
-		}
-
-		@Override
-		public void writeToParcel(Parcel dest, int flags) {
-			super.writeToParcel(dest, flags);
-			dest.writeInt(value);
-		}
-
-		public SavedState(Parcelable superState) {
-			super(superState);
-		}
-
-		public static final Parcelable.Creator<SavedState> CREATOR =
-				new Parcelable.Creator<SavedState>() {
-					public SavedState createFromParcel(Parcel in) {
-						return new SavedState(in);
-					}
-
-					public SavedState[] newArray(int size) {
-						return new SavedState[size];
-					}
-				};
-	}
+                    public SavedState[] newArray(int size) {
+                        return new SavedState[size];
+                    }
+                };
+    }
 
 }

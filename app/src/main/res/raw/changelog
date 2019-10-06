@@ -1,6 +1,14 @@
 <html>
 <head><style type="text/css">body {font-size: smaller;}</style></head>
 <body>
+  <b>2.6.1</b>
+  <ul><li>New adaptive icon!</li></ul>
+  <b>2.6.0</b>
+  <ul>
+    <li>Added permission checks for reading/writing external storage.</li>
+    <li>Added puzzle solver.</li>
+    <li>Thanks @ssteve3424 for this contributions!</li>
+  </ul>
   <b>2.5.2</b>
   <ul><li>Added chinese language. Thanks @kevinshq!</li></ul>
   <b>2.5.1</b>
