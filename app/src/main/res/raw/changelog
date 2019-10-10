@@ -1,6 +1,13 @@
 <html>
 <head><style type="text/css">body {font-size: smaller;}</style></head>
 <body>
+  <b>2.6.2</b>
+  <ul>
+    <li>Solved import crash!</li>
+    <li>Puzzle solver always work even if you made a mistake.</li>
+    <li>Added a new option to get hints.</li>
+    <li>Thanks @ssteve3424 for solver and hints!</li>
+  </ul>
   <b>2.6.1</b>
   <ul><li>New adaptive icon!</li></ul>
   <b>2.6.0</b>
