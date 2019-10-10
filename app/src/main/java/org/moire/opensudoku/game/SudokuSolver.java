@@ -24,15 +24,16 @@ public class SudokuSolver {
     /* ---------------PUBLIC FUNCTIONS--------------- */
 
     /**
-     * Modifies linked list based on the current state of the board
+     * Modifies linked list based on the original state of the board
      */
     public void setPuzzle(CellCollection mCells) {
         Cell[][] board = mCells.getCells();
 
         for (int row = 0; row < 9; row++) {
             for (int col = 0; col < 9; col++) {
-                int val = board[row][col].getValue();
-                if (val != 0) {
+                Cell cell = board[row][col];
+                int val = cell.getValue();
+                if (!cell.isEditable()) {
                     int matrixRow = cellToRow(row, col, val-1, true);
                     int matrixCol = 9*row + col; // calculates column of node based on cell constraint
 

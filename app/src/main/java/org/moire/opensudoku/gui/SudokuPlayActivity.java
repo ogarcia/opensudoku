@@ -67,6 +67,7 @@ public class SudokuPlayActivity extends AppCompatActivity {
     public static final int MENU_ITEM_SET_CHECKPOINT = Menu.FIRST + 6;
     public static final int MENU_ITEM_UNDO_TO_CHECKPOINT = Menu.FIRST + 7;
     public static final int MENU_ITEM_SOLVE = Menu.FIRST + 8;
+    public static final int MENU_ITEM_HINT = Menu.FIRST + 9;
 
     private static final int DIALOG_RESTART = 1;
     private static final int DIALOG_WELL_DONE = 2;
@@ -75,6 +76,8 @@ public class SudokuPlayActivity extends AppCompatActivity {
     private static final int DIALOG_SOLVE_PUZZLE = 5;
     private static final int DIALOG_USED_SOLVER = 6;
     private static final int DIALOG_PUZZLE_NOT_SOLVED = 7;
+    private static final int DIALOG_HINT = 8;
+    private static final int DIALOG_CANNOT_GIVE_HINT = 9;
 
     private static final int REQUEST_SETTINGS = 1;
 
@@ -308,17 +311,18 @@ public class SudokuPlayActivity extends AppCompatActivity {
         menu.add(0, MENU_ITEM_SET_CHECKPOINT, 3, R.string.set_checkpoint);
         menu.add(0, MENU_ITEM_UNDO_TO_CHECKPOINT, 4, R.string.undo_to_checkpoint);
 
-        menu.add(0, MENU_ITEM_SOLVE, 5, R.string.solve_puzzle);
+        menu.add(0, MENU_ITEM_HINT, 5, R.string.hint);
+        menu.add(0, MENU_ITEM_SOLVE, 6, R.string.solve_puzzle);
 
-        menu.add(0, MENU_ITEM_RESTART, 6, R.string.restart)
+        menu.add(0, MENU_ITEM_RESTART, 7, R.string.restart)
                 .setShortcut('7', 'r')
                 .setIcon(R.drawable.ic_restore);
 
-        menu.add(0, MENU_ITEM_SETTINGS, 7, R.string.settings)
+        menu.add(0, MENU_ITEM_SETTINGS, 8, R.string.settings)
                 .setShortcut('9', 's')
                 .setIcon(R.drawable.ic_settings);
 
-        menu.add(0, MENU_ITEM_HELP, 8, R.string.help)
+        menu.add(0, MENU_ITEM_HELP, 9, R.string.help)
                 .setShortcut('0', 'h')
                 .setIcon(R.drawable.ic_help);
 
@@ -355,6 +359,7 @@ public class SudokuPlayActivity extends AppCompatActivity {
             menu.findItem(MENU_ITEM_UNDO).setEnabled(false);
             menu.findItem(MENU_ITEM_UNDO_TO_CHECKPOINT).setEnabled(false);
             menu.findItem(MENU_ITEM_SOLVE).setEnabled(false);
+            menu.findItem(MENU_ITEM_HINT).setEnabled(false);
         }
 
         return true;
@@ -393,7 +398,9 @@ public class SudokuPlayActivity extends AppCompatActivity {
             case MENU_ITEM_SOLVE:
                 showDialog(DIALOG_SOLVE_PUZZLE);
                 return true;
-
+            case MENU_ITEM_HINT:
+                showDialog(DIALOG_HINT);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
@@ -441,6 +448,9 @@ public class SudokuPlayActivity extends AppCompatActivity {
                             removeDialog(DIALOG_WELL_DONE);
                             MenuItem menuItemSolve = mOptionsMenu.findItem(MENU_ITEM_SOLVE);
                             menuItemSolve.setEnabled(true);
+                            MenuItem menuItemHint = mOptionsMenu.findItem(MENU_ITEM_HINT);
+                            menuItemHint.setEnabled(true);
+
                         })
                         .setNegativeButton(android.R.string.no, null)
                         .create();
@@ -469,8 +479,10 @@ public class SudokuPlayActivity extends AppCompatActivity {
                         .setMessage(R.string.solve_puzzle_confirm)
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
-                                mSudokuGame.solve();
-                                if (mSudokuGame.getState() != 2) {
+                                if (mSudokuGame.isSolvable()) {
+                                    mSudokuGame.solve();
+                                }
+                                else {
                                     showDialog(DIALOG_PUZZLE_NOT_SOLVED);
                                 }
                             }
@@ -487,6 +499,35 @@ public class SudokuPlayActivity extends AppCompatActivity {
                 return new AlertDialog.Builder(this)
                         .setTitle(R.string.app_name)
                         .setMessage(R.string.puzzle_not_solved)
+                        .setPositiveButton(android.R.string.ok, null)
+                        .create();
+            case DIALOG_HINT:
+                return new AlertDialog.Builder(this)
+                        .setTitle(R.string.app_name)
+                        .setMessage(R.string.hint_confirm)
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int whichButton) {
+                                Cell cell = mSudokuBoard.getSelectedCell();
+                                if (mSudokuGame.isSolvable()) {
+                                    if (cell.isEditable()) {
+                                        mSudokuGame.solveCell(cell);
+                                    }
+                                    else {
+                                        showDialog(DIALOG_CANNOT_GIVE_HINT);
+                                    }
+                                }
+                                else {
+                                    showDialog(DIALOG_PUZZLE_NOT_SOLVED);
+                                }
+
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, null)
+                        .create();
+            case DIALOG_CANNOT_GIVE_HINT:
+                return new AlertDialog.Builder(this)
+                        .setTitle(R.string.app_name)
+                        .setMessage(R.string.cannot_give_hint)
                         .setPositiveButton(android.R.string.ok, null)
                         .create();
         }

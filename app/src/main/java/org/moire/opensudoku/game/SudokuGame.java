@@ -291,7 +291,17 @@ public class SudokuGame {
     }
 
     /**
-     * Solves puzzle from current state
+     * Checks if a solution to the puzzle exists
+     */
+    public boolean isSolvable () {
+        mSolver = new SudokuSolver();
+        mSolver.setPuzzle(mCells);
+        ArrayList<int[]> finalValues = mSolver.solve();
+        return !finalValues.isEmpty();
+    }
+
+    /**
+     * Solves puzzle from original state
      */
     public void solve() {
         mUsedSolver = true;
@@ -309,6 +319,24 @@ public class SudokuGame {
 
     public boolean usedSolver() {
         return mUsedSolver;
+    }
+
+    /**
+     * Solves puzzle and fills in correct value for selected cell
+     */
+    public void solveCell(Cell cell) {
+        mSolver = new SudokuSolver();
+        mSolver.setPuzzle(mCells);
+        ArrayList<int[]> finalValues = mSolver.solve();
+
+        int row = cell.getRowIndex();
+        int col = cell.getColumnIndex();
+        for (int[] rowColVal : finalValues) {
+            if (rowColVal[0] == row && rowColVal[1] == col) {
+                int val = rowColVal[2];
+                this.setCellValue(cell, val);
+            }
+        }
     }
 
     /**
@@ -337,6 +365,7 @@ public class SudokuGame {
         setTime(0);
         setLastPlayed(0);
         mState = GAME_STATE_NOT_STARTED;
+        mUsedSolver = false;
     }
 
     /**
