@@ -33,11 +33,11 @@
 
 	<string name="no_puzzles">Keine Sudoku-Rätsel</string>
 	<string name="one_puzzle">1 Sudoku-Rätsel</string>
-	<string name="n_puzzles">%s Sudoku-Rätsel</string>
+	<string name="n_puzzles">%d Sudoku-Rätsel</string>
 	<string name="all_solved">Alle gelöst</string>
 	<string name="n_solved">%s gelöst</string>
-	<string name="n_unsolved">%s neu</string>
-	<string name="n_playing">%s in Bearbeitung</string>
+	<string name="n_unsolved">%d neu</string>
+	<string name="n_playing">%d in Bearbeitung</string>
 
 	<string name="solved">Gelöst</string>
 	<string name="playing">In Bearbeitung</string>
@@ -153,7 +153,7 @@
 	<string name="export">Export</string>
 	<string name="export_folder">Exportiere Ordner</string>
 	<string name="export_all_folders">Exportiere alle Ordner</string>
-	<string name="folders_created">%s Ordner wurden importiert</string>
+	<string name="folders_created">%d Ordner wurden importiert</string>
 	<string name="importing">Importiere Sudoku-Rätsel…</string>
 	<string name="exporting">Exportiere Sudoku-Rätsel…</string>
 	<string name="unknown_export_error">Ein unbekannter Fehler ist während des Exports aufgetreten.</string>

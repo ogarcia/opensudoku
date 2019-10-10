@@ -22,11 +22,11 @@
     <string name="delete_folder_confirm">你确定想删除这个分类？</string>
     <string name="no_puzzles">没有谜题</string>
     <string name="one_puzzle">1 谜题</string>
-    <string name="n_puzzles">%s 谜题</string>
+    <string name="n_puzzles">%d 谜题</string>
     <string name="all_solved">全部已解决</string>
     <string name="n_solved">%s 已解决</string>
-    <string name="n_unsolved">%s 未解决</string>
-    <string name="n_playing">%s 解题中</string>
+    <string name="n_unsolved">%d 未解决</string>
+    <string name="n_playing">%d 解题中</string>
     <string name="solved">已解决</string>
     <string name="playing">解题中</string>
     <string name="not_started">未开始</string>
@@ -99,7 +99,7 @@
     <string name="export">导出</string>
     <string name="export_folder">导出分类</string>
     <string name="export_all_folders">导出所有分类</string>
-    <string name="folders_created">%s分类被导入</string>
+    <string name="folders_created">%d分类被导入</string>
     <string name="importing">导入谜题…</string>
     <string name="exporting">导出谜题…</string>
     <string name="unknown_export_error">导出谜题时发生未知错误。</string>

@@ -32,7 +32,7 @@
 
     <string name="add_folder">Klasör Ekle</string>
     <string name="import_file">İçeri Aktar</string>
-    <string name="import_file_title">Dosyayı İçeri Aktar </string>
+    <string name="import_file_title">Dosyayı İçeri Aktar %s</string>
     <string name="about">Hakkında</string>
     <string name="rename_folder">Klasörün İsmini Değiştir</string>
     <string name="delete_folder">Klasörü Sil</string>
@@ -42,11 +42,11 @@
 
     <string name="no_puzzles">Bulmaca yok</string>
     <string name="one_puzzle">1 bulmaca</string>
-    <string name="n_puzzles">%s bulmaca</string>
+    <string name="n_puzzles">%d bulmaca</string>
     <string name="all_solved">Hepsi çözüldü</string>
     <string name="n_solved">%s çözüldü</string>
-    <string name="n_unsolved">%s çözülmedi</string>
-    <string name="n_playing">%s oynanıyor</string>
+    <string name="n_unsolved">%d çözülmedi</string>
+    <string name="n_playing">%d oynanıyor</string>
 
     <string name="solved">Çözüldü</string>
     <string name="playing">Oynanıyor</string>
@@ -139,7 +139,7 @@
     <string name="export">Dışarı Aktar</string>
     <string name="export_folder">Klasörü Dışarı Aktar</string>
     <string name="export_all_folders">Klasörleri Dışarı Aktar</string>
-    <string name="folders_created">%s klasör içeri aktarıldı.</string>
+    <string name="folders_created">%d klasör içeri aktarıldı.</string>
     <string name="importing">Bulmacalar içeri aktarılıyor…</string>
     <string name="exporting">Bulmacalar dışarı aktarılıyor…</string>
     <string name="unknown_export_error">Bulmacalar dışarı aktarılırken bilinmeyen bir hata oluştu.</string>

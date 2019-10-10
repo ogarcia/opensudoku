@@ -32,11 +32,11 @@
 
     <string name="no_puzzles">Žádné sudoku</string>
     <string name="one_puzzle">1 sudoku</string>
-    <string name="n_puzzles">%s sudoku</string>
+    <string name="n_puzzles">%d sudoku</string>
     <string name="all_solved">všechna vyřešena</string>
     <string name="n_solved">%s vyřešeno</string>
-    <string name="n_unsolved">%s nevyřešeno</string>
-    <string name="n_playing">%s rozehráno</string>
+    <string name="n_unsolved">%d nevyřešeno</string>
+    <string name="n_playing">%d rozehráno</string>
 
     <string name="solved">Vyřešeno</string>
     <string name="playing">Rozehráno</string>
@@ -152,7 +152,7 @@
     <string name="export">Export</string>
     <string name="export_folder">Exportovat složku</string>
     <string name="export_all_folders">Exportovat všechny složky</string>
-    <string name="folders_created">Bylo naimportováno %s složek.</string>
+    <string name="folders_created">Bylo naimportováno %d složek.</string>
     <string name="importing">Importuji sudoku…</string>
     <string name="exporting">Exportuji sudoku…</string>
     <string name="unknown_export_error">Při exportu sudoku došlo k neznámé chybě.</string>

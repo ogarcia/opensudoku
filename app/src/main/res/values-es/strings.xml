@@ -41,11 +41,11 @@
 
     <string name="no_puzzles">Sin puzzles</string>
     <string name="one_puzzle">1 puzzle</string>
-    <string name="n_puzzles">%s puzzles</string>
+    <string name="n_puzzles">%d puzzles</string>
     <string name="all_solved">todos resueltos</string>
     <string name="n_solved">%s resuelto</string>
-    <string name="n_unsolved">%s sin resolver</string>
-    <string name="n_playing">%s jugando</string>
+    <string name="n_unsolved">%d sin resolver</string>
+    <string name="n_playing">%d jugando</string>
 
     <string name="solved">Resuelto</string>
     <string name="playing">Jugando</string>
@@ -168,7 +168,7 @@
     <string name="export">Exportar</string>
     <string name="export_folder">Exportar carpeta</string>
     <string name="export_all_folders">Exportar todas las carpetas</string>
-    <string name="folders_created">%s carpeta(s) ha(n) sido importada(s).</string>
+    <string name="folders_created">%d carpeta(s) ha(n) sido importada(s).</string>
     <string name="importing">Importando puzzles…</string>
     <string name="exporting">Exportando puzzles…</string>
     <string name="unknown_export_error">Error desconocido exportando puzzles.</string>
