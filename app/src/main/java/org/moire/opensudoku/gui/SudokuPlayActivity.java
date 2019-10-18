@@ -508,18 +508,17 @@ public class SudokuPlayActivity extends AppCompatActivity {
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
                                 Cell cell = mSudokuBoard.getSelectedCell();
-                                if (mSudokuGame.isSolvable()) {
-                                    if (cell.isEditable()) {
+                                if (cell.isEditable()) {
+                                    if (mSudokuGame.isSolvable()) {
                                         mSudokuGame.solveCell(cell);
                                     }
                                     else {
-                                        showDialog(DIALOG_CANNOT_GIVE_HINT);
+                                        showDialog(DIALOG_PUZZLE_NOT_SOLVED);
                                     }
                                 }
                                 else {
-                                    showDialog(DIALOG_PUZZLE_NOT_SOLVED);
+                                    showDialog(DIALOG_CANNOT_GIVE_HINT);
                                 }
-
                             }
                         })
                         .setNegativeButton(android.R.string.no, null)
