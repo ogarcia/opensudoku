@@ -20,11 +20,14 @@
 
 package org.moire.opensudoku.gui;
 
+import android.app.Dialog;
 import android.content.ComponentName;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.Log;
@@ -56,8 +59,12 @@ public class SudokuEditActivity extends AppCompatActivity {
     public static final String EXTRA_FOLDER_ID = "folder_id";
     public static final String EXTRA_SUDOKU_ID = "sudoku_id";
 
-    public static final int MENU_ITEM_SAVE = Menu.FIRST;
-    public static final int MENU_ITEM_CANCEL = Menu.FIRST + 1;
+    public static final int MENU_ITEM_CHECK_SOLVABILITY = Menu.FIRST;
+    public static final int MENU_ITEM_SAVE = Menu.FIRST + 1;
+    public static final int MENU_ITEM_CANCEL = Menu.FIRST + 2;
+
+    private static final int DIALOG_PUZZLE_SOLVABLE = 1;
+    private static final int DIALOG_PUZZLE_NOT_SOLVABLE = 2;
 
     // The different distinct states the activity can be run in.
     private static final int STATE_EDIT = 0;
@@ -199,10 +206,11 @@ public class SudokuEditActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // This is our one standard application action -- inserting a
         // new note into the list.
-        menu.add(0, MENU_ITEM_SAVE, 0, R.string.save)
+        menu.add(0, MENU_ITEM_CHECK_SOLVABILITY, 0, R.string.check_solvabitily);
+        menu.add(0, MENU_ITEM_SAVE, 1, R.string.save)
                 .setShortcut('1', 's')
                 .setIcon(R.drawable.ic_save);
-        menu.add(0, MENU_ITEM_CANCEL, 1, android.R.string.cancel)
+        menu.add(0, MENU_ITEM_CANCEL, 2, android.R.string.cancel)
                 .setShortcut('3', 'c')
                 .setIcon(R.drawable.ic_close);
 
@@ -221,6 +229,15 @@ public class SudokuEditActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case MENU_ITEM_CHECK_SOLVABILITY:
+                boolean solvable = checkSolvability();
+                if (solvable) {
+                    showDialog(DIALOG_PUZZLE_SOLVABLE);
+                }
+                else {
+                    showDialog(DIALOG_PUZZLE_NOT_SOLVABLE);
+                }
+                return true;
             case MENU_ITEM_SAVE:
                 // do nothing, puzzle will be saved automatically in onPause
                 finish();
@@ -231,6 +248,32 @@ public class SudokuEditActivity extends AppCompatActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected Dialog onCreateDialog(int id) {
+        switch (id) {
+            case DIALOG_PUZZLE_SOLVABLE:
+                return new AlertDialog.Builder(this)
+                        .setTitle(R.string.app_name)
+                        .setMessage(R.string.puzzle_solvable)
+                        .setPositiveButton(android.R.string.ok, null)
+                        .create();
+            case DIALOG_PUZZLE_NOT_SOLVABLE:
+                return new AlertDialog.Builder(this)
+                        .setTitle(R.string.app_name)
+                        .setMessage(R.string.puzzle_not_solved)
+                        .setPositiveButton(android.R.string.ok, null)
+                        .create();
+        }
+        return null;
+    }
+
+    private boolean checkSolvability() {
+        mGame.getCells().markFilledCellsAsNotEditable();
+        boolean solvable = mGame.isSolvable();
+        mGame.getCells().markAllCellsAsEditable();
+        return solvable;
     }
 
     private void savePuzzle() {
