@@ -311,7 +311,7 @@ public class SudokuPlayActivity extends AppCompatActivity {
         menu.add(0, MENU_ITEM_SET_CHECKPOINT, 3, R.string.set_checkpoint);
         menu.add(0, MENU_ITEM_UNDO_TO_CHECKPOINT, 4, R.string.undo_to_checkpoint);
 
-        menu.add(0, MENU_ITEM_HINT, 5, R.string.hint);
+        menu.add(0, MENU_ITEM_HINT, 5, R.string.solver_hint);
         menu.add(0, MENU_ITEM_SOLVE, 6, R.string.solve_puzzle);
 
         menu.add(0, MENU_ITEM_RESTART, 7, R.string.restart)

@@ -1,6 +1,12 @@
 <html>
 <head><style type="text/css">body {font-size: smaller;}</style></head>
 <body>
+  <b>2.6.3</b>
+  <ul>
+   <li>Adds a menu option to check if a puzzle is solvable when editing or adding a puzzle. Thanks
+   @ssteve3424!</li>
+   <li>French translation updated. Thanks @Tubix!</li>
+  </ul>
   <b>2.6.2</b>
   <ul>
     <li>Solved import crash!</li>
