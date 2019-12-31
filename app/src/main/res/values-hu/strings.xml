@@ -74,9 +74,9 @@
     <string name="filter_by_gamestate">Állapot szerinti szűrés</string>
     <string name="folders">Mappák</string>
     <string name="delete_puzzle_confirm">Biztosan törölni akarod a kiválaszott feladványt?</string>
-    <string name="reset_puzzle_confirm">Biztosan újra akarod kezdeni a kiválaszott feladványt?</string>
+    <string name="reset_puzzle_confirm">Biztosan alaphelyzetbe szeretnéd állítani a feladványt?</string>
     <string name="play_puzzle">Játék indítása</string>
-    <string name="reset_puzzle">Újrakezdés</string>
+    <string name="reset_puzzle">Visszaállítás</string>
     <string name="edit_puzzle">Feladvány szerkesztése</string>
     <string name="delete_puzzle">Feladvány törlése</string>
     <string name="filter_active">Aktív szűrő(k): %s</string>
@@ -107,9 +107,9 @@
 	</string>
 
     <string name="numpad_abbr">SzB</string>
-    <string name="popup_abbr">FUA</string>
+    <string name="popup_abbr">FA</string>
     <string name="single_number_abbr">1x</string>
-    <string name="welcome">Üdv!</string>
+    <string name="welcome">Üdvözöllek!</string>
     <string name="hint">Segítség</string>
     <string name="help">Súgó</string>
     <string name="that_is_all">Ennyi volt!</string>
