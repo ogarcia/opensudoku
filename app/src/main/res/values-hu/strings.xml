@@ -27,7 +27,7 @@
         Diego Pierotto\n
         Gokay Can Kayki\n
         Paulo Schopf\n
-        Joaquim Pedroto Costa\n\
+        Joaquim Pedroto Costa\n
 		Erik Dorner
     </string>
 
@@ -40,17 +40,17 @@
     <string name="name">Név:</string>
     <string name="note">Megjegyzés:</string>
 
-    <string name="select_number">Szám kiválasztása</string>
-    <string name="edit_note">Megjegyzés szerkesztése</string>
+    <string name="select_number">Érték</string>
+    <string name="edit_note">Megjegyzés</string>
 
     <string name="add_folder">Új mappa</string>
     <string name="import_file">Importálás</string>
-    <string name="import_file_title">"%s" importálása</string>
+    <string name="import_file_title">\"%s\" importálása</string>
     <string name="about">Névjegy</string>
     <string name="rename_folder">Mappa átnevezése</string>
     <string name="delete_folder">Mappa törlése</string>
-    <string name="rename_folder_title">"%s" átnevezése</string>
-    <string name="delete_folder_title">"%s" törlése</string>
+    <string name="rename_folder_title">\"%s\" átnevezése</string>
+    <string name="delete_folder_title">\"%s\" törlése</string>
     <string name="delete_folder_confirm">Biztosan törölni akarod a kiválaszott mappát?</string>
 
     <string name="no_puzzles">Nincsenek feladványok</string>
@@ -69,7 +69,7 @@
     <string name="at_time">%s</string>
     <string name="yesterday_at_time">tegnap %s</string>
     <string name="on_date">%s</string>
-    <string name="add_sudoku">Feladvány készítése</string>
+    <string name="add_sudoku">Új feladvány</string>
     <string name="filter">Szűrő</string>
     <string name="filter_by_gamestate">Állapot szerinti szűrés</string>
     <string name="folders">Mappák</string>
@@ -86,22 +86,22 @@
     <string name="fill_in_notes">Megjegyzések generálása</string>
     <string name="restart">Újrakezdés</string>
     <string name="congrats">Gratulálok! Szintidő: %s!</string>
-    <string name="restart_confirm">Biztosan újra akarod rezdeni a kiválaszott feladványt?</string>
+    <string name="restart_confirm">Biztosan újra akarod kezdeni a kiválaszott feladványt?</string>
     <string name="well_done">Szép volt!</string>
     <string name="clear_all_notes_confirm">Biztosan törölni akarod az összes megjegyzést?</string>
     <string name="settings">Beállítások</string>
     <string name="game_settings">Játék beállítások</string>
 
-    <string name="game_helpers">Segítségek</string>
+    <string name="game_helpers">Segédletek</string>
     <string name="highlight_wrong_values">Hibás értékek kiemelése</string>
     <string name="highlight_wrong_values_summary">A sudoku szabályainak ellentmondó értékek kiemelése.</string>
     <string name="input_methods">Beviteli módok</string>
     <string name="popup">Felugró ablak</string>
     <string name="popup_summary">Cella érték és megjegyzés szerkesztése felugró ablakban.</string>
     <string name="single_number">Bevitel egyesével</string>
-    <string name="single_number_summary">A cella érték vagy megjegyzés beírásához válaszd ki a kívánt számot, majd bökj a cellára.</string>
+    <string name="single_number_summary">Először a beírandó szám, majd a kívánt cella kiválasztása.</string>
     <string name="numpad">Szám-billentyűzet</string>
-    <string name="numpad_summary">Számb-illentyűzet megjelenítése. Előbb válaszd ki a cellát, majd írd be az értéket / megjegyzést.</string>
+    <string name="numpad_summary">Szám-billentyűzet megjelenítése. A cella kiválasztása után írható be az érték / megjegyzés.</string>
     <string name="numpad_move_right">Bevitel után jobbra haladás</string>
     <string name="numpad_move_right_summary">A szám kiválasztását követően a kijelölést eggyel jobbra mozgatja.
 	</string>
@@ -172,16 +172,16 @@
 	</string>
 
 
-    <string name="game">Játék</string>
+    <string name="game">Játékmenet</string>
     <string name="show_hints">Útmutató</string>
-    <string name="show_hints_summary">Bemutatja az alkalmazás kezelését</string>
+    <string name="show_hints_summary">Bemutatja az alkalmazás kezelését.</string>
     <string name="show_time">Idő mutatása</string>
-    <string name="show_time_summary">Az eltelt idő kijelzése játék közben</string>
+    <string name="show_time_summary">Az eltelt idő kijelzése játék közben.</string>
 
     <string name="puzzle_inserted">Új feladvány elmentve</string>
     <string name="puzzle_updated">Új feladvány frissítve</string>
 
-    <string name="puzzles_saved">Feladványok a \'%s\' mappába mentve</string>
+    <string name="puzzles_saved">Feladványok a \"%s\" mappába mentve</string>
     <string name="no_puzzles_found">Nem találhatóak feladványok</string>
     <string name="unknown_import_error">Ismeretlen hiba importálás közben; az importálás megszakadt.</string>
     <string name="invalid_format">Érvénytlen formátum; importálás megszakítva.</string>
@@ -197,7 +197,7 @@
         Ilyenkor jöhet jól a margó.
 	</string>
     <string name="highlight_touched_cell">Kiemelés érintéskor</string>
-    <string name="highlight_touched_cell_summary">Kiemeli a kiválasztott cella sorát és oszlopát</string>
+    <string name="highlight_touched_cell_summary">Kiemeli a kiválasztott cella sorát és oszlopát.</string>
     <string name="export">Exportálás</string>
     <string name="export_folder">Mappa exportálása</string>
     <string name="export_all_folders">Minden mappa exportálása</string>
@@ -206,14 +206,14 @@
     <string name="exporting">Feladványok exportálása…</string>
     <string name="unknown_export_error">Ismeretlen hiba exportálás közben</string>
     <string name="highlight_completed_values">Elfogyott számok jelzése</string>
-    <string name="highlight_completed_values_summary">Megjelöli azon számok gombjait, melyek már 9-szer fel lettek használva</string>
+    <string name="highlight_completed_values_summary">Megjelöli azon számok gombjait, melyek már 9-szer fel lettek használva.</string>
     <string name="theme">Téma</string>
-    <string name="theme_summary">Játéktér színsémájának kiválasztása</string>
+    <string name="theme_summary">Játéktér színsémájának testre szabása.</string>
     <string name="select_theme">Téma kiválasztása</string>
     <string name="filename">Fájlnév</string>
     <string name="directory">Mappa</string>
     <string name="sdcard_not_found">Memóriakártya nem található!</string>
-    <string name="puzzles_have_been_exported">Feladványok exportálva a \'%s\' mappába</string>
+    <string name="puzzles_have_been_exported">Feladványok exportálva a \"%s\" mappába</string>
     <string name="file_exists">A fájl már létezik. Felülírjuk?</string>
     <!-- localization of default folder names -->
     <string name="difficulty_hard">Nehéz</string>
@@ -225,11 +225,11 @@
     <string name="select_difficulty">Nehézség kiválasztása</string>
     <string name="generating">Játék generálása…</string>
     <string name="show_number_totals">Darabszámok kijelzése</string>
-    <string name="show_number_totals_summary">Megmutatja, mely számokból mennyi lett elhelyezve</string>
+    <string name="show_number_totals_summary">Megmutatja, mely számokból mennyi lett elhelyezve.</string>
     <string name="what_is_new">Újdonságok</string>
 
     <!-- Strings added/changed in 1.1.1 -->
-    <string name="fill_in_notes_summary">"Megjegyzések generálása" menüpont engedélyezése</string>
+    <string name="fill_in_notes_summary">"Megjegyzések generálása" menüpont engedélyezése.</string>
 
     <!-- Strings added/changed in 1.1.2 -->
     <string name="set_checkpoint">Állapot mentése</string>
@@ -238,7 +238,7 @@
 
     <!-- Strings added/changed in 2.3.0 -->
     <string name="highlight_similar_cells">Azonos értékek kiemelése</string>
-    <string name="highlight_similar_cells_summary">Kiemeli a kijelölttel azonos értékű cellákat</string>
+    <string name="highlight_similar_cells_summary">Kiemeli a kijelölttel azonos értékű cellákat.</string>
 
     <!-- Strings added/changed in 2.4.0 -->
     <string name="bidirectional_selection">Kétirányú kiválasztás</string>
@@ -273,9 +273,9 @@
     <string name="theme_custom">Egyéni</string>
 
     <string name="screen_custom_theme">Egyéni téma színei</string>
-    <string name="screen_custom_theme_summary">Egyéni téma színeinek testreszabása</string>
+    <string name="screen_custom_theme_summary">Egyéni téma színeinek testreszabása.</string>
     <string name="screen_custom_theme_summary_disabled">
-        Válaszd az \"Egyéni\" opciót a fenti \"Téma\" menüpontban, hogy aktiválódjon
+        Válaszd az \"Egyéni\" opciót a fenti \"Téma\" menüpontban, hogy aktiválódjon!
     </string>
 
     <string name="default_lineColor">Cella keret</string>
