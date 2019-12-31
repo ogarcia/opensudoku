@@ -6,30 +6,16 @@
     <string name="puzzle_folders">OpenSudoku feladvány mappák</string>
 
     <string name="version">Verzió: %s</string>
-    <string name="homepage" translatable="false">https://opensudoku.moire.org/</string>
-    <string name="email" translatable="false">&lt;opensudoku@moire.org&gt;</string>
     <string name="send_me_bugs">
         Ha hibás működést tapsztalsz, nyugodtan jelezd e-mailben,
 		vagy a projekt weboldalán található hibabejelentő segítségével.
 	</string>
 
     <string name="current_developers_label">Jelenlegi fejlesztő</string>
-    <string name="current_developers" translatable="false">Óscar García Amor</string>
 
     <string name="old_developers_label">Korábbi fejlesztők</string>
-    <string name="old_developers" translatable="false">Roman Mašek</string>
 
     <string name="localization_contributors_label">A lokalizációban közreműködtek:</string>
-    <string name="localization_contributors" translatable="false">
-        Vit Hnilica\n
-        Martin Sobola\n
-        Martin Helff\n
-        Diego Pierotto\n
-        Gokay Can Kayki\n
-        Paulo Schopf\n
-        Joaquim Pedroto Costa\n
-		Erik Dorner
-    </string>
 
     <string name="close">Bezárás</string>
     <string name="clear">Törlés</string>
@@ -247,11 +233,6 @@
 		a kijelölt, nem szerkeszthető cella értéke alapján. (És visszafelé is.)
     </string>
     <string name="contributors_label">Közreműködők</string>
-    <string name="contributors" translatable="false">
-        Sergey Pimanov\n
-        TacoTheDank\n
-        steve3424
-    </string>
 
     <!-- Strings added/changed in 2.5.0 -->
     <string name="game_state_not_started">Nem elkezdett</string>
