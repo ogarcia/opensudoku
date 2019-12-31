@@ -9,7 +9,7 @@
     <string name="homepage" translatable="false">https://opensudoku.moire.org/</string>
     <string name="email" translatable="false">&lt;opensudoku@moire.org&gt;</string>
     <string name="send_me_bugs">
-        Ha hibás működést tapsztaltál, nyugodtan jelezd e-mailben,
+        Ha hibás működést tapsztalsz, nyugodtan jelezd e-mailben,
 		vagy a projekt weboldalán található hibabejelentő segítségével.
 	</string>
 
@@ -101,9 +101,9 @@
     <string name="single_number">Bevitel egyesével</string>
     <string name="single_number_summary">Először a beírandó szám, majd a kívánt cella kiválasztása.</string>
     <string name="numpad">Szám-billentyűzet</string>
-    <string name="numpad_summary">Szám-billentyűzet megjelenítése. A cella kiválasztása után írható be az érték / megjegyzés.</string>
+    <string name="numpad_summary">A cella kiválasztása után írható be az érték vagy megjegyzés.</string>
     <string name="numpad_move_right">Bevitel után jobbra haladás</string>
-    <string name="numpad_move_right_summary">A szám kiválasztását követően a kijelölést eggyel jobbra mozgatja.
+    <string name="numpad_move_right_summary">Beírást követően a kijelölést eggyel jobbra mozgatja.
 	</string>
 
     <string name="numpad_abbr">SzB</string>
@@ -175,7 +175,7 @@
     <string name="game">Játékmenet</string>
     <string name="show_hints">Útmutató</string>
     <string name="show_hints_summary">Bemutatja az alkalmazás kezelését.</string>
-    <string name="show_time">Idő mutatása</string>
+    <string name="show_time">Játékidő mutatása</string>
     <string name="show_time_summary">Az eltelt idő kijelzése játék közben.</string>
 
     <string name="puzzle_inserted">Új feladvány elmentve</string>
@@ -194,7 +194,7 @@
     <string name="screen_border_size">Margó szélessége</string>
     <string name="screen_border_size_summary">
         Bizonyos kijelzők a széleken nem érzékelik az érintést.
-        Ilyenkor jöhet jól a margó.
+        Ilyenkor jöhet jól egy szélesebb margó.
 	</string>
     <string name="highlight_touched_cell">Kiemelés érintéskor</string>
     <string name="highlight_touched_cell_summary">Kiemeli a kiválasztott cella sorát és oszlopát.</string>
