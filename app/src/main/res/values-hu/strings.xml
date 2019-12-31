@@ -295,9 +295,9 @@
     <string name="default_backgroundColorHighlighted_summary">Kiemelt cellák háttérszíne</string>
 
     <!-- Strings added/changed in 2.6.0 -->
-    <string name="solve_puzzle">Feladvány automata megoldása</string>
-    <string name="solve_puzzle_confirm">Biztosan látni akarod a megoldást?</string>
-    <string name="used_solver">Az automata megoldotta a feladványt.</string>
+    <string name="solve_puzzle">Megfejtés</string>
+    <string name="solve_puzzle_confirm">Az app megoldja helyetted a feladványt. Biztosan ezt szeretnéd?</string>
+    <string name="used_solver">Feladvány megfejtve</string>
     <string name="puzzle_not_solved">A feladvány nem oldható meg!</string>
 
     <string name="solver_hint">Segítség</string>
