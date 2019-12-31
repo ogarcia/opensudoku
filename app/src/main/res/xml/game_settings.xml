@@ -80,6 +80,15 @@
             android:key="theme"
             android:summary="@string/theme_summary"
             android:title="@string/theme" />
+        <org.moire.opensudoku.gui.SudokuBoardThemePreference
+            android:defaultValue="0"
+            android:dialogTitle="@string/select_theme"
+            android:key="theme_2"
+            android:summary="@string/theme_summary"
+            android:title="@string/theme"
+            os:max="30"
+            os:min="0"
+            os:valueFormat="%s pixels" />
         <PreferenceScreen
             android:key="screen_custom_theme"
             android:summary="@string/screen_custom_theme_summary"
