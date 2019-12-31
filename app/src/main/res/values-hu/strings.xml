@@ -106,8 +106,8 @@
     <string name="numpad_move_right_summary">A szám kiválasztását követően a kijelölést eggyel jobbra mozgatja.
 	</string>
 
-    <string name="numpad_abbr">Szám\nbill.</string>
-    <string name="popup_abbr">Fel-\nugró</string>
+    <string name="numpad_abbr">SzB</string>
+    <string name="popup_abbr">FUA</string>
     <string name="single_number_abbr">1x</string>
     <string name="welcome">Üdv!</string>
     <string name="hint">Segítség</string>
