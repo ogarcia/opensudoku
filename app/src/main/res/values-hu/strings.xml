@@ -167,7 +167,7 @@
     <string name="puzzle_inserted">Új feladvány elmentve</string>
     <string name="puzzle_updated">Új feladvány frissítve</string>
 
-    <string name="puzzles_saved">Feladványok a \"%s\" mappába mentve</string>
+    <string name="puzzles_saved">Feladványok a(z) \"%s\" mappába mentve</string>
     <string name="no_puzzles_found">Nem találhatóak feladványok</string>
     <string name="unknown_import_error">Ismeretlen hiba importálás közben; az importálás megszakadt.</string>
     <string name="invalid_format">Érvénytlen formátum; importálás megszakítva.</string>
@@ -199,8 +199,8 @@
     <string name="filename">Fájlnév</string>
     <string name="directory">Mappa</string>
     <string name="sdcard_not_found">Memóriakártya nem található!</string>
-    <string name="puzzles_have_been_exported">Feladványok exportálva a \"%s\" mappába</string>
-    <string name="file_exists">A fájl már létezik. Felülírjuk?</string>
+    <string name="puzzles_have_been_exported">Feladványok exportálva a(z) \"%s\" mappába</string>
+    <string name="file_exists">A fájl már létezik. Felülírjam?</string>
     <!-- localization of default folder names -->
     <string name="difficulty_hard">Nehéz</string>
     <string name="difficulty_medium">Közepes</string>
@@ -215,7 +215,7 @@
     <string name="what_is_new">Újdonságok</string>
 
     <!-- Strings added/changed in 1.1.1 -->
-    <string name="fill_in_notes_summary">"Megjegyzések generálása" menüpont engedélyezése.</string>
+    <string name="fill_in_notes_summary">\"Megjegyzések generálása\" menüpont engedélyezése.</string>
 
     <!-- Strings added/changed in 1.1.2 -->
     <string name="set_checkpoint">Állapot mentése</string>
@@ -244,11 +244,11 @@
     <string name="game_level_hard">Nehéz</string>
 
     <string name="theme_default">Alapértelmezett</string>
-    <string name="theme_paper">Papír</string>
-    <string name="theme_graph_paper">Négyzetrácsos papír</string>
+    <string name="theme_paper">Papírlap</string>
+    <string name="theme_graph_paper">Milliméterpapír</string>
     <string name="theme_light">Világos</string>
-    <string name="theme_paper_light">Világos papír</string>
-    <string name="theme_graph_paper_light">Világos négyzetrácsos papír</string>
+    <string name="theme_paper_light">Világos papírlap</string>
+    <string name="theme_graph_paper_light">Világos milliméterpapír</string>
     <string name="theme_high_contrast">Kontrasztos</string>
     <string name="theme_inverted_high_contrast">Kontrasztos, invertált</string>
     <string name="theme_custom">Egyéni</string>
@@ -260,10 +260,10 @@
     </string>
 
     <string name="default_lineColor">Cella keret</string>
-    <string name="default_lineColor_summary">Cella-keret színe</string>
+    <string name="default_lineColor_summary">Cella keret színe</string>
 
     <string name="default_sectorLineColor">Szektor keret</string>
-    <string name="default_sectorLineColor_summary">3x3-as cella-csport keretének színe</string>
+    <string name="default_sectorLineColor_summary">3x3-as cella-csoport keretének színe</string>
 
     <string name="default_textColor">Szöveg</string>
     <string name="default_textColor_summary">Szerkeszthető cella szövegének színe</string>
