@@ -7,7 +7,7 @@
 
     <string name="version">Verzió: %s</string>
     <string name="send_me_bugs">
-        Ha hibás működést tapsztalsz, nyugodtan jelezd e-mailben,
+        Ha hibás működést tapasztalsz, nyugodtan jelezd e-mailben,
 		vagy a projekt weboldalán található hibabejelentő segítségével.
 	</string>
 
@@ -50,7 +50,7 @@
     <string name="solved">Megoldott</string>
     <string name="playing">Folyamatban</string>
     <string name="not_started">Nem elkezdett</string>
-    <string name="last_played_at">Utoljára játszva: %s</string>
+    <string name="last_played_at">Utoljára teljesítve: %s</string>
     <string name="created_at">Létrehozva: %s</string>
     <string name="at_time">%s</string>
     <string name="yesterday_at_time">tegnap %s</string>
@@ -71,7 +71,7 @@
     <string name="clear_all_notes">Minden megjegyzés törlése</string>
     <string name="fill_in_notes">Megjegyzések generálása</string>
     <string name="restart">Újrakezdés</string>
-    <string name="congrats">Gratulálok! Szintidő: %s!</string>
+    <string name="congrats">Gratulálok!\nTeljes játékidő: %s</string>
     <string name="restart_confirm">Biztosan újra akarod kezdeni a kiválaszott feladványt?</string>
     <string name="well_done">Szép volt!</string>
     <string name="clear_all_notes_confirm">Biztosan törölni akarod az összes megjegyzést?</string>
