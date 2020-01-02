@@ -72,7 +72,7 @@
             android:key="show_hints"
             android:summary="@string/show_hints_summary"
             android:title="@string/show_hints" />
-        <ListPreference
+        <!-- <ListPreference
             android:defaultValue="default"
             android:dialogTitle="@string/select_theme"
             android:entries="@array/theme_names"
@@ -80,15 +80,15 @@
             android:key="theme"
             android:summary="@string/theme_summary"
             android:title="@string/theme" />
+        -->
         <org.moire.opensudoku.gui.SudokuBoardThemePreference
-            android:defaultValue="0"
+            android:defaultValue="default"
             android:dialogTitle="@string/select_theme"
-            android:key="theme_2"
+            android:entries="@array/theme_names"
+            android:entryValues="@array/theme_codes"
+            android:key="theme"
             android:summary="@string/theme_summary"
-            android:title="@string/theme"
-            os:max="30"
-            os:min="0"
-            os:valueFormat="%s pixels" />
+            android:title="@string/theme"/>
         <PreferenceScreen
             android:key="screen_custom_theme"
             android:summary="@string/screen_custom_theme_summary"
