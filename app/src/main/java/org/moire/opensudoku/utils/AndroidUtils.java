@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
+import android.content.res.Resources;
 import android.preference.PreferenceManager;
 
 import org.moire.opensudoku.R;
@@ -33,38 +34,33 @@ public class AndroidUtils {
         return list.size() > 0;
     }
 
+    public static int getThemeResourceIdFromString(String theme){
+        switch (theme) {
+            case "default":
+                return R.style.Theme_Default;
+            case "paper":
+                return R.style.Theme_Paper;
+            case "graphpaper":
+                return R.style.Theme_GraphPaper;
+            case "light":
+                return R.style.Theme_Light;
+            case "paperlight":
+                return R.style.Theme_PaperLight;
+            case "graphpaperlight":
+                return R.style.Theme_GraphPaperLight;
+            case "highcontrast":
+                return R.style.Theme_HighContrast;
+            case "invertedhighcontrast":
+                return R.style.Theme_InvertedHighContrast;
+            default:
+                return R.style.Theme_Default;
+        }
+    }
+
     public static void setThemeFromPreferences(Context context) {
         SharedPreferences gameSettings = PreferenceManager.getDefaultSharedPreferences(context);
         String theme = gameSettings.getString("theme", "default");
-        switch (theme) {
-            case "default":
-                context.setTheme(R.style.Theme_Default);
-                break;
-            case "paper":
-                context.setTheme(R.style.Theme_Paper);
-                break;
-            case "graphpaper":
-                context.setTheme(R.style.Theme_GraphPaper);
-                break;
-            case "light":
-                context.setTheme(R.style.Theme_Light);
-                break;
-            case "paperlight":
-                context.setTheme(R.style.Theme_PaperLight);
-                break;
-            case "graphpaperlight":
-                context.setTheme(R.style.Theme_GraphPaperLight);
-                break;
-            case "highcontrast":
-                context.setTheme(R.style.Theme_HighContrast);
-                break;
-            case "invertedhighcontrast":
-                context.setTheme(R.style.Theme_InvertedHighContrast);
-                break;
-            default:
-                context.setTheme(R.style.Theme_Default);
-                break;
-        }
+        context.setTheme(getThemeResourceIdFromString(theme));
     }
 
     /**
