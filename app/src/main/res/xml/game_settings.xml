@@ -72,15 +72,6 @@
             android:key="show_hints"
             android:summary="@string/show_hints_summary"
             android:title="@string/show_hints" />
-        <!-- <ListPreference
-            android:defaultValue="default"
-            android:dialogTitle="@string/select_theme"
-            android:entries="@array/theme_names"
-            android:entryValues="@array/theme_codes"
-            android:key="theme"
-            android:summary="@string/theme_summary"
-            android:title="@string/theme" />
-        -->
         <org.moire.opensudoku.gui.SudokuBoardThemePreference
             android:defaultValue="default"
             android:dialogTitle="@string/select_theme"
