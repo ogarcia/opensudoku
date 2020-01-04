@@ -24,17 +24,11 @@ package org.moire.opensudoku.gui;
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
-import android.content.res.TypedArray;
-import android.database.DataSetObserver;
-import android.preference.DialogPreference;
-import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
-import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -45,8 +39,7 @@ import android.widget.ListView;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 import org.moire.opensudoku.R;
-import org.moire.opensudoku.game.CellCollection;
-import org.moire.opensudoku.utils.AndroidUtils;
+import org.moire.opensudoku.utils.ThemeUtils;
 
 /**
  * A {@link Preference} that allows for setting and previewing a custom Sudoku Board theme.
@@ -115,29 +108,12 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
 
     private void prepareSudokuPreviewView(View view) {
         mBoard = (SudokuBoardView) view.findViewById(R.id.sudoku_board);
-        mBoard.setFocusable(false);
-
-        CellCollection cells = CellCollection.createDebugGame();
-        cells.getCell(0, 0).setValue(1);
-        cells.fillInNotes();
-        mBoard.setCells(cells);
-
+        ThemeUtils.prepareSudokuPreviewView(mBoard);
         updateThemePreview();
     }
 
     private void updateThemePreview() {
-        mBoard.setLineColor(mGameSettings.getInt("custom_theme_lineColor", R.color.default_lineColor));
-        mBoard.setSectorLineColor(mGameSettings.getInt("custom_theme_sectorLineColor", R.color.default_sectorLineColor));
-        mBoard.setTextColor(mGameSettings.getInt("custom_theme_textColor", R.color.default_textColor));
-        mBoard.setTextColorReadOnly(mGameSettings.getInt("custom_theme_textColorReadOnly", R.color.default_textColorReadOnly));
-        mBoard.setTextColorNote(mGameSettings.getInt("custom_theme_textColorNote", R.color.default_textColorNote));
-        mBoard.setBackgroundColor(mGameSettings.getInt("custom_theme_backgroundColor", R.color.default_backgroundColor));
-        mBoard.setBackgroundColorSecondary(mGameSettings.getInt("custom_theme_backgroundColorSecondary", R.color.default_backgroundColorSecondary));
-        mBoard.setBackgroundColorReadOnly(mGameSettings.getInt("custom_theme_backgroundColorReadOnly", R.color.default_backgroundColorReadOnly));
-        mBoard.setBackgroundColorTouched(mGameSettings.getInt("custom_theme_backgroundColorTouched", R.color.default_backgroundColorTouched));
-        mBoard.setBackgroundColorSelected(mGameSettings.getInt("custom_theme_backgroundColorSelected", R.color.default_backgroundColorSelected));
-        mBoard.setBackgroundColorHighlighted(mGameSettings.getInt("custom_theme_backgroundColorHighlighted", R.color.default_backgroundColorHighlighted));
-        mBoard.invalidate();
+        ThemeUtils.applyThemeToSudokuBoardViewFromContext("custom", mBoard, getContext());
     }
 
     @Override
