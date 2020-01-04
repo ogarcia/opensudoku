@@ -33,6 +33,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.preference.ListPreference;
 import android.preference.Preference;
+import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 import android.util.Pair;
 import android.util.TypedValue;
@@ -107,34 +108,51 @@ public class SudokuBoardThemePreference extends ListPreference {
     }
 
     private void applyThemePreview(String theme) {
-        ContextThemeWrapper themeWrapper = new ContextThemeWrapper(getContext(), AndroidUtils.getThemeResourceIdFromString(theme));
 
-        int[] attributes = {
-                R.attr.lineColor,
-                R.attr.sectorLineColor,
-                R.attr.textColor,
-                R.attr.textColorReadOnly,
-                R.attr.textColorNote,
-                R.attr.backgroundColor,
-                R.attr.backgroundColorSecondary,
-                R.attr.backgroundColorReadOnly,
-                R.attr.backgroundColorTouched,
-                R.attr.backgroundColorSelected,
-                R.attr.backgroundColorHighlighted
-        };
+        if (theme.equals("custom")) {
 
-        TypedArray themeColors = themeWrapper.getTheme().obtainStyledAttributes(attributes);
-        mBoard.setLineColor(themeColors.getColor(0, R.color.default_lineColor));
-        mBoard.setSectorLineColor(themeColors.getColor(1, R.color.default_sectorLineColor));
-        mBoard.setTextColor(themeColors.getColor(2, R.color.default_textColor));
-        mBoard.setTextColorReadOnly(themeColors.getColor(3, R.color.default_textColorReadOnly));
-        mBoard.setTextColorNote(themeColors.getColor(4, R.color.default_textColorNote));
-        mBoard.setBackgroundColor(themeColors.getColor(5, R.color.default_backgroundColor));
-        mBoard.setBackgroundColorSecondary(themeColors.getColor(6, R.color.default_backgroundColorSecondary));
-        mBoard.setBackgroundColorReadOnly(themeColors.getColor(7, R.color.default_backgroundColorReadOnly));
-        mBoard.setBackgroundColorTouched(themeColors.getColor(8, R.color.default_backgroundColorTouched));
-        mBoard.setBackgroundColorSelected(themeColors.getColor(9, R.color.default_backgroundColorSelected));
-        mBoard.setBackgroundColorHighlighted(themeColors.getColor(10, R.color.default_backgroundColorHighlighted));
+            SharedPreferences gameSettings = PreferenceManager.getDefaultSharedPreferences(getContext());
+            mBoard.setLineColor(gameSettings.getInt("custom_theme_lineColor", R.color.default_lineColor));
+            mBoard.setSectorLineColor(gameSettings.getInt("custom_theme_sectorLineColor", R.color.default_sectorLineColor));
+            mBoard.setTextColor(gameSettings.getInt("custom_theme_textColor", R.color.default_textColor));
+            mBoard.setTextColorReadOnly(gameSettings.getInt("custom_theme_textColorReadOnly", R.color.default_textColorReadOnly));
+            mBoard.setTextColorNote(gameSettings.getInt("custom_theme_textColorNote", R.color.default_textColorNote));
+            mBoard.setBackgroundColor(gameSettings.getInt("custom_theme_backgroundColor", R.color.default_backgroundColor));
+            mBoard.setBackgroundColorSecondary(gameSettings.getInt("custom_theme_backgroundColorSecondary", R.color.default_backgroundColorSecondary));
+            mBoard.setBackgroundColorReadOnly(gameSettings.getInt("custom_theme_backgroundColorReadOnly", R.color.default_backgroundColorReadOnly));
+            mBoard.setBackgroundColorTouched(gameSettings.getInt("custom_theme_backgroundColorTouched", R.color.default_backgroundColorTouched));
+            mBoard.setBackgroundColorSelected(gameSettings.getInt("custom_theme_backgroundColorSelected", R.color.default_backgroundColorSelected));
+            mBoard.setBackgroundColorHighlighted(gameSettings.getInt("custom_theme_backgroundColorHighlighted", R.color.default_backgroundColorHighlighted));
+        } else {
+            ContextThemeWrapper themeWrapper = new ContextThemeWrapper(getContext(), AndroidUtils.getThemeResourceIdFromString(theme));
+
+            int[] attributes = {
+                    R.attr.lineColor,
+                    R.attr.sectorLineColor,
+                    R.attr.textColor,
+                    R.attr.textColorReadOnly,
+                    R.attr.textColorNote,
+                    R.attr.backgroundColor,
+                    R.attr.backgroundColorSecondary,
+                    R.attr.backgroundColorReadOnly,
+                    R.attr.backgroundColorTouched,
+                    R.attr.backgroundColorSelected,
+                    R.attr.backgroundColorHighlighted
+            };
+
+            TypedArray themeColors = themeWrapper.getTheme().obtainStyledAttributes(attributes);
+            mBoard.setLineColor(themeColors.getColor(0, R.color.default_lineColor));
+            mBoard.setSectorLineColor(themeColors.getColor(1, R.color.default_sectorLineColor));
+            mBoard.setTextColor(themeColors.getColor(2, R.color.default_textColor));
+            mBoard.setTextColorReadOnly(themeColors.getColor(3, R.color.default_textColorReadOnly));
+            mBoard.setTextColorNote(themeColors.getColor(4, R.color.default_textColorNote));
+            mBoard.setBackgroundColor(themeColors.getColor(5, R.color.default_backgroundColor));
+            mBoard.setBackgroundColorSecondary(themeColors.getColor(6, R.color.default_backgroundColorSecondary));
+            mBoard.setBackgroundColorReadOnly(themeColors.getColor(7, R.color.default_backgroundColorReadOnly));
+            mBoard.setBackgroundColorTouched(themeColors.getColor(8, R.color.default_backgroundColorTouched));
+            mBoard.setBackgroundColorSelected(themeColors.getColor(9, R.color.default_backgroundColorSelected));
+            mBoard.setBackgroundColorHighlighted(themeColors.getColor(10, R.color.default_backgroundColorHighlighted));
+        }
         mBoard.invalidate();
     }
 }
