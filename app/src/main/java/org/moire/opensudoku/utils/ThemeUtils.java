@@ -64,8 +64,21 @@ public class ThemeUtils {
     public static void prepareSudokuPreviewView(SudokuBoardView board) {
         board.setFocusable(false);
 
+        // Create a sample game by starting with the debug game, removing an extra box (sector),
+        // adding in notes, nd filling in the first 3 clues. This provides a sample of an
+        // in-progress game that will demonstrate all of the possible scenarios that have different
+        // theme colors applied to them.
         CellCollection cells = CellCollection.createDebugGame();
+        cells.getCell(0, 3).setValue(0);
+        cells.getCell(0, 4).setValue(0);
+        cells.getCell(1, 3).setValue(0);
+        cells.getCell(1, 5).setValue(0);
+        cells.getCell(2, 4).setValue(0);
+        cells.getCell(2, 5).setValue(0);
+
         cells.getCell(0, 0).setValue(1);
+        cells.getCell(0, 1).setValue(2);
+        cells.getCell(0, 2).setValue(3);
         cells.fillInNotes();
         board.setCells(cells);
     }
