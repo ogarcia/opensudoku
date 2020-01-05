@@ -58,6 +58,7 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
         SharedPreferences.OnSharedPreferenceChangeListener {
     private SudokuBoardView mBoard;
     private Dialog mDialog;
+    private ListView mListView;
     private Dialog mCopyFromExistingThemeDialog;
     private SharedPreferences mGameSettings = PreferenceManager.getDefaultSharedPreferences(getContext());
 
@@ -93,16 +94,17 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
         prepareSudokuPreviewView(sudokuPreviewView);
         builder.setCustomTitle(sudokuPreviewView);
 
-        ListView listView = new ListView(getContext());
-        listView.setAdapter(new CustomThemeListAdapter(this));
-        listView.setOnItemClickListener(this);
-        builder.setView(listView);
+        mListView = new ListView(getContext());
+        mListView.setAdapter(new CustomThemeListAdapter(this));
+        mListView.setOnItemClickListener(this);
+        builder.setView(mListView);
 
         mGameSettings.registerOnSharedPreferenceChangeListener(this);
 
         mDialog = builder.create();
         mDialog.setOnDismissListener((dialog) -> {
             mDialog = null;
+            mListView = null;
             mGameSettings.unregisterOnSharedPreferenceChangeListener(this);
         });
         mDialog.show();
@@ -182,6 +184,9 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         updateThemePreview();
+        if (mListView != null) {
+            mListView.invalidateViews();
+        }
     }
 
     @Override
