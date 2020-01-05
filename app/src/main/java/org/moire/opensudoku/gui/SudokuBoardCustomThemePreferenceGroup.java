@@ -25,10 +25,12 @@ import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.TypedArray;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
 import android.util.AttributeSet;
+import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -41,7 +43,11 @@ import android.widget.TextView;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 import org.moire.opensudoku.R;
+import org.moire.opensudoku.utils.AndroidUtils;
 import org.moire.opensudoku.utils.ThemeUtils;
+
+import java.util.Arrays;
+import java.util.Vector;
 
 /**
  * A {@link Preference} that allows for setting and previewing a custom Sudoku Board theme.
@@ -105,7 +111,12 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
     private void showCopyFromExistingThemeDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
         builder.setTitle(R.string.select_theme);
-        builder.setItems(R.array.theme_names, (dialog, which) -> {
+        builder.setNegativeButton(android.R.string.cancel, null);
+
+        String[] themeNames = getContext().getResources().getStringArray(R.array.theme_names);
+        String[] themeNamesWithoutCustomTheme = Arrays.copyOfRange(themeNames, 0, themeNames.length - 1);
+        builder.setItems(themeNamesWithoutCustomTheme, (dialog, which) -> {
+            copyFromExistingThemeIndex(which);
             mCopyFromExistingThemeDialog.dismiss();
         });
 
@@ -114,6 +125,38 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
             mCopyFromExistingThemeDialog = null;
         });
         mCopyFromExistingThemeDialog.show();
+    }
+
+    private void copyFromExistingThemeIndex(int which) {
+        String theme = getContext().getResources().getStringArray(R.array.theme_codes)[which];
+        ContextThemeWrapper themeWrapper = new ContextThemeWrapper(getContext(), AndroidUtils.getThemeResourceIdFromString(theme));
+
+        int[] attributes = {
+                R.attr.lineColor,
+                R.attr.sectorLineColor,
+                R.attr.textColor,
+                R.attr.textColorReadOnly,
+                R.attr.textColorNote,
+                R.attr.backgroundColor,
+                R.attr.backgroundColorSecondary,
+                R.attr.backgroundColorReadOnly,
+                R.attr.backgroundColorTouched,
+                R.attr.backgroundColorSelected,
+                R.attr.backgroundColorHighlighted
+        };
+
+        TypedArray themeColors = themeWrapper.getTheme().obtainStyledAttributes(attributes);
+        ((ColorPickerPreference)getPreference(0)).onColorChanged(themeColors.getColor(0, R.color.default_lineColor));
+        ((ColorPickerPreference)getPreference(1)).onColorChanged(themeColors.getColor(1, R.color.default_sectorLineColor));
+        ((ColorPickerPreference)getPreference(2)).onColorChanged(themeColors.getColor(2, R.color.default_textColor));
+        ((ColorPickerPreference)getPreference(3)).onColorChanged(themeColors.getColor(3, R.color.default_textColorReadOnly));
+        ((ColorPickerPreference)getPreference(4)).onColorChanged(themeColors.getColor(4, R.color.default_textColorNote));
+        ((ColorPickerPreference)getPreference(5)).onColorChanged(themeColors.getColor(5, R.color.default_backgroundColor));
+        ((ColorPickerPreference)getPreference(6)).onColorChanged(themeColors.getColor(6, R.color.default_backgroundColorSecondary));
+        ((ColorPickerPreference)getPreference(7)).onColorChanged(themeColors.getColor(7, R.color.default_backgroundColorReadOnly));
+        ((ColorPickerPreference)getPreference(8)).onColorChanged(themeColors.getColor(8, R.color.default_backgroundColorTouched));
+        ((ColorPickerPreference)getPreference(9)).onColorChanged(themeColors.getColor(9, R.color.default_backgroundColorSelected));
+        ((ColorPickerPreference)getPreference(10)).onColorChanged(themeColors.getColor(10, R.color.default_backgroundColorHighlighted));
     }
 
     public void onActivityDestroy() {   
