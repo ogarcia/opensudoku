@@ -35,6 +35,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
@@ -85,7 +86,13 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
 
         ListView listView = new ListView(getContext());
         listView.setAdapter(new CustomThemeListAdapter(this));
-        listView.setOnItemClickListener((parent, view, position, id) -> { ((ColorPickerPreference)getPreference(position)).onPreferenceClick(null); });
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+            if (position == listView.getCount() - 1) {
+                // Show the copy-from-theme dialog...
+            } else {
+                ((ColorPickerPreference) getPreference(position)).onPreferenceClick(null);
+            }
+        });
         builder.setView(listView);
 
         mGameSettings.registerOnSharedPreferenceChangeListener(this);
@@ -123,9 +130,12 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
 
     private class CustomThemeListAdapter extends BaseAdapter implements ListAdapter {
         private SudokuBoardCustomThemePreferenceGroup mPreferenceGroup;
+        private Preference mCopyFromExistingThemePreference;
 
         CustomThemeListAdapter(SudokuBoardCustomThemePreferenceGroup preferenceGroup) {
             mPreferenceGroup = preferenceGroup;
+            mCopyFromExistingThemePreference = new Preference(preferenceGroup.getContext());
+            mCopyFromExistingThemePreference.setTitle("Copy from existing theme...");
         }
 
         @Override
@@ -140,12 +150,12 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
 
         @Override
         public int getCount() {
-            return mPreferenceGroup.getPreferenceCount();
+            return mPreferenceGroup.getPreferenceCount() + 1;
         }
 
         @Override
         public Object getItem(int position) {
-            return mPreferenceGroup.getPreference(position);
+            return (position == getCount() - 1) ? mCopyFromExistingThemePreference : mPreferenceGroup.getPreference(position);
         }
 
         @Override
@@ -155,12 +165,16 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            return mPreferenceGroup.getPreference(position).getView(convertView, parent);
+            Preference preference = ((Preference)getItem(position));
+
+            // we pass convertView as null for the final element to make sure we don't have a color
+            // preview on the final list view item that is used to copy an existing theme
+            return (position == getCount() - 1) ? preference.getView(null, parent) : preference.getView(convertView, parent);
         }
 
         @Override
         public boolean isEmpty() {
-            return mPreferenceGroup.getPreferenceCount() == 0;
+            return false;
         }
     }
 }
