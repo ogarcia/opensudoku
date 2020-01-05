@@ -32,6 +32,7 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -47,9 +48,11 @@ import org.moire.opensudoku.utils.ThemeUtils;
  */
 public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup implements
         PreferenceManager.OnActivityDestroyListener,
+        ListView.OnItemClickListener,
         SharedPreferences.OnSharedPreferenceChangeListener {
     private SudokuBoardView mBoard;
     private Dialog mDialog;
+    private Dialog mCopyFromExistingThemeDialog;
     private SharedPreferences mGameSettings = PreferenceManager.getDefaultSharedPreferences(getContext());
 
     public SudokuBoardCustomThemePreferenceGroup(Context context, AttributeSet attrs) {
@@ -86,13 +89,7 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
 
         ListView listView = new ListView(getContext());
         listView.setAdapter(new CustomThemeListAdapter(this));
-        listView.setOnItemClickListener((parent, view, position, id) -> {
-            if (position == listView.getCount() - 1) {
-                // Show the copy-from-theme dialog...
-            } else {
-                ((ColorPickerPreference) getPreference(position)).onPreferenceClick(null);
-            }
-        });
+        listView.setOnItemClickListener(this);
         builder.setView(listView);
 
         mGameSettings.registerOnSharedPreferenceChangeListener(this);
@@ -105,12 +102,28 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
         mDialog.show();
     }
 
+    private void showCopyFromExistingThemeDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+        builder.setTitle(R.string.select_theme);
+        builder.setItems(R.array.theme_names, (dialog, which) -> {
+            mCopyFromExistingThemeDialog.dismiss();
+        });
+
+        mCopyFromExistingThemeDialog = builder.create();
+        mCopyFromExistingThemeDialog.setOnDismissListener((dialog) -> {
+            mCopyFromExistingThemeDialog = null;
+        });
+        mCopyFromExistingThemeDialog.show();
+    }
+
     public void onActivityDestroy() {   
-        if (mDialog == null || !mDialog.isShowing()) {
-            return;
+        if (mDialog != null && mDialog.isShowing()) {
+            mDialog.dismiss();
         }
-        
-        mDialog.dismiss();
+
+        if (mCopyFromExistingThemeDialog!= null && mCopyFromExistingThemeDialog.isShowing()) {
+            mCopyFromExistingThemeDialog.dismiss();
+        }
     }
 
     private void prepareSudokuPreviewView(View view) {
@@ -126,6 +139,15 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         updateThemePreview();
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        if (position == parent.getCount() - 1) {
+            showCopyFromExistingThemeDialog();
+        } else {
+            ((ColorPickerPreference) getPreference(position)).onPreferenceClick(null);
+        }
     }
 
     private class CustomThemeListAdapter extends BaseAdapter implements ListAdapter {
