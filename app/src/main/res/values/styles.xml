@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme" parent="Theme.AppCompat" />
+    <style name="Theme" parent="Theme.AppCompat">
+        <!--<item name="colorPrimary">@color/default_primaryColor</item>
+        <item name="colorPrimaryVariant">@color/default_primaryLightColor</item>
+        <item name="colorOnPrimary">@color/default_primaryTextColor</item>
+        <item name="colorSecondary">@color/default_secondaryColor</item>
+        <item name="colorSecondaryVariant">@color/default_secondaryLightColor</item>
+        <item name="colorOnSecondary">@color/default_secondaryTextColor</item>
+        <item name="colorOnBackground">#FFFFFF</item> -->
+        <item name="colorPrimary">@color/default_primaryColor</item>
+        <item name="colorPrimaryDark">@color/default_primaryDarkColor</item>
+        <item name="colorAccent">@color/default_primaryLightColor</item>
+        <!--<item name="android:textColorPrimary">@color/default_primaryTextColor</item>
+        <item name="android:textColorSecondary">@color/default_secondaryTextColor</item>-->
+    </style>
 
     <style name="Theme.Default">
         <item name="lineColor">@color/default_lineColor</item>

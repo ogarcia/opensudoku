@@ -21,7 +21,8 @@
             android:id="@+id/switch_input_mode"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:layout_weight="5" />
+            android:layout_weight="5"
+            style="@style/Widget.AppCompat.Button.Colored"/>
 
     </LinearLayout>
 
