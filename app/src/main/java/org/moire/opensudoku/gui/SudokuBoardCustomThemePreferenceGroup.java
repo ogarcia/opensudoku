@@ -205,7 +205,7 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
         CustomThemeListAdapter(SudokuBoardCustomThemePreferenceGroup preferenceGroup) {
             mPreferenceGroup = preferenceGroup;
             mCopyFromExistingThemePreference = new Preference(preferenceGroup.getContext());
-            mCopyFromExistingThemePreference.setTitle("Copy from existing theme...");
+            mCopyFromExistingThemePreference.setTitle(R.string.copy_from_existing_theme);
         }
 
         @Override

@@ -323,4 +323,6 @@
 
     <string name="check_solvabitily">Check Solvability</string>
     <string name="puzzle_solvable">This puzzle has a solution.</string>
+
+    <string name="copy_from_existing_theme">Copy from existing theme...</string>
 </resources>
