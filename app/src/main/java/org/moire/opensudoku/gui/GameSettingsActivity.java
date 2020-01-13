@@ -29,6 +29,7 @@ import android.preference.PreferenceGroup;
 import android.preference.PreferenceScreen;
 
 import org.moire.opensudoku.R;
+import org.moire.opensudoku.utils.AndroidUtils;
 
 public class GameSettingsActivity extends PreferenceActivity {
 
@@ -36,6 +37,7 @@ public class GameSettingsActivity extends PreferenceActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AndroidUtils.setThemeFromPreferences(this);
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.game_settings);
@@ -60,7 +62,9 @@ public class GameSettingsActivity extends PreferenceActivity {
     };
 
     private OnPreferenceChangeListener mThemeChanged = (preference, newValue) -> {
-        enableScreenCustomTheme((String) newValue);
+        // restart the activity to pick up the new app theme colors
+        finish();
+        startActivity(getIntent());
         return true;
     };
 
