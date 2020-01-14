@@ -12,6 +12,7 @@
     </string-array>
     <string-array name="theme_names">
         <item>@string/theme_default</item>
+        <item>@string/app_name</item>
         <item>@string/theme_paper</item>
         <item>@string/theme_graph_paper</item>
         <item>@string/theme_light</item>
@@ -24,6 +25,7 @@
     <!-- Theme codes should not change -->
     <string-array name="theme_codes" translatable="false">
         <item>default</item>
+        <item>opensudoku</item>
         <item>paper</item>
         <item>graphpaper</item>
         <item>light</item>

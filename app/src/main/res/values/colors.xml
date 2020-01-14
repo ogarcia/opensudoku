@@ -5,6 +5,11 @@
     <color name="coffee_colorPrimaryDark">#ccc5af</color>
     <color name="coffee_colorAccent">#6d4c41</color>
 
+    <color name="opensudoku_colorPrimaryLight">#B1DDD9</color>
+    <color name="opensudoku_colorPrimary">#49B7AC</color>
+    <color name="opensudoku_colorPrimaryDark">#009587</color>
+    <color name="opensudoku_colorAccent">#656565</color>
+
     <color name="default_lineColor">#757575</color>
     <color name="default_sectorLineColor">#9e9e9e</color>
     <color name="default_textColor">#fdfdfd</color>

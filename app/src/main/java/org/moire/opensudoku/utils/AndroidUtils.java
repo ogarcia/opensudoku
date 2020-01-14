@@ -39,6 +39,8 @@ public class AndroidUtils {
         switch (theme) {
             case "default":
                 return R.style.Theme_Default;
+            case "opensudoku":
+                return R.style.Theme_OpenSudoku;
             case "paper":
                 return R.style.Theme_Paper;
             case "graphpaper":

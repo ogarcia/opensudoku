@@ -96,6 +96,7 @@ public class FolderListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        AndroidUtils.setThemeFromPreferences(this);
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.folder_list);
