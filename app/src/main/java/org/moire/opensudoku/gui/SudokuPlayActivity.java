@@ -569,6 +569,7 @@ public class SudokuPlayActivity extends AppCompatActivity {
         public void onSelectedNumberChanged(int number) {
             if (number != 0) {
                 Cell cell = mSudokuGame.getCells().findFirstCell(number);
+                mSudokuBoard.setHighlightedValue(number);
                 if (cell != null) {
                     mSudokuBoard.moveCellSelectionTo(cell.getRowIndex(), cell.getColumnIndex());
                 }
