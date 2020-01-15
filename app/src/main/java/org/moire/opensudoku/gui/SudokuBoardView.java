@@ -59,6 +59,7 @@ public class SudokuBoardView extends View {
     private Cell mTouchedCell;
     // TODO: should I synchronize access to mSelectedCell?
     private Cell mSelectedCell;
+    private int mHighlightedValue = 0;
     private boolean mReadonly = false;
     private boolean mHighlightWrongVals = true;
     private boolean mHighlightTouchedCell = true;
@@ -288,6 +289,14 @@ public class SudokuBoardView extends View {
         return mHighlightSimilarCells;
     }
 
+    public void setHighlightedValue(int value) {
+        mHighlightedValue = value;
+    }
+
+    public int getHighlightedValue() {
+        return mHighlightedValue;
+    }
+
     /**
      * Registers callback which will be invoked when user taps the cell.
      *
@@ -442,8 +451,8 @@ public class SudokuBoardView extends View {
             float noteWidth = mCellWidth / 3f;
 
             int selectedValue = 0;
-            if (mHighlightSimilarCells && mSelectedCell != null) {
-                selectedValue = mSelectedCell.getValue();
+            if (mHighlightSimilarCells && mHighlightedValue > 0) {
+                selectedValue = mHighlightedValue;
             }
 
             for (int row = 0; row < 9; row++) {

@@ -253,6 +253,8 @@ public class IMSingleNumber extends InputMethod {
                         b.setText("" + entry.getKey());
                 }
             }
+
+            mBoard.setHighlightedValue(mSelectedNumber);
         }, 100);
     }
 
@@ -272,11 +274,14 @@ public class IMSingleNumber extends InputMethod {
                 update();
             }
         }
+
+        mBoard.setHighlightedValue(mSelectedNumber);
     }
 
     private void onSelectedNumberChanged() {
         if (mBidirectionalSelection && mHighlightSimilar && mOnSelectedNumberChangedListener != null) {
             mOnSelectedNumberChangedListener.onSelectedNumberChanged(mSelectedNumber);
+            mBoard.setHighlightedValue(mSelectedNumber);
         }
     }
 
