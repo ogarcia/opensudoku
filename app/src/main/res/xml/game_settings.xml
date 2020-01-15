@@ -72,17 +72,16 @@
             android:key="show_hints"
             android:summary="@string/show_hints_summary"
             android:title="@string/show_hints" />
-        <ListPreference
+        <org.moire.opensudoku.gui.SudokuBoardThemePreference
             android:defaultValue="default"
             android:dialogTitle="@string/select_theme"
             android:entries="@array/theme_names"
             android:entryValues="@array/theme_codes"
             android:key="theme"
             android:summary="@string/theme_summary"
-            android:title="@string/theme" />
-        <PreferenceScreen
+            android:title="@string/theme"/>
+        <org.moire.opensudoku.gui.SudokuBoardCustomThemePreferenceGroup
             android:key="screen_custom_theme"
-            android:summary="@string/screen_custom_theme_summary"
             android:title="@string/screen_custom_theme">
             <net.margaritov.preference.colorpicker.ColorPickerPreference
                 alphaSlider="true"
@@ -150,7 +149,7 @@
                 android:key="custom_theme_backgroundColorHighlighted"
                 android:summary="@string/default_backgroundColorHighlighted_summary"
                 android:title="@string/default_backgroundColorHighlighted" />
-        </PreferenceScreen>
+        </org.moire.opensudoku.gui.SudokuBoardCustomThemePreferenceGroup>
         <PreferenceScreen
             android:key="screen_game_advanced"
             android:title="@string/more_settings">

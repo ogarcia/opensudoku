@@ -257,6 +257,27 @@ public class CellCollection {
         }
     }
 
+    /**
+     * Fills in all valid notes for all cells based on the values in each row, column, and sector.
+     * This is a destructive operation in that the existing notes are overwritten.
+     */
+    public void fillInNotes() {
+        for (int r = 0; r < SUDOKU_SIZE; r++) {
+            for (int c = 0; c < SUDOKU_SIZE; c++) {
+                Cell cell = getCell(r, c);
+                cell.setNote(new CellNote());
+
+                CellGroup row = cell.getRow();
+                CellGroup column = cell.getColumn();
+                CellGroup sector = cell.getSector();
+                for (int i = 1; i <= SUDOKU_SIZE; i++) {
+                    if (row.DoesntContain(i) && column.DoesntContain(i) && sector.DoesntContain(i)) {
+                        cell.setNote(cell.getNote().addNumber(i));
+                    }
+                }
+            }
+        }
+    }
 
     /**
      * Returns how many times each value is used in <code>CellCollection</code>.

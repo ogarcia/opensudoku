@@ -25,12 +25,14 @@ import android.preference.ListPreference;
 import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
+import android.preference.PreferenceGroup;
+import android.preference.PreferenceScreen;
 
 import org.moire.opensudoku.R;
 
 public class GameSettingsActivity extends PreferenceActivity {
 
-    private Preference mScreenCustomTheme;
+    private PreferenceGroup mScreenCustomTheme;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +45,7 @@ public class GameSettingsActivity extends PreferenceActivity {
         ListPreference mTheme = (ListPreference) findPreference("theme");
         mTheme.setOnPreferenceChangeListener(mThemeChanged);
 
-        mScreenCustomTheme = findPreference("screen_custom_theme");
+        mScreenCustomTheme = (PreferenceGroup)findPreference("screen_custom_theme");
         enableScreenCustomTheme(mTheme.getValue());
     }
 
