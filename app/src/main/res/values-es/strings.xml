@@ -280,4 +280,6 @@
 
     <string name="check_solvabitily">Comprobar si tiene solución</string>
     <string name="puzzle_solvable">Este puzzle tiene solución.</string>
+
+    <string name="copy_from_existing_theme">Copiar del tema existente…</string>
 </resources>

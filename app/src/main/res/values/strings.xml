@@ -27,7 +27,8 @@
         Diego Pierotto\n
         Gokay Can Kayki\n
         Paulo Schopf\n
-        Joaquim Pedroto Costa
+        Joaquim Pedroto Costa\n
+        @madcrow
     </string>
 
     <string name="close">Close</string>
@@ -247,8 +248,10 @@
     <string name="contributors_label">Contributors</string>
     <string name="contributors" translatable="false">
         Sergey Pimanov\n
-        TacoTheDank\n
-        steve3424
+        @TacoTheDank\n
+        @steve3424\n
+        Chris Lane\n
+        Justin Nordin
     </string>
 
     <!-- Strings added/changed in 2.5.0 -->
@@ -324,5 +327,5 @@
     <string name="check_solvabitily">Check Solvability</string>
     <string name="puzzle_solvable">This puzzle has a solution.</string>
 
-    <string name="copy_from_existing_theme">Copy from existing theme...</string>
+    <string name="copy_from_existing_theme">Copy from existing theme…</string>
 </resources>

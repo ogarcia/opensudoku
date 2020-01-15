@@ -1,6 +1,12 @@
 <html>
 <head><style type="text/css">body {font-size: smaller;}</style></head>
 <body>
+  <b>2.7.0</b>
+  <ul>
+    <li>Awesome Theme Preview. Thanks @jlnordin!</li>
+    <li>Keep same values highlighted after empty cell selection. Thanks @ChrisLane!</li>
+    <li>Hungarian translation. Thanks @madcrow!</li>
+  </ul>
   <b>2.6.4</b>
   <ul><li>French translation updated. Thanks @Tubix!</li></ul>
   <b>2.6.3</b>

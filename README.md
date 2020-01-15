@@ -26,21 +26,27 @@ was contributed to by Vit Hnilica, Martin Sobola, Martin Helff, and Diego Pierot
 ### Contributors
 
 * [Sergey Pimanov](https://github.com/spimanov):
-	* Added functionality to highlight cells with similar values
+  * Added functionality to highlight cells with similar values
 
 * [TacoTheDank](https://github.com/TacoTheDank):
-	* Compile with and updated support up to Android Pie (except for the SDK 23+ permission check for external storage access)
-	* Added Java 1.8 compatibility (lambdas, methods, etc)
-	* Reformatted code
-	* Slightly improved app performance within "res" files
-	* Fixed the grammar of some strings
-	* Migrated App to AppCompat
-	* Migrated to AndroidX
+  * Compile with and updated support up to Android Pie (except for the SDK 23+ permission check for external storage access)
+  * Added Java 1.8 compatibility (lambdas, methods, etc)
+  * Reformatted code
+  * Slightly improved app performance within "res" files
+  * Fixed the grammar of some strings
+  * Migrated App to AppCompat
+  * Migrated to AndroidX
 
 * [steve3424](https://github.com/steve3424):
-	* Fixed some bugs
-	* Added permission checks for reading/writing external storage
-	* Added puzzle solver
+  * Fixed some bugs
+  * Added permission checks for reading/writing external storage
+  * Added puzzle solver
+
+* [Justin Nordin](https://github.com/jlnordin):
+  * Added awesome theme preview
+
+* [Chris Lane](https://github.com/ChrisLane):
+  * Keep same values highlighted after empty cell selection
 
 
 ## Support or Contact
