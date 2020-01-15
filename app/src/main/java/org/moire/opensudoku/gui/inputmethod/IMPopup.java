@@ -118,6 +118,19 @@ public class IMPopup extends InputMethod {
     }
 
     @Override
+    protected void onCellSelected(Cell cell) {
+        super.onCellSelected(cell);
+
+        if (cell != null) {
+            if (cell.getValue() == mBoard.getHighlightedValue()) {
+                mBoard.setHighlightedValue(0);
+            } else if (cell.getValue() > 0) {
+                mBoard.setHighlightedValue(cell.getValue());
+            }
+        }
+    }
+
+    @Override
     protected void onPause() {
         // release dialog resource (otherwise WindowLeaked exception is logged)
         if (mEditCellDialog != null) {
@@ -154,6 +167,7 @@ public class IMPopup extends InputMethod {
         public boolean onNumberEdit(int number) {
             if (number != -1 && mSelectedCell != null) {
                 mGame.setCellValue(mSelectedCell, number);
+                mBoard.setHighlightedValue(number);
             }
             return true;
         }

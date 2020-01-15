@@ -152,6 +152,14 @@ public class IMNumpad extends InputMethod {
 
     @Override
     protected void onCellSelected(Cell cell) {
+        if (cell != null) {
+            if (cell.getValue() == mBoard.getHighlightedValue()) {
+                mBoard.setHighlightedValue(0);
+            } else if (cell.getValue() > 0) {
+                mBoard.setHighlightedValue(cell.getValue());
+            }
+        }
+
         mSelectedCell = cell;
     }
 
@@ -174,6 +182,7 @@ public class IMNumpad extends InputMethod {
                     case MODE_EDIT_VALUE:
                         if (selNumber >= 0 && selNumber <= 9) {
                             mGame.setCellValue(selCell, selNumber);
+                            mBoard.setHighlightedValue(selNumber);
                             if (isMoveCellSelectionOnPress()) {
                                 mBoard.moveCellSelectionRight();
                             }
