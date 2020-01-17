@@ -209,12 +209,12 @@ public class IMSingleNumber extends InputMethod {
         mGuiHandler.postDelayed(() -> {
             for (Button b : mNumberButtons.values()) {
                 if (b.getTag().equals(mSelectedNumber)) {
-                    b.setTextAppearance(mContext, ThemeUtils.getCurrentThemeStyle(mContext, android.R.attr.textAppearanceLarge)); //android.R.style.TextAppearance_Large);
-                    b.getBackground().setColorFilter(null);
+                    b.setTextAppearance(mContext, ThemeUtils.getCurrentThemeStyle(mContext, android.R.attr.textAppearanceLarge));
+                    ThemeUtils.applyIMButtonStateToView(b, ThemeUtils.IMButtonStyle.ACCENT);
                     b.requestFocus();
                 } else {
-                    b.setTextAppearance(mContext, ThemeUtils.getCurrentThemeStyle(mContext, android.R.attr.textAppearanceButton)); //android.R.style.TextAppearance_Widget_Button);
-                    b.getBackground().setColorFilter(null);
+                    b.setTextAppearance(mContext, ThemeUtils.getCurrentThemeStyle(mContext, android.R.attr.textAppearanceButton));
+                    ThemeUtils.applyIMButtonStateToView(b, ThemeUtils.IMButtonStyle.DEFAULT);
                 }
             }
 
@@ -225,10 +225,9 @@ public class IMSingleNumber extends InputMethod {
             if (mHighlightCompletedValues) {
                 for (Map.Entry<Integer, Integer> entry : valuesUseCount.entrySet()) {
                     boolean highlightValue = entry.getValue() >= CellCollection.SUDOKU_SIZE;
-                    if (highlightValue) {
-                        Button b = mNumberButtons.get(entry.getKey());
-                        b.getBackground().setColorFilter(ThemeUtils.getCurrentThemeColor(b.getContext(), android.R.attr.colorAccent), PorterDuff.Mode.SRC_ATOP);
-                        b.setTextColor(ThemeUtils.getCurrentThemeColor(b.getContext(), android.R.attr.textColorPrimaryInverse));
+                    boolean selected = entry.getKey() == mSelectedNumber;
+                    if (highlightValue && !selected) {
+                        ThemeUtils.applyIMButtonStateToView(mNumberButtons.get(entry.getKey()), ThemeUtils.IMButtonStyle.ACCENT_HIGHCONTRAST);
                     }
                 }
             }
@@ -256,7 +255,7 @@ public class IMSingleNumber extends InputMethod {
     protected void onCellSelected(Cell cell) {
         super.onCellSelected(cell);
 
-        if (mBidirectionalSelection) {
+        if (mBidirectionalSelection && cell != null) {
             int v = cell.getValue();
             if (v != 0 && v != mSelectedNumber) {
                 mSelectedNumber = cell.getValue();

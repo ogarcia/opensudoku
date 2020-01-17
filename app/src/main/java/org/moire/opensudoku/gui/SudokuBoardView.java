@@ -643,7 +643,7 @@ public class SudokuBoardView extends View {
                     return true;
             }
 
-            if (keyCode >= KeyEvent.KEYCODE_1 && keyCode <= KeyEvent.KEYCODE_9) {
+            if (keyCode >= KeyEvent.KEYCODE_1 && keyCode <= KeyEvent.KEYCODE_9 && mSelectedCell != null) {
                 int selNumber = keyCode - KeyEvent.KEYCODE_0;
                 Cell cell = mSelectedCell;
 
@@ -738,6 +738,12 @@ public class SudokuBoardView extends View {
         }
 
         return false;
+    }
+
+    public void clearCellSelection() {
+        mSelectedCell = null;
+        onCellSelected(mSelectedCell);
+        postInvalidate();
     }
 
     /**

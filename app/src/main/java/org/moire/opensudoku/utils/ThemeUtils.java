@@ -4,9 +4,11 @@ import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.preference.PreferenceManager;
 import android.view.ContextThemeWrapper;
 import android.view.View;
+import android.widget.TextView;
 
 import org.moire.opensudoku.R;
 import org.moire.opensudoku.game.CellCollection;
@@ -40,6 +42,31 @@ public class ThemeUtils {
         int[] attributes = {styleAttribute};
         TypedArray themeStyles = themeWrapper.getTheme().obtainStyledAttributes(attributes);
         return themeStyles.getResourceId(0, 0);
+    }
+
+    public enum IMButtonStyle {
+        DEFAULT,            // no background tint, default text color
+        ACCENT,             // accent background tint, inverse text color
+        ACCENT_HIGHCONTRAST // inverse text color background, default text color
+    }
+
+    public static void applyIMButtonStateToView(TextView view, IMButtonStyle style) {
+        switch (style) {
+            case DEFAULT:
+                view.getBackground().setColorFilter(null);
+                view.setTextColor(getCurrentThemeColor(view.getContext(), android.R.attr.textColorPrimary));
+                break;
+
+            case ACCENT:
+                view.getBackground().setColorFilter(getCurrentThemeColor(view.getContext(), android.R.attr.colorAccent), PorterDuff.Mode.SRC_ATOP);
+                view.setTextColor(getCurrentThemeColor(view.getContext(), android.R.attr.textColorPrimaryInverse));
+                break;
+
+            case ACCENT_HIGHCONTRAST:
+                view.getBackground().setColorFilter(getCurrentThemeColor(view.getContext(), android.R.attr.textColorPrimaryInverse), PorterDuff.Mode.SRC_ATOP);
+                view.setTextColor(getCurrentThemeColor(view.getContext(), android.R.attr.textColorPrimary));
+                break;
+        }
     }
 
     public static void applyThemeToSudokuBoardViewFromContext(String theme, SudokuBoardView board, Context context) {

@@ -571,6 +571,8 @@ public class SudokuPlayActivity extends AppCompatActivity {
                 if (cell != null) {
                     mSudokuBoard.moveCellSelectionTo(cell.getRowIndex(), cell.getColumnIndex());
                 }
+            } else {
+                mSudokuBoard.clearCellSelection();
             }
         }
     };

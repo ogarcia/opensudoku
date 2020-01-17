@@ -95,13 +95,11 @@ public class IMPopupDialog extends Dialog {
     public void resetButtons() {
         for (Map.Entry<Integer, ToggleButton> entry : mNoteNumberButtons.entrySet()) {
             entry.getValue().setText("" + entry.getKey());
-            entry.getValue().setTextColor(ThemeUtils.getCurrentThemeColor(mContext, android.R.attr.textColorPrimary));
-            entry.getValue().getBackground().setColorFilter(null);
+            ThemeUtils.applyIMButtonStateToView(entry.getValue(), ThemeUtils.IMButtonStyle.DEFAULT);
         }
 
         for (Map.Entry<Integer, Button> entry : mNumberButtons.entrySet()) {
-            entry.getValue().setTextColor(ThemeUtils.getCurrentThemeColor(mContext, android.R.attr.textColorPrimary));
-            entry.getValue().getBackground().setColorFilter(null);
+            ThemeUtils.applyIMButtonStateToView(entry.getValue(), ThemeUtils.IMButtonStyle.DEFAULT);
         }
     }
 
@@ -111,11 +109,9 @@ public class IMPopupDialog extends Dialog {
         for (Map.Entry<Integer, Button> entry : mNumberButtons.entrySet()) {
             Button b = entry.getValue();
             if (entry.getKey().equals(mSelectedNumber)) {
-                b.setTextColor(ThemeUtils.getCurrentThemeColor(b.getContext(), android.R.attr.textColorPrimaryInverse));
-                b.getBackground().setColorFilter(ThemeUtils.getCurrentThemeColor(b.getContext(), android.R.attr.colorAccent), PorterDuff.Mode.SRC_ATOP);
+                ThemeUtils.applyIMButtonStateToView(b, ThemeUtils.IMButtonStyle.ACCENT);
             } else {
-                b.setTextColor(ThemeUtils.getCurrentThemeColor(b.getContext(), android.R.attr.textColorPrimary));
-                b.getBackground().setColorFilter(null);
+                ThemeUtils.applyIMButtonStateToView(b, ThemeUtils.IMButtonStyle.DEFAULT);
             }
         }
     }
@@ -137,8 +133,7 @@ public class IMPopupDialog extends Dialog {
             toggleButton = mNoteNumberButtons.get(number);
             toggleButton.setChecked(mNoteSelectedNumbers.contains(number));
             if (toggleButton.isChecked()) {
-                toggleButton.getBackground().setColorFilter(ThemeUtils.getCurrentThemeColor(toggleButton.getContext(), android.R.attr.colorAccent), PorterDuff.Mode.SRC_ATOP);
-                toggleButton.setTextColor(ThemeUtils.getCurrentThemeColor(toggleButton.getContext(), android.R.attr.textColorPrimaryInverse));
+                ThemeUtils.applyIMButtonStateToView(toggleButton, ThemeUtils.IMButtonStyle.ACCENT);
             }
         }
     }
@@ -148,10 +143,9 @@ public class IMPopupDialog extends Dialog {
         Button b = mNumberButtons.get(number);
         if (number == mSelectedNumber) {
             // Set color of completed and selected number
-            b.getBackground().setColorFilter(ThemeUtils.getCurrentThemeColor(b.getContext(), android.R.attr.colorAccent), PorterDuff.Mode.SRC_ATOP);
-            b.setTextColor(ThemeUtils.getCurrentThemeColor(b.getContext(), android.R.attr.textColorPrimaryInverse));
+            ThemeUtils.applyIMButtonStateToView(b, ThemeUtils.IMButtonStyle.ACCENT);
         } else {
-            b.getBackground().setColorFilter(ThemeUtils.getCurrentThemeColor(b.getContext(), android.R.attr.textColorPrimaryInverse), PorterDuff.Mode.SRC_ATOP);
+            ThemeUtils.applyIMButtonStateToView(b, ThemeUtils.IMButtonStyle.ACCENT_HIGHCONTRAST);
         }
     }
 
@@ -289,13 +283,10 @@ public class IMPopupDialog extends Dialog {
         Integer number = (Integer) buttonView.getTag();
         if (isChecked) {
             mNoteSelectedNumbers.add(number);
-            buttonView.getBackground().setColorFilter(ThemeUtils.getCurrentThemeColor(buttonView.getContext(), android.R.attr.colorAccent), PorterDuff.Mode.SRC_ATOP);
-            buttonView.setTextColor(ThemeUtils.getCurrentThemeColor(buttonView.getContext(), android.R.attr.textColorPrimaryInverse));
         } else {
             mNoteSelectedNumbers.remove(number);
-            buttonView.setTextColor(ThemeUtils.getCurrentThemeColor(mContext, android.R.attr.textColorPrimary));
-            buttonView.getBackground().setColorFilter(null);
         }
+        ThemeUtils.applyIMButtonStateToView(buttonView, isChecked ? ThemeUtils.IMButtonStyle.ACCENT : ThemeUtils.IMButtonStyle.DEFAULT);
     };
 
     /**
