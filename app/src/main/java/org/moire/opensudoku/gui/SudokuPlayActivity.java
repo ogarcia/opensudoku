@@ -108,6 +108,7 @@ public class SudokuPlayActivity extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+        AndroidUtils.setThemeFromPreferences(this);
         super.onCreate(savedInstanceState);
 
         // go fullscreen for devices with QVGA screen (only way I found
@@ -120,9 +121,6 @@ public class SudokuPlayActivity extends AppCompatActivity {
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);
             mFullScreen = true;
         }
-
-        // theme must be set before setContentView
-        AndroidUtils.setThemeFromPreferences(this);
 
         setContentView(R.layout.sudoku_play);
 

@@ -37,6 +37,7 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import org.moire.opensudoku.R;
+import org.moire.opensudoku.utils.ThemeUtils;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -70,17 +71,10 @@ public class IMPopupDialog extends Dialog {
 
         mTabHost = createTabView();
 
-        // hide dialog's title
-        //TextView title = findViewById(android.R.id.title);
-        //title.setVisibility(View.GONE);
-
         setContentView(mTabHost);
     }
 
     /**
-     * LightingColorFilter bkgColorFilter = new LightingColorFilter(
-     * mContext.getResources().getColor(R.color.im_number_button_completed_background), 0);
-     * <p/>
      * Registers a callback to be invoked when number is selected.
      *
      * @param l
@@ -99,39 +93,28 @@ public class IMPopupDialog extends Dialog {
     }
 
     public void resetButtons() {
-/*
-        for (Button b : mNumberButtons.values()) {
-            b.setBackgroundResource(R.drawable.btn_default_bg);
-        }
-
-        for (Button b : mNoteNumberButtons.values()) {
-            b.setBackgroundResource(R.drawable.btn_toggle_bg);
-        }
-*/
-
         for (Map.Entry<Integer, ToggleButton> entry : mNoteNumberButtons.entrySet()) {
             entry.getValue().setText("" + entry.getKey());
+            entry.getValue().setTextColor(ThemeUtils.getCurrentThemeColor(mContext, android.R.attr.textColorPrimary));
+            entry.getValue().getBackground().setColorFilter(null);
+        }
+
+        for (Map.Entry<Integer, Button> entry : mNumberButtons.entrySet()) {
+            entry.getValue().setTextColor(ThemeUtils.getCurrentThemeColor(mContext, android.R.attr.textColorPrimary));
+            entry.getValue().getBackground().setColorFilter(null);
         }
     }
 
     // TODO: vsude jinde pouzivam misto number value
     public void updateNumber(Integer number) {
         mSelectedNumber = number;
-
-        //LightingColorFilter selBkgColorFilter = new LightingColorFilter(
-        //		mContext.getResources().getColor(R.color.im_number_button_selected_background), 0);
-
         for (Map.Entry<Integer, Button> entry : mNumberButtons.entrySet()) {
             Button b = entry.getValue();
             if (entry.getKey().equals(mSelectedNumber)) {
-                b.setTextColor(Color.WHITE);
-                //b.setTextAppearance(mContext, android.R.style.TextAppearance_Inverse);
-                //b.getBackground().setColorFilter(selBkgColorFilter);
-                //b.getBackground().setColorFilter(new LightingColorFilter(Color.parseColor("#00695c"), 0));
-                b.getBackground().setColorFilter(0x44FFFFFF, PorterDuff.Mode.MULTIPLY);
+                b.setTextColor(ThemeUtils.getCurrentThemeColor(b.getContext(), android.R.attr.textColorPrimaryInverse));
+                b.getBackground().setColorFilter(ThemeUtils.getCurrentThemeColor(b.getContext(), android.R.attr.colorAccent), PorterDuff.Mode.SRC_ATOP);
             } else {
-                //b.setTextAppearance(mContext, android.R.style.TextAppearance_Widget_Button);
-                b.setTextColor(Color.WHITE);
+                b.setTextColor(ThemeUtils.getCurrentThemeColor(b.getContext(), android.R.attr.textColorPrimary));
                 b.getBackground().setColorFilter(null);
             }
         }
@@ -149,44 +132,27 @@ public class IMPopupDialog extends Dialog {
             mNoteSelectedNumbers.addAll(numbers);
         }
 
+        ToggleButton toggleButton;
         for (Integer number : mNoteNumberButtons.keySet()) {
-            mNoteNumberButtons.get(number).setChecked(mNoteSelectedNumbers.contains(number));
+            toggleButton = mNoteNumberButtons.get(number);
+            toggleButton.setChecked(mNoteSelectedNumbers.contains(number));
+            if (toggleButton.isChecked()) {
+                toggleButton.getBackground().setColorFilter(ThemeUtils.getCurrentThemeColor(toggleButton.getContext(), android.R.attr.colorAccent), PorterDuff.Mode.SRC_ATOP);
+                toggleButton.setTextColor(ThemeUtils.getCurrentThemeColor(toggleButton.getContext(), android.R.attr.textColorPrimaryInverse));
+            }
         }
     }
-
-/*
-    public void enableAllNumbers() {
-        for (Button b : mNumberButtons.values()) {
-            b.setEnabled(true);
-        }
-        for (Button b : mNoteNumberButtons.values()) {
-            b.setEnabled(true);
-        }
-    }
-
-    public void setNumberEnabled(int number, boolean enabled) {
-        mNumberButtons.get(number).setEnabled(enabled);
-        mNoteNumberButtons.get(number).setEnabled(enabled);
-    }
-*/
 
     public void highlightNumber(int number) {
-        //int completedTextColor = mContext.getResources().getColor(R.color.im_number_button_completed_text);
 
+        Button b = mNumberButtons.get(number);
         if (number == mSelectedNumber) {
             // Set color of completed and selected number
-            mNumberButtons.get(number).getBackground().setColorFilter(0xFF2E7D32, PorterDuff.Mode.MULTIPLY);
-            //	mNumberButtons.get(number).setTextColor(Color.parseColor("#a5d6a7"));
+            b.getBackground().setColorFilter(ThemeUtils.getCurrentThemeColor(b.getContext(), android.R.attr.colorAccent), PorterDuff.Mode.SRC_ATOP);
+            b.setTextColor(ThemeUtils.getCurrentThemeColor(b.getContext(), android.R.attr.textColorPrimaryInverse));
         } else {
-            // Set color of completed number but not selected
-            mNumberButtons.get(number).getBackground().setColorFilter(0xFF1B5E20, PorterDuff.Mode.MULTIPLY);
-            //mNumberButtons.get(number).setTextColor(Color.parseColor("#000000"));
-            //mNumberButtons.get(number).setBackgroundResource(R.drawable.btn_completed_bg);
+            b.getBackground().setColorFilter(ThemeUtils.getCurrentThemeColor(b.getContext(), android.R.attr.textColorPrimaryInverse), PorterDuff.Mode.SRC_ATOP);
         }
-
-        // Set color of completed numbers in notes section
-        mNoteNumberButtons.get(number).getBackground().setColorFilter(0xFF1B5E20, PorterDuff.Mode.MULTIPLY);
-        //mNoteNumberButtons.get(number).setBackgroundResource(R.drawable.btn_toggle_completed_bg);
     }
 
     public void setValueCount(int number, int count) {
@@ -323,8 +289,12 @@ public class IMPopupDialog extends Dialog {
         Integer number = (Integer) buttonView.getTag();
         if (isChecked) {
             mNoteSelectedNumbers.add(number);
+            buttonView.getBackground().setColorFilter(ThemeUtils.getCurrentThemeColor(buttonView.getContext(), android.R.attr.colorAccent), PorterDuff.Mode.SRC_ATOP);
+            buttonView.setTextColor(ThemeUtils.getCurrentThemeColor(buttonView.getContext(), android.R.attr.textColorPrimaryInverse));
         } else {
             mNoteSelectedNumbers.remove(number);
+            buttonView.setTextColor(ThemeUtils.getCurrentThemeColor(mContext, android.R.attr.textColorPrimary));
+            buttonView.getBackground().setColorFilter(null);
         }
     };
 

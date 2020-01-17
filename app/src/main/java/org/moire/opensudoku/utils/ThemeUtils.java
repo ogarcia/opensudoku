@@ -3,6 +3,7 @@ package org.moire.opensudoku.utils;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.preference.PreferenceManager;
 import android.view.ContextThemeWrapper;
 import android.view.View;
@@ -12,6 +13,34 @@ import org.moire.opensudoku.game.CellCollection;
 import org.moire.opensudoku.gui.SudokuBoardView;
 
 public class ThemeUtils {
+
+    public static int getCurrentThemeColor(Context context, int colorAttribute) {
+        SharedPreferences gameSettings = PreferenceManager.getDefaultSharedPreferences(context);
+        String theme = gameSettings.getString("theme", "default");
+        return getThemeColor(theme, context, colorAttribute);
+    }
+
+    public static int getThemeColor(String theme, Context context, int colorAttribute) {
+
+        ContextThemeWrapper themeWrapper = new ContextThemeWrapper(context, AndroidUtils.getThemeResourceIdFromString(theme));
+        int[] attributes = {colorAttribute};
+        TypedArray themeColors = themeWrapper.getTheme().obtainStyledAttributes(attributes);
+        return themeColors.getColor(0, Color.BLACK);
+    }
+
+    public static int getCurrentThemeStyle(Context context, int styleAttribute) {
+        SharedPreferences gameSettings = PreferenceManager.getDefaultSharedPreferences(context);
+        String theme = gameSettings.getString("theme", "default");
+        return getThemeStyle(theme, context, styleAttribute);
+    }
+
+    public static int getThemeStyle(String theme, Context context, int styleAttribute) {
+
+        ContextThemeWrapper themeWrapper = new ContextThemeWrapper(context, AndroidUtils.getThemeResourceIdFromString(theme));
+        int[] attributes = {styleAttribute};
+        TypedArray themeStyles = themeWrapper.getTheme().obtainStyledAttributes(attributes);
+        return themeStyles.getResourceId(0, 0);
+    }
 
     public static void applyThemeToSudokuBoardViewFromContext(String theme, SudokuBoardView board, Context context) {
         if (theme.equals("custom")) {

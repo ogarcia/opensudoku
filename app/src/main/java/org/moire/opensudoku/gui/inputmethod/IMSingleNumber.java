@@ -21,6 +21,7 @@
 package org.moire.opensudoku.gui.inputmethod;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Handler;
@@ -40,6 +41,7 @@ import org.moire.opensudoku.gui.HintsQueue;
 import org.moire.opensudoku.gui.SudokuBoardView;
 import org.moire.opensudoku.gui.SudokuPlayActivity;
 import org.moire.opensudoku.gui.inputmethod.IMControlPanelStatePersister.StateBundle;
+import org.moire.opensudoku.utils.ThemeUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -207,15 +209,11 @@ public class IMSingleNumber extends InputMethod {
         mGuiHandler.postDelayed(() -> {
             for (Button b : mNumberButtons.values()) {
                 if (b.getTag().equals(mSelectedNumber)) {
-                    b.setTextAppearance(mContext, android.R.style.TextAppearance_Large);
+                    b.setTextAppearance(mContext, ThemeUtils.getCurrentThemeStyle(mContext, android.R.attr.textAppearanceLarge)); //android.R.style.TextAppearance_Large);
                     b.getBackground().setColorFilter(null);
-                    /* Use focus instead color */
-                    /*LightingColorFilter selBkgColorFilter = new LightingColorFilter(
-                            mContext.getResources().getColor(R.color.im_number_button_selected_background), 0);
-                    b.getBackground().setColorFilter(selBkgColorFilter);*/
                     b.requestFocus();
                 } else {
-                    b.setTextAppearance(mContext, android.R.style.TextAppearance_Widget_Button);
+                    b.setTextAppearance(mContext, ThemeUtils.getCurrentThemeStyle(mContext, android.R.attr.textAppearanceButton)); //android.R.style.TextAppearance_Widget_Button);
                     b.getBackground().setColorFilter(null);
                 }
             }
@@ -225,21 +223,12 @@ public class IMSingleNumber extends InputMethod {
                 valuesUseCount = mGame.getCells().getValuesUseCount();
 
             if (mHighlightCompletedValues) {
-                //int completedTextColor = mContext.getResources().getColor(R.color.im_number_button_completed_text);
                 for (Map.Entry<Integer, Integer> entry : valuesUseCount.entrySet()) {
                     boolean highlightValue = entry.getValue() >= CellCollection.SUDOKU_SIZE;
                     if (highlightValue) {
                         Button b = mNumberButtons.get(entry.getKey());
-/*
-                        if (b.getTag().equals(mSelectedNumber)) {
-                            b.setTextColor(completedTextColor);
-                        } else {
-                            b.getBackground().setColorFilter(0xFF008800, PorterDuff.Mode.MULTIPLY);
-                        }
-*/
-                        // Only set background color
-                        b.getBackground().setColorFilter(0xFF1B5E20, PorterDuff.Mode.MULTIPLY);
-                        b.setTextColor(Color.WHITE);
+                        b.getBackground().setColorFilter(ThemeUtils.getCurrentThemeColor(b.getContext(), android.R.attr.colorAccent), PorterDuff.Mode.SRC_ATOP);
+                        b.setTextColor(ThemeUtils.getCurrentThemeColor(b.getContext(), android.R.attr.textColorPrimaryInverse));
                     }
                 }
             }
