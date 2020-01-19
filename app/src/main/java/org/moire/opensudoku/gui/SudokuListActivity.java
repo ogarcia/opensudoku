@@ -54,6 +54,7 @@ import org.moire.opensudoku.game.CellCollection;
 import org.moire.opensudoku.game.FolderInfo;
 import org.moire.opensudoku.game.SudokuGame;
 import org.moire.opensudoku.utils.AndroidUtils;
+import org.moire.opensudoku.utils.ThemeUtils;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -516,11 +517,9 @@ public class SudokuListActivity extends AppCompatActivity {
                             : View.VISIBLE);
                     label.setText(stateString);
                     if (state == SudokuGame.GAME_STATE_COMPLETED) {
-                        // TODO: read colors from android resources
-                        label.setTextColor(Color.rgb(150, 150, 150));
+                        label.setTextColor(ThemeUtils.getCurrentThemeColor(view.getContext(), android.R.attr.colorAccent));
                     } else {
-                        label.setTextColor(Color.rgb(255, 255, 255));
-                        //label.setTextColor(SudokuListActivity.this.getResources().getColor(R.));
+                        label.setTextColor(ThemeUtils.getCurrentThemeColor(view.getContext(), android.R.attr.textColorPrimary));
                     }
                     break;
                 case R.id.time:
@@ -534,10 +533,9 @@ public class SudokuListActivity extends AppCompatActivity {
                             : View.VISIBLE);
                     label.setText(timeString);
                     if (state == SudokuGame.GAME_STATE_COMPLETED) {
-                        // TODO: read colors from android resources
-                        label.setTextColor(Color.rgb(150, 150, 150));
+                        label.setTextColor(ThemeUtils.getCurrentThemeColor(view.getContext(), android.R.attr.colorAccent));
                     } else {
-                        label.setTextColor(Color.rgb(255, 255, 255));
+                        label.setTextColor(ThemeUtils.getCurrentThemeColor(view.getContext(), android.R.attr.textColorPrimary));
                     }
                     break;
                 case R.id.last_played:
