@@ -147,9 +147,7 @@ public class IMNumpad extends InputMethod {
 
     @Override
     protected void onActivated() {
-        update();
-
-        mSelectedCell = mBoard.getSelectedCell();
+        onCellSelected(mBoard.isReadOnly() ? null : mBoard.getSelectedCell());
     }
 
     @Override
@@ -160,6 +158,8 @@ public class IMNumpad extends InputMethod {
             } else if (cell.getValue() > 0) {
                 mBoard.setHighlightedValue(cell.getValue());
             }
+        } else {
+            mBoard.setHighlightedValue(0);
         }
 
         mSelectedCell = cell;

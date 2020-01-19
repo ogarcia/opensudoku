@@ -171,7 +171,7 @@ public class SudokuPlayActivity extends AppCompatActivity {
         mIMNumpad = mIMControlPanel.getInputMethod(IMControlPanel.INPUT_METHOD_NUMPAD);
 
         Cell cell = mSudokuGame.getLastChangedCell();
-        if (cell != null)
+        if (cell != null && !mSudokuBoard.isReadOnly())
             mSudokuBoard.moveCellSelectionTo(cell.getRowIndex(), cell.getColumnIndex());
         else
             mSudokuBoard.moveCellSelectionTo(0, 0);
@@ -234,7 +234,10 @@ public class SudokuPlayActivity extends AppCompatActivity {
 
         mIMControlPanel.activateFirstInputMethod(); // make sure that some input method is activated
         mIMControlPanelStatePersister.restoreState(mIMControlPanel);
-        mSudokuBoard.invokeOnCellSelected();
+
+        if (!mSudokuBoard.isReadOnly()) {
+            mSudokuBoard.invokeOnCellSelected();
+        }
 
         updateTime();
     }

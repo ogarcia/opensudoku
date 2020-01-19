@@ -242,7 +242,7 @@ public class IMSingleNumber extends InputMethod {
                 }
             }
 
-            mBoard.setHighlightedValue(mSelectedNumber);
+            mBoard.setHighlightedValue(mBoard.isReadOnly() ? 0 : mSelectedNumber);
         }, 100);
     }
 
@@ -267,7 +267,7 @@ public class IMSingleNumber extends InputMethod {
     }
 
     private void onSelectedNumberChanged() {
-        if (mBidirectionalSelection && mHighlightSimilar && mOnSelectedNumberChangedListener != null) {
+        if (mBidirectionalSelection && mHighlightSimilar && mOnSelectedNumberChangedListener != null && !mBoard.isReadOnly()) {
             mOnSelectedNumberChangedListener.onSelectedNumberChanged(mSelectedNumber);
             mBoard.setHighlightedValue(mSelectedNumber);
         }
