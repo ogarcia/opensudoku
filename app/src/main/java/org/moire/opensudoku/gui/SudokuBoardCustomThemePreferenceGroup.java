@@ -131,7 +131,7 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
 
     private void copyFromExistingThemeIndex(int which) {
         String theme = getContext().getResources().getStringArray(R.array.theme_codes)[which];
-        ContextThemeWrapper themeWrapper = new ContextThemeWrapper(getContext(), AndroidUtils.getThemeResourceIdFromString(theme));
+        ContextThemeWrapper themeWrapper = new ContextThemeWrapper(getContext(), ThemeUtils.getThemeResourceIdFromString(theme));
 
         int[] attributes = {
                 R.attr.lineColor,

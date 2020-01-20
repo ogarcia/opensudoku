@@ -64,7 +64,7 @@ import java.util.Date;
  *
  * @author romario
  */
-public class SudokuListActivity extends AppCompatActivity {
+public class SudokuListActivity extends ThemedActivity {
 
     public static final String EXTRA_FOLDER_ID = "folder_id";
 
@@ -110,8 +110,6 @@ public class SudokuListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // theme must be set before setContentView
-        AndroidUtils.setThemeFromPreferences(this);
         setContentView(R.layout.sudoku_list);
         mFilterStatus = findViewById(R.id.filter_status);
 

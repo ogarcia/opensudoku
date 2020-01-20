@@ -53,7 +53,7 @@ import org.moire.opensudoku.gui.inputmethod.IMPopup;
 import org.moire.opensudoku.gui.inputmethod.IMSingleNumber;
 import org.moire.opensudoku.utils.AndroidUtils;
 
-public class SudokuPlayActivity extends AppCompatActivity {
+public class SudokuPlayActivity extends ThemedActivity {
 
     public static final String EXTRA_SUDOKU_ID = "sudoku_id";
 
@@ -108,7 +108,6 @@ public class SudokuPlayActivity extends AppCompatActivity {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
-        AndroidUtils.setThemeFromPreferences(this);
         super.onCreate(savedInstanceState);
 
         // go fullscreen for devices with QVGA screen (only way I found

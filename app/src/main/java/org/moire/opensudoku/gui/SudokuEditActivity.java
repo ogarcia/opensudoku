@@ -51,7 +51,7 @@ import org.moire.opensudoku.utils.AndroidUtils;
  *
  * @author romario
  */
-public class SudokuEditActivity extends AppCompatActivity {
+public class SudokuEditActivity extends ThemedActivity {
 
     /**
      * When inserting new data, I need to know folder in which will new sudoku be stored.
@@ -97,9 +97,6 @@ public class SudokuEditActivity extends AppCompatActivity {
                     WindowManager.LayoutParams.FLAG_FULLSCREEN);
             mFullScreen = true;
         }
-
-        // theme must be set before setContentView
-        AndroidUtils.setThemeFromPreferences(this);
 
         setContentView(R.layout.sudoku_edit);
         mRootLayout = findViewById(R.id.root_layout);

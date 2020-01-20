@@ -16,6 +16,41 @@ import org.moire.opensudoku.gui.SudokuBoardView;
 
 public class ThemeUtils {
 
+    public static int getThemeResourceIdFromString(String theme){
+        switch (theme) {
+            case "default":
+                return R.style.Theme_Default;
+            case "opensudoku":
+                return R.style.Theme_OpenSudoku;
+            case "paper":
+                return R.style.Theme_Paper;
+            case "graphpaper":
+                return R.style.Theme_GraphPaper;
+            case "light":
+                return R.style.Theme_Light;
+            case "paperlight":
+                return R.style.Theme_PaperLight;
+            case "graphpaperlight":
+                return R.style.Theme_GraphPaperLight;
+            case "highcontrast":
+                return R.style.Theme_HighContrast;
+            case "invertedhighcontrast":
+                return R.style.Theme_InvertedHighContrast;
+            default:
+                return R.style.Theme_Default;
+        }
+    }
+
+    public static int getThemeResourceIdFromPreferences(Context context) {
+        SharedPreferences gameSettings = PreferenceManager.getDefaultSharedPreferences(context);
+        String theme = gameSettings.getString("theme", "default");
+        return getThemeResourceIdFromString(theme);
+    }
+
+    public static void setThemeFromPreferences(Context context) {
+        context.setTheme(getThemeResourceIdFromPreferences(context));
+    }
+
     public static int getCurrentThemeColor(Context context, int colorAttribute) {
         SharedPreferences gameSettings = PreferenceManager.getDefaultSharedPreferences(context);
         String theme = gameSettings.getString("theme", "default");
@@ -24,7 +59,7 @@ public class ThemeUtils {
 
     public static int getThemeColor(String theme, Context context, int colorAttribute) {
 
-        ContextThemeWrapper themeWrapper = new ContextThemeWrapper(context, AndroidUtils.getThemeResourceIdFromString(theme));
+        ContextThemeWrapper themeWrapper = new ContextThemeWrapper(context, getThemeResourceIdFromString(theme));
         int[] attributes = {colorAttribute};
         TypedArray themeColors = themeWrapper.getTheme().obtainStyledAttributes(attributes);
         return themeColors.getColor(0, Color.BLACK);
@@ -38,7 +73,7 @@ public class ThemeUtils {
 
     public static int getThemeStyle(String theme, Context context, int styleAttribute) {
 
-        ContextThemeWrapper themeWrapper = new ContextThemeWrapper(context, AndroidUtils.getThemeResourceIdFromString(theme));
+        ContextThemeWrapper themeWrapper = new ContextThemeWrapper(context, getThemeResourceIdFromString(theme));
         int[] attributes = {styleAttribute};
         TypedArray themeStyles = themeWrapper.getTheme().obtainStyledAttributes(attributes);
         return themeStyles.getResourceId(0, 0);
@@ -85,7 +120,7 @@ public class ThemeUtils {
             board.setBackgroundColorSelected(gameSettings.getInt("custom_theme_backgroundColorSelected", R.color.default_backgroundColorSelected));
             board.setBackgroundColorHighlighted(gameSettings.getInt("custom_theme_backgroundColorHighlighted", R.color.default_backgroundColorHighlighted));
         } else {
-            ContextThemeWrapper themeWrapper = new ContextThemeWrapper(context, AndroidUtils.getThemeResourceIdFromString(theme));
+            ContextThemeWrapper themeWrapper = new ContextThemeWrapper(context, getThemeResourceIdFromString(theme));
 
             int[] attributes = {
                     R.attr.lineColor,

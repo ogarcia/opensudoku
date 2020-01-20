@@ -56,13 +56,14 @@ import org.moire.opensudoku.db.FolderColumns;
 import org.moire.opensudoku.db.SudokuDatabase;
 import org.moire.opensudoku.game.FolderInfo;
 import org.moire.opensudoku.utils.AndroidUtils;
+import org.moire.opensudoku.utils.ThemeUtils;
 
 /**
  * List of puzzle's folder. This activity also serves as root activity of application.
  *
  * @author romario
  */
-public class FolderListActivity extends AppCompatActivity {
+public class FolderListActivity extends ThemedActivity {
 
     public static final int MENU_ITEM_ADD = Menu.FIRST;
     public static final int MENU_ITEM_RENAME = Menu.FIRST + 1;
@@ -96,7 +97,6 @@ public class FolderListActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        AndroidUtils.setThemeFromPreferences(this);
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.folder_list);

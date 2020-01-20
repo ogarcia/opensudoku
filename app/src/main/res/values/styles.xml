@@ -50,9 +50,6 @@
         <item name="backgroundColorTouched">@color/default_backgroundColorTouched</item>
         <item name="backgroundColorSelected">@color/default_backgroundColorSelected</item>
         <item name="backgroundColorHighlighted">@color/default_backgroundColorHighlighted</item>
-        <item name="colorPrimary">?backgroundColorReadOnly</item>
-        <item name="colorPrimaryDark">?backgroundColor</item>
-        <item name="colorAccent">?backgroundColorHighlighted</item>
     </style>
 
     <style name="Theme.GraphPaper">
@@ -66,9 +63,6 @@
         <item name="backgroundColorTouched">@color/default_backgroundColorTouched</item>
         <item name="backgroundColorSelected">@color/default_backgroundColorSelected</item>
         <item name="backgroundColorHighlighted">@color/default_backgroundColorHighlighted</item>
-        <item name="colorPrimary">?backgroundColorReadOnly</item>
-        <item name="colorPrimaryDark">?backgroundColor</item>
-        <item name="colorAccent">?backgroundColorHighlighted</item>
     </style>
 
     <style name="Theme.Light" parent="Theme.AppCompat.Light">
@@ -83,9 +77,6 @@
         <item name="backgroundColorTouched">@color/light_backgroundColorTouched</item>
         <item name="backgroundColorSelected">@color/light_backgroundColorSelected</item>
         <item name="backgroundColorHighlighted">@color/light_backgroundColorHighlighted</item>
-        <item name="colorPrimary">?backgroundColorReadOnly</item>
-        <item name="colorPrimaryDark">?backgroundColor</item>
-        <item name="colorAccent">?backgroundColorHighlighted</item>
     </style>
 
     <style name="Theme.PaperLight" parent="Theme.AppCompat.Light">
@@ -100,9 +91,6 @@
         <item name="backgroundColorTouched">@color/light_backgroundColorTouched</item>
         <item name="backgroundColorSelected">@color/light_backgroundColorSelected</item>
         <item name="backgroundColorHighlighted">@color/light_backgroundColorHighlighted</item>
-        <item name="colorPrimary">?backgroundColorReadOnly</item>
-        <item name="colorPrimaryDark">?backgroundColor</item>
-        <item name="colorAccent">?backgroundColorHighlighted</item>
     </style>
 
     <style name="Theme.GraphPaperLight" parent="Theme.AppCompat.Light">
@@ -116,9 +104,6 @@
         <item name="backgroundColorTouched">@color/light_backgroundColorTouched</item>
         <item name="backgroundColorSelected">@color/light_backgroundColorSelected</item>
         <item name="backgroundColorHighlighted">@color/light_backgroundColorHighlighted</item>
-        <item name="colorPrimary">?backgroundColorReadOnly</item>
-        <item name="colorPrimaryDark">?backgroundColor</item>
-        <item name="colorAccent">?backgroundColorHighlighted</item>
     </style>
 
     <style name="Theme.HighContrast">
@@ -133,9 +118,6 @@
         <item name="backgroundColorTouched">@color/highcontrast_select</item>
         <item name="backgroundColorSelected">@color/highcontrast_select</item>
         <item name="backgroundColorHighlighted">@color/highcontrast_highlight</item>
-        <item name="colorPrimary">?backgroundColorReadOnly</item>
-        <item name="colorPrimaryDark">?backgroundColor</item>
-        <item name="colorAccent">?backgroundColorHighlighted</item>
     </style>
 
     <style name="Theme.InvertedHighContrast" parent="Theme.AppCompat.Light">
@@ -150,9 +132,6 @@
         <item name="backgroundColorTouched">@color/highcontrast_invertedSelect</item>
         <item name="backgroundColorSelected">@color/highcontrast_invertedSelect</item>
         <item name="backgroundColorHighlighted">@color/highcontrast_invertedHighlight</item>
-        <item name="colorPrimary">?backgroundColorReadOnly</item>
-        <item name="colorPrimaryDark">?backgroundColor</item>
-        <item name="colorAccent">?backgroundColorHighlighted</item>
     </style>
 
 </resources>

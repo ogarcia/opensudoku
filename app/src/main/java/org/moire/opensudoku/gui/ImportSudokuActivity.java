@@ -30,7 +30,7 @@ import androidx.appcompat.app.AppCompatActivity;
  *
  * @author romario
  */
-public class ImportSudokuActivity extends AppCompatActivity {
+public class ImportSudokuActivity extends ThemedActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

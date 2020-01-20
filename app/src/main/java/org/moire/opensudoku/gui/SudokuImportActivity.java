@@ -24,7 +24,7 @@ import org.moire.opensudoku.utils.Const;
  *
  * @author romario
  */
-public class SudokuImportActivity extends AppCompatActivity {
+public class SudokuImportActivity extends ThemedActivity {
     /**
      * Name of folder to which games should be imported.
      */
