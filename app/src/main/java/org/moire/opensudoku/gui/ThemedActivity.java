@@ -4,6 +4,7 @@ import android.app.ListActivity;
 import android.os.Bundle;
 import android.preference.PreferenceActivity;
 
+import org.moire.opensudoku.R;
 import org.moire.opensudoku.utils.ThemeUtils;
 
 import androidx.annotation.Nullable;
