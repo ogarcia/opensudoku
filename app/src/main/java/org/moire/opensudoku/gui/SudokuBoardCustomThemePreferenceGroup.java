@@ -26,9 +26,11 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.TypedArray;
+import android.graphics.Color;
 import android.preference.Preference;
 import android.preference.PreferenceGroup;
 import android.preference.PreferenceManager;
+import android.preference.SwitchPreference;
 import android.util.AttributeSet;
 import android.view.ContextThemeWrapper;
 import android.view.LayoutInflater;
@@ -103,11 +105,24 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
 
         mDialog = builder.create();
         mDialog.setOnDismissListener((dialog) -> {
+            mGameSettings.unregisterOnSharedPreferenceChangeListener(this);
             mDialog = null;
             mListView = null;
-            mGameSettings.unregisterOnSharedPreferenceChangeListener(this);
+            commitLightThemeOrDarkThemeChanges();
         });
         mDialog.show();
+    }
+
+    private void commitLightThemeOrDarkThemeChanges() {
+        SwitchPreference preference = (SwitchPreference) getPreference(0);
+        SharedPreferences.Editor settingsEditor = mGameSettings.edit();
+        String newTheme = preference.isChecked() ? "custom_light" : "custom";
+        if (!mGameSettings.getString("theme", "default").equals(newTheme)) {
+            settingsEditor.putString("theme", newTheme);
+        }
+        settingsEditor.apply();
+        ThemeUtils.sTimestampOfLastThemeUpdate = System.currentTimeMillis();
+        callChangeListener(null);
     }
 
     private void showCopyFromExistingThemeDialog() {
@@ -178,11 +193,24 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
     }
 
     private void updateThemePreview() {
-        ThemeUtils.applyThemeToSudokuBoardViewFromContext("custom", mBoard, getContext());
+        String themeName = mGameSettings.getString("theme", "default");
+        ThemeUtils.applyThemeToSudokuBoardViewFromContext(themeName, mBoard, getContext());
+    }
+
+    private void quantizeCustomAppColorPreferences() {
+        SharedPreferences.Editor settingsEditor = mGameSettings.edit();
+        settingsEditor.putInt("custom_theme_colorPrimary", ThemeUtils.findClosestMaterialColor(mGameSettings.getInt("custom_theme_colorPrimary", Color.GRAY)));
+        settingsEditor.putInt("custom_theme_colorPrimaryDark", ThemeUtils.findClosestMaterialColor(mGameSettings.getInt("custom_theme_colorPrimaryDark", Color.GRAY)));
+        settingsEditor.putInt("custom_theme_colorAccent", ThemeUtils.findClosestMaterialColor(mGameSettings.getInt("custom_theme_colorAccent", Color.WHITE)));
+        settingsEditor.apply();
+        ThemeUtils.sTimestampOfLastThemeUpdate = System.currentTimeMillis();
     }
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
+        if (key.contains("custom_theme_color")) {
+            quantizeCustomAppColorPreferences();
+        }
         updateThemePreview();
         if (mListView != null) {
             mListView.invalidateViews();
@@ -193,6 +221,9 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         if (position == parent.getCount() - 1) {
             showCopyFromExistingThemeDialog();
+        } else if (position == 0) {
+            SwitchPreference preference = (SwitchPreference) getPreference(position);
+            preference.setChecked(!preference.isChecked());
         } else {
             ((ColorPickerPreference) getPreference(position)).onPreferenceClick(null);
         }
@@ -237,9 +268,9 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
         public View getView(int position, View convertView, ViewGroup parent) {
             Preference preference = ((Preference)getItem(position));
 
-            // we pass convertView as null for the final element to make sure we don't have a color
-            // preview on the final list view item that is used to copy an existing theme
-            return (position == getCount() - 1) ? preference.getView(null, parent) : preference.getView(convertView, parent);
+            // we pass convertView as null for the first and final elements to make sure we don't
+            // have a color preview on the list view items that don't edit colors
+            return (position == 0 || position == getCount() - 1) ? preference.getView(null, parent) : preference.getView(convertView, parent);
         }
 
         @Override

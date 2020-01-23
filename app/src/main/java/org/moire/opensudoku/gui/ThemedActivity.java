@@ -12,11 +12,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class ThemedActivity extends AppCompatActivity {
     private int mThemeId = 0;
+    private long mTimestampWhenApplyingTheme = 0;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         ThemeUtils.setThemeFromPreferences(this);
-        mThemeId = ThemeUtils.getThemeResourceIdFromPreferences(this);
+        mTimestampWhenApplyingTheme = System.currentTimeMillis();
         super.onCreate(savedInstanceState);
     }
 
@@ -24,8 +25,7 @@ public class ThemedActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        int newThemeId = ThemeUtils.getThemeResourceIdFromPreferences(this);
-        if (newThemeId != mThemeId) {
+        if (ThemeUtils.sTimestampOfLastThemeUpdate > mTimestampWhenApplyingTheme) {
             recreate();
         }
     }

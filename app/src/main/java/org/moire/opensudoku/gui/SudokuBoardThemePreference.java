@@ -79,6 +79,7 @@ public class SudokuBoardThemePreference extends ListPreference {
             String value = getEntryValues()[mClickedDialogEntryIndex].toString();
             if (callChangeListener(value)) {
                 setValue(value);
+                ThemeUtils.sTimestampOfLastThemeUpdate = System.currentTimeMillis();
             }
         }
     }

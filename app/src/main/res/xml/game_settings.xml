@@ -83,6 +83,29 @@
         <org.moire.opensudoku.gui.SudokuBoardCustomThemePreferenceGroup
             android:key="screen_custom_theme"
             android:title="@string/screen_custom_theme">
+            <SwitchPreference
+                android:defaultValue="false"
+                android:key="custom_theme_isLightTheme"
+                android:summary="Change if the app colors are based on the light or dark theme."
+                android:title="Light theme" />
+            <net.margaritov.preference.colorpicker.ColorPickerPreference
+                alphaSlider="true"
+                android:defaultValue="@color/opensudoku_colorPrimary"
+                android:key="custom_theme_colorPrimary"
+                android:summary="This color is used for the background of the title bar."
+                android:title="Primary App Color" />
+            <net.margaritov.preference.colorpicker.ColorPickerPreference
+                alphaSlider="true"
+                android:defaultValue="@color/opensudoku_colorPrimaryDark"
+                android:key="custom_theme_colorPrimaryDark"
+                android:summary="This color is used for the Android status bar and is usually a darker version of the primary app color."
+                android:title="Secondary App Color" />
+            <net.margaritov.preference.colorpicker.ColorPickerPreference
+                alphaSlider="true"
+                android:defaultValue="@color/opensudoku_colorAccent"
+                android:key="custom_theme_colorAccent"
+                android:summary="This color is used to accent various UI controls."
+                android:title="App Accent Color" />
             <net.margaritov.preference.colorpicker.ColorPickerPreference
                 alphaSlider="true"
                 android:defaultValue="@color/default_lineColor"

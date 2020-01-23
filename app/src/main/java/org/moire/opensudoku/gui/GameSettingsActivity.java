@@ -22,44 +22,39 @@ package org.moire.opensudoku.gui;
 
 import android.os.Bundle;
 import android.preference.ListPreference;
-import android.preference.Preference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceGroup;
-import android.preference.PreferenceScreen;
 
 import org.moire.opensudoku.R;
-import org.moire.opensudoku.utils.AndroidUtils;
 import org.moire.opensudoku.utils.ThemeUtils;
 
 public class GameSettingsActivity extends PreferenceActivity {
 
     private PreferenceGroup mScreenCustomTheme;
-    private int mThemeId = 0;
+    private long mTimestampWhenApplyingTheme;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         ThemeUtils.setThemeFromPreferences(this);
-        mThemeId = ThemeUtils.getThemeResourceIdFromPreferences(this);
+        mTimestampWhenApplyingTheme = System.currentTimeMillis();
         super.onCreate(savedInstanceState);
 
         addPreferencesFromResource(R.xml.game_settings);
 
         findPreference("show_hints").setOnPreferenceChangeListener(mShowHintsChanged);
 
-        ListPreference mTheme = (ListPreference) findPreference("theme");
-        mTheme.setOnPreferenceChangeListener(mThemeChanged);
-
+        ListPreference themePreference = (ListPreference) findPreference("theme");
         mScreenCustomTheme = (PreferenceGroup)findPreference("screen_custom_theme");
-        enableScreenCustomTheme(mTheme.getValue());
+        enableScreenCustomTheme(themePreference.getValue());
+        mScreenCustomTheme.setOnPreferenceChangeListener((preference, newValue) -> { recreate(); return true; });
     }
 
     @Override
     protected void onResume() {
         super.onResume();
 
-        int newThemeId = ThemeUtils.getThemeResourceIdFromPreferences(this);
-        if (newThemeId != mThemeId) {
+        if (ThemeUtils.sTimestampOfLastThemeUpdate > mTimestampWhenApplyingTheme) {
             recreate();
         }
     }
@@ -74,15 +69,8 @@ public class GameSettingsActivity extends PreferenceActivity {
         return true;
     };
 
-    private OnPreferenceChangeListener mThemeChanged = (preference, newValue) -> {
-        // restart the activity to pick up the new app theme colors
-        recreate();
-        return true;
-    };
-
-
     private void enableScreenCustomTheme(String themeName) {
-        boolean enable = themeName.equals("custom");
+        boolean enable = themeName.equals("custom") || themeName.equals("custom_light");
         mScreenCustomTheme.setEnabled(enable);
         mScreenCustomTheme.setSummary(enable ?
                 R.string.screen_custom_theme_summary :

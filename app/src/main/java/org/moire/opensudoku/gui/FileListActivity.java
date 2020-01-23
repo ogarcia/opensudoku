@@ -68,12 +68,12 @@ public class FileListActivity extends ListActivity {
     private List<Map<String, Object>> mList;
     private Context mContext = this;
 
-    private int mThemeId = 0;
+    private long mTimestampWhenApplyingTheme = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         ThemeUtils.setThemeFromPreferences(this);
-        mThemeId = ThemeUtils.getThemeResourceIdFromPreferences(this);
+        mTimestampWhenApplyingTheme = System.currentTimeMillis();
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.file_list);
@@ -144,8 +144,7 @@ public class FileListActivity extends ListActivity {
     protected void onResume() {
         super.onResume();
 
-        int newThemeId = ThemeUtils.getThemeResourceIdFromPreferences(this);
-        if (newThemeId != mThemeId) {
+        if (ThemeUtils.sTimestampOfLastThemeUpdate > mTimestampWhenApplyingTheme) {
             recreate();
         }
     }
