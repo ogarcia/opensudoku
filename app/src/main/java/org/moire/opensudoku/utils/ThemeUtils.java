@@ -48,6 +48,25 @@ public class ThemeUtils {
         }
     }
 
+    public static boolean isLightTheme(String theme){
+        switch (theme) {
+            case "default":
+            case "paper":
+            case "graphpaper":
+            case "highcontrast":
+            case "custom":
+                return false;
+            case "opensudoku":
+            case "light":
+            case "paperlight":
+            case "graphpaperlight":
+            case "invertedhighcontrast":
+            case "custom_light":
+            default:
+                return true;
+        }
+    }
+
     public static String getCurrentThemeFromPreferences(Context context) {
         SharedPreferences gameSettings = PreferenceManager.getDefaultSharedPreferences(context);
         return gameSettings.getString("theme", "default");

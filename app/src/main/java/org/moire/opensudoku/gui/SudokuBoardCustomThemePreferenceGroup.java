@@ -148,7 +148,12 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
         String theme = getContext().getResources().getStringArray(R.array.theme_codes)[which];
         ContextThemeWrapper themeWrapper = new ContextThemeWrapper(getContext(), ThemeUtils.getThemeResourceIdFromString(theme));
 
+        ((SwitchPreference)getPreference(0)).setChecked(ThemeUtils.isLightTheme(theme));
+
         int[] attributes = {
+                R.attr.colorPrimary,
+                R.attr.colorPrimaryDark,
+                R.attr.colorAccent,
                 R.attr.lineColor,
                 R.attr.sectorLineColor,
                 R.attr.textColor,
@@ -163,17 +168,9 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
         };
 
         TypedArray themeColors = themeWrapper.getTheme().obtainStyledAttributes(attributes);
-        ((ColorPickerPreference)getPreference(0)).onColorChanged(themeColors.getColor(0, R.color.default_lineColor));
-        ((ColorPickerPreference)getPreference(1)).onColorChanged(themeColors.getColor(1, R.color.default_sectorLineColor));
-        ((ColorPickerPreference)getPreference(2)).onColorChanged(themeColors.getColor(2, R.color.default_textColor));
-        ((ColorPickerPreference)getPreference(3)).onColorChanged(themeColors.getColor(3, R.color.default_textColorReadOnly));
-        ((ColorPickerPreference)getPreference(4)).onColorChanged(themeColors.getColor(4, R.color.default_textColorNote));
-        ((ColorPickerPreference)getPreference(5)).onColorChanged(themeColors.getColor(5, R.color.default_backgroundColor));
-        ((ColorPickerPreference)getPreference(6)).onColorChanged(themeColors.getColor(6, R.color.default_backgroundColorSecondary));
-        ((ColorPickerPreference)getPreference(7)).onColorChanged(themeColors.getColor(7, R.color.default_backgroundColorReadOnly));
-        ((ColorPickerPreference)getPreference(8)).onColorChanged(themeColors.getColor(8, R.color.default_backgroundColorTouched));
-        ((ColorPickerPreference)getPreference(9)).onColorChanged(themeColors.getColor(9, R.color.default_backgroundColorSelected));
-        ((ColorPickerPreference)getPreference(10)).onColorChanged(themeColors.getColor(10, R.color.default_backgroundColorHighlighted));
+        for (int i = 0; i < attributes.length; i++) {
+            ((ColorPickerPreference)getPreference(i + 1)).onColorChanged(themeColors.getColor(i, Color.GRAY));
+        }
     }
 
     public void onActivityDestroy() {   

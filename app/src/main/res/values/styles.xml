@@ -4,7 +4,7 @@
     <style name="Theme" parent="Theme.AppCompat">
     </style>
 
-    <style name="Theme.Default" parent="Theme.AppCompat.Light">
+    <style name="Theme.Default">
         <item name="lineColor">@color/default_lineColor</item>
         <item name="sectorLineColor">@color/default_sectorLineColor</item>
         <item name="textColor">@color/default_textColor</item>
@@ -16,9 +16,6 @@
         <item name="backgroundColorTouched">@color/default_backgroundColorTouched</item>
         <item name="backgroundColorSelected">@color/default_backgroundColorSelected</item>
         <item name="backgroundColorHighlighted">@color/default_backgroundColorHighlighted</item>
-        <item name="colorPrimary">@color/opensudoku_colorPrimary</item>
-        <item name="colorPrimaryDark">@color/opensudoku_colorPrimaryDark</item>
-        <item name="colorAccent">@color/opensudoku_colorAccent</item>
     </style>
 
     <style name="Theme.OpenSudoku" parent="Theme.AppCompat.Light">
