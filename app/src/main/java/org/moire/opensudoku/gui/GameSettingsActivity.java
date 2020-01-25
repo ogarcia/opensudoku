@@ -43,6 +43,7 @@ public class GameSettingsActivity extends PreferenceActivity {
         addPreferencesFromResource(R.xml.game_settings);
 
         findPreference("show_hints").setOnPreferenceChangeListener(mShowHintsChanged);
+        findPreference("theme").setOnPreferenceChangeListener(((preference, newValue) -> { recreate(); return true; }));
 
         ListPreference themePreference = (ListPreference) findPreference("theme");
         mScreenCustomTheme = (PreferenceGroup)findPreference("screen_custom_theme");
