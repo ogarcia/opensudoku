@@ -42,6 +42,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import net.margaritov.preference.colorpicker.ColorPickerDialog;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 import org.moire.opensudoku.R;
@@ -50,6 +51,9 @@ import org.moire.opensudoku.utils.ThemeUtils;
 
 import java.util.Arrays;
 import java.util.Vector;
+
+import androidx.annotation.ColorInt;
+import androidx.core.graphics.ColorUtils;
 
 /**
  * A {@link Preference} that allows for setting and previewing a custom Sudoku Board theme.
@@ -173,6 +177,53 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
         }
     }
 
+    private void showCreateFromSingleColorDialog() {
+        ColorPickerDialog colorDialog = new ColorPickerDialog(getContext(), mGameSettings.getInt("custom_theme_colorPrimary", Color.WHITE));
+        colorDialog.setAlphaSliderVisible(false);
+        colorDialog.setHexValueEnabled(false);
+        colorDialog.setOnColorChangedListener((color) -> {
+            createCustomThemeFromSingleColor(color);
+        });
+        colorDialog.show();
+    }
+
+    private void createCustomThemeFromSingleColor(int colorPrimary)
+    {
+        double whiteContrast = ColorUtils.calculateContrast(colorPrimary, Color.WHITE);
+        double blackContrast = ColorUtils.calculateContrast(colorPrimary, Color.BLACK);
+        boolean isLightTheme = whiteContrast < blackContrast;
+        ((SwitchPreference)findPreference("custom_theme_isLightTheme")).setChecked(isLightTheme);
+
+        float colorAsHSL[] = new float[3];
+        ColorUtils.colorToHSL(colorPrimary, colorAsHSL);
+
+        float tempHSL[] = colorAsHSL.clone();
+        tempHSL[0] =  (colorAsHSL[0] + 180f) % 360.0f;
+        int colorAccent = ColorUtils.HSLToColor(tempHSL);
+
+        tempHSL = colorAsHSL.clone();
+        tempHSL[2] += isLightTheme ? -0.1f : 0.1f;
+        int colorPrimaryDark = ColorUtils.HSLToColor(tempHSL);
+
+        int textColor = isLightTheme ? Color.BLACK : Color.WHITE;
+        int backgroundColor = isLightTheme ? Color.WHITE : Color.BLACK;
+
+        ((ColorPickerPreference)findPreference("custom_theme_colorPrimary")).onColorChanged(colorPrimary);
+        ((ColorPickerPreference)findPreference("custom_theme_colorPrimaryDark")).onColorChanged(colorPrimaryDark);
+        ((ColorPickerPreference)findPreference("custom_theme_colorAccent")).onColorChanged(colorAccent);
+        ((ColorPickerPreference)findPreference("custom_theme_lineColor")).onColorChanged(colorPrimaryDark);
+        ((ColorPickerPreference)findPreference("custom_theme_sectorLineColor")).onColorChanged(colorPrimaryDark);
+        ((ColorPickerPreference)findPreference("custom_theme_textColor")).onColorChanged(textColor);
+        ((ColorPickerPreference)findPreference("custom_theme_textColorReadOnly")).onColorChanged(textColor);
+        ((ColorPickerPreference)findPreference("custom_theme_textColorNote")).onColorChanged(textColor);
+        ((ColorPickerPreference)findPreference("custom_theme_backgroundColor")).onColorChanged(backgroundColor);
+        ((ColorPickerPreference)findPreference("custom_theme_backgroundColorSecondary")).onColorChanged(backgroundColor);
+        ((ColorPickerPreference)findPreference("custom_theme_backgroundColorReadOnly")).onColorChanged(ColorUtils.setAlphaComponent(colorPrimaryDark, 64));
+        ((ColorPickerPreference)findPreference("custom_theme_backgroundColorTouched")).onColorChanged(colorAccent);
+        ((ColorPickerPreference)findPreference("custom_theme_backgroundColorSelected")).onColorChanged(colorPrimaryDark);
+        ((ColorPickerPreference)findPreference("custom_theme_backgroundColorHighlighted")).onColorChanged(colorPrimary);
+    }
+
     public void onActivityDestroy() {   
         if (mDialog != null && mDialog.isShowing()) {
             mDialog.dismiss();
@@ -217,6 +268,8 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         if (position == parent.getCount() - 1) {
+            showCreateFromSingleColorDialog();
+        } else if (position == parent.getCount() - 2) {
             showCopyFromExistingThemeDialog();
         } else if (position == 0) {
             SwitchPreference preference = (SwitchPreference) getPreference(position);
@@ -229,11 +282,14 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
     private class CustomThemeListAdapter extends BaseAdapter implements ListAdapter {
         private SudokuBoardCustomThemePreferenceGroup mPreferenceGroup;
         private Preference mCopyFromExistingThemePreference;
+        private Preference mCreateFromColorPreference;
 
         CustomThemeListAdapter(SudokuBoardCustomThemePreferenceGroup preferenceGroup) {
             mPreferenceGroup = preferenceGroup;
             mCopyFromExistingThemePreference = new Preference(preferenceGroup.getContext());
             mCopyFromExistingThemePreference.setTitle(R.string.copy_from_existing_theme);
+            mCreateFromColorPreference = new Preference(preferenceGroup.getContext());
+            mCreateFromColorPreference.setTitle("Create from single color...");
         }
 
         @Override
@@ -248,12 +304,18 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
 
         @Override
         public int getCount() {
-            return mPreferenceGroup.getPreferenceCount() + 1;
+            return mPreferenceGroup.getPreferenceCount() + 2;
         }
 
         @Override
         public Object getItem(int position) {
-            return (position == getCount() - 1) ? mCopyFromExistingThemePreference : mPreferenceGroup.getPreference(position);
+            if (position == getCount() - 2) {
+                return mCopyFromExistingThemePreference;
+            } else if (position == getCount() - 1) {
+                return mCreateFromColorPreference;
+            } else {
+                return mPreferenceGroup.getPreference(position);
+            }
         }
 
         @Override
@@ -267,7 +329,7 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
 
             // we pass convertView as null for the first and final elements to make sure we don't
             // have a color preview on the list view items that don't edit colors
-            return (position == 0 || position == getCount() - 1) ? preference.getView(null, parent) : preference.getView(convertView, parent);
+            return (position == 0 || position >= getCount() - 2) ? preference.getView(null, parent) : preference.getView(convertView, parent);
         }
 
         @Override
