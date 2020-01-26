@@ -66,7 +66,7 @@ public class ThemeUtils {
             case "custom_light":
                 return R.style.Theme_AppCompat_Light;
             default:
-                return R.style.Theme_Default;
+                return R.style.Theme_OpenSudoku;
         }
     }
 
