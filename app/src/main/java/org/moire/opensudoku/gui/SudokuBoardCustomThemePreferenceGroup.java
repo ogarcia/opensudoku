@@ -236,6 +236,13 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
 
     private void prepareSudokuPreviewView(View view) {
         mBoard = (SudokuBoardView) view.findViewById(R.id.sudoku_board);
+        mBoard.setOnCellSelectedListener((cell) -> {
+            if (cell != null) {
+                mBoard.setHighlightedValue(cell.getValue());
+            } else {
+                mBoard.setHighlightedValue(0);
+            }
+        });
         ThemeUtils.prepareSudokuPreviewView(mBoard);
         updateThemePreview();
     }

@@ -153,11 +153,7 @@ public class IMNumpad extends InputMethod {
     @Override
     protected void onCellSelected(Cell cell) {
         if (cell != null) {
-            if (cell.getValue() == mBoard.getHighlightedValue()) {
-                mBoard.setHighlightedValue(0);
-            } else if (cell.getValue() > 0) {
-                mBoard.setHighlightedValue(cell.getValue());
-            }
+            mBoard.setHighlightedValue(cell.getValue());
         } else {
             mBoard.setHighlightedValue(0);
         }
