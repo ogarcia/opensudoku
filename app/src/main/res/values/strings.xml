@@ -264,6 +264,17 @@
     <string name="game_level_hard">Hard</string>
 
     <string name="theme_default">Default</string>
+    <string name="theme_amoled">AMOLED</string>
+    <string name="theme_latte">Caramel Latte</string>
+    <string name="theme_espresso">Espresso</string>
+    <string name="theme_sunrise">Sunrise</string>
+    <string name="theme_honeybee">Honey Bee</string>
+    <string name="theme_crystal">Crystal</string>
+    <string name="theme_midnight_blue">Midnight Blue</string>
+    <string name="theme_emerald">Emerald</string>
+    <string name="theme_forest">Forest</string>
+    <string name="theme_amethyst">Amethyst</string>
+    <string name="theme_ruby">Ruby</string>
     <string name="theme_paper">Paper</string>
     <string name="theme_graph_paper">Graph Paper</string>
     <string name="theme_light">Light</string>

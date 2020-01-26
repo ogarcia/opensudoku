@@ -13,6 +13,17 @@
     <string-array name="theme_names">
         <item>@string/theme_default</item>
         <item>@string/app_name</item>
+        <item>@string/theme_amoled</item>
+        <item>@string/theme_latte</item>
+        <item>@string/theme_espresso</item>
+        <item>@string/theme_sunrise</item>
+        <item>@string/theme_honeybee</item>
+        <item>@string/theme_crystal</item>
+        <item>@string/theme_midnight_blue</item>
+        <item>@string/theme_emerald</item>
+        <item>@string/theme_forest</item>
+        <item>@string/theme_amethyst</item>
+        <item>@string/theme_ruby</item>
         <item>@string/theme_paper</item>
         <item>@string/theme_graph_paper</item>
         <item>@string/theme_light</item>
@@ -26,6 +37,17 @@
     <string-array name="theme_codes" translatable="false">
         <item>default</item>
         <item>opensudoku</item>
+        <item>amoled</item>
+        <item>latte</item>
+        <item>espresso</item>
+        <item>sunrise</item>
+        <item>honeybee</item>
+        <item>crystal</item>
+        <item>midnight_blue</item>
+        <item>emerald</item>
+        <item>forest</item>
+        <item>amethyst</item>
+        <item>ruby</item>
         <item>paper</item>
         <item>graphpaper</item>
         <item>light</item>

@@ -5,6 +5,9 @@
     </style>
 
     <style name="Theme.Default">
+        <item name="colorPrimary">@color/default_backgroundColorTouched</item>
+        <item name="colorPrimaryDark">@color/default_backgroundColorHighlighted</item>
+        <item name="colorAccent">@color/blue_grey_200</item>
         <item name="lineColor">@color/default_lineColor</item>
         <item name="sectorLineColor">@color/default_sectorLineColor</item>
         <item name="textColor">@color/default_textColor</item>
@@ -19,6 +22,9 @@
     </style>
 
     <style name="Theme.OpenSudoku" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/opensudoku_colorPrimary</item>
+        <item name="colorPrimaryDark">@color/opensudoku_colorPrimaryDark</item>
+        <item name="colorAccent">@color/opensudoku_colorAccent</item>
         <item name="lineColor">@color/opensudoku_colorPrimaryDark</item>
         <item name="sectorLineColor">@color/opensudoku_colorPrimaryDark</item>
         <item name="textColor">@android:color/black</item>
@@ -30,9 +36,192 @@
         <item name="backgroundColorTouched">@color/opensudoku_colorAccent</item>
         <item name="backgroundColorSelected">@color/opensudoku_colorPrimaryDark</item>
         <item name="backgroundColorHighlighted">@color/opensudoku_colorPrimary</item>
-        <item name="colorPrimary">@color/opensudoku_colorPrimary</item>
-        <item name="colorPrimaryDark">@color/opensudoku_colorPrimaryDark</item>
-        <item name="colorAccent">@color/opensudoku_colorAccent</item>
+    </style>
+
+    <style name="Theme.AMOLED">
+        <item name="lineColor">@color/opensudoku_colorPrimary</item>
+        <item name="sectorLineColor">@color/opensudoku_colorPrimary</item>
+        <item name="textColor">@android:color/white</item>
+        <item name="textColorReadOnly">@android:color/white</item>
+        <item name="textColorNote">@android:color/white</item>
+        <item name="backgroundColor">@android:color/black</item>
+        <item name="backgroundColorSecondary">@android:color/black</item>
+        <item name="backgroundColorReadOnly">@android:color/black</item>
+        <item name="backgroundColorTouched">@color/opensudoku_colorAccent</item>
+        <item name="backgroundColorSelected">@color/opensudoku_colorAccent</item>
+        <item name="backgroundColorHighlighted">@color/opensudoku_colorAccent</item>
+        <item name="android:background">@android:color/black</item>
+        <item name="colorButtonNormal">@android:color/black</item>
+    </style>
+
+    <style name="Theme.Latte" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/amber_50</item>
+        <item name="colorPrimaryDark">@color/brown_100</item>
+        <item name="colorAccent">@color/brown_600</item>
+        <item name="lineColor">@color/brown_100</item>
+        <item name="sectorLineColor">@color/brown_100</item>
+        <item name="textColor">@android:color/black</item>
+        <item name="textColorReadOnly">@android:color/black</item>
+        <item name="textColorNote">@android:color/black</item>
+        <item name="backgroundColor">@android:color/white</item>
+        <item name="backgroundColorSecondary">@android:color/white</item>
+        <item name="backgroundColorReadOnly">@color/yellow_50</item>
+        <item name="backgroundColorTouched">@color/brown_600</item>
+        <item name="backgroundColorSelected">@color/amber_200</item>
+        <item name="backgroundColorHighlighted">@color/amber_300</item>
+    </style>
+
+    <style name="Theme.Espresso">
+        <item name="colorPrimary">@color/brown_700</item>
+        <item name="colorPrimaryDark">@color/brown_500</item>
+        <item name="colorAccent">@color/yellow_200</item>
+        <item name="lineColor">@color/brown_100</item>
+        <item name="sectorLineColor">@color/brown_100</item>
+        <item name="textColor">@android:color/white</item>
+        <item name="textColorReadOnly">@android:color/white</item>
+        <item name="textColorNote">@android:color/white</item>
+        <item name="backgroundColor">@android:color/black</item>
+        <item name="backgroundColorSecondary">@android:color/black</item>
+        <item name="backgroundColorReadOnly">@color/brown_900</item>
+        <item name="backgroundColorTouched">@color/yellow_500</item>
+        <item name="backgroundColorSelected">@color/brown_500</item>
+        <item name="backgroundColorHighlighted">@color/brown_600</item>
+    </style>
+
+    <style name="Theme.Sunrise" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/orange_500</item>
+        <item name="colorPrimaryDark">@color/orange_600</item>
+        <item name="colorAccent">@color/pink_400</item>
+        <item name="lineColor">@color/orange_500</item>
+        <item name="sectorLineColor">@color/orange_500</item>
+        <item name="textColor">@android:color/black</item>
+        <item name="textColorReadOnly">@android:color/black</item>
+        <item name="textColorNote">@android:color/black</item>
+        <item name="backgroundColor">@android:color/white</item>
+        <item name="backgroundColorSecondary">@android:color/white</item>
+        <item name="backgroundColorReadOnly">@color/orange_50</item>
+        <item name="backgroundColorTouched">@color/pink_400</item>
+        <item name="backgroundColorSelected">@color/red_100</item>
+        <item name="backgroundColorHighlighted">@color/red_200</item>
+    </style>
+
+    <style name="Theme.HoneyBee">
+        <item name="colorPrimary">@color/orange_600</item>
+        <item name="colorPrimaryDark">@color/orange_700</item>
+        <item name="colorAccent">@color/yellow_600</item>
+        <item name="lineColor">@color/deep_orange_300</item>
+        <item name="sectorLineColor">@color/deep_orange_300</item>
+        <item name="textColor">@android:color/white</item>
+        <item name="textColorReadOnly">@android:color/white</item>
+        <item name="textColorNote">@android:color/white</item>
+        <item name="backgroundColor">@android:color/black</item>
+        <item name="backgroundColorSecondary">@android:color/black</item>
+        <item name="backgroundColorReadOnly">@color/blue_grey_900</item>
+        <item name="backgroundColorTouched">@color/yellow_600</item>
+        <item name="backgroundColorSelected">@color/deep_orange_700</item>
+        <item name="backgroundColorHighlighted">@color/deep_orange_800</item>
+    </style>
+
+    <style name="Theme.Crystal" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/light_blue_500</item>
+        <item name="colorPrimaryDark">@color/light_blue_600</item>
+        <item name="colorAccent">@color/cyan_A700</item>
+        <item name="lineColor">@color/light_blue_500</item>
+        <item name="sectorLineColor">@color/light_blue_500</item>
+        <item name="textColor">@android:color/black</item>
+        <item name="textColorReadOnly">@android:color/black</item>
+        <item name="textColorNote">@android:color/black</item>
+        <item name="backgroundColor">@android:color/white</item>
+        <item name="backgroundColorSecondary">@android:color/white</item>
+        <item name="backgroundColorReadOnly">@color/light_blue_50</item>
+        <item name="backgroundColorTouched">@color/purple_A400</item>
+        <item name="backgroundColorSelected">@color/light_blue_300</item>
+        <item name="backgroundColorHighlighted">@color/light_blue_200</item>
+    </style>
+
+    <style name="Theme.MidnightBlue">
+        <item name="colorPrimary">@color/indigo_700</item>
+        <item name="colorPrimaryDark">@color/indigo_500</item>
+        <item name="colorAccent">@color/light_blue_A400</item>
+        <item name="lineColor">@color/indigo_300</item>
+        <item name="sectorLineColor">@color/indigo_300</item>
+        <item name="textColor">@android:color/white</item>
+        <item name="textColorReadOnly">@android:color/white</item>
+        <item name="textColorNote">@android:color/white</item>
+        <item name="backgroundColor">@android:color/black</item>
+        <item name="backgroundColorSecondary">@android:color/black</item>
+        <item name="backgroundColorReadOnly">@color/indigo_900</item>
+        <item name="backgroundColorTouched">@color/light_blue_500</item>
+        <item name="backgroundColorSelected">@color/indigo_500</item>
+        <item name="backgroundColorHighlighted">@color/indigo_600</item>
+    </style>
+
+    <style name="Theme.Emerald" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/green_300</item>
+        <item name="colorPrimaryDark">@color/green_400</item>
+        <item name="colorAccent">@color/green_A700</item>
+        <item name="lineColor">@color/green_500</item>
+        <item name="sectorLineColor">@color/green_500</item>
+        <item name="textColor">@android:color/black</item>
+        <item name="textColorReadOnly">@android:color/black</item>
+        <item name="textColorNote">@android:color/black</item>
+        <item name="backgroundColor">@android:color/white</item>
+        <item name="backgroundColorSecondary">@android:color/white</item>
+        <item name="backgroundColorReadOnly">@color/green_50</item>
+        <item name="backgroundColorTouched">@color/green_A700</item>
+        <item name="backgroundColorSelected">@color/green_200</item>
+        <item name="backgroundColorHighlighted">@color/green_100</item>
+    </style>
+
+    <style name="Theme.Forest">
+        <item name="colorPrimary">@color/green_700</item>
+        <item name="colorPrimaryDark">@color/green_500</item>
+        <item name="colorAccent">@color/green_A400</item>
+        <item name="lineColor">@color/green_600</item>
+        <item name="sectorLineColor">@color/green_600</item>
+        <item name="textColor">@android:color/white</item>
+        <item name="textColorReadOnly">@android:color/white</item>
+        <item name="textColorNote">@android:color/white</item>
+        <item name="backgroundColor">@android:color/black</item>
+        <item name="backgroundColorSecondary">@android:color/black</item>
+        <item name="backgroundColorReadOnly">@color/green_900</item>
+        <item name="backgroundColorTouched">@color/green_A400</item>
+        <item name="backgroundColorSelected">@color/green_500</item>
+        <item name="backgroundColorHighlighted">@color/green_600</item>
+    </style>
+
+    <style name="Theme.Amethyst" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/purple_200</item>
+        <item name="colorPrimaryDark">@color/purple_800</item>
+        <item name="colorAccent">@color/purple_A400</item>
+        <item name="lineColor">@color/purple_500</item>
+        <item name="sectorLineColor">@color/purple_500</item>
+        <item name="textColor">@android:color/black</item>
+        <item name="textColorReadOnly">@android:color/black</item>
+        <item name="textColorNote">@android:color/black</item>
+        <item name="backgroundColor">@android:color/white</item>
+        <item name="backgroundColorSecondary">@android:color/white</item>
+        <item name="backgroundColorReadOnly">@color/purple_50</item>
+        <item name="backgroundColorTouched">@color/purple_A700</item>
+        <item name="backgroundColorSelected">@color/purple_300</item>
+        <item name="backgroundColorHighlighted">@color/purple_200</item>
+    </style>
+
+    <style name="Theme.Ruby">
+        <item name="colorPrimary">@color/red_700</item>
+        <item name="colorPrimaryDark">@android:color/black</item>
+        <item name="colorAccent">#FFFF0000</item>
+        <item name="lineColor">@color/red_600</item>
+        <item name="sectorLineColor">@color/red_600</item>
+        <item name="textColor">@android:color/white</item>
+        <item name="textColorReadOnly">@android:color/white</item>
+        <item name="textColorNote">@android:color/white</item>
+        <item name="backgroundColor">@android:color/black</item>
+        <item name="backgroundColorSecondary">@android:color/black</item>
+        <item name="backgroundColorReadOnly">#FF400000</item>
+        <item name="backgroundColorTouched">@color/red_A400</item>
+        <item name="backgroundColorSelected">@color/red_800</item>
+        <item name="backgroundColorHighlighted">@color/red_900</item>
     </style>
 
     <style name="Theme.Paper">

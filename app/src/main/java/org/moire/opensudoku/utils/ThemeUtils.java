@@ -25,6 +25,28 @@ public class ThemeUtils {
                 return R.style.Theme_Default;
             case "opensudoku":
                 return R.style.Theme_OpenSudoku;
+            case "amoled":
+                return R.style.Theme_AMOLED;
+            case "latte":
+                return R.style.Theme_Latte;
+            case "espresso":
+                return R.style.Theme_Espresso;
+            case "sunrise":
+                return R.style.Theme_Sunrise;
+            case "honeybee":
+                return R.style.Theme_HoneyBee;
+            case "crystal":
+                return R.style.Theme_Crystal;
+            case "midnight_blue":
+                return R.style.Theme_MidnightBlue;
+            case "emerald":
+                return R.style.Theme_Emerald;
+            case "forest":
+                return R.style.Theme_Forest;
+            case "amethyst":
+                return R.style.Theme_Amethyst;
+            case "ruby":
+                return R.style.Theme_Ruby;
             case "paper":
                 return R.style.Theme_Paper;
             case "graphpaper":
@@ -51,12 +73,23 @@ public class ThemeUtils {
     public static boolean isLightTheme(String theme){
         switch (theme) {
             case "default":
+            case "amoled":
+            case "espresso":
+            case "honeybee":
+            case "midnight_blue":
+            case "forest":
+            case "ruby":
             case "paper":
             case "graphpaper":
             case "highcontrast":
             case "custom":
                 return false;
             case "opensudoku":
+            case "latte":
+            case "sunrise":
+            case "crystal":
+            case "emerald":
+            case "amethyst":
             case "light":
             case "paperlight":
             case "graphpaperlight":
