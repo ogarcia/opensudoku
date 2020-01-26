@@ -225,6 +225,9 @@
     </style>
 
     <style name="Theme.Paper">
+        <item name="colorPrimary">@color/default_backgroundColorTouched</item>
+        <item name="colorPrimaryDark">@color/default_backgroundColorHighlighted</item>
+        <item name="colorAccent">@color/blue_grey_200</item>
         <item name="lineColor">@color/default_lineColor</item>
         <item name="sectorLineColor">@color/default_sectorLineColor</item>
         <item name="textColor">@color/default_textColor</item>
@@ -239,6 +242,9 @@
     </style>
 
     <style name="Theme.GraphPaper">
+        <item name="colorPrimary">@color/default_backgroundColorTouched</item>
+        <item name="colorPrimaryDark">@color/default_backgroundColorHighlighted</item>
+        <item name="colorAccent">@color/blue_grey_200</item>
         <item name="lineColor">@color/default_lineColor</item>
         <item name="sectorLineColor">@color/default_sectorLineColor</item>
         <item name="textColor">@color/default_textColor</item>
@@ -252,6 +258,9 @@
     </style>
 
     <style name="Theme.Light" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/light_backgroundColorTouched</item>
+        <item name="colorPrimaryDark">@color/light_backgroundColorHighlighted</item>
+        <item name="colorAccent">@color/blue_grey_700</item>
         <item name="lineColor">@color/light_lineColor</item>
         <item name="sectorLineColor">@color/light_sectorLineColor</item>
         <item name="textColor">@color/light_textColor</item>
@@ -266,6 +275,9 @@
     </style>
 
     <style name="Theme.PaperLight" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/light_backgroundColorTouched</item>
+        <item name="colorPrimaryDark">@color/light_backgroundColorHighlighted</item>
+        <item name="colorAccent">@color/blue_grey_700</item>
         <item name="lineColor">@color/light_lineColor</item>
         <item name="sectorLineColor">@color/light_sectorLineColor</item>
         <item name="textColor">@color/light_textColor</item>
@@ -280,6 +292,9 @@
     </style>
 
     <style name="Theme.GraphPaperLight" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/light_backgroundColorTouched</item>
+        <item name="colorPrimaryDark">@color/light_backgroundColorHighlighted</item>
+        <item name="colorAccent">@color/blue_grey_700</item>
         <item name="lineColor">@color/light_lineColor</item>
         <item name="sectorLineColor">@color/light_sectorLineColor</item>
         <item name="textColor">@color/light_textColor</item>
@@ -293,6 +308,9 @@
     </style>
 
     <style name="Theme.HighContrast">
+        <item name="colorPrimary">@color/highcontrast_highlight</item>
+        <item name="colorPrimaryDark">@color/light_backgroundColorHighlighted</item>
+        <item name="colorAccent">@color/highcontrast_bright</item>
         <item name="lineColor">@color/highcontrast_bright</item>
         <item name="sectorLineColor">@color/highcontrast_bright</item>
         <item name="textColor">@color/highcontrast_bright</item>
@@ -307,6 +325,9 @@
     </style>
 
     <style name="Theme.InvertedHighContrast" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">@color/highcontrast_invertedHighlight</item>
+        <item name="colorPrimaryDark">@color/highcontrast_invertedSelect</item>
+        <item name="colorAccent">@color/highcontrast_dark</item>
         <item name="lineColor">@color/highcontrast_dark</item>
         <item name="sectorLineColor">@color/highcontrast_dark</item>
         <item name="textColor">@color/highcontrast_dark</item>
