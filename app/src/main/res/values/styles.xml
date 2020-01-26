@@ -84,8 +84,8 @@
         <item name="backgroundColorSecondary">@android:color/black</item>
         <item name="backgroundColorReadOnly">@color/brown_900</item>
         <item name="backgroundColorTouched">@color/yellow_500</item>
-        <item name="backgroundColorSelected">@color/brown_500</item>
-        <item name="backgroundColorHighlighted">@color/brown_600</item>
+        <item name="backgroundColorSelected">@color/brown_300</item>
+        <item name="backgroundColorHighlighted">@color/brown_400</item>
     </style>
 
     <style name="Theme.Sunrise" parent="Theme.AppCompat.Light">
@@ -151,9 +151,9 @@
         <item name="backgroundColor">@android:color/black</item>
         <item name="backgroundColorSecondary">@android:color/black</item>
         <item name="backgroundColorReadOnly">@color/indigo_900</item>
-        <item name="backgroundColorTouched">@color/light_blue_500</item>
-        <item name="backgroundColorSelected">@color/indigo_500</item>
-        <item name="backgroundColorHighlighted">@color/indigo_600</item>
+        <item name="backgroundColorTouched">@color/light_blue_200</item>
+        <item name="backgroundColorSelected">@color/light_blue_500</item>
+        <item name="backgroundColorHighlighted">@color/light_blue_600</item>
     </style>
 
     <style name="Theme.Emerald" parent="Theme.AppCompat.Light">
@@ -169,8 +169,8 @@
         <item name="backgroundColorSecondary">@android:color/white</item>
         <item name="backgroundColorReadOnly">@color/green_50</item>
         <item name="backgroundColorTouched">@color/green_A700</item>
-        <item name="backgroundColorSelected">@color/green_200</item>
-        <item name="backgroundColorHighlighted">@color/green_100</item>
+        <item name="backgroundColorSelected">@color/green_400</item>
+        <item name="backgroundColorHighlighted">@color/green_300</item>
     </style>
 
     <style name="Theme.Forest">
@@ -186,8 +186,8 @@
         <item name="backgroundColorSecondary">@android:color/black</item>
         <item name="backgroundColorReadOnly">@color/green_900</item>
         <item name="backgroundColorTouched">@color/green_A400</item>
-        <item name="backgroundColorSelected">@color/green_500</item>
-        <item name="backgroundColorHighlighted">@color/green_600</item>
+        <item name="backgroundColorSelected">@color/green_400</item>
+        <item name="backgroundColorHighlighted">@color/green_300</item>
     </style>
 
     <style name="Theme.Amethyst" parent="Theme.AppCompat.Light">
