@@ -339,4 +339,12 @@
     <string name="puzzle_solvable">This puzzle has a solution.</string>
 
     <string name="copy_from_existing_theme">Copy from existing theme…</string>
+    <string name="is_light_theme_summary">Change if the app colors are based on the light or dark theme.</string>
+    <string name="is_light_theme_title">Light theme</string>
+    <string name="app_color_primary_summary">This color is used for the background of the title bar.</string>
+    <string name="app_color_primary_title">Primary App Color</string>
+    <string name="app_color_secondary_summary">This color is used for the Android status bar and is usually a darker version of the primary app color.</string>
+    <string name="app_color_secondary_title">Secondary App Color</string>
+    <string name="app_color_accent_summary">This color is used to accent various UI controls.</string>
+    <string name="app_color_accent_title">App Accent Color</string>
 </resources>
