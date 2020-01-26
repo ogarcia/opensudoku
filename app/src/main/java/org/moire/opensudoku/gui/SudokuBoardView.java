@@ -393,13 +393,13 @@ public class SudokuBoardView extends View {
         mCellValuePaint.setTextSize(cellTextSize);
         mCellValueReadonlyPaint.setTextSize(cellTextSize);
         mCellValueInvalidPaint.setTextSize(cellTextSize);
-        mCellNotePaint.setTextSize(mCellHeight / 3.0f);
         // compute offsets in each cell to center the rendered number
         mNumberLeft = (int) ((mCellWidth - mCellValuePaint.measureText("9")) / 2);
         mNumberTop = (int) ((mCellHeight - mCellValuePaint.getTextSize()) / 2);
 
         // add some offset because in some resolutions notes are cut-off in the top
         mNoteTop = mCellHeight / 50.0f;
+        mCellNotePaint.setTextSize((mCellHeight - mNoteTop * 2) / 3.0f);
 
         computeSectorLineWidth(width, height);
     }
@@ -538,7 +538,6 @@ public class SudokuBoardView extends View {
                                 int n = number - 1;
                                 int c = n % 3;
                                 int r = n / 3;
-                                //canvas.drawText(Integer.toString(number), cellLeft + c*noteWidth + 2, cellTop + noteAscent + r*noteWidth - 1, mNotePaint);
                                 canvas.drawText(Integer.toString(number), cellLeft + c * noteWidth + 2, cellTop + mNoteTop - noteAscent + r * noteWidth - 1, mCellNotePaint);
                             }
                         }
