@@ -205,7 +205,6 @@ public class ThemeUtils {
             board.setBackgroundColorHighlighted(themeColors.getColor(10, R.color.default_backgroundColorHighlighted));
         }
         board.invalidate();
-        board.in
     }
 
     public static void prepareSudokuPreviewView(SudokuBoardView board) {
