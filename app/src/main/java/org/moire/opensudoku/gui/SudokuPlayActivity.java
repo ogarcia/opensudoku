@@ -205,7 +205,16 @@ public class SudokuPlayActivity extends ThemedActivity {
 
         mSudokuBoard.setHighlightWrongVals(gameSettings.getBoolean("highlight_wrong_values", true));
         mSudokuBoard.setHighlightTouchedCell(gameSettings.getBoolean("highlight_touched_cell", true));
-        mSudokuBoard.setHighlightSimilarCell(gameSettings.getBoolean("highlight_similar_cells", true));
+
+        boolean highlightSimilarCells = gameSettings.getBoolean("highlight_similar_cells", true);
+        boolean highlightSimilarNotes = gameSettings.getBoolean("highlight_similar_notes", true);
+        if (highlightSimilarCells) {
+            mSudokuBoard.setHighlightSimilarCell(highlightSimilarNotes ?
+                    SudokuBoardView.HighlightMode.NUMBERS_AND_NOTES :
+                    SudokuBoardView.HighlightMode.NUMBERS);
+        } else {
+            mSudokuBoard.setHighlightSimilarCell(SudokuBoardView.HighlightMode.NONE);
+        }
 
         mShowTime = gameSettings.getBoolean("show_time", true);
         if (mSudokuGame.getState() == SudokuGame.GAME_STATE_PLAYING) {

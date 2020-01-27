@@ -64,7 +64,12 @@ public class SudokuBoardView extends View {
     private boolean mHighlightWrongVals = true;
     private boolean mHighlightTouchedCell = true;
     private boolean mAutoHideTouchedCellHint = true;
-    private boolean mHighlightSimilarCells = true;
+    public enum HighlightMode {
+        NONE,
+        NUMBERS,
+        NUMBERS_AND_NOTES
+    };
+    private HighlightMode mHighlightSimilarCells = HighlightMode.NONE;
 
     private SudokuGame mGame;
     private CellCollection mCells;
@@ -281,12 +286,8 @@ public class SudokuBoardView extends View {
         return mAutoHideTouchedCellHint;
     }
 
-    public void setHighlightSimilarCell(boolean highlightSimilarCell) {
+    public void setHighlightSimilarCell(HighlightMode highlightSimilarCell) {
         mHighlightSimilarCells = highlightSimilarCell;
-    }
-
-    public boolean getHighlightSimilarCell() {
-        return mHighlightSimilarCells;
     }
 
     public void setHighlightedValue(int value) {
@@ -450,11 +451,6 @@ public class SudokuBoardView extends View {
             float noteAscent = mCellNotePaint.ascent();
             float noteWidth = mCellWidth / 3f;
 
-            int selectedValue = 0;
-            if (mHighlightSimilarCells && mHighlightedValue > 0) {
-                selectedValue = mHighlightedValue;
-            }
-
             for (int row = 0; row < 9; row++) {
                 for (int col = 0; col < 9; col++) {
                     Cell cell = mCells.getCell(row, col);
@@ -474,8 +470,36 @@ public class SudokuBoardView extends View {
                     }
 
                     // highlight similar cells
-                    if (selectedValue != 0 && selectedValue == cell.getValue() &&
-                            (mSelectedCell == null || mSelectedCell != cell)) {
+                    boolean cellIsNotAlreadySelected = (mSelectedCell == null || mSelectedCell != cell);
+                    boolean highlightedValueIsValid = mHighlightedValue != 0;
+                    boolean shouldHighlightCell = false;
+
+                    switch (mHighlightSimilarCells) {
+                        default:
+                        case NONE: {
+                            shouldHighlightCell = false;
+                            break;
+                        }
+
+                        case NUMBERS: {
+                            shouldHighlightCell =
+                                    cellIsNotAlreadySelected &&
+                                    highlightedValueIsValid &&
+                                    mHighlightedValue == cell.getValue();
+                            break;
+                        }
+
+                        case NUMBERS_AND_NOTES: {
+                            shouldHighlightCell =
+                                    cellIsNotAlreadySelected &&
+                                    highlightedValueIsValid &&
+                                    (mHighlightedValue == cell.getValue() ||
+                                            (cell.getNote().getNotedNumbers().contains(mHighlightedValue)) &&
+                                            cell.getValue() == 0);
+                        }
+                    }
+
+                    if (shouldHighlightCell) {
                         if (mBackgroundColorHighlighted.getColor() != NO_COLOR) {
                             canvas.drawRect(
                                     cellLeft, cellTop,
