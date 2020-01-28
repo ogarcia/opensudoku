@@ -37,6 +37,7 @@ import android.widget.SimpleAdapter.ViewBinder;
 import android.widget.TextView;
 
 import org.moire.opensudoku.R;
+import org.moire.opensudoku.utils.ThemeUtils;
 
 import java.io.File;
 import java.text.DateFormat;
@@ -67,8 +68,12 @@ public class FileListActivity extends ListActivity {
     private List<Map<String, Object>> mList;
     private Context mContext = this;
 
+    private long mTimestampWhenApplyingTheme = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        ThemeUtils.setThemeFromPreferences(this);
+        mTimestampWhenApplyingTheme = System.currentTimeMillis();
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.file_list);
@@ -133,6 +138,15 @@ public class FileListActivity extends ListActivity {
     @Override
     protected void onDestroy() {
         super.onDestroy();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (ThemeUtils.sTimestampOfLastThemeUpdate > mTimestampWhenApplyingTheme) {
+            recreate();
+        }
     }
 
     @Override

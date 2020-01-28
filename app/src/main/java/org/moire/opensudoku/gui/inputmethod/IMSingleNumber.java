@@ -21,6 +21,7 @@
 package org.moire.opensudoku.gui.inputmethod;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.os.Handler;
@@ -40,6 +41,7 @@ import org.moire.opensudoku.gui.HintsQueue;
 import org.moire.opensudoku.gui.SudokuBoardView;
 import org.moire.opensudoku.gui.SudokuPlayActivity;
 import org.moire.opensudoku.gui.inputmethod.IMControlPanelStatePersister.StateBundle;
+import org.moire.opensudoku.utils.ThemeUtils;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -207,16 +209,12 @@ public class IMSingleNumber extends InputMethod {
         mGuiHandler.postDelayed(() -> {
             for (Button b : mNumberButtons.values()) {
                 if (b.getTag().equals(mSelectedNumber)) {
-                    b.setTextAppearance(mContext, android.R.style.TextAppearance_Large);
-                    b.getBackground().setColorFilter(null);
-                    /* Use focus instead color */
-                    /*LightingColorFilter selBkgColorFilter = new LightingColorFilter(
-                            mContext.getResources().getColor(R.color.im_number_button_selected_background), 0);
-                    b.getBackground().setColorFilter(selBkgColorFilter);*/
+                    b.setTextAppearance(mContext, ThemeUtils.getCurrentThemeStyle(mContext, android.R.attr.textAppearanceLarge));
+                    ThemeUtils.applyIMButtonStateToView(b, ThemeUtils.IMButtonStyle.ACCENT);
                     b.requestFocus();
                 } else {
-                    b.setTextAppearance(mContext, android.R.style.TextAppearance_Widget_Button);
-                    b.getBackground().setColorFilter(null);
+                    b.setTextAppearance(mContext, ThemeUtils.getCurrentThemeStyle(mContext, android.R.attr.textAppearanceButton));
+                    ThemeUtils.applyIMButtonStateToView(b, ThemeUtils.IMButtonStyle.DEFAULT);
                 }
             }
 
@@ -225,21 +223,11 @@ public class IMSingleNumber extends InputMethod {
                 valuesUseCount = mGame.getCells().getValuesUseCount();
 
             if (mHighlightCompletedValues) {
-                //int completedTextColor = mContext.getResources().getColor(R.color.im_number_button_completed_text);
                 for (Map.Entry<Integer, Integer> entry : valuesUseCount.entrySet()) {
                     boolean highlightValue = entry.getValue() >= CellCollection.SUDOKU_SIZE;
-                    if (highlightValue) {
-                        Button b = mNumberButtons.get(entry.getKey());
-/*
-                        if (b.getTag().equals(mSelectedNumber)) {
-                            b.setTextColor(completedTextColor);
-                        } else {
-                            b.getBackground().setColorFilter(0xFF008800, PorterDuff.Mode.MULTIPLY);
-                        }
-*/
-                        // Only set background color
-                        b.getBackground().setColorFilter(0xFF1B5E20, PorterDuff.Mode.MULTIPLY);
-                        b.setTextColor(Color.WHITE);
+                    boolean selected = entry.getKey() == mSelectedNumber;
+                    if (highlightValue && !selected) {
+                        ThemeUtils.applyIMButtonStateToView(mNumberButtons.get(entry.getKey()), ThemeUtils.IMButtonStyle.ACCENT_HIGHCONTRAST);
                     }
                 }
             }
@@ -254,7 +242,7 @@ public class IMSingleNumber extends InputMethod {
                 }
             }
 
-            mBoard.setHighlightedValue(mSelectedNumber);
+            mBoard.setHighlightedValue(mBoard.isReadOnly() ? 0 : mSelectedNumber);
         }, 100);
     }
 
@@ -267,7 +255,7 @@ public class IMSingleNumber extends InputMethod {
     protected void onCellSelected(Cell cell) {
         super.onCellSelected(cell);
 
-        if (mBidirectionalSelection) {
+        if (mBidirectionalSelection && cell != null) {
             int v = cell.getValue();
             if (v != 0 && v != mSelectedNumber) {
                 mSelectedNumber = cell.getValue();
@@ -279,7 +267,7 @@ public class IMSingleNumber extends InputMethod {
     }
 
     private void onSelectedNumberChanged() {
-        if (mBidirectionalSelection && mHighlightSimilar && mOnSelectedNumberChangedListener != null) {
+        if (mBidirectionalSelection && mHighlightSimilar && mOnSelectedNumberChangedListener != null && !mBoard.isReadOnly()) {
             mOnSelectedNumberChangedListener.onSelectedNumberChanged(mSelectedNumber);
             mBoard.setHighlightedValue(mSelectedNumber);
         }

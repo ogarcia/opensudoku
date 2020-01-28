@@ -37,6 +37,7 @@ import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import org.moire.opensudoku.R;
+import org.moire.opensudoku.utils.ThemeUtils;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -70,17 +71,10 @@ public class IMPopupDialog extends Dialog {
 
         mTabHost = createTabView();
 
-        // hide dialog's title
-        //TextView title = findViewById(android.R.id.title);
-        //title.setVisibility(View.GONE);
-
         setContentView(mTabHost);
     }
 
     /**
-     * LightingColorFilter bkgColorFilter = new LightingColorFilter(
-     * mContext.getResources().getColor(R.color.im_number_button_completed_background), 0);
-     * <p/>
      * Registers a callback to be invoked when number is selected.
      *
      * @param l
@@ -99,40 +93,25 @@ public class IMPopupDialog extends Dialog {
     }
 
     public void resetButtons() {
-/*
-        for (Button b : mNumberButtons.values()) {
-            b.setBackgroundResource(R.drawable.btn_default_bg);
-        }
-
-        for (Button b : mNoteNumberButtons.values()) {
-            b.setBackgroundResource(R.drawable.btn_toggle_bg);
-        }
-*/
-
         for (Map.Entry<Integer, ToggleButton> entry : mNoteNumberButtons.entrySet()) {
             entry.getValue().setText("" + entry.getKey());
+            ThemeUtils.applyIMButtonStateToView(entry.getValue(), ThemeUtils.IMButtonStyle.DEFAULT);
+        }
+
+        for (Map.Entry<Integer, Button> entry : mNumberButtons.entrySet()) {
+            ThemeUtils.applyIMButtonStateToView(entry.getValue(), ThemeUtils.IMButtonStyle.DEFAULT);
         }
     }
 
     // TODO: vsude jinde pouzivam misto number value
     public void updateNumber(Integer number) {
         mSelectedNumber = number;
-
-        //LightingColorFilter selBkgColorFilter = new LightingColorFilter(
-        //		mContext.getResources().getColor(R.color.im_number_button_selected_background), 0);
-
         for (Map.Entry<Integer, Button> entry : mNumberButtons.entrySet()) {
             Button b = entry.getValue();
             if (entry.getKey().equals(mSelectedNumber)) {
-                b.setTextColor(Color.WHITE);
-                //b.setTextAppearance(mContext, android.R.style.TextAppearance_Inverse);
-                //b.getBackground().setColorFilter(selBkgColorFilter);
-                //b.getBackground().setColorFilter(new LightingColorFilter(Color.parseColor("#00695c"), 0));
-                b.getBackground().setColorFilter(0x44FFFFFF, PorterDuff.Mode.MULTIPLY);
+                ThemeUtils.applyIMButtonStateToView(b, ThemeUtils.IMButtonStyle.ACCENT);
             } else {
-                //b.setTextAppearance(mContext, android.R.style.TextAppearance_Widget_Button);
-                b.setTextColor(Color.WHITE);
-                b.getBackground().setColorFilter(null);
+                ThemeUtils.applyIMButtonStateToView(b, ThemeUtils.IMButtonStyle.DEFAULT);
             }
         }
     }
@@ -149,44 +128,25 @@ public class IMPopupDialog extends Dialog {
             mNoteSelectedNumbers.addAll(numbers);
         }
 
+        ToggleButton toggleButton;
         for (Integer number : mNoteNumberButtons.keySet()) {
-            mNoteNumberButtons.get(number).setChecked(mNoteSelectedNumbers.contains(number));
+            toggleButton = mNoteNumberButtons.get(number);
+            toggleButton.setChecked(mNoteSelectedNumbers.contains(number));
+            if (toggleButton.isChecked()) {
+                ThemeUtils.applyIMButtonStateToView(toggleButton, ThemeUtils.IMButtonStyle.ACCENT);
+            }
         }
     }
-
-/*
-    public void enableAllNumbers() {
-        for (Button b : mNumberButtons.values()) {
-            b.setEnabled(true);
-        }
-        for (Button b : mNoteNumberButtons.values()) {
-            b.setEnabled(true);
-        }
-    }
-
-    public void setNumberEnabled(int number, boolean enabled) {
-        mNumberButtons.get(number).setEnabled(enabled);
-        mNoteNumberButtons.get(number).setEnabled(enabled);
-    }
-*/
 
     public void highlightNumber(int number) {
-        //int completedTextColor = mContext.getResources().getColor(R.color.im_number_button_completed_text);
 
+        Button b = mNumberButtons.get(number);
         if (number == mSelectedNumber) {
             // Set color of completed and selected number
-            mNumberButtons.get(number).getBackground().setColorFilter(0xFF2E7D32, PorterDuff.Mode.MULTIPLY);
-            //	mNumberButtons.get(number).setTextColor(Color.parseColor("#a5d6a7"));
+            ThemeUtils.applyIMButtonStateToView(b, ThemeUtils.IMButtonStyle.ACCENT);
         } else {
-            // Set color of completed number but not selected
-            mNumberButtons.get(number).getBackground().setColorFilter(0xFF1B5E20, PorterDuff.Mode.MULTIPLY);
-            //mNumberButtons.get(number).setTextColor(Color.parseColor("#000000"));
-            //mNumberButtons.get(number).setBackgroundResource(R.drawable.btn_completed_bg);
+            ThemeUtils.applyIMButtonStateToView(b, ThemeUtils.IMButtonStyle.ACCENT_HIGHCONTRAST);
         }
-
-        // Set color of completed numbers in notes section
-        mNoteNumberButtons.get(number).getBackground().setColorFilter(0xFF1B5E20, PorterDuff.Mode.MULTIPLY);
-        //mNoteNumberButtons.get(number).setBackgroundResource(R.drawable.btn_toggle_completed_bg);
     }
 
     public void setValueCount(int number, int count) {
@@ -326,6 +286,7 @@ public class IMPopupDialog extends Dialog {
         } else {
             mNoteSelectedNumbers.remove(number);
         }
+        ThemeUtils.applyIMButtonStateToView(buttonView, isChecked ? ThemeUtils.IMButtonStyle.ACCENT : ThemeUtils.IMButtonStyle.DEFAULT);
     };
 
     /**

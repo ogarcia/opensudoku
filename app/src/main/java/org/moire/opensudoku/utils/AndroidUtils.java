@@ -1,5 +1,6 @@
 package org.moire.opensudoku.utils;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -32,35 +33,6 @@ public class AndroidUtils {
                 packageManager.queryIntentActivities(intent,
                         PackageManager.MATCH_DEFAULT_ONLY);
         return list.size() > 0;
-    }
-
-    public static int getThemeResourceIdFromString(String theme){
-        switch (theme) {
-            case "default":
-                return R.style.Theme_Default;
-            case "paper":
-                return R.style.Theme_Paper;
-            case "graphpaper":
-                return R.style.Theme_GraphPaper;
-            case "light":
-                return R.style.Theme_Light;
-            case "paperlight":
-                return R.style.Theme_PaperLight;
-            case "graphpaperlight":
-                return R.style.Theme_GraphPaperLight;
-            case "highcontrast":
-                return R.style.Theme_HighContrast;
-            case "invertedhighcontrast":
-                return R.style.Theme_InvertedHighContrast;
-            default:
-                return R.style.Theme_Default;
-        }
-    }
-
-    public static void setThemeFromPreferences(Context context) {
-        SharedPreferences gameSettings = PreferenceManager.getDefaultSharedPreferences(context);
-        String theme = gameSettings.getString("theme", "default");
-        context.setTheme(getThemeResourceIdFromString(theme));
     }
 
     /**

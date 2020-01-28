@@ -37,8 +37,10 @@ import org.moire.opensudoku.game.SudokuGame;
 import org.moire.opensudoku.gui.HintsQueue;
 import org.moire.opensudoku.gui.SudokuBoardView;
 import org.moire.opensudoku.gui.inputmethod.IMControlPanelStatePersister.StateBundle;
+import org.moire.opensudoku.utils.ThemeUtils;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class IMNumpad extends InputMethod {
@@ -145,22 +147,19 @@ public class IMNumpad extends InputMethod {
 
     @Override
     protected void onActivated() {
-        update();
-
-        mSelectedCell = mBoard.getSelectedCell();
+        onCellSelected(mBoard.isReadOnly() ? null : mBoard.getSelectedCell());
     }
 
     @Override
     protected void onCellSelected(Cell cell) {
         if (cell != null) {
-            if (cell.getValue() == mBoard.getHighlightedValue()) {
-                mBoard.setHighlightedValue(0);
-            } else if (cell.getValue() > 0) {
-                mBoard.setHighlightedValue(cell.getValue());
-            }
+            mBoard.setHighlightedValue(cell.getValue());
+        } else {
+            mBoard.setHighlightedValue(0);
         }
 
         mSelectedCell = cell;
+        update();
     }
 
     private OnClickListener mNumberButtonClick = new OnClickListener() {
@@ -211,18 +210,39 @@ public class IMNumpad extends InputMethod {
                 break;
         }
 
+        if (mEditMode == MODE_EDIT_VALUE) {
+            int selectedNumber = mSelectedCell == null ? 0 : mSelectedCell.getValue();
+            for (Button b : mNumberButtons.values()) {
+                if (b.getTag().equals(selectedNumber)) {
+                    ThemeUtils.applyIMButtonStateToView(b, ThemeUtils.IMButtonStyle.ACCENT);
+                } else {
+                    ThemeUtils.applyIMButtonStateToView(b, ThemeUtils.IMButtonStyle.DEFAULT);
+                }
+            }
+        } else {
+            CellNote note = mSelectedCell == null ? new CellNote() : mSelectedCell.getNote();
+            List<Integer> notedNumbers = note.getNotedNumbers();
+            for (Button b : mNumberButtons.values()) {
+                if (notedNumbers.contains(b.getTag())) {
+                    ThemeUtils.applyIMButtonStateToView(b, ThemeUtils.IMButtonStyle.ACCENT);
+                } else {
+                    ThemeUtils.applyIMButtonStateToView(b, ThemeUtils.IMButtonStyle.DEFAULT);
+                }
+            }
+        }
+
         Map<Integer, Integer> valuesUseCount = null;
         if (mHighlightCompletedValues || mShowNumberTotals)
             valuesUseCount = mGame.getCells().getValuesUseCount();
 
-        if (mHighlightCompletedValues) {
+        if (mHighlightCompletedValues && mEditMode == MODE_EDIT_VALUE) {
+            int selectedNumber = mSelectedCell == null ? 0 : mSelectedCell.getValue();
             for (Map.Entry<Integer, Integer> entry : valuesUseCount.entrySet()) {
                 boolean highlightValue = entry.getValue() >= CellCollection.SUDOKU_SIZE;
+                boolean selected = entry.getKey() == selectedNumber;
                 Button b = mNumberButtons.get(entry.getKey());
-                if (highlightValue) {
-                    b.getBackground().setColorFilter(0xFF1B5E20, PorterDuff.Mode.MULTIPLY);
-                } else {
-                    b.getBackground().setColorFilter(null);
+                if (highlightValue && !selected) {
+                    ThemeUtils.applyIMButtonStateToView(b, ThemeUtils.IMButtonStyle.ACCENT_HIGHCONTRAST);
                 }
             }
         }

@@ -36,7 +36,7 @@ import androidx.appcompat.app.AppCompatActivity;
  *
  * @author romario
  */
-public class FileImportActivity extends AppCompatActivity {
+public class FileImportActivity extends ThemedActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

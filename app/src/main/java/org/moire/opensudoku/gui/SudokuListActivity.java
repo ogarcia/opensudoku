@@ -54,6 +54,7 @@ import org.moire.opensudoku.game.CellCollection;
 import org.moire.opensudoku.game.FolderInfo;
 import org.moire.opensudoku.game.SudokuGame;
 import org.moire.opensudoku.utils.AndroidUtils;
+import org.moire.opensudoku.utils.ThemeUtils;
 
 import java.text.DateFormat;
 import java.util.Date;
@@ -63,7 +64,7 @@ import java.util.Date;
  *
  * @author romario
  */
-public class SudokuListActivity extends AppCompatActivity {
+public class SudokuListActivity extends ThemedActivity {
 
     public static final String EXTRA_FOLDER_ID = "folder_id";
 
@@ -109,8 +110,6 @@ public class SudokuListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        // theme must be set before setContentView
-        AndroidUtils.setThemeFromPreferences(this);
         setContentView(R.layout.sudoku_list);
         mFilterStatus = findViewById(R.id.filter_status);
 
@@ -516,11 +515,9 @@ public class SudokuListActivity extends AppCompatActivity {
                             : View.VISIBLE);
                     label.setText(stateString);
                     if (state == SudokuGame.GAME_STATE_COMPLETED) {
-                        // TODO: read colors from android resources
-                        label.setTextColor(Color.rgb(150, 150, 150));
+                        label.setTextColor(ThemeUtils.getCurrentThemeColor(view.getContext(), android.R.attr.colorAccent));
                     } else {
-                        label.setTextColor(Color.rgb(255, 255, 255));
-                        //label.setTextColor(SudokuListActivity.this.getResources().getColor(R.));
+                        label.setTextColor(ThemeUtils.getCurrentThemeColor(view.getContext(), android.R.attr.textColorPrimary));
                     }
                     break;
                 case R.id.time:
@@ -534,10 +531,9 @@ public class SudokuListActivity extends AppCompatActivity {
                             : View.VISIBLE);
                     label.setText(timeString);
                     if (state == SudokuGame.GAME_STATE_COMPLETED) {
-                        // TODO: read colors from android resources
-                        label.setTextColor(Color.rgb(150, 150, 150));
+                        label.setTextColor(ThemeUtils.getCurrentThemeColor(view.getContext(), android.R.attr.colorAccent));
                     } else {
-                        label.setTextColor(Color.rgb(255, 255, 255));
+                        label.setTextColor(ThemeUtils.getCurrentThemeColor(view.getContext(), android.R.attr.textColorPrimary));
                     }
                     break;
                 case R.id.last_played:

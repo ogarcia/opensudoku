@@ -30,7 +30,7 @@ import org.moire.opensudoku.gui.exporting.FileExportTaskParams;
 import java.io.File;
 import java.util.Date;
 
-public class SudokuExportActivity extends AppCompatActivity {
+public class SudokuExportActivity extends ThemedActivity {
     /**
      * Id of folder to export. If -1, all folders will be exported.
      */

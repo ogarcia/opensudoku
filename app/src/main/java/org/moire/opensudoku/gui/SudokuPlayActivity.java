@@ -53,7 +53,7 @@ import org.moire.opensudoku.gui.inputmethod.IMPopup;
 import org.moire.opensudoku.gui.inputmethod.IMSingleNumber;
 import org.moire.opensudoku.utils.AndroidUtils;
 
-public class SudokuPlayActivity extends AppCompatActivity {
+public class SudokuPlayActivity extends ThemedActivity {
 
     public static final String EXTRA_SUDOKU_ID = "sudoku_id";
 
@@ -121,9 +121,6 @@ public class SudokuPlayActivity extends AppCompatActivity {
             mFullScreen = true;
         }
 
-        // theme must be set before setContentView
-        AndroidUtils.setThemeFromPreferences(this);
-
         setContentView(R.layout.sudoku_play);
 
         mRootLayout = findViewById(R.id.root_layout);
@@ -173,7 +170,7 @@ public class SudokuPlayActivity extends AppCompatActivity {
         mIMNumpad = mIMControlPanel.getInputMethod(IMControlPanel.INPUT_METHOD_NUMPAD);
 
         Cell cell = mSudokuGame.getLastChangedCell();
-        if (cell != null)
+        if (cell != null && !mSudokuBoard.isReadOnly())
             mSudokuBoard.moveCellSelectionTo(cell.getRowIndex(), cell.getColumnIndex());
         else
             mSudokuBoard.moveCellSelectionTo(0, 0);
@@ -192,7 +189,7 @@ public class SudokuPlayActivity extends AppCompatActivity {
         mFillInNotesEnabled = gameSettings.getBoolean("fill_in_notes_enabled", false);
 
         String theme = gameSettings.getString("theme", "default");
-        if (theme.equals("custom")) {
+        if (theme.equals("custom") || theme.equals("custom_light")) {
             mSudokuBoard.setLineColor(gameSettings.getInt("custom_theme_lineColor", R.color.default_lineColor));
             mSudokuBoard.setSectorLineColor(gameSettings.getInt("custom_theme_sectorLineColor", R.color.default_sectorLineColor));
             mSudokuBoard.setTextColor(gameSettings.getInt("custom_theme_textColor", R.color.default_textColor));
@@ -236,7 +233,10 @@ public class SudokuPlayActivity extends AppCompatActivity {
 
         mIMControlPanel.activateFirstInputMethod(); // make sure that some input method is activated
         mIMControlPanelStatePersister.restoreState(mIMControlPanel);
-        mSudokuBoard.invokeOnCellSelected();
+
+        if (!mSudokuBoard.isReadOnly()) {
+            mSudokuBoard.invokeOnCellSelected();
+        }
 
         updateTime();
     }
@@ -573,6 +573,8 @@ public class SudokuPlayActivity extends AppCompatActivity {
                 if (cell != null) {
                     mSudokuBoard.moveCellSelectionTo(cell.getRowIndex(), cell.getColumnIndex());
                 }
+            } else {
+                mSudokuBoard.clearCellSelection();
             }
         }
     };

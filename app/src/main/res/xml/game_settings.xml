@@ -83,6 +83,29 @@
         <org.moire.opensudoku.gui.SudokuBoardCustomThemePreferenceGroup
             android:key="screen_custom_theme"
             android:title="@string/screen_custom_theme">
+            <SwitchPreference
+                android:defaultValue="false"
+                android:key="custom_theme_isLightTheme"
+                android:summary="@string/is_light_theme_summary"
+                android:title="@string/is_light_theme_title" />
+            <net.margaritov.preference.colorpicker.ColorPickerPreference
+                alphaSlider="true"
+                android:defaultValue="@color/opensudoku_colorPrimary"
+                android:key="custom_theme_colorPrimary"
+                android:summary="@string/app_color_primary_summary"
+                android:title="@string/app_color_primary_title" />
+            <net.margaritov.preference.colorpicker.ColorPickerPreference
+                alphaSlider="true"
+                android:defaultValue="@color/opensudoku_colorPrimaryDark"
+                android:key="custom_theme_colorPrimaryDark"
+                android:summary="@string/app_color_secondary_summary"
+                android:title="@string/app_color_secondary_title" />
+            <net.margaritov.preference.colorpicker.ColorPickerPreference
+                alphaSlider="true"
+                android:defaultValue="@color/opensudoku_colorAccent"
+                android:key="custom_theme_colorAccent"
+                android:summary="@string/app_color_accent_summary"
+                android:title="@string/app_color_accent_title" />
             <net.margaritov.preference.colorpicker.ColorPickerPreference
                 alphaSlider="true"
                 android:defaultValue="@color/default_lineColor"
