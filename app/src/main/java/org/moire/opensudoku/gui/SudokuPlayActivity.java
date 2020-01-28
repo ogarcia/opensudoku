@@ -296,6 +296,10 @@ public class SudokuPlayActivity extends ThemedActivity {
         super.onCreateOptionsMenu(menu);
 
         menu.add(0, MENU_ITEM_UNDO, 0, R.string.undo)
+                .setIcon(R.drawable.ic_undo)
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+
+        menu.add(0, MENU_ITEM_UNDO, 0, R.string.undo)
                 .setShortcut('1', 'u')
                 .setIcon(R.drawable.ic_undo);
 
@@ -317,6 +321,10 @@ public class SudokuPlayActivity extends ThemedActivity {
         menu.add(0, MENU_ITEM_RESTART, 7, R.string.restart)
                 .setShortcut('7', 'r')
                 .setIcon(R.drawable.ic_restore);
+
+        menu.add(0, MENU_ITEM_SETTINGS, 8, R.string.settings)
+                .setIcon(R.drawable.ic_settings)
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 
         menu.add(0, MENU_ITEM_SETTINGS, 8, R.string.settings)
                 .setShortcut('9', 's')
