@@ -52,6 +52,7 @@ import org.moire.opensudoku.gui.inputmethod.IMNumpad;
 import org.moire.opensudoku.gui.inputmethod.IMPopup;
 import org.moire.opensudoku.gui.inputmethod.IMSingleNumber;
 import org.moire.opensudoku.utils.AndroidUtils;
+import org.moire.opensudoku.utils.ThemeUtils;
 
 public class SudokuPlayActivity extends ThemedActivity {
 
@@ -295,9 +296,11 @@ public class SudokuPlayActivity extends ThemedActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
 
+        final boolean isLightTheme = ThemeUtils.isLightTheme(ThemeUtils.getCurrentThemeFromPreferences(getApplicationContext()));
+
         menu.add(0, MENU_ITEM_UNDO, 0, R.string.undo)
-                .setIcon(R.drawable.ic_undo)
-                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+            .setIcon(isLightTheme ? R.drawable.ic_undo_action_black : R.drawable.ic_undo_action_white)
+            .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 
         menu.add(0, MENU_ITEM_UNDO, 0, R.string.undo)
                 .setShortcut('1', 'u')
@@ -323,7 +326,7 @@ public class SudokuPlayActivity extends ThemedActivity {
                 .setIcon(R.drawable.ic_restore);
 
         menu.add(0, MENU_ITEM_SETTINGS, 8, R.string.settings)
-                .setIcon(R.drawable.ic_settings)
+                .setIcon(isLightTheme ? R.drawable.ic_settings_action_black : R.drawable.ic_settings_action_white)
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 
         menu.add(0, MENU_ITEM_SETTINGS, 8, R.string.settings)
