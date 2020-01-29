@@ -203,8 +203,7 @@
 	<string name="game_level_medium">Medium</string>
 	<string name="game_level_hard">Schwer</string>
 
-    <string name="theme_default">Standard</string>
-    <string name="theme_paper">Papier</string>
+	<string name="theme_paper">Papier</string>
     <string name="theme_graph_paper">Karopapier</string>
     <string name="theme_light">Hell</string>
     <string name="theme_paper_light">Papier Hell</string>

@@ -263,7 +263,7 @@
     <string name="game_level_medium">Medium</string>
     <string name="game_level_hard">Hard</string>
 
-    <string name="theme_default">Default</string>
+    <string name="theme_default">Dark</string>
     <string name="theme_amoled">AMOLED</string>
     <string name="theme_latte">Caramel Latte</string>
     <string name="theme_espresso">Espresso</string>
