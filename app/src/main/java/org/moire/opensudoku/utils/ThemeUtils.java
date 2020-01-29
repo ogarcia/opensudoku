@@ -119,6 +119,7 @@ public class ThemeUtils {
             themeResource.applyStyle(getPrimaryColorResourceId(context, gameSettings.getInt("custom_theme_colorPrimary", 0xff49B7AC)), true);
             themeResource.applyStyle(getDarkPrimaryColorResourceId(context, gameSettings.getInt("custom_theme_colorPrimaryDark", 0xff009587)), true);
             themeResource.applyStyle(getAccentColorResourceId(context, gameSettings.getInt("custom_theme_colorAccent", 0xff656565)), true);
+            themeResource.applyStyle(getButtonColorResourceId(context, gameSettings.getInt("custom_theme_colorButtonNormal", 0xff656565)), true);
         }
     }
 
@@ -532,6 +533,10 @@ public class ThemeUtils {
 
     public static int getAccentColorResourceId(Context context, int color) {
         return getColorResourceIdHelper(context, "colorAccent_", color);
+    }
+
+    public static int getButtonColorResourceId(Context context, int color) {
+        return getColorResourceIdHelper(context, "colorButtonNormal_", color);
     }
 
     public static long sTimestampOfLastThemeUpdate = 0;

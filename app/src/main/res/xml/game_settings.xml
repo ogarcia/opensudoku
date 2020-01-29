@@ -108,6 +108,12 @@
                 android:title="@string/app_color_accent_title" />
             <net.margaritov.preference.colorpicker.ColorPickerPreference
                 alphaSlider="true"
+                android:defaultValue="@color/grey_500"
+                android:key="custom_theme_colorButtonNormal"
+                android:summary="@string/app_color_button_summary"
+                android:title="@string/app_color_button_title" />
+            <net.margaritov.preference.colorpicker.ColorPickerPreference
+                alphaSlider="true"
                 android:defaultValue="@color/default_lineColor"
                 android:key="custom_theme_lineColor"
                 android:summary="@string/default_lineColor_summary"
