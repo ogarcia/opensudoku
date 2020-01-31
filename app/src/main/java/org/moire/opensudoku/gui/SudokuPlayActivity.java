@@ -188,7 +188,7 @@ public class SudokuPlayActivity extends ThemedActivity {
 
         mFillInNotesEnabled = gameSettings.getBoolean("fill_in_notes_enabled", false);
 
-        String theme = gameSettings.getString("theme", "default");
+        String theme = gameSettings.getString("theme", "open_sudoku");
         if (theme.equals("custom") || theme.equals("custom_light")) {
             mSudokuBoard.setLineColor(gameSettings.getInt("custom_theme_lineColor", R.color.default_lineColor));
             mSudokuBoard.setSectorLineColor(gameSettings.getInt("custom_theme_sectorLineColor", R.color.default_sectorLineColor));

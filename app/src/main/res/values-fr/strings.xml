@@ -203,7 +203,6 @@
     <string name="game_level_medium">Moyen</string>
     <string name="game_level_hard">Difficile</string>
 
-    <string name="theme_default">Par défaut</string>
     <string name="theme_paper">Papier</string>
     <string name="theme_graph_paper">Papier quadrillé</string>
     <string name="theme_light">Clair</string>

@@ -221,7 +221,6 @@
     <string name="game_level_medium">Medio</string>
     <string name="game_level_hard">Difícil</string>
 
-    <string name="theme_default">Por defecto</string>
     <string name="theme_paper">Papel</string>
     <string name="theme_graph_paper">Papel cuadriculado</string>
     <string name="theme_light">Claro</string>

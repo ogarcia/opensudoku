@@ -11,7 +11,6 @@
         <item>@string/game_level_hard</item>
     </string-array>
     <string-array name="theme_names">
-        <item>@string/theme_default</item>
         <item>@string/app_name</item>
         <item>@string/theme_amoled</item>
         <item>@string/theme_latte</item>
@@ -24,6 +23,7 @@
         <item>@string/theme_forest</item>
         <item>@string/theme_amethyst</item>
         <item>@string/theme_ruby</item>
+        <item>@string/theme_default</item>
         <item>@string/theme_paper</item>
         <item>@string/theme_graph_paper</item>
         <item>@string/theme_light</item>
@@ -35,7 +35,6 @@
     </string-array>
     <!-- Theme codes should not change -->
     <string-array name="theme_codes" translatable="false">
-        <item>default</item>
         <item>opensudoku</item>
         <item>amoled</item>
         <item>latte</item>
@@ -48,6 +47,7 @@
         <item>forest</item>
         <item>amethyst</item>
         <item>ruby</item>
+        <item>default</item>
         <item>paper</item>
         <item>graphpaper</item>
         <item>light</item>

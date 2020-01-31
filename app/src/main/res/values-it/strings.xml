@@ -213,7 +213,6 @@
     <string name="game_level_medium">Medio</string>
     <string name="game_level_hard">Difficile</string>
 
-    <string name="theme_default">Predefinito</string>
     <string name="theme_paper">Carta</string>
     <string name="theme_graph_paper">Carta millimetrata</string>
     <string name="theme_light">Chiaro</string>

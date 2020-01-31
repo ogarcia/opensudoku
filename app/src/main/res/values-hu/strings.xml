@@ -243,7 +243,6 @@
     <string name="game_level_medium">Közepes</string>
     <string name="game_level_hard">Nehéz</string>
 
-    <string name="theme_default">Alapértelmezett</string>
     <string name="theme_paper">Papírlap</string>
     <string name="theme_graph_paper">Milliméterpapír</string>
     <string name="theme_light">Világos</string>

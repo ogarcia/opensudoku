@@ -188,7 +188,6 @@
     <string name="game_level_medium">Orta</string>
     <string name="game_level_hard">Zor</string>
 
-    <string name="theme_default">Default</string>
     <string name="theme_paper">Paper</string>
     <string name="theme_graph_paper">Graph Paper</string>
     <string name="theme_light">Light</string>

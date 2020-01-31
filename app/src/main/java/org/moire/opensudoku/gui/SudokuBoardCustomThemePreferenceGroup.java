@@ -121,7 +121,7 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
         SwitchPreference preference = (SwitchPreference) getPreference(0);
         SharedPreferences.Editor settingsEditor = mGameSettings.edit();
         String newTheme = preference.isChecked() ? "custom_light" : "custom";
-        if (!mGameSettings.getString("theme", "default").equals(newTheme)) {
+        if (!mGameSettings.getString("theme", "open_sudoku").equals(newTheme)) {
             settingsEditor.putString("theme", newTheme);
         }
         settingsEditor.apply();
@@ -158,6 +158,7 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
                 R.attr.colorPrimary,
                 R.attr.colorPrimaryDark,
                 R.attr.colorAccent,
+                R.attr.colorButtonNormal,
                 R.attr.lineColor,
                 R.attr.sectorLineColor,
                 R.attr.textColor,
@@ -211,6 +212,7 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
         ((ColorPickerPreference)findPreference("custom_theme_colorPrimary")).onColorChanged(colorPrimary);
         ((ColorPickerPreference)findPreference("custom_theme_colorPrimaryDark")).onColorChanged(colorPrimaryDark);
         ((ColorPickerPreference)findPreference("custom_theme_colorAccent")).onColorChanged(colorAccent);
+        ((ColorPickerPreference)findPreference("custom_theme_colorButtonNormal")).onColorChanged(isLightTheme ? Color.LTGRAY : Color.DKGRAY);
         ((ColorPickerPreference)findPreference("custom_theme_lineColor")).onColorChanged(colorPrimaryDark);
         ((ColorPickerPreference)findPreference("custom_theme_sectorLineColor")).onColorChanged(colorPrimaryDark);
         ((ColorPickerPreference)findPreference("custom_theme_textColor")).onColorChanged(textColor);
@@ -248,7 +250,7 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
     }
 
     private void updateThemePreview() {
-        String themeName = mGameSettings.getString("theme", "default");
+        String themeName = mGameSettings.getString("theme", "open_sudoku");
         ThemeUtils.applyThemeToSudokuBoardViewFromContext(themeName, mBoard, getContext());
     }
 
@@ -257,6 +259,7 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
         settingsEditor.putInt("custom_theme_colorPrimary", ThemeUtils.findClosestMaterialColor(mGameSettings.getInt("custom_theme_colorPrimary", Color.GRAY)));
         settingsEditor.putInt("custom_theme_colorPrimaryDark", ThemeUtils.findClosestMaterialColor(mGameSettings.getInt("custom_theme_colorPrimaryDark", Color.GRAY)));
         settingsEditor.putInt("custom_theme_colorAccent", ThemeUtils.findClosestMaterialColor(mGameSettings.getInt("custom_theme_colorAccent", Color.WHITE)));
+        settingsEditor.putInt("custom_theme_colorButtonNormal", ThemeUtils.findClosestMaterialColor(mGameSettings.getInt("custom_theme_colorButtonNormal", Color.GRAY)));
         settingsEditor.apply();
         ThemeUtils.sTimestampOfLastThemeUpdate = System.currentTimeMillis();
     }

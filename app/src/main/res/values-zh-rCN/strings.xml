@@ -133,7 +133,6 @@
     <string name="game_level_easy">简单</string>
     <string name="game_level_medium">中等</string>
     <string name="game_level_hard">困难</string>
-    <string name="theme_default">默认</string>
     <string name="theme_custom">自定义主题</string>
     <string name="screen_custom_theme">自定义主题颜色</string>
     <string name="default_lineColor">线</string>
