@@ -12,18 +12,20 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme">
-        <activity
-            android:name=".gui.FolderListActivity"
-            android:label="@string/app_name">
+        <activity android:name=".gui.TitleScreenActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
-            android:name=".gui.SudokuListActivity"
+            android:name=".gui.FolderListActivity"
             android:label="@string/app_name">
         </activity>
+        <activity
+            android:name=".gui.SudokuListActivity"
+            android:label="@string/app_name"></activity>
         <activity
             android:name=".gui.SudokuEditActivity"
             android:label="@string/edit_sudoku">
@@ -61,8 +63,7 @@
                     android:pathPattern=".*\\.opensudoku"
                     android:scheme="http" />
             </intent-filter>
-        </activity>
-        <!-- This activity is here to keep backward compatibility, use SudokuImportActivity instead. -->
+        </activity> <!-- This activity is here to keep backward compatibility, use SudokuImportActivity instead. -->
         <activity android:name=".gui.ImportSudokuActivity">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -86,19 +87,16 @@
         </activity>
         <activity
             android:name=".gui.SudokuExportActivity"
-            android:label="@string/app_name">
-        </activity>
+            android:label="@string/app_name"></activity>
         <activity
             android:name=".gui.SudokuPlayActivity"
-            android:label="@string/app_name">
-        </activity>
+            android:label="@string/app_name"></activity>
         <activity
             android:name=".gui.GameSettingsActivity"
-            android:label="@string/game_settings">
-        </activity>
+            android:label="@string/game_settings"></activity>
         <activity
             android:name=".gui.FileListActivity"
-            android:label="@string/app_name">
-        </activity>
+            android:label="@string/app_name"></activity>
     </application>
+
 </manifest>
