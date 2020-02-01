@@ -145,6 +145,12 @@ public class SudokuPlayActivity extends ThemedActivity {
             mGameTimer.restoreState(savedInstanceState);
         }
 
+        // save our most recently played sudoku
+        SharedPreferences gameSettings = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor editor = gameSettings.edit();
+        editor.putLong("most_recently_played_sudoku_id", mSudokuGame.getId());
+        editor.apply();
+
         if (mSudokuGame.getState() == SudokuGame.GAME_STATE_NOT_STARTED) {
             mSudokuGame.start();
         } else if (mSudokuGame.getState() == SudokuGame.GAME_STATE_PLAYING) {

@@ -7,8 +7,10 @@ import androidx.core.content.ContextCompat;
 import android.Manifest;
 import android.app.Dialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -17,6 +19,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import org.moire.opensudoku.R;
+import org.moire.opensudoku.db.SudokuDatabase;
 import org.moire.opensudoku.utils.AndroidUtils;
 
 public class TitleScreenActivity extends ThemedActivity {
@@ -34,7 +37,7 @@ public class TitleScreenActivity extends ThemedActivity {
         mSudokuListButton = findViewById(R.id.sudoku_lists_button);
         mSettingsButton = findViewById(R.id.settings_button);
 
-        mResumeButton.setVisibility(View.GONE);
+        setupResumeButton();
 
         mSudokuListButton.setOnClickListener((view) -> {
             startActivity(new Intent(this, FolderListActivity.class));
@@ -47,6 +50,20 @@ public class TitleScreenActivity extends ThemedActivity {
         // show changelog on first run
         Changelog changelog = new Changelog(this);
         changelog.showOnFirstRun();
+    }
+
+    private void setupResumeButton() {
+        SharedPreferences gameSettings = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        if (gameSettings.contains("most_recently_played_sudoku_id")) {
+            mResumeButton.setVisibility(View.VISIBLE);
+            mResumeButton.setOnClickListener((view) -> {
+                Intent intentToPlay = new Intent(TitleScreenActivity.this, SudokuPlayActivity.class);
+                intentToPlay.putExtra(SudokuPlayActivity.EXTRA_SUDOKU_ID, gameSettings.getLong("most_recently_played_sudoku_id", 0));
+                startActivity(intentToPlay);
+            });
+        } else {
+            mResumeButton.setVisibility(View.GONE);
+        }
     }
 
     private final int MENU_ITEM_SETTINGS = 0;
@@ -102,5 +119,12 @@ public class TitleScreenActivity extends ThemedActivity {
         }
 
         return null;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        setupResumeButton();
     }
 }

@@ -244,6 +244,10 @@ public class SudokuListActivity extends ThemedActivity {
                         .setTitle("Puzzle")
                         .setMessage(R.string.delete_puzzle_confirm)
                         .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> {
+                            long mostRecentId = settings.getLong("most_recently_played_sudoku_id", 0);
+                            if (mDeletePuzzleID == mostRecentId) {
+                                settings.edit().remove("most_recently_played_sudoku_id").apply();
+                            }
                             mDatabase.deleteSudoku(mDeletePuzzleID);
                             updateList();
                         })
