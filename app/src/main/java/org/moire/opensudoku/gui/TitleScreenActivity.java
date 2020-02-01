@@ -43,6 +43,10 @@ public class TitleScreenActivity extends ThemedActivity {
         mSettingsButton.setOnClickListener((view) -> {
             startActivity(new Intent(this, GameSettingsActivity.class));
         });
+
+        // show changelog on first run
+        Changelog changelog = new Changelog(this);
+        changelog.showOnFirstRun();
     }
 
     private final int MENU_ITEM_SETTINGS = 0;
