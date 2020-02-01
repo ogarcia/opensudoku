@@ -61,14 +61,16 @@ public class SudokuPlayActivity extends ThemedActivity {
     public static final int MENU_ITEM_RESTART = Menu.FIRST;
     public static final int MENU_ITEM_CLEAR_ALL_NOTES = Menu.FIRST + 1;
     public static final int MENU_ITEM_FILL_IN_NOTES = Menu.FIRST + 2;
-    public static final int MENU_ITEM_UNDO = Menu.FIRST + 3;
-    public static final int MENU_ITEM_HELP = Menu.FIRST + 4;
-    public static final int MENU_ITEM_SETTINGS = Menu.FIRST + 5;
+    public static final int MENU_ITEM_UNDO_ACTION = Menu.FIRST + 3;
+    public static final int MENU_ITEM_UNDO = Menu.FIRST + 4;
+    public static final int MENU_ITEM_HELP = Menu.FIRST + 5;
+    public static final int MENU_ITEM_SETTINGS_ACTION = Menu.FIRST + 6;
+    public static final int MENU_ITEM_SETTINGS = Menu.FIRST + 7;
 
-    public static final int MENU_ITEM_SET_CHECKPOINT = Menu.FIRST + 6;
-    public static final int MENU_ITEM_UNDO_TO_CHECKPOINT = Menu.FIRST + 7;
-    public static final int MENU_ITEM_SOLVE = Menu.FIRST + 8;
-    public static final int MENU_ITEM_HINT = Menu.FIRST + 9;
+    public static final int MENU_ITEM_SET_CHECKPOINT = Menu.FIRST + 8;
+    public static final int MENU_ITEM_UNDO_TO_CHECKPOINT = Menu.FIRST + 9;
+    public static final int MENU_ITEM_SOLVE = Menu.FIRST + 10;
+    public static final int MENU_ITEM_HINT = Menu.FIRST + 11;
 
     private static final int DIALOG_RESTART = 1;
     private static final int DIALOG_WELL_DONE = 2;
@@ -298,7 +300,7 @@ public class SudokuPlayActivity extends ThemedActivity {
 
         final boolean isLightTheme = ThemeUtils.isLightTheme(ThemeUtils.getCurrentThemeFromPreferences(getApplicationContext()));
 
-        menu.add(0, MENU_ITEM_UNDO, 0, R.string.undo)
+        menu.add(0, MENU_ITEM_UNDO_ACTION, 0, R.string.undo)
             .setIcon(isLightTheme ? R.drawable.ic_undo_action_black : R.drawable.ic_undo_action_white)
             .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 
@@ -325,7 +327,7 @@ public class SudokuPlayActivity extends ThemedActivity {
                 .setShortcut('7', 'r')
                 .setIcon(R.drawable.ic_restore);
 
-        menu.add(0, MENU_ITEM_SETTINGS, 8, R.string.settings)
+        menu.add(0, MENU_ITEM_SETTINGS_ACTION, 8, R.string.settings)
                 .setIcon(isLightTheme ? R.drawable.ic_settings_action_black : R.drawable.ic_settings_action_white)
                 .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 
@@ -388,10 +390,17 @@ public class SudokuPlayActivity extends ThemedActivity {
             case MENU_ITEM_FILL_IN_NOTES:
                 mSudokuGame.fillInNotes();
                 return true;
+            case MENU_ITEM_UNDO_ACTION:
+                if (mSudokuGame.hasSomethingToUndo()) {
+                    mSudokuGame.undo();
+                    selectLastChangedCell();
+                }
+                return true;
             case MENU_ITEM_UNDO:
                 mSudokuGame.undo();
                 selectLastChangedCell();
                 return true;
+            case MENU_ITEM_SETTINGS_ACTION:
             case MENU_ITEM_SETTINGS:
                 Intent i = new Intent();
                 i.setClass(this, GameSettingsActivity.class);
