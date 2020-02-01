@@ -73,7 +73,7 @@
             android:summary="@string/show_hints_summary"
             android:title="@string/show_hints" />
         <org.moire.opensudoku.gui.SudokuBoardThemePreference
-            android:defaultValue="open_sudoku"
+            android:defaultValue="opensudoku"
             android:dialogTitle="@string/select_theme"
             android:entries="@array/theme_names"
             android:entryValues="@array/theme_codes"

@@ -121,7 +121,7 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
         SwitchPreference preference = (SwitchPreference) getPreference(0);
         SharedPreferences.Editor settingsEditor = mGameSettings.edit();
         String newTheme = preference.isChecked() ? "custom_light" : "custom";
-        if (!mGameSettings.getString("theme", "open_sudoku").equals(newTheme)) {
+        if (!mGameSettings.getString("theme", "opensudoku").equals(newTheme)) {
             settingsEditor.putString("theme", newTheme);
         }
         settingsEditor.apply();
@@ -250,7 +250,7 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
     }
 
     private void updateThemePreview() {
-        String themeName = mGameSettings.getString("theme", "open_sudoku");
+        String themeName = mGameSettings.getString("theme", "opensudoku");
         ThemeUtils.applyThemeToSudokuBoardViewFromContext(themeName, mBoard, getContext());
     }
 
