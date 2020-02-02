@@ -5,7 +5,7 @@
     <color name="coffee_colorPrimaryDark">@color/brown_100</color>
     <color name="coffee_colorAccent">@color/brown_600</color>
 
-    <color name="opensudoku_colorPrimaryLight">#B1DDD9</color>
+    <color name="opensudoku_colorPrimaryLight">#D1FDF9</color>
     <color name="opensudoku_colorPrimary">#49B7AC</color>
     <color name="opensudoku_colorPrimaryDark">#009587</color>
     <color name="opensudoku_colorAccent">#656565</color>
