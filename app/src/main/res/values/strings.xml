@@ -352,4 +352,7 @@
     <string name="app_color_accent_title">App Accent Color</string>
     <string name="app_color_button_summary">This color is used for button UI controls.</string>
     <string name="app_color_button_title">App Button Color</string>
+
+    <string name="resume">Resume</string>
+    <string name="sudoku_lists">Sudoku Lists</string>
 </resources>
