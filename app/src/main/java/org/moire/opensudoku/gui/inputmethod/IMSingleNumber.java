@@ -282,7 +282,12 @@ public class IMSingleNumber extends InputMethod {
                 if (selNumber == 0) {
                     mGame.setCellNote(cell, CellNote.EMPTY);
                 } else if (selNumber > 0 && selNumber <= 9) {
-                    mGame.setCellNote(cell, cell.getNote().toggleNumber(selNumber));
+                    CellNote newNote = cell.getNote().toggleNumber(selNumber);
+                    mGame.setCellNote(cell, newNote);
+                    // if we toggled the note off we want to de-select the cell
+                    if (!newNote.hasNumber(selNumber)) {
+                        mBoard.clearCellSelection();
+                    }
                 }
                 break;
             case MODE_EDIT_VALUE:
@@ -293,11 +298,13 @@ public class IMSingleNumber extends InputMethod {
                         // with this number can be deleted by repeated touch
                         if (selNumber == cell.getValue()) {
                             mGame.setCellValue(cell, 0);
+                            mBoard.clearCellSelection();
                         }
                     } else {
                         // Normal flow, just set the value (or clear it if it is repeated touch)
                         if (selNumber == cell.getValue()) {
                             selNumber = 0;
+                            mBoard.clearCellSelection();
                         }
                         mGame.setCellValue(cell, selNumber);
                     }
