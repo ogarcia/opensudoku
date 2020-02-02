@@ -93,7 +93,8 @@
             android:label="@string/app_name"></activity>
         <activity
             android:name=".gui.GameSettingsActivity"
-            android:label="@string/game_settings"></activity>
+            android:label="@string/game_settings"
+            android:screenOrientation="portrait"></activity>
         <activity
             android:name=".gui.FileListActivity"
             android:label="@string/app_name"></activity>
