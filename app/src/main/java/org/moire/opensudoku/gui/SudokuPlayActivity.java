@@ -21,6 +21,9 @@
 package org.moire.opensudoku.gui;
 
 import android.app.Dialog;
+import android.content.ClipboardManager;
+import android.content.ClipData;
+import android.content.Context;
 import android.content.ComponentName;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -44,6 +47,7 @@ import android.widget.TextView;
 import org.moire.opensudoku.R;
 import org.moire.opensudoku.db.SudokuDatabase;
 import org.moire.opensudoku.game.Cell;
+import org.moire.opensudoku.game.CellCollection;
 import org.moire.opensudoku.game.SudokuGame;
 import org.moire.opensudoku.game.SudokuGame.OnPuzzleSolvedListener;
 import org.moire.opensudoku.gui.inputmethod.IMControlPanel;
@@ -68,6 +72,7 @@ public class SudokuPlayActivity extends AppCompatActivity {
     public static final int MENU_ITEM_UNDO_TO_CHECKPOINT = Menu.FIRST + 7;
     public static final int MENU_ITEM_SOLVE = Menu.FIRST + 8;
     public static final int MENU_ITEM_HINT = Menu.FIRST + 9;
+    public static final int MENU_ITEM_CLIPBOARD = Menu.FIRST + 10;
 
     private static final int DIALOG_RESTART = 1;
     private static final int DIALOG_WELL_DONE = 2;
@@ -313,16 +318,17 @@ public class SudokuPlayActivity extends AppCompatActivity {
 
         menu.add(0, MENU_ITEM_HINT, 5, R.string.solver_hint);
         menu.add(0, MENU_ITEM_SOLVE, 6, R.string.solve_puzzle);
+        menu.add(0, MENU_ITEM_CLIPBOARD, 7, R.string.clipboard);
 
-        menu.add(0, MENU_ITEM_RESTART, 7, R.string.restart)
+        menu.add(0, MENU_ITEM_RESTART, 8, R.string.restart)
                 .setShortcut('7', 'r')
                 .setIcon(R.drawable.ic_restore);
 
-        menu.add(0, MENU_ITEM_SETTINGS, 8, R.string.settings)
+        menu.add(0, MENU_ITEM_SETTINGS, 9, R.string.settings)
                 .setShortcut('9', 's')
                 .setIcon(R.drawable.ic_settings);
 
-        menu.add(0, MENU_ITEM_HELP, 9, R.string.help)
+        menu.add(0, MENU_ITEM_HELP, 10, R.string.help)
                 .setShortcut('0', 'h')
                 .setIcon(R.drawable.ic_help);
 
@@ -401,10 +407,25 @@ public class SudokuPlayActivity extends AppCompatActivity {
             case MENU_ITEM_HINT:
                 showDialog(DIALOG_HINT);
                 return true;
+            case MENU_ITEM_CLIPBOARD:
+                copyToClipboard();
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
-
+    protected void copyToClipboard() {
+        CellCollection board = mSudokuGame.getCells();
+        StringBuffer str = new StringBuffer("https://www.sudokuwiki.org/sudoku.htm?bd=");
+        // https://www.sudokuwiki.org/sudoku.htm?bd=008000...
+        for (int row = 0; row < CellCollection.SUDOKU_SIZE; row++) {
+            for (int col = 0; col < CellCollection.SUDOKU_SIZE; col++) {
+                str.append(String.valueOf(board.getCell(row, col).getValue()));
+            }
+        }
+        ClipboardManager clipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
+        ClipData clip = ClipData.newPlainText("game solver link", str.toString());
+        clipboard.setPrimaryClip(clip);
+    }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         switch (requestCode) {

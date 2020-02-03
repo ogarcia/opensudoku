@@ -111,6 +111,7 @@
     <string name="single_number_abbr">SN</string>
     <string name="welcome">Welcome</string>
     <string name="hint">Hint</string>
+    <string name="clipboard">Copy to clipboard</string>
     <string name="help">Help</string>
     <string name="that_is_all">That\'s all</string>
 
