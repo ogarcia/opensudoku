@@ -102,7 +102,7 @@ public class ThemeUtils {
 
     public static String getCurrentThemeFromPreferences(Context context) {
         SharedPreferences gameSettings = PreferenceManager.getDefaultSharedPreferences(context);
-        return gameSettings.getString("theme", "open_sudoku");
+        return gameSettings.getString("theme", "opensudoku");
     }
 
     public static int getThemeResourceIdFromPreferences(Context context) {
