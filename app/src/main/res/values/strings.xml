@@ -352,4 +352,7 @@
     <string name="app_color_accent_title">App Accent Color</string>
     <string name="app_color_button_summary">This color is used for button UI controls.</string>
     <string name="app_color_button_title">App Button Color</string>
+    
+    <string name="highlight_similar_notes">Highlight similar notes</string>
+    <string name="highlight_similar_notes_summary">Highlight cells with similar note values</string>
 </resources>

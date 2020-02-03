@@ -172,6 +172,14 @@ public class CellNote {
         return new CellNote((short) (mNotedNumbers & ~(1 << (number - 1))));
     }
 
+    public boolean hasNumber(int number) {
+        if (number < 1 || number > 9) {
+            return false;
+        }
+
+        return (mNotedNumbers & (1 << (number - 1))) != 0;
+    }
+
     public CellNote clear() {
         return new CellNote();
     }

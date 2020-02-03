@@ -21,10 +21,13 @@
 package org.moire.opensudoku.gui;
 
 import android.os.Bundle;
+import android.preference.CheckBoxPreference;
 import android.preference.ListPreference;
 import android.preference.Preference.OnPreferenceChangeListener;
 import android.preference.PreferenceActivity;
 import android.preference.PreferenceGroup;
+import android.preference.PreferenceScreen;
+import android.preference.SwitchPreference;
 
 import org.moire.opensudoku.R;
 import org.moire.opensudoku.utils.ThemeUtils;
@@ -33,6 +36,7 @@ public class GameSettingsActivity extends PreferenceActivity {
 
     private PreferenceGroup mScreenCustomTheme;
     private long mTimestampWhenApplyingTheme;
+    private SwitchPreference mHighlightSimilarNotesPreference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +53,11 @@ public class GameSettingsActivity extends PreferenceActivity {
         mScreenCustomTheme = (PreferenceGroup)findPreference("screen_custom_theme");
         enableScreenCustomTheme(themePreference.getValue());
         mScreenCustomTheme.setOnPreferenceChangeListener((preference, newValue) -> { recreate(); return true; });
+
+        mHighlightSimilarNotesPreference = (SwitchPreference)findPreference("highlight_similar_notes");
+        CheckBoxPreference highlightSimilarCellsPreference = (CheckBoxPreference)findPreference("highlight_similar_cells");
+        highlightSimilarCellsPreference.setOnPreferenceChangeListener(mHighlightSimilarCellsChanged);
+        mHighlightSimilarNotesPreference.setEnabled(highlightSimilarCellsPreference.isChecked());
     }
 
     @Override
@@ -67,6 +76,16 @@ public class GameSettingsActivity extends PreferenceActivity {
         if (newVal) {
             hm.resetOneTimeHints();
         }
+        return true;
+    };
+
+    private OnPreferenceChangeListener mThemeChanged = (preference, newValue) -> {
+        enableScreenCustomTheme((String) newValue);
+        return true;
+    };
+
+    private OnPreferenceChangeListener mHighlightSimilarCellsChanged = (preference, newValue) -> {
+        mHighlightSimilarNotesPreference.setEnabled((Boolean)newValue);
         return true;
     };
 
