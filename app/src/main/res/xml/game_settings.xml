@@ -20,6 +20,7 @@
         <SwitchPreference
             android:defaultValue="true"
             android:key="highlight_similar_notes"
+            android:summary="@string/highlight_similar_notes_summary"
             android:title="@string/highlight_similar_notes" />
         <CheckBoxPreference
             android:defaultValue="true"
