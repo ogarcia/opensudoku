@@ -44,6 +44,10 @@ was contributed to by Vit Hnilica, Martin Sobola, Martin Helff, and Diego Pierot
 
 * [Justin Nordin](https://github.com/jlnordin):
   * Added awesome theme preview
+  * Added new title screen with resume feature
+  * Added spectacular full App UI themes
+  * New action buttons for undo and settings in game screen
+  * New option for highlight notes that match a particular number when a cell is selected
 
 * [Chris Lane](https://github.com/ChrisLane):
   * Keep same values highlighted after empty cell selection

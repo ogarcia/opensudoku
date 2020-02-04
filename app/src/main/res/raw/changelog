@@ -1,6 +1,14 @@
 <html>
 <head><style type="text/css">body {font-size: smaller;}</style></head>
 <body>
+  <b>3.0.0</b>
+  <ul>
+    <li>New title screen with resume feature.</li>
+    <li>Spectacular full App UI themes.</li>
+    <li>New action buttons for undo and settings in game screen.</li>
+    <li>New option for highlight notes that match a particular number when a cell is selected.</li>
+    <li>Thanks @jlnordin for all new features!</li>
+  </ul>
   <b>2.7.0</b>
   <ul>
     <li>Awesome Theme Preview. Thanks @jlnordin!</li>
