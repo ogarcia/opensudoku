@@ -358,4 +358,6 @@
 
     <string name="resume">Resume</string>
     <string name="sudoku_lists">Sudoku Lists</string>
+    <string name="undo_to_before_mistake">Undo to before mistake</string>
+    <string name="undo_to_before_mistake_confirm">Are you sure you want to undo all actions since the last solvable state?</string>
 </resources>
