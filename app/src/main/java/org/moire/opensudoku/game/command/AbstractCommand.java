@@ -67,7 +67,9 @@ public abstract class AbstractCommand {
             new CommandDef(SetCellValueCommand.class.getSimpleName(), "c4",
                     SetCellValueCommand::new),
             new CommandDef(CheckpointCommand.class.getSimpleName(), "c5",
-                    CheckpointCommand::new)
+                    CheckpointCommand::new),
+            new CommandDef(SetCellValueAndRemoveNotesCommand.class.getSimpleName(), "c6",
+                    SetCellValueAndRemoveNotesCommand::new)
     };
 
     public static AbstractCommand deserialize(StringTokenizer data) {

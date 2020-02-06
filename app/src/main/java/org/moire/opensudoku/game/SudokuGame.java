@@ -33,6 +33,7 @@ import org.moire.opensudoku.game.command.ClearAllNotesCommand;
 import org.moire.opensudoku.game.command.CommandStack;
 import org.moire.opensudoku.game.command.EditCellNoteCommand;
 import org.moire.opensudoku.game.command.FillInNotesCommand;
+import org.moire.opensudoku.game.command.SetCellValueAndRemoveNotesCommand;
 import org.moire.opensudoku.game.command.SetCellValueCommand;
 
 public class SudokuGame {
@@ -196,7 +197,8 @@ public class SudokuGame {
         }
 
         if (cell.isEditable()) {
-            executeCommand(new SetCellValueCommand(cell, value));
+            //executeCommand(new SetCellValueCommand(cell, value));
+            executeCommand(new SetCellValueAndRemoveNotesCommand(cell, value));
 
             validate();
             if (isCompleted()) {

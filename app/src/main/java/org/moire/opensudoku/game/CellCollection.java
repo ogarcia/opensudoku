@@ -279,6 +279,17 @@ public class CellCollection {
         }
     }
 
+    public void removeNotesForChangedCell(Cell cell, int mValue) {
+        CellGroup row = cell.getRow();
+        CellGroup column = cell.getColumn();
+        CellGroup sector = cell.getSector();
+        for (int i = 0; i < SUDOKU_SIZE; i++) {
+            row.getCells()[i].setNote(row.getCells()[i].getNote().removeNumber(mValue));
+            column.getCells()[i].setNote(column.getCells()[i].getNote().removeNumber(mValue));
+            sector.getCells()[i].setNote(sector.getCells()[i].getNote().removeNumber(mValue));
+        }
+    }
+
     /**
      * Returns how many times each value is used in <code>CellCollection</code>.
      * Returns map with entry for each value.

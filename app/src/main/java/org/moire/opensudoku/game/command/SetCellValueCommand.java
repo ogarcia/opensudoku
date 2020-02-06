@@ -35,7 +35,6 @@ public class SetCellValueCommand extends AbstractSingleCellCommand {
     }
 
     SetCellValueCommand() {
-
     }
 
     @Override
