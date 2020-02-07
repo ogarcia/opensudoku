@@ -312,4 +312,8 @@
 
     <string name="resume">Continuar</string>
     <string name="sudoku_lists">Lista de Sudokus</string>
+
+    <!-- Strings added/changed in 3.1.0 -->
+    <string name="undo_to_before_mistake">Deshacer a antes del error</string>
+    <string name="undo_to_before_mistake_confirm">¿Seguro que quieres deshacer todas las acciones desde el último estado solucionable?</string>
 </resources>
