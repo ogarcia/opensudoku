@@ -389,6 +389,7 @@ public class SudokuPlayActivity extends ThemedActivity {
             }
             menu.findItem(MENU_ITEM_UNDO).setEnabled(false);
             menu.findItem(MENU_ITEM_UNDO_TO_CHECKPOINT).setEnabled(false);
+            menu.findItem(MENU_ITEM_UNDO_TO_BEFORE_MISTAKE).setEnabled(false);
             menu.findItem(MENU_ITEM_SOLVE).setEnabled(false);
             menu.findItem(MENU_ITEM_HINT).setEnabled(false);
         }
