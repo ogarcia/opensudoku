@@ -69,18 +69,20 @@ public class SudokuPlayActivity extends ThemedActivity {
 
     public static final int MENU_ITEM_SET_CHECKPOINT = Menu.FIRST + 8;
     public static final int MENU_ITEM_UNDO_TO_CHECKPOINT = Menu.FIRST + 9;
-    public static final int MENU_ITEM_SOLVE = Menu.FIRST + 10;
-    public static final int MENU_ITEM_HINT = Menu.FIRST + 11;
+    public static final int MENU_ITEM_UNDO_TO_BEFORE_MISTAKE = Menu.FIRST + 10;
+    public static final int MENU_ITEM_SOLVE = Menu.FIRST + 11;
+    public static final int MENU_ITEM_HINT = Menu.FIRST + 12;
 
     private static final int DIALOG_RESTART = 1;
     private static final int DIALOG_WELL_DONE = 2;
     private static final int DIALOG_CLEAR_NOTES = 3;
     private static final int DIALOG_UNDO_TO_CHECKPOINT = 4;
-    private static final int DIALOG_SOLVE_PUZZLE = 5;
-    private static final int DIALOG_USED_SOLVER = 6;
-    private static final int DIALOG_PUZZLE_NOT_SOLVED = 7;
-    private static final int DIALOG_HINT = 8;
-    private static final int DIALOG_CANNOT_GIVE_HINT = 9;
+    private static final int DIALOG_UNDO_TO_BEFORE_MISTAKE = 5;
+    private static final int DIALOG_SOLVE_PUZZLE = 6;
+    private static final int DIALOG_USED_SOLVER = 7;
+    private static final int DIALOG_PUZZLE_NOT_SOLVED = 8;
+    private static final int DIALOG_HINT = 9;
+    private static final int DIALOG_CANNOT_GIVE_HINT = 10;
 
     private static final int REQUEST_SETTINGS = 1;
 
@@ -334,6 +336,7 @@ public class SudokuPlayActivity extends ThemedActivity {
 
         menu.add(0, MENU_ITEM_SET_CHECKPOINT, 3, R.string.set_checkpoint);
         menu.add(0, MENU_ITEM_UNDO_TO_CHECKPOINT, 4, R.string.undo_to_checkpoint);
+        menu.add(0, MENU_ITEM_UNDO_TO_BEFORE_MISTAKE, 4, getString(R.string.undo_to_before_mistake));
 
         menu.add(0, MENU_ITEM_HINT, 5, R.string.solver_hint);
         menu.add(0, MENU_ITEM_SOLVE, 6, R.string.solve_puzzle);
@@ -386,6 +389,7 @@ public class SudokuPlayActivity extends ThemedActivity {
             }
             menu.findItem(MENU_ITEM_UNDO).setEnabled(false);
             menu.findItem(MENU_ITEM_UNDO_TO_CHECKPOINT).setEnabled(false);
+            menu.findItem(MENU_ITEM_UNDO_TO_BEFORE_MISTAKE).setEnabled(false);
             menu.findItem(MENU_ITEM_SOLVE).setEnabled(false);
             menu.findItem(MENU_ITEM_HINT).setEnabled(false);
         }
@@ -429,6 +433,9 @@ public class SudokuPlayActivity extends ThemedActivity {
                 return true;
             case MENU_ITEM_UNDO_TO_CHECKPOINT:
                 showDialog(DIALOG_UNDO_TO_CHECKPOINT);
+                return true;
+            case MENU_ITEM_UNDO_TO_BEFORE_MISTAKE:
+                showDialog(DIALOG_UNDO_TO_BEFORE_MISTAKE);
                 return true;
             case MENU_ITEM_SOLVE:
                 showDialog(DIALOG_SOLVE_PUZZLE);
@@ -504,6 +511,17 @@ public class SudokuPlayActivity extends ThemedActivity {
                         .setMessage(R.string.undo_to_checkpoint_confirm)
                         .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> {
                             mSudokuGame.undoToCheckpoint();
+                            selectLastChangedCell();
+                        })
+                        .setNegativeButton(android.R.string.no, null)
+                        .create();
+            case DIALOG_UNDO_TO_BEFORE_MISTAKE:
+                return new AlertDialog.Builder(this)
+                        .setIcon(R.drawable.ic_undo)
+                        .setTitle(R.string.app_name)
+                        .setMessage(getString(R.string.undo_to_before_mistake_confirm))
+                        .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> {
+                            mSudokuGame.undoToBeforeMistake();
                             selectLastChangedCell();
                         })
                         .setNegativeButton(android.R.string.no, null)

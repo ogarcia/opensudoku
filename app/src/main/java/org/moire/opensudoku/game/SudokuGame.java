@@ -254,6 +254,10 @@ public class SudokuGame {
         return mCommandStack.hasCheckpoint();
     }
 
+    public void undoToBeforeMistake() {
+        mCommandStack.undoToSolvableState();
+    }
+
     @Nullable
     public Cell getLastChangedCell() {
 

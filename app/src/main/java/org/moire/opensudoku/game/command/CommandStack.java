@@ -1,7 +1,10 @@
 package org.moire.opensudoku.game.command;
 
+import org.moire.opensudoku.game.Cell;
 import org.moire.opensudoku.game.CellCollection;
+import org.moire.opensudoku.game.SudokuSolver;
 
+import java.util.ArrayList;
 import java.util.ListIterator;
 import java.util.Stack;
 import java.util.StringTokenizer;
@@ -97,6 +100,32 @@ public class CommandStack {
         validateCells();
     }
 
+    private boolean hasMistakes(ArrayList<int[]> finalValues) {
+        for (int[] rowColVal : finalValues) {
+            int row = rowColVal[0];
+            int col = rowColVal[1];
+            int val = rowColVal[2];
+            Cell cell = mCells.getCell(row, col);
+
+            if (cell.getValue() != val && cell.getValue() != 0) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    public void undoToSolvableState() {
+        SudokuSolver solver = new SudokuSolver();
+        solver.setPuzzle(mCells);
+        ArrayList<int[]> finalValues = solver.solve();
+
+        while (!mCommandStack.empty() && hasMistakes(finalValues)) {
+            mCommandStack.pop().undo();
+        }
+
+        validateCells();
+    }
 
     public boolean hasSomethingToUndo() {
         return mCommandStack.size() != 0;
