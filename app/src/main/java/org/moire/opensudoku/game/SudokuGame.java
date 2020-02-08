@@ -28,7 +28,6 @@ import androidx.annotation.Nullable;
 import java.util.ArrayList;
 
 import org.moire.opensudoku.game.command.AbstractCommand;
-import org.moire.opensudoku.game.command.AbstractSingleCellCommand;
 import org.moire.opensudoku.game.command.ClearAllNotesCommand;
 import org.moire.opensudoku.game.command.CommandStack;
 import org.moire.opensudoku.game.command.EditCellNoteCommand;
@@ -51,6 +50,7 @@ public class SudokuGame {
     private CellCollection mCells;
     private SudokuSolver mSolver;
     private boolean mUsedSolver = false;
+    private boolean mRemoveNotesOnEntry = false;
 
     private OnPuzzleSolvedListener mOnPuzzleSolvedListener;
     private CommandStack mCommandStack;
@@ -182,6 +182,10 @@ public class SudokuGame {
         return mCommandStack;
     }
 
+    public void setRemoveNotesOnEntry(boolean removeNotesOnEntry) {
+        mRemoveNotesOnEntry = removeNotesOnEntry;
+    }
+
     /**
      * Sets value for the given cell. 0 means empty cell.
      *
@@ -197,8 +201,11 @@ public class SudokuGame {
         }
 
         if (cell.isEditable()) {
-            //executeCommand(new SetCellValueCommand(cell, value));
-            executeCommand(new SetCellValueAndRemoveNotesCommand(cell, value));
+            if (mRemoveNotesOnEntry) {
+                executeCommand(new SetCellValueAndRemoveNotesCommand(cell, value));
+            } else {
+                executeCommand(new SetCellValueCommand(cell, value));
+            }
 
             validate();
             if (isCompleted()) {
@@ -262,13 +269,7 @@ public class SudokuGame {
 
     @Nullable
     public Cell getLastChangedCell() {
-
-        AbstractSingleCellCommand c = mCommandStack.findLatestSingleCellCommand();
-
-        if (c != null) {
-            return c.getCell();
-        }
-        return null;
+        return mCommandStack.getLastChangedCell();
     }
 
     /**

@@ -227,6 +227,8 @@ public class SudokuPlayActivity extends ThemedActivity {
             mSudokuBoard.setHighlightSimilarCell(SudokuBoardView.HighlightMode.NONE);
         }
 
+        mSudokuGame.setRemoveNotesOnEntry(gameSettings.getBoolean("remove_notes_on_input", false));
+
         mShowTime = gameSettings.getBoolean("show_time", true);
         if (mSudokuGame.getState() == SudokuGame.GAME_STATE_PLAYING) {
             mSudokuGame.resume();
