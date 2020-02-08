@@ -279,14 +279,18 @@ public class CellCollection {
         }
     }
 
-    public void removeNotesForChangedCell(Cell cell, int mValue) {
+    public void removeNotesForChangedCell(Cell cell, int number) {
+        if (number < 1 || number> 9) {
+            return;
+        }
+
         CellGroup row = cell.getRow();
         CellGroup column = cell.getColumn();
         CellGroup sector = cell.getSector();
         for (int i = 0; i < SUDOKU_SIZE; i++) {
-            row.getCells()[i].setNote(row.getCells()[i].getNote().removeNumber(mValue));
-            column.getCells()[i].setNote(column.getCells()[i].getNote().removeNumber(mValue));
-            sector.getCells()[i].setNote(sector.getCells()[i].getNote().removeNumber(mValue));
+            row.getCells()[i].setNote(row.getCells()[i].getNote().removeNumber(number));
+            column.getCells()[i].setNote(column.getCells()[i].getNote().removeNumber(number));
+            sector.getCells()[i].setNote(sector.getCells()[i].getNote().removeNumber(number));
         }
     }
 
