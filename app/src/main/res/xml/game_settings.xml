@@ -37,6 +37,11 @@
             android:key="fill_in_notes_enabled"
             android:summary="@string/fill_in_notes_summary"
             android:title="@string/fill_in_notes" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="remove_notes_on_input"
+            android:summary="@string/remove_notes_summary"
+            android:title="@string/remove_notes_title" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/input_methods">
         <CheckBoxPreference

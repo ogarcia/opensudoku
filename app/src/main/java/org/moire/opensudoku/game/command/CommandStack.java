@@ -131,12 +131,15 @@ public class CommandStack {
         return mCommandStack.size() != 0;
     }
 
-    public AbstractSingleCellCommand findLatestSingleCellCommand() {
+    public Cell getLastChangedCell() {
         ListIterator<AbstractCommand> iter = mCommandStack.listIterator(mCommandStack.size());
         while (iter.hasPrevious()) {
             AbstractCommand o = iter.previous();
-            if (o instanceof AbstractSingleCellCommand)
-                return (AbstractSingleCellCommand) o;
+            if (o instanceof AbstractSingleCellCommand) {
+                return ((AbstractSingleCellCommand)o).getCell();
+            } else if (o instanceof SetCellValueAndRemoveNotesCommand) {
+                return ((SetCellValueAndRemoveNotesCommand)o).getCell();
+            }
         }
 
         return null;

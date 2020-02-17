@@ -78,4 +78,8 @@ public class CellGroup {
         }
         return true;
     }
+
+    public Cell[] getCells() {
+        return mCells;
+    }
 }
