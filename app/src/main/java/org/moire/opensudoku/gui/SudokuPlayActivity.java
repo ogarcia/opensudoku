@@ -553,7 +553,7 @@ public class SudokuPlayActivity extends ThemedActivity {
                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                             public void onClick(DialogInterface dialog, int whichButton) {
                                 Cell cell = mSudokuBoard.getSelectedCell();
-                                if (cell.isEditable()) {
+                                if (cell != null && cell.isEditable()) {
                                     if (mSudokuGame.isSolvable()) {
                                         mSudokuGame.solveCell(cell);
                                     }
