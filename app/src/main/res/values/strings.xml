@@ -369,4 +369,8 @@
     <string name="remove_notes_title">Remove notes on number entry</string>
 
     <string name="create_from_single_color">Create from single color…</string>
+
+    <string name="show_sudoku_lists_on_startup_summary">Show the sudoku lists on startup and skip the title screen.</string>
+    <string name="show_sudoku_lists_on_startup_title">Show sudoku lists on startup</string>
+    <string name="app_startup_category">App Startup</string>
 </resources>

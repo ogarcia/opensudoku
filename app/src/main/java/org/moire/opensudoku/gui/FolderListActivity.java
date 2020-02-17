@@ -129,6 +129,10 @@ public class FolderListActivity extends ThemedActivity {
             }
         });
         registerForContextMenu(mListView);
+
+        // show changelog on first run
+        Changelog changelog = new Changelog(this);
+        changelog.showOnFirstRun();
     }
 
     @Override
