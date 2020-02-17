@@ -201,17 +201,7 @@ public class SudokuPlayActivity extends ThemedActivity {
 
         String theme = gameSettings.getString("theme", "opensudoku");
         if (theme.equals("custom") || theme.equals("custom_light")) {
-            mSudokuBoard.setLineColor(gameSettings.getInt("custom_theme_lineColor", R.color.default_lineColor));
-            mSudokuBoard.setSectorLineColor(gameSettings.getInt("custom_theme_sectorLineColor", R.color.default_sectorLineColor));
-            mSudokuBoard.setTextColor(gameSettings.getInt("custom_theme_textColor", R.color.default_textColor));
-            mSudokuBoard.setTextColorReadOnly(gameSettings.getInt("custom_theme_textColorReadOnly", R.color.default_textColorReadOnly));
-            mSudokuBoard.setTextColorNote(gameSettings.getInt("custom_theme_textColorNote", R.color.default_textColorNote));
-            mSudokuBoard.setBackgroundColor(gameSettings.getInt("custom_theme_backgroundColor", R.color.default_backgroundColor));
-            mSudokuBoard.setBackgroundColorSecondary(gameSettings.getInt("custom_theme_backgroundColorSecondary", R.color.default_backgroundColorSecondary));
-            mSudokuBoard.setBackgroundColorReadOnly(gameSettings.getInt("custom_theme_backgroundColorReadOnly", R.color.default_backgroundColorReadOnly));
-            mSudokuBoard.setBackgroundColorTouched(gameSettings.getInt("custom_theme_backgroundColorTouched", R.color.default_backgroundColorTouched));
-            mSudokuBoard.setBackgroundColorSelected(gameSettings.getInt("custom_theme_backgroundColorSelected", R.color.default_backgroundColorSelected));
-            mSudokuBoard.setBackgroundColorHighlighted(gameSettings.getInt("custom_theme_backgroundColorHighlighted", R.color.default_backgroundColorHighlighted));
+            ThemeUtils.applyCustomThemeToSudokuBoardViewFromContext(mSudokuBoard, getApplicationContext());
         }
 
         mSudokuBoard.setHighlightWrongVals(gameSettings.getBoolean("highlight_wrong_values", true));
