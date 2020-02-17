@@ -299,7 +299,7 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
             mCopyFromExistingThemePreference = new Preference(preferenceGroup.getContext());
             mCopyFromExistingThemePreference.setTitle(R.string.copy_from_existing_theme);
             mCreateFromColorPreference = new Preference(preferenceGroup.getContext());
-            mCreateFromColorPreference.setTitle("Create from single color...");
+            mCreateFromColorPreference.setTitle(R.string.create_from_single_color);
         }
 
         @Override

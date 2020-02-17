@@ -49,6 +49,7 @@ was contributed to by Vit Hnilica, Martin Sobola, Martin Helff, and Diego Pierot
   * New action buttons for undo and settings in game screen
   * New option for highlight notes that match a particular number when a cell is selected
   * New menu option to undo to before mistake
+  * New config option to remove notes on number entry
 
 * [Chris Lane](https://github.com/ChrisLane):
   * Keep same values highlighted after empty cell selection

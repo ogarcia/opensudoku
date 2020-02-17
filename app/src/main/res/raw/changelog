@@ -1,6 +1,10 @@
 <html>
 <head><style type="text/css">body {font-size: smaller;}</style></head>
 <body>
+  <b>3.2.0</b>
+    <ul>
+      <li>Adds a new config option to remove notes on number entry. Thanks @jlnordin!</li>
+    </ul>
   <b>3.1.0</b>
     <ul>
       <li>Adds a menu option to undo to before mistake. Thanks @jlnordin!</li>
