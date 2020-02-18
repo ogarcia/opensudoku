@@ -160,21 +160,24 @@ public class ThemeUtils {
         }
     }
 
+    public static void applyCustomThemeToSudokuBoardViewFromContext(SudokuBoardView board, Context context) {
+        SharedPreferences gameSettings = PreferenceManager.getDefaultSharedPreferences(context);
+        board.setLineColor(gameSettings.getInt("custom_theme_lineColor", R.color.default_lineColor));
+        board.setSectorLineColor(gameSettings.getInt("custom_theme_sectorLineColor", R.color.default_sectorLineColor));
+        board.setTextColor(gameSettings.getInt("custom_theme_textColor", R.color.default_textColor));
+        board.setTextColorReadOnly(gameSettings.getInt("custom_theme_textColorReadOnly", R.color.default_textColorReadOnly));
+        board.setTextColorNote(gameSettings.getInt("custom_theme_textColorNote", R.color.default_textColorNote));
+        board.setBackgroundColor(gameSettings.getInt("custom_theme_backgroundColor", R.color.default_backgroundColor));
+        board.setBackgroundColorSecondary(gameSettings.getInt("custom_theme_backgroundColorSecondary", R.color.default_backgroundColorSecondary));
+        board.setBackgroundColorReadOnly(gameSettings.getInt("custom_theme_backgroundColorReadOnly", R.color.default_backgroundColorReadOnly));
+        board.setBackgroundColorTouched(gameSettings.getInt("custom_theme_backgroundColorTouched", R.color.default_backgroundColorTouched));
+        board.setBackgroundColorSelected(gameSettings.getInt("custom_theme_backgroundColorSelected", R.color.default_backgroundColorSelected));
+        board.setBackgroundColorHighlighted(gameSettings.getInt("custom_theme_backgroundColorHighlighted", R.color.default_backgroundColorHighlighted));
+    }
+
     public static void applyThemeToSudokuBoardViewFromContext(String theme, SudokuBoardView board, Context context) {
         if (theme.equals("custom") || theme.equals("custom_light")) {
-
-            SharedPreferences gameSettings = PreferenceManager.getDefaultSharedPreferences(context);
-            board.setLineColor(gameSettings.getInt("custom_theme_lineColor", R.color.default_lineColor));
-            board.setSectorLineColor(gameSettings.getInt("custom_theme_sectorLineColor", R.color.default_sectorLineColor));
-            board.setTextColor(gameSettings.getInt("custom_theme_textColor", R.color.default_textColor));
-            board.setTextColorReadOnly(gameSettings.getInt("custom_theme_textColorReadOnly", R.color.default_textColorReadOnly));
-            board.setTextColorNote(gameSettings.getInt("custom_theme_textColorNote", R.color.default_textColorNote));
-            board.setBackgroundColor(gameSettings.getInt("custom_theme_backgroundColor", R.color.default_backgroundColor));
-            board.setBackgroundColorSecondary(gameSettings.getInt("custom_theme_backgroundColorSecondary", R.color.default_backgroundColorSecondary));
-            board.setBackgroundColorReadOnly(gameSettings.getInt("custom_theme_backgroundColorReadOnly", R.color.default_backgroundColorReadOnly));
-            board.setBackgroundColorTouched(gameSettings.getInt("custom_theme_backgroundColorTouched", R.color.default_backgroundColorTouched));
-            board.setBackgroundColorSelected(gameSettings.getInt("custom_theme_backgroundColorSelected", R.color.default_backgroundColorSelected));
-            board.setBackgroundColorHighlighted(gameSettings.getInt("custom_theme_backgroundColorHighlighted", R.color.default_backgroundColorHighlighted));
+            applyCustomThemeToSudokuBoardViewFromContext(board, context);
         } else {
             ContextThemeWrapper themeWrapper = new ContextThemeWrapper(context, getThemeResourceIdFromString(theme));
 

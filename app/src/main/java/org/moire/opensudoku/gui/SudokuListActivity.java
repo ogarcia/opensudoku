@@ -503,6 +503,10 @@ public class SudokuListActivity extends ThemedActivity {
                     board.setReadOnly(true);
                     board.setFocusable(false);
                     ((SudokuBoardView) view).setCells(cells);
+                    ThemeUtils.applyThemeToSudokuBoardViewFromContext(
+                            ThemeUtils.getCurrentThemeFromPreferences(mContext),
+                            board,
+                            mContext);
                     break;
                 case R.id.state:
                     label = ((TextView) view);

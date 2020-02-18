@@ -47,9 +47,17 @@ public class TitleScreenActivity extends ThemedActivity {
             startActivity(new Intent(this, GameSettingsActivity.class));
         });
 
-        // show changelog on first run
-        Changelog changelog = new Changelog(this);
-        changelog.showOnFirstRun();
+        // check the preference to skip the title screen and launch the folder list activity
+        // directly
+        SharedPreferences gameSettings = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        boolean showSudokuFolderListOnStartup = gameSettings.getBoolean("show_sudoku_lists_on_startup", false);
+        if (showSudokuFolderListOnStartup) {
+            startActivity(new Intent(this, FolderListActivity.class));
+        } else {
+            // show changelog on first run
+            Changelog changelog = new Changelog(this);
+            changelog.showOnFirstRun();
+        }
     }
 
     private void setupResumeButton() {

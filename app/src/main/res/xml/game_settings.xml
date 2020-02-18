@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:os="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory android:title="@string/app_startup_category">
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="show_sudoku_lists_on_startup"
+            android:summary="@string/show_sudoku_lists_on_startup_summary"
+            android:title="@string/show_sudoku_lists_on_startup_title"
+            />
+    </PreferenceCategory>
     <PreferenceCategory android:title="@string/game_helpers">
         <CheckBoxPreference
             android:defaultValue="true"
