@@ -322,4 +322,9 @@
     <string name="remove_notes_title">Eliminar anotaciones al introducir un número</string>
 
     <string name="create_from_single_color">Crear desde un solo color…</string>
+
+    <!-- Strings added/changed in 3.3.0 -->
+    <string name="show_sudoku_lists_on_startup_summary">Mostrar la lista de Sudokus al inicio y omitir la pantalla de título.</string>
+    <string name="show_sudoku_lists_on_startup_title">Mostrar la lista de Sudokus al inicio</string>
+    <string name="app_startup_category">Inicio de la aplicación</string>
 </resources>

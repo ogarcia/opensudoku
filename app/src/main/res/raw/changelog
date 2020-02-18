@@ -1,15 +1,22 @@
 <html>
 <head><style type="text/css">body {font-size: smaller;}</style></head>
 <body>
+  <b>3.3.0</b>
+  <ul>
+    <li>Adds a new config option to skip titlescreen.</li>
+    <li>Fix folder view to show sudoku previews with custom theme colors.</li>
+    <li>Fix the crash when no cell was selected and you used the "hint" command.</li>
+    <li>Thanks @jlnordin for all new features!</li>
+  </ul>
   <b>3.2.0</b>
-    <ul>
-      <li>Adds a new config option to remove notes on number entry. Thanks @jlnordin!</li>
-    </ul>
+  <ul>
+    <li>Adds a new config option to remove notes on number entry. Thanks @jlnordin!</li>
+  </ul>
   <b>3.1.0</b>
-    <ul>
-      <li>Adds a menu option to undo to before mistake. Thanks @jlnordin!</li>
-      <li>French translation updated. Thanks @Tubix!</li>
-    </ul>
+  <ul>
+    <li>Adds a menu option to undo to before mistake. Thanks @jlnordin!</li>
+    <li>French translation updated. Thanks @Tubix!</li>
+  </ul>
   <b>3.0.0</b>
   <ul>
     <li>New title screen with resume feature.</li>
