@@ -38,10 +38,10 @@ public class SetCellValueAndRemoveNotesCommand extends AbstractMultiNoteCommand 
     protected void _deserialize(StringTokenizer data) {
         super._deserialize(data);
 
-        mValue = Integer.parseInt(data.nextToken());
-        mOldValue = Integer.parseInt(data.nextToken());
         mCellRow = Integer.parseInt(data.nextToken());
         mCellColumn = Integer.parseInt(data.nextToken());
+        mValue = Integer.parseInt(data.nextToken());
+        mOldValue = Integer.parseInt(data.nextToken());
     }
 
     @Override
