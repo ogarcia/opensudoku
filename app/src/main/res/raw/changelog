@@ -1,6 +1,10 @@
 <html>
 <head><style type="text/css">body {font-size: smaller;}</style></head>
 <body>
+  <b>3.3.1</b>
+  <ul>
+    <li>Fix crash when using the new feature to automatically remove cell notes. Thanks @jlnordin!</li>
+  </ul>
   <b>3.3.0</b>
   <ul>
     <li>Adds a new config option to skip titlescreen.</li>

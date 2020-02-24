@@ -52,7 +52,8 @@ was contributed to by Vit Hnilica, Martin Sobola, Martin Helff, and Diego Pierot
   * New config option to remove notes on number entry
   * New config option to skip titlescreen
   * Fix folder view to show sudoku previews with custom theme colors
-  * Fix the crash when no cell was selected and you used the "hint" command
+  * Fix the crash when no cell was selected and you used the _hint_ command
+  * Fix crash when using the new feature to automatically remove cell notes
 
 * [Chris Lane](https://github.com/ChrisLane):
   * Keep same values highlighted after empty cell selection
