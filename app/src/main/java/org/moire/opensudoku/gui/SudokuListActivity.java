@@ -26,12 +26,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.Log;
 import android.view.ContextMenu;
@@ -53,7 +51,6 @@ import org.moire.opensudoku.db.SudokuDatabase;
 import org.moire.opensudoku.game.CellCollection;
 import org.moire.opensudoku.game.FolderInfo;
 import org.moire.opensudoku.game.SudokuGame;
-import org.moire.opensudoku.utils.AndroidUtils;
 import org.moire.opensudoku.utils.ThemeUtils;
 
 import java.text.DateFormat;
@@ -75,17 +72,21 @@ public class SudokuListActivity extends ThemedActivity {
     public static final int MENU_ITEM_RESET = Menu.FIRST + 4;
     public static final int MENU_ITEM_EDIT_NOTE = Menu.FIRST + 5;
     public static final int MENU_ITEM_FILTER = Menu.FIRST + 6;
-    public static final int MENU_ITEM_FOLDERS = Menu.FIRST + 7;
-    public static final int MENU_ITEM_SETTINGS = Menu.FIRST + 8;
+    public static final int MENU_ITEM_SORT = Menu.FIRST + 7;
+    public static final int MENU_ITEM_FOLDERS = Menu.FIRST + 8;
+    public static final int MENU_ITEM_SETTINGS = Menu.FIRST + 9;
 
     private static final int DIALOG_DELETE_PUZZLE = 0;
     private static final int DIALOG_RESET_PUZZLE = 1;
     private static final int DIALOG_EDIT_NOTE = 2;
     private static final int DIALOG_FILTER = 3;
+    private static final int DIALOG_SORT = 4;
 
     private static final String FILTER_STATE_NOT_STARTED = "filter" + SudokuGame.GAME_STATE_NOT_STARTED;
     private static final String FILTER_STATE_PLAYING = "filter" + SudokuGame.GAME_STATE_PLAYING;
     private static final String FILTER_STATE_SOLVED = "filter" + SudokuGame.GAME_STATE_COMPLETED;
+
+    private static final String SORT_TYPE = "sort_type";
 
     private static final String TAG = "SudokuListActivity";
 
@@ -97,6 +98,7 @@ public class SudokuListActivity extends ThemedActivity {
     private long mEditNotePuzzleID;
     private TextView mEditNoteInput;
     private SudokuListFilter mListFilter;
+    private SudokuListSorter mListSorter;
 
     private TextView mFilterStatus;
 
@@ -132,6 +134,9 @@ public class SudokuListActivity extends ThemedActivity {
         mListFilter.showStateNotStarted = settings.getBoolean(FILTER_STATE_NOT_STARTED, true);
         mListFilter.showStatePlaying = settings.getBoolean(FILTER_STATE_PLAYING, true);
         mListFilter.showStateCompleted = settings.getBoolean(FILTER_STATE_SOLVED, true);
+
+        mListSorter = new SudokuListSorter(getApplicationContext());
+        mListSorter.setSortType(settings.getInt(SORT_TYPE, SudokuListSorter.SORT_BY_CREATED));
 
         mAdapter = new SimpleCursorAdapter(this, R.layout.sudoku_list_item,
                 null, new String[]{SudokuColumns.DATA, SudokuColumns.STATE,
@@ -212,6 +217,8 @@ public class SudokuListActivity extends ThemedActivity {
                 .setIcon(R.drawable.ic_sort);
         menu.add(0, MENU_ITEM_FILTER, 1, R.string.filter).setShortcut('1', 'f')
                 .setIcon(R.drawable.ic_view);
+        menu.add(0, MENU_ITEM_SORT, 2, R.string.sort).setShortcut('1', 'f')
+                .setIcon(R.drawable.ic_sort);
         menu.add(0, MENU_ITEM_INSERT, 2, R.string.add_sudoku).setShortcut('3', 'a')
                 .setIcon(R.drawable.ic_add);
         menu.add(0, MENU_ITEM_SETTINGS, 2, R.string.settings).setShortcut('4', 's')
@@ -319,6 +326,25 @@ public class SudokuListActivity extends ThemedActivity {
                             // User clicked No, so do some stuff
                         })
                         .create();
+            case DIALOG_SORT:
+                return new AlertDialog.Builder(this)
+                        .setIcon(R.drawable.ic_sort)
+                        .setTitle(R.string.sort_solved)
+                        .setSingleChoiceItems(
+                                R.array.time_sorts,
+                                mListSorter.getSortType(),
+                                (dialog, whichButton) -> {
+                                    mListSorter.setSortType(whichButton);
+                                })
+                        .setPositiveButton(android.R.string.ok, (dialog, whichButton) -> {
+                            settings.edit()
+                                    .putInt(SORT_TYPE, mListSorter.getSortType())
+                                    .apply();
+                            updateList();
+                        })
+                        .setNegativeButton(android.R.string.cancel, (dialog, whichButton) -> {
+                        })
+                        .create();
         }
         return null;
     }
@@ -418,6 +444,9 @@ public class SudokuListActivity extends ThemedActivity {
             case MENU_ITEM_FILTER:
                 showDialog(DIALOG_FILTER);
                 return true;
+            case MENU_ITEM_SORT:
+                showDialog(DIALOG_SORT);
+                return true;
             case MENU_ITEM_FOLDERS: {
                 i = new Intent(this, FolderListActivity.class);
                 startActivity(i);
@@ -438,7 +467,7 @@ public class SudokuListActivity extends ThemedActivity {
         if (mCursor != null) {
             stopManagingCursor(mCursor);
         }
-        mCursor = mDatabase.getSudokuList(mFolderID, mListFilter);
+        mCursor = mDatabase.getSudokuList(mFolderID, mListFilter, mListSorter);
         startManagingCursor(mCursor);
         mAdapter.changeCursor(mCursor);
     }
