@@ -32,7 +32,9 @@ import org.moire.opensudoku.game.CellCollection;
 import org.moire.opensudoku.game.FolderInfo;
 import org.moire.opensudoku.game.SudokuGame;
 import org.moire.opensudoku.game.command.CommandStack;
+import org.moire.opensudoku.gui.SudokuListActivity;
 import org.moire.opensudoku.gui.SudokuListFilter;
+import org.moire.opensudoku.gui.SudokuListSorter;
 
 /**
  * Wrapper around opensudoku's database.
@@ -255,7 +257,7 @@ public class SudokuDatabase {
      * @param folderID Primary key of folder.
      * @return
      */
-    public Cursor getSudokuList(long folderID, SudokuListFilter filter) {
+    public Cursor getSudokuList(long folderID, SudokuListFilter filter, SudokuListSorter sorter) {
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
 
         qb.setTables(SUDOKU_TABLE_NAME);
@@ -275,8 +277,9 @@ public class SudokuDatabase {
         }
 
         SQLiteDatabase db = mOpenHelper.getReadableDatabase();
+
         return qb.query(db, null, null, null,
-                null, null, "created DESC");
+                null, null, sorter.getSortOrder());
     }
 
     /**

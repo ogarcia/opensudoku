@@ -5,6 +5,11 @@
         <item>@string/game_state_playing</item>
         <item>@string/game_state_solved</item>
     </string-array>
+    <string-array name="time_sorts">
+        <item>@string/no_sort</item>
+        <item>@string/sort_play_time</item>
+        <item>@string/sort_last_played</item>
+    </string-array>
     <string-array name="game_levels">
         <item>@string/game_level_easy</item>
         <item>@string/game_level_medium</item>
