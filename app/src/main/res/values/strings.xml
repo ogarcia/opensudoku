@@ -73,8 +73,6 @@
     <string name="add_sudoku">Add sudoku</string>
     <string name="filter">Filter</string>
     <string name="filter_by_gamestate">Filter by game state</string>
-    <string name="sort">Sort</string>
-    <string name="sort_solved">Sort Solved Puzzles</string>
     <string name="folders">Folders</string>
     <string name="delete_puzzle_confirm">Are you sure you want to delete selected puzzle?</string>
     <string name="reset_puzzle_confirm">Are you sure you want to reset selected puzzle?</string>
@@ -83,7 +81,6 @@
     <string name="edit_puzzle">Edit puzzle</string>
     <string name="delete_puzzle">Delete puzzle</string>
     <string name="filter_active">Filtered: %s</string>
-    <string name="sort_active">Sorted: %s</string>
 
     <string name="undo">Undo</string>
     <string name="clear_all_notes">Clear all notes</string>
@@ -267,10 +264,6 @@
     <string name="game_level_medium">Medium</string>
     <string name="game_level_hard">Hard</string>
 
-    <string name="no_sort">Created</string>
-    <string name="sort_play_time">Play time</string>
-    <string name="sort_last_played">Last played</string>
-
     <string name="theme_paper">Paper</string>
     <string name="theme_graph_paper">Graph Paper</string>
     <string name="theme_light">Light</string>
@@ -381,4 +374,11 @@
     <string name="show_sudoku_lists_on_startup_summary">Show the sudoku lists on startup and skip the title screen.</string>
     <string name="show_sudoku_lists_on_startup_title">Show sudoku lists on startup</string>
     <string name="app_startup_category">App Startup</string>
+
+    <!-- Strings added/changed in 3.4.0 -->
+    <string name="sort">Sort</string>
+    <string name="sort_puzzles_by">Sort puzzles by</string>
+    <string name="sort_creation_date">Creation date</string>
+    <string name="sort_play_time">Play time</string>
+    <string name="sort_last_played">Last played</string>
 </resources>

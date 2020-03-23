@@ -329,9 +329,9 @@ public class SudokuListActivity extends ThemedActivity {
             case DIALOG_SORT:
                 return new AlertDialog.Builder(this)
                         .setIcon(R.drawable.ic_sort)
-                        .setTitle(R.string.sort_solved)
+                        .setTitle(R.string.sort_puzzles_by)
                         .setSingleChoiceItems(
-                                R.array.time_sorts,
+                                R.array.game_sort,
                                 mListSorter.getSortType(),
                                 (dialog, whichButton) -> {
                                     mListSorter.setSortType(whichButton);

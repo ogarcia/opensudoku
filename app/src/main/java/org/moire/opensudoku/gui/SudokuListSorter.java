@@ -34,19 +34,6 @@ public class SudokuListSorter {
                 sortType >= 0 && sortType < SORT_TYPE_OPTIONS_LENGTH ? sortType : SORT_BY_CREATED;
     }
 
-    public String getSortTypeString() {
-        switch (sortType) {
-            case SORT_BY_CREATED:
-                return "Create Time";
-            case SORT_BY_TIME:
-                return "Play Time";
-            case SORT_BY_LAST_PLAYED:
-                return "Last Played";
-        }
-
-        return "Create Time";
-    }
-
     public String getSortOrder() {
         switch (sortType) {
             case SORT_BY_CREATED:

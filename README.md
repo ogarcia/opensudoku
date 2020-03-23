@@ -22,7 +22,6 @@ Current version of Open Sudoku is authored by [Óscar García Amor](https://ogar
 The first version of Open Sudoku was developed by [Roman Mašek](https://github.com/romario333) and
 was contributed to by Vit Hnilica, Martin Sobola, Martin Helff, and Diego Pierotto.
 
-
 ### Contributors
 
 * [Sergey Pimanov](https://github.com/spimanov):
@@ -58,6 +57,8 @@ was contributed to by Vit Hnilica, Martin Sobola, Martin Helff, and Diego Pierot
 * [Chris Lane](https://github.com/ChrisLane):
   * Keep same values highlighted after empty cell selection
 
+* [Jesus Fuentes](https://github.com/fuentesj11):
+  * New menu option to sort puzzles by last played and play time
 
 ## Support or Contact
 

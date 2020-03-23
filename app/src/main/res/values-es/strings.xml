@@ -327,4 +327,11 @@
     <string name="show_sudoku_lists_on_startup_summary">Mostrar la lista de Sudokus al inicio y omitir la pantalla de título.</string>
     <string name="show_sudoku_lists_on_startup_title">Mostrar la lista de Sudokus al inicio</string>
     <string name="app_startup_category">Inicio de la aplicación</string>
+
+    <!-- Strings added/changed in 3.4.0 -->
+    <string name="sort">Ordenar</string>
+    <string name="sort_puzzles_by">Ordenar puzzles por</string>
+    <string name="sort_creation_date">Fecha de creación</string>
+    <string name="sort_play_time">Tiempo de juego</string>
+    <string name="sort_last_played">Último jugado</string>
 </resources>

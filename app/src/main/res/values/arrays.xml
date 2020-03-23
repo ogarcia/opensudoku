@@ -5,8 +5,8 @@
         <item>@string/game_state_playing</item>
         <item>@string/game_state_solved</item>
     </string-array>
-    <string-array name="time_sorts">
-        <item>@string/no_sort</item>
+    <string-array name="game_sort">
+        <item>@string/sort_creation_date</item>
         <item>@string/sort_play_time</item>
         <item>@string/sort_last_played</item>
     </string-array>
