@@ -36,7 +36,7 @@ public class GameSettingsActivity extends PreferenceActivity {
 
     private PreferenceGroup mScreenCustomTheme;
     private long mTimestampWhenApplyingTheme;
-    private SwitchPreference mHighlightSimilarNotesPreference;
+    private CheckBoxPreference mHighlightSimilarNotesPreference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,7 +54,7 @@ public class GameSettingsActivity extends PreferenceActivity {
         enableScreenCustomTheme(themePreference.getValue());
         mScreenCustomTheme.setOnPreferenceChangeListener((preference, newValue) -> { recreate(); return true; });
 
-        mHighlightSimilarNotesPreference = (SwitchPreference)findPreference("highlight_similar_notes");
+        mHighlightSimilarNotesPreference = (CheckBoxPreference)findPreference("highlight_similar_notes");
         CheckBoxPreference highlightSimilarCellsPreference = (CheckBoxPreference)findPreference("highlight_similar_cells");
         highlightSimilarCellsPreference.setOnPreferenceChangeListener(mHighlightSimilarCellsChanged);
         mHighlightSimilarNotesPreference.setEnabled(highlightSimilarCellsPreference.isChecked());
