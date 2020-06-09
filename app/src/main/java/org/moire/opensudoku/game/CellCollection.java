@@ -168,6 +168,13 @@ public class CellCollection {
                     return cell;
             }
         }
+        for (int r = 0; r < SUDOKU_SIZE; r++) {
+            for (int c = 0; c < SUDOKU_SIZE; c++) {
+                Cell cell = mCells[r][c];
+                if (cell.getNote().hasNumber(val))
+                    return cell;
+            }
+        }
         return null;
     }
 
