@@ -617,6 +617,8 @@ public class SudokuPlayActivity extends ThemedActivity {
                 mSudokuBoard.setHighlightedValue(number);
                 if (cell != null) {
                     mSudokuBoard.moveCellSelectionTo(cell.getRowIndex(), cell.getColumnIndex());
+                } else {
+                    mSudokuBoard.clearCellSelection();
                 }
             } else {
                 mSudokuBoard.clearCellSelection();
