@@ -1,8 +1,10 @@
 <html>
 <head><style type="text/css">body {font-size: smaller;}</style></head>
 <body>
-  <b>3.X.0 WIP</b>
+  <b>3.4.1</b>
   <ul>
+    <li>Improved SDM importer to support files with dots instead of zeros.</li>
+    <li>If a digit is not present in the board, clear selection and highlight notes (if any).</li>
     <li>French translation updated. Thanks @Tubix!</li>
     <li>German translation updated. Thanks @cweiske!</li>
   </ul>
