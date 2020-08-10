@@ -97,168 +97,157 @@
     <string name="highlight_wrong_values">Nabarmendu balio okerrak</string>
     <string name="highlight_wrong_values_summary">Nabarmendu sudokuaren arauak apurtzen dituzten balioak.</string>
     <string name="input_methods">Sarrera moduak</string>
-    <string name="popup">Laster-leihoa</string>
-    <string name="popup_summary">Editatu gelaxkaren balioa eta oharrak laster-leihoan.</string>
+    <string name="popup">Leihotxoa</string>
+    <string name="popup_summary">Editatu gelaxkaren balioa eta oharrak leihotxo batean.</string>
     <string name="single_number">Zenbaki bakarra</string>
     <string name="single_number_summary">Aukeratu zenbakia eta gero ukitu gelaxka bat balio edo ohar hori ezartzeko.</string>
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-.
-    <string name="numpad">Numpad</string>
-    <string name="numpad_summary">Show numpad (acts as standard numeric keyboard)</string>
-    <string name="numpad_move_right">Move right on press</string>
-    <string name="numpad_move_right_summary">Moves cell selection by one cell to the right when number button is pressed.
+    <string name="numpad">Zenbaki-teklatua</string>
+    <string name="numpad_summary">Erakutsi zenbaki-teklatua (betiko zenbaki-teklatuak bezala funtzionatzen du)</string>
+    <string name="numpad_move_right">Mugitu eskuinera ukitu bitartean</string>
+    <string name="numpad_move_right_summary">Gelaxkaren hautapena bat eskuinera mugitzen du zenbaki-botoia ukitzean.
 	</string>
 
-    <string name="numpad_abbr">Num\nPad</string>
-    <string name="popup_abbr">Pop</string>
-    <string name="single_number_abbr">SN</string>
-    <string name="welcome">Welcome</string>
-    <string name="hint">Hint</string>
-    <string name="help">Help</string>
-    <string name="that_is_all">That\'s all</string>
+    <string name="numpad_abbr">Zk\nTek</string>
+    <string name="popup_abbr">Lei\nho\txo</string>
+    <string name="single_number_abbr">ZB</string>
+    <string name="welcome">Ongi etorri</string>
+    <string name="hint">Pista</string>
+    <string name="help">Laguntza</string>
+    <string name="that_is_all">Hori da dena</string>
 
     <string name="first_run_hint">
-        There are several input modes which you can use to fill in the puzzle.
-        In order to help you get familiar with these modes, there will be several hints displayed as you go through them.
-        \n\nYou can disable these hints in game settings.\n
+		Sudokua osatzeko hainbat sarrera modu dituzu.
+		Modu horietara ohitzen laguntzeko hainbat aholku erakutsiko zaizkizu modu horietatik igaro ahala.
+		\n\nJolasaren ezarpenetan aholku hauek desgaitu ditzakezu.\n
 	</string>
 
     <string name="im_popup_hint">
-        You\'re now in the <i>Popup</i> input mode.
-        Tap any cell with finger to edit its content.
-        \n\nNotice the button in the lower right corner.
-        You can use this button to switch to another input mode.\n
+		<i>Leihotxo</i> sarrera moduan zaude.
+		Ukitu edozein gelaxka bere edukia editatzeko.
+		\n\nIkusi behe-eskuin izkineko botoia.
+		Botoi hau beste sarrera modu batera aldatzeko erabil dezakezu.\n
 	</string>
 
     <string name="im_single_number_hint">
-        You\'re now in the <i>Single number</i> input mode.
-        First select any number button by pressing it.
-        Then just tap on cells in which you want to have the selected number filled.
-        \n\nPress <i>Pencil</i> button to toggle the cell\'s note editing.\n
+		<i>Zenbaki bakarra</i> sarrera moduan zaude.
+		Lehenik, sakatu edozein zenbaki-botoi zenbakia hautatzeko.
+		Gero, ukitu nahi duzun gelaxka hautatutako zenbakiarekin betetzeko.
+		\n\nSakatu <i>Arkatz</i> botoia gelaxketan oharrak gehitzeko.\n
 	</string>
 
     <string name="im_numpad_hint">
-        You\'re now in the <i>Numpad</i> input mode.
-        Buttons act as a standard numeric keyboard.
-        \n\nPress <i>Pencil</i> button to toggle the cell\'s note editing.\n
+		<i>Zenbaki-teklatu</i> sarrera moduan zaude.
+		Botoiek betiko zenbaki-teklatuek bezala funtzionatzen dute.
+		\n\nSakatu <i>Arkatz</i> botoia gelaxketan oharrak gehitzeko.\n
 	</string>
 
     <string name="im_disable_modes_hint">
-        Please remember that you don\'t have to use all input modes.
-        You can disable any of them in the game settings.
-        \n\nYou can also use the keyboard and trackball to control the game.
-        If you want to enter notes using the keyboard, press number with alt or shift.\n
+		Gogoan izan ez dituzula sarrera modu guztiak zertan erabili.
+		Haietako edozein desgaitu dezakezu jolasaren ezarpenetan.
+		\n\nTeklatua eta kontrol-bola ere erabil ditzakezu jolasa kontrolatzeko.
+		Teklatua erabiliz oharrik sartu nahi baduzu, sakatu zenbakia Alt edo Maius botoiekin batera.
+
 	</string>
 
     <string name="help_text">
-        <b>Keyboard controls</b>
-        \n\nUse trackball to navigate to the desired cell and then press a number on the keyboard to fill in the value.
-        If you want to edit the cell\'s note, press number with shift or alt.\n\n
+		<b>Teklatuaren kontrolak</b>
+		\n\nErabili kontrol-bola nahi duzun gelaxkara joateko eta gero sakatu zenbakia teklatuan balioa txertatzeko.
+		Gelaxkako oharra editatu nahi baduzu, sakatu zenbakia Alt edo Maius botoiekin batera.\n\n
 
-        <b>Input modes</b>
-        \n\nYou can switch between several input modes using the button in the lower right corner of the screen.
-        You can also disable any input mode in game settings - it will become completely hidden.\n\n
+		<b>Sarrera moduak</b>
+		\n\nSarrera modua aldatzeko erabili behe-eskuin izkineko botoia.
+		Edozein sarrera modu desgaitu dezakezu jolasaren ezarpenetan - guztiz ezkutatuko da.\n\n
 
-        <b>Pop-up input mode</b>
-        \n\nA pop-up dialog is shown when you tap the cell.
-        You can edit cell\'s content using this dialog.\n\n
+		<b>Leihotxo sarrera modua</b>
+		\n\nLaster-leiho bat agertzen da gelaxka ukitzean.
+		Gelaxkako edukia editatu dezakezu leihotxoa erabiliz.\n\n
 
-        <b>Single number input mode</b>
-        \n\nFirst select any number button by pressing it.
-        Then just tap on cells in which you want to have the selected number filled.
-        \n\nUse <i>Pencil</i> button to toggle between the cell\'s value and note editing.\n\n
+		<b>Zenbaki bakar sarrera modua</b>
+		\n\nLehenik, sakatu edozein zenbaki-botoi zenbakia hautatzeko.
+		Gero, ukitu nahi duzun gelaxka hautatutako zenbakiarekin betetzeko.
+		\n\nSakatu <i>Arkatz</i> botoia gelaxketan oharrak gehitzeko.\n	
 
-        <b>Numpad input mode</b>
-        \n\nButtons act as a standard numeric keyboard.
-        \n\nUse <i>Pencil</i> button to toggle between the cell\'s value and note editing.\n
+        <b>Zenbaki-teklatua sarrera modua</b>
+		\n\nBotoiek betiko zenbaki-teklatuek bezala funtzionatzen dute.
+		\n\nSakatu <i>Arkatz</i> botoia gelaxketan oharrak gehitzeko.\n
 	</string>
 
 
-    <string name="game">Game</string>
-    <string name="show_hints">First launch hints</string>
-    <string name="show_hints_summary">Show hints that guide you through application controls</string>
-    <string name="show_time">Show time</string>
-    <string name="show_time_summary">Show time during gameplay</string>
+    <string name="game">Jolasa</string>
+    <string name="show_hints">Lehenengo aldiko pistak</string>
+    <string name="show_hints_summary">Aplikazio-kontrolak irakasten dizkizuten pistak erakusten ditu</string>
+    <string name="show_time">Erakutsi denbora</string>
+    <string name="show_time_summary">Jolasten emandako denbora erakusten du</string>
 
-    <string name="puzzle_inserted">New puzzle has been saved</string>
-    <string name="puzzle_updated">Puzzle has been updated</string>
+    <string name="puzzle_inserted">Sudoku berriak gorde dira</string>
+    <string name="puzzle_updated">Sudokua eguneratu da</string>
 
-    <string name="puzzles_saved">Puzzles have been saved into \'%s\' folder</string>
-    <string name="no_puzzles_found">No puzzles found</string>
-    <string name="unknown_import_error">Unknown error occurred while importing puzzles; import was cancelled</string>
-    <string name="invalid_format">Invalid format; import was cancelled</string>
+    <string name="puzzles_saved">Sudokuak \'%s\' karpetan gorde dira</string>
+    <string name="no_puzzles_found">Ez da sudokurik aukitu</string>
+    <string name="unknown_import_error">Errore ezezagun bat gertatu da sudokuak inportatzean; inportazioa bertan behera utzi da</string>
+    <string name="invalid_format">Formatu baliogabea; inportazioa bertan behera utzi da</string>
 
     <!-- Strings added in 0.7.0 -->
-    <string name="loading">Loading…</string>
+    <string name="loading">Kargatzen…</string>
 
     <!-- Strings added/changed in 0.7.1 -->
-    <string name="more_settings">More Settings</string>
-    <string name="screen_border_size">Screen border size</string>
+    <string name="more_settings">Ezarpen gehiago</string>
+    <string name="screen_border_size">Pantailako ertzaren tamaina</string>
     <string name="screen_border_size_summary">
-        Some displays do not react to touches on screen edges.
-        This could help in such cases.
+		Pantaila batzuk ez dute erantzuten pantailaren ertzetan ukitzean.
+		Honek kasu horietan lagun dezake.
 	</string>
-    <string name="highlight_touched_cell">Highlight cell on touch</string>
-    <string name="highlight_touched_cell_summary">Highlights row and column of touched cell</string>
-    <string name="export">Export</string>
-    <string name="export_folder">Export folder</string>
-    <string name="export_all_folders">Export all folders</string>
-    <string name="folders_created">%d folders have been imported</string>
-    <string name="importing">Importing puzzles…</string>
-    <string name="exporting">Exporting puzzles…</string>
-    <string name="unknown_export_error">An unknown error occurred while exporting puzzles</string>
-    <string name="highlight_completed_values">Highlight completed numbers</string>
-    <string name="highlight_completed_values_summary">Highlight buttons for numbers which have been entered 9 times</string>
-    <string name="theme">Theme</string>
-    <string name="theme_summary">Select color theme for puzzle board</string>
-    <string name="select_theme">Select theme</string>
-    <string name="filename">Filename</string>
-    <string name="directory">Directory</string>
-    <string name="sdcard_not_found">SD card not found</string>
-    <string name="puzzles_have_been_exported">Puzzles have been exported to \'%s\'</string>
-    <string name="file_exists">File already exists. Overwrite?</string>
+    <string name="highlight_touched_cell">Nabarmendu gelaxka ukitzean</string>
+    <string name="highlight_touched_cell_summary">Ukitutako gelaxkaren lerroa eta zutabea nabarmentzen ditu</string>
+    <string name="export">Esportatu</string>
+    <string name="export_folder">Esportatu karpeta</string>
+    <string name="export_all_folders">Esportatu karpeta guztiak</string>
+    <string name="folders_created">%d karpeta inportatu dira</string>
+    <string name="importing">Sudokuak inportatzen…</string>
+    <string name="exporting">Sudokuak esportatzen…</string>
+    <string name="unknown_export_error">Errore ezezagun bat gertatu da sudokuak esportatzean</string>
+    <string name="highlight_completed_values">Nabarmendu osatutako balioak</string>
+    <string name="highlight_completed_values_summary">9 aldiz sartutako zenbakien botoiak nabarmentzen ditu</string>
+    <string name="theme">Itxura</string>
+    <string name="theme_summary">Aukeratu sudokuarentzako kolore-sorta</string>
+    <string name="select_theme">Hautatu itxura</string>
+    <string name="filename">Fitxategi-izena</string>
+    <string name="directory">Direktorioa</string>
+    <string name="sdcard_not_found">Ez da aurkitu SD txartela</string>
+    <string name="puzzles_have_been_exported">Sudokuak \'%s\' direktoriora esportatu dira</string>
+    <string name="file_exists">Fitxategia badago dagoeneko. Gainidatzi?</string>
     <!-- localization of default folder names -->
-    <string name="difficulty_hard">Hard</string>
-    <string name="difficulty_medium">Medium</string>
-    <string name="difficulty_easy">Easy</string>
+    <string name="difficulty_hard">Zailak</string>
+    <string name="difficulty_medium">Bitartekoak</string>
+    <string name="difficulty_easy">Errazak</string>
 
     <!-- Strings added/changed in 1.1.0 -->
-    <string name="generate_sudoku">Generate new game</string>
-    <string name="select_difficulty">Select difficulty</string>
-    <string name="generating">Generating puzzle…</string>
-    <string name="show_number_totals">Show Number Totals</string>
-    <string name="show_number_totals_summary">Displays count of each number placed</string>
-    <string name="what_is_new">What\'s new?</string>
+    <string name="generate_sudoku">Sortu sudoku berria</string>
+    <string name="select_difficulty">Hautatu zailtasuna</string>
+    <string name="generating">Sudokua sortzen…</string>
+    <string name="show_number_totals">Erakutsi guztizko zenbakiak</string>
+    <string name="show_number_totals_summary">Zenbaki bakoitza zenbat aldiz jarri den erakusten du</string>
+    <string name="what_is_new">Zer berri?</string>
 
     <!-- Strings added/changed in 1.1.1 -->
-    <string name="fill_in_notes_summary">Enable "Fill in notes" menu item</string>
+    <string name="fill_in_notes_summary">Gaitu "Osatu oharrak" menu-aukera</string>
 
     <!-- Strings added/changed in 1.1.2 -->
-    <string name="set_checkpoint">Set checkpoint</string>
-    <string name="undo_to_checkpoint">Undo to checkpoint</string>
-    <string name="undo_to_checkpoint_confirm">Are you sure you want to undo all actions since the last checkpoint?</string>
+    <string name="set_checkpoint">Ezarri kontrol-puntua</string>
+    <string name="undo_to_checkpoint">Desegin kontrol-puntura</string>
+    <string name="undo_to_checkpoint_confirm">Ziur azken kontrol-puntuaz geroztiko ekintza guztiak desegin nahi dituzula?</string>
 
     <!-- Strings added/changed in 2.3.0 -->
-    <string name="highlight_similar_cells">Highlight similar cells</string>
-    <string name="highlight_similar_cells_summary">Highlight cells with similar values</string>
+    <string name="highlight_similar_cells">Nabarmendu antzeko gelaxkak</string>
+    <string name="highlight_similar_cells_summary">Nabarmendu zenbaki berbera duten gelaxkak</string>
 
     <!-- Strings added/changed in 2.4.0 -->
-    <string name="bidirectional_selection">Bidirectional selection</string>
+    <string name="bidirectional_selection">Bi noranzkoko hautapena</string>
     <string name="bidirectional_selection_summary">
-        In single number input panel, the selection of a non editable cell automatically
-        selects the corresponding button (and vice versa).
+		Zenbaki bakar sarrera moduan, editatu ezin daiteken gelaxka bat ukitzean zenbaki
+		berbereko botoia hautatuko da (eta alderantziz).
     </string>
-    <string name="contributors_label">Contributors</string>
+    <string name="contributors_label">Laguntzaileak</string>
     <string name="contributors" translatable="false">
         Sergey Pimanov\n
         @TacoTheDank\n
@@ -268,129 +257,129 @@
     </string>
 
     <!-- Strings added/changed in 2.5.0 -->
-    <string name="game_state_not_started">Not started</string>
-    <string name="game_state_playing">Playing</string>
-    <string name="game_state_solved">Solved</string>
+    <string name="game_state_not_started">Hasi gabea</string>
+    <string name="game_state_playing">Jolasten</string>
+    <string name="game_state_solved">Ebatzia</string>
 
-    <string name="game_level_easy">Easy</string>
-    <string name="game_level_medium">Medium</string>
-    <string name="game_level_hard">Hard</string>
+    <string name="game_level_easy">Erraza</string>
+    <string name="game_level_medium">Bitartekoa</string>
+    <string name="game_level_hard">Zaila</string>
 
-    <string name="theme_paper">Paper</string>
-    <string name="theme_graph_paper">Graph Paper</string>
-    <string name="theme_light">Light</string>
-    <string name="theme_paper_light">Paper Light</string>
-    <string name="theme_graph_paper_light">Graph Paper Light</string>
-    <string name="theme_high_contrast">High Contrast</string>
-    <string name="theme_inverted_high_contrast">Inverted High Contrast</string>
-    <string name="theme_custom">Custom Theme</string>
+    <string name="theme_paper">Papera</string>
+    <string name="theme_graph_paper">Paper grafikoa</string>
+    <string name="theme_light">Argia</string>
+    <string name="theme_paper_light">Paper argia</string>
+    <string name="theme_graph_paper_light">Paper grafiko argia</string>
+    <string name="theme_high_contrast">Kontraste handia</string>
+    <string name="theme_inverted_high_contrast">Kontraste handi alderantzikatua</string>
+    <string name="theme_custom">Itxura pertsonalizatua</string>
 
-    <string name="screen_custom_theme">Custom theme colors</string>
-    <string name="screen_custom_theme_summary">Customize colors of the custom theme</string>
+    <string name="screen_custom_theme">Itxura pertsonalizatuaren koloreak</string>
+    <string name="screen_custom_theme_summary">Aldatu itxura pertsonalizatuaren koloreak</string>
     <string name="screen_custom_theme_summary_disabled">
-        Choose \"Custom Theme\" in the \"Theme\" setting above to enable this section
+		Ezarpen hau gaitzeko, aukeratu \"Itxura pertsonalizatua\" gaineko \"Itxura\" atalean
     </string>
 
-    <string name="default_lineColor">Line</string>
-    <string name="default_lineColor_summary">Border color around a cell</string>
+    <string name="default_lineColor">Ingerada</string>
+    <string name="default_lineColor_summary">Gelaxken inguruko ertzen kolorea</string>
 
-    <string name="default_sectorLineColor">Sector line</string>
-    <string name="default_sectorLineColor_summary">Border color around a block of 3x3 cells</string>
+    <string name="default_sectorLineColor">Sektore-ingerada</string>
+    <string name="default_sectorLineColor_summary">3x3 gelaxkako blokeen inguruko ertzen kolorea</string>
 
-    <string name="default_textColor">Text</string>
-    <string name="default_textColor_summary">Text color of an editable cell</string>
+    <string name="default_textColor">Testua</string>
+    <string name="default_textColor_summary">Gelaxka editagarrien testuaren kolorea</string>
 
-    <string name="default_textColorReadOnly">Read-only text</string>
-    <string name="default_textColorReadOnly_summary">Text color of a non-editable cell</string>
+    <string name="default_textColorReadOnly">Testu ez-editagarria</string>
+    <string name="default_textColorReadOnly_summary">Gelaxka ez-editagarrien testuaren kolorea</string>
 
-    <string name="default_textColorNote">Note text</string>
-    <string name="default_textColorNote_summary">Color of a note text of an editable cell</string>
+    <string name="default_textColorNote">Oharren testua</string>
+    <string name="default_textColorNote_summary">Oharren testuen kolorea</string>
 
-    <string name="default_backgroundColor">Primary background</string>
-    <string name="default_backgroundColor_summary">Background color of odd groups of 3x3 cells</string>
+    <string name="default_backgroundColor">Atzeko plano nagusia</string>
+    <string name="default_backgroundColor_summary">3x3 gelaxka-bloke bakoitien atzeko planoko kolorea</string>
 
-    <string name="default_backgroundColorSecondary">Secondary background</string>
-    <string name="default_backgroundColorSecondary_summary">Background color of even groups of 3x3 cells</string>
+    <string name="default_backgroundColorSecondary">Atzeko plano sekundarioa</string>
+    <string name="default_backgroundColorSecondary_summary">3x3 gelaxka-bloke bikoitien atzeko planoko kolorea</string>
 
-    <string name="default_backgroundColorReadOnly">Background of read-only cells</string>
-    <string name="default_backgroundColorReadOnly_summary">Background color of a non editable cells</string>
+    <string name="default_backgroundColorReadOnly">Gelaxka ez-editagarrien atzeko planoa</string>
+    <string name="default_backgroundColorReadOnly_summary">Gelaxka ez-editagarrien atzeko planoko kolorea</string>
 
-    <string name="default_backgroundColorTouched">Selector</string>
+    <string name="default_backgroundColorTouched">Hautatzailea</string>
     <string name="default_backgroundColorTouched_summary">
-        Color of the selection cross that appears when you press on any cell
+        Gelaxka bat ukitzean agertzen den hautaketa-gurutzearen kolorea
     </string>
 
-    <string name="default_backgroundColorSelected">Selected cell background</string>
-    <string name="default_backgroundColorSelected_summary">Background color of the selected cell</string>
+    <string name="default_backgroundColorSelected">Hautatutako gelaxkaren atzeko planoa</string>
+    <string name="default_backgroundColorSelected_summary">Hautatutako gelaxkaren atzeko planoko kolorea</string>
 
-    <string name="default_backgroundColorHighlighted">Highlighted cell background</string>
-    <string name="default_backgroundColorHighlighted_summary">Background color of the highlighted cells</string>
+    <string name="default_backgroundColorHighlighted">Nabarmendutako gelaxkaren atzeko planoa</string>
+    <string name="default_backgroundColorHighlighted_summary">Nabarmendutako gelaxkaren atzeko planoko kolorea</string>
 
     <!-- Strings added/changed in 2.6.0 -->
-    <string name="solve_puzzle">Solve Puzzle</string>
-    <string name="solve_puzzle_confirm">Are you sure you want to see the solution?</string>
-    <string name="used_solver">You used the solver to see the solution!</string>
-    <string name="puzzle_not_solved">This puzzle has no solution.</string>
+    <string name="solve_puzzle">Ebatzi sudokua</string>
+    <string name="solve_puzzle_confirm">Ziur soluzioa ikusi nahi duzula?</string>
+    <string name="used_solver">Ebaztailea erabili duzu soluzioa ikusteko!</string>
+    <string name="puzzle_not_solved">Sudoku honek ez du soluziorik.</string>
 
-    <string name="solver_hint">Hint</string>
-    <string name="hint_confirm">This will fill in the correct value for the selected cell. Do you want to continue?</string>
-    <string name="cannot_give_hint">You cannot get a hint for that cell.</string>
+    <string name="solver_hint">Pista</string>
+    <string name="hint_confirm">Honek hautatutako gelaxka balio zuzenarekin osatuko du. Jarraitu nahi al duzu?</string>
+    <string name="cannot_give_hint">Ezin duzu gelaxka horrentzat pistarik lortu.</string>
 
-    <string name="check_solvabitily">Check Solvability</string>
-    <string name="puzzle_solvable">This puzzle has a solution.</string>
+    <string name="check_solvabitily">Egiaztatu ebazgarritasuna</string>
+    <string name="puzzle_solvable">Sudoku honek badu soluzioa.</string>
 
-    <string name="copy_from_existing_theme">Copy from existing theme…</string>
+    <string name="copy_from_existing_theme">Kopiatu jada badagoen itxuratik…</string>
 
     <!-- Strings added/changed in 3.0.0 -->
-    <string name="theme_default">Dark</string>
+    <string name="theme_default">Iluna</string>
     <string name="theme_amoled">AMOLED</string>
-    <string name="theme_latte">Caramel Latte</string>
+    <string name="theme_latte">Latte karamelo</string>
     <string name="theme_espresso">Espresso</string>
-    <string name="theme_sunrise">Sunrise</string>
-    <string name="theme_honeybee">Honey Bee</string>
-    <string name="theme_crystal">Crystal</string>
-    <string name="theme_midnight_blue">Midnight Blue</string>
-    <string name="theme_emerald">Emerald</string>
-    <string name="theme_forest">Forest</string>
-    <string name="theme_amethyst">Amethyst</string>
-    <string name="theme_ruby">Ruby</string>
+    <string name="theme_sunrise">Egunsentia</string>
+    <string name="theme_honeybee">Ezti-erlea</string>
+    <string name="theme_crystal">Kristala</string>
+    <string name="theme_midnight_blue">Gauerdiko urdina</string>
+    <string name="theme_emerald">Esmeralda</string>
+    <string name="theme_forest">Oihana</string>
+    <string name="theme_amethyst">Ametista</string>
+    <string name="theme_ruby">Errubia</string>
 
-    <string name="is_light_theme_summary">Change if the app colors are based on the light or dark theme.</string>
-    <string name="is_light_theme_title">Light theme</string>
-    <string name="app_color_primary_summary">This color is used for the background of the title bar.</string>
-    <string name="app_color_primary_title">Primary App Color</string>
-    <string name="app_color_secondary_summary">This color is used for the Android status bar and is usually a darker version of the primary app color.</string>
-    <string name="app_color_secondary_title">Secondary App Color</string>
-    <string name="app_color_accent_summary">This color is used to accent various UI controls.</string>
-    <string name="app_color_accent_title">App Accent Color</string>
-    <string name="app_color_button_summary">This color is used for button UI controls.</string>
-    <string name="app_color_button_title">App Button Color</string>
-    
-    <string name="highlight_similar_notes">Highlight similar notes</string>
-    <string name="highlight_similar_notes_summary">Highlight cells with similar note values</string>
+    <string name="is_light_theme_title">Itxura argia</string>
+    <string name="is_light_theme_summary">Aplikazioaren koloreak itxura argi edo ilunean oinarritzen diren aldatzen du.</string>
+    <string name="app_color_primary_title">Aplikazioaren kolore nagusia</string>
+    <string name="app_color_primary_summary">Kolore hau izenburu-barraren atzeko planorako erabiliko da.</string>
+    <string name="app_color_secondary_title">Aplikazioaren kolore sekundarioa</string>
+    <string name="app_color_secondary_summary">Kolore hau Androideko egoera-barrarako erabiliko da eta aplikazioko kolore nagusiaren bertsio ilunago bat izan ohi da.</string>
+    <string name="app_color_accent_title">Aplikazioaren nabarmentze kolorea</string>
+	<string name="app_color_accent_summary">Kolore hau interfazeko zati batzuk nabarmentzeko erabiliko da.</string>
+ 	<string name="app_color_button_title">Aplikazioko botoien kolorea</string>
+    <string name="app_color_button_summary">Kolore hau interfazeko botoientzako erabiliko da.</string>
+       
+    <string name="highlight_similar_notes">Nabarmendu antzeko oharrak</string>
+    <string name="highlight_similar_notes_summary">Nabarmendu ohar berbera duten gelaxkak</string>
 
-    <string name="resume">Resume</string>
-    <string name="sudoku_lists">Sudoku Lists</string>
+    <string name="resume">Berrekin</string>
+    <string name="sudoku_lists">Sudoku zerrenda</string>
 
     <!-- Strings added/changed in 3.1.0 -->
-    <string name="undo_to_before_mistake">Undo to before mistake</string>
-    <string name="undo_to_before_mistake_confirm">Are you sure you want to undo all actions since the last solvable state?</string>
+    <string name="undo_to_before_mistake">Desegin aurreko akatsera</string>
+    <string name="undo_to_before_mistake_confirm">Ziur azken egoera ebazgarrira arteko ekintza guztiak desegin nahi dituzula?</string>
 
     <!-- Strings added/changed in 3.2.0 -->
-    <string name="remove_notes_summary">Automatically remove notes from the same column, row, and box when entering a number</string>
-    <string name="remove_notes_title">Remove notes on number entry</string>
-
-    <string name="create_from_single_color">Create from single color…</string>
+	<string name="remove_notes_title">Ezabatu oharrak zenbakia sartzean</string>
+    <string name="remove_notes_summary">Ezabatu automatikoki zutabe, lerro eta bloke bereko oharrak zenbaki bat sartzean</string>
+    
+    <string name="create_from_single_color">Sortu kolore bakarretik…</string>
 
     <!-- Strings added/changed in 3.3.0 -->
-    <string name="show_sudoku_lists_on_startup_summary">Show the sudoku lists on startup and skip the title screen.</string>
-    <string name="show_sudoku_lists_on_startup_title">Show sudoku lists on startup</string>
-    <string name="app_startup_category">App Startup</string>
+    <string name="show_sudoku_lists_on_startup_title">Erakutsi sudoku zerrenda aplikazio hasieran</string>
+    <string name="show_sudoku_lists_on_startup_summary">Erakutsi sudoku zerrenda aplikazio hasieran eta saltatu hasiera-pantaila.</string>
+    <string name="app_startup_category">Aplikazio hasiera</string>
 
     <!-- Strings added/changed in 3.4.0 -->
-    <string name="sort">Sort</string>
-    <string name="sort_puzzles_by">Sort puzzles by</string>
-    <string name="sort_creation_date">Creation date</string>
-    <string name="sort_play_time">Play time</string>
-    <string name="sort_last_played">Last played</string>
+    <string name="sort">Sailkatu</string>
+    <string name="sort_puzzles_by">Sailkatu sudokuak honela:</string>
+    <string name="sort_creation_date">Sortze-data</string>
+    <string name="sort_play_time">Jolastutako denbora</string>
+    <string name="sort_last_played">Azkenengoz jolastua</string>
 </resources>
