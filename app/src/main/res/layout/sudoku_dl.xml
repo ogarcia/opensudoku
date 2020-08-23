@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/dl_sudoku"
+        android:paddingTop="10dp"
+        android:paddingBottom="30dp"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="@string/folder" />
+
+    <EditText
+        android:id="@+id/dl_folder_name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType=""
+        android:singleLine="true" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="@string/dl_url" />
+
+    <EditText
+        android:id="@+id/dl_url"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType=""
+        android:singleLine="true" />
+
+    <CheckBox
+        android:id="@+id/dl_append"
+        android:text="@string/append_to_folder"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/dl_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/dl_sudoku" />
+
+</LinearLayout>

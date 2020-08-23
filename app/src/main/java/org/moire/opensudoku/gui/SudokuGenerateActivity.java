@@ -9,7 +9,7 @@ import android.widget.EditText;
 import android.widget.NumberPicker;
 
 import org.moire.opensudoku.R;
-import org.moire.opensudoku.gui.importing.GenImportTask;
+import org.moire.opensudoku.gui.importing.GenerateImportTask;
 
 import java.util.Date;
 
@@ -27,7 +27,7 @@ public class SudokuGenerateActivity extends ThemedActivity {
     private NumberPicker mNumEmptyCellsPicker;
     private CheckBox mAppendToFolderCb;
 
-    private GenImportTask mGenTask;
+    private GenerateImportTask mGenTask;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

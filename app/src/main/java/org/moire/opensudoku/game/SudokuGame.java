@@ -22,10 +22,12 @@ package org.moire.opensudoku.game;
 
 import android.os.Bundle;
 import android.os.SystemClock;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import org.moire.opensudoku.game.command.AbstractCommand;
 import org.moire.opensudoku.game.command.ClearAllNotesCommand;
@@ -34,6 +36,8 @@ import org.moire.opensudoku.game.command.EditCellNoteCommand;
 import org.moire.opensudoku.game.command.FillInNotesCommand;
 import org.moire.opensudoku.game.command.SetCellValueAndRemoveNotesCommand;
 import org.moire.opensudoku.game.command.SetCellValueCommand;
+
+import static org.moire.opensudoku.utils.Const.TAG;
 
 public class SudokuGame {
 
@@ -63,6 +67,35 @@ public class SudokuGame {
         // set creation time
         game.setCreated(System.currentTimeMillis());
         return game;
+    }
+
+    public static SudokuGame generateNewGame(int numberOfEmptyCells) {
+        SudokuGame game;
+        int attempts = 0;
+        do {
+            Log.d(TAG, "generateNewGame: Generating attempt: "+(++attempts));
+            game = createEmptyGame();
+            game.solve();
+            game.clearRandomCells(numberOfEmptyCells);
+        } while (!game.isSolvable()); // pretty sure this will always be true
+        return game;
+    }
+
+    public void clearRandomCells(int numberOfEmptyCells) {
+        Random random = new Random();
+        for (int i = 0; i < numberOfEmptyCells; i++) {
+            int randomRow = random.nextInt(9);
+            int randomColumn = random.nextInt(9);
+
+            Cell cell = mCells.getCell(randomRow, randomColumn);
+            int value = cell.getValue();
+            if (value != 0) cell.setValue(0);
+            else i--;
+        }
+    }
+
+    public String toDataString() {
+        return mCells.toDataString();
     }
 
     public SudokuGame() {
@@ -300,7 +333,7 @@ public class SudokuGame {
     /**
      * Checks if a solution to the puzzle exists
      */
-    public boolean isSolvable () {
+    public boolean isSolvable() {
         mSolver = new SudokuSolver();
         mSolver.setPuzzle(mCells);
         ArrayList<int[]> finalValues = mSolver.solve();

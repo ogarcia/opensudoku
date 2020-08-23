@@ -33,7 +33,6 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
@@ -55,10 +54,7 @@ import org.moire.opensudoku.R;
 import org.moire.opensudoku.db.FolderColumns;
 import org.moire.opensudoku.db.SudokuDatabase;
 import org.moire.opensudoku.game.FolderInfo;
-import org.moire.opensudoku.gen.Generator;
-import org.moire.opensudoku.gui.importing.ExtrasImportTask;
 import org.moire.opensudoku.utils.AndroidUtils;
-import org.moire.opensudoku.utils.ThemeUtils;
 
 /**
  * List of puzzle's folder. This activity also serves as root activity of application.
@@ -75,7 +71,8 @@ public class FolderListActivity extends ThemedActivity {
     public static final int MENU_ITEM_EXPORT_ALL = Menu.FIRST + 5;
     public static final int MENU_ITEM_IMPORT = Menu.FIRST + 6;
     public static final int MENU_ITEM_SETTINGS = Menu.FIRST + 7;
-    public static final int MENU_ITEM_GEN = Menu.FIRST + 8;
+    public static final int MENU_ITEM_GENERATE = Menu.FIRST + 8;
+    public static final int MENU_ITEM_DOWNLOAD = Menu.FIRST + 9;
 
     private static final int DIALOG_ABOUT = 0;
     private static final int DIALOG_ADD_FOLDER = 1;
@@ -180,9 +177,12 @@ public class FolderListActivity extends ThemedActivity {
         menu.add(0, MENU_ITEM_IMPORT, 0, R.string.import_file)
                 .setShortcut('8', 'i')
                 .setIcon(R.drawable.ic_cloud_upload);
-        menu.add(0, MENU_ITEM_GEN, 0, R.string.generate)
-                .setShortcut('2', 'g')
+        menu.add(0, MENU_ITEM_DOWNLOAD, 0, R.string.download)
+                .setShortcut('9', 'd')
                 .setIcon(R.drawable.ic_cloud_upload);
+        menu.add(0, MENU_ITEM_GENERATE, 0, R.string.generate)
+                .setShortcut('2', 'g')
+                .setIcon(R.drawable.ic_add);
         menu.add(0, MENU_ITEM_EXPORT_ALL, 1, R.string.export_all_folders)
                 .setShortcut('7', 'e')
                 .setIcon(R.drawable.ic_share);
@@ -364,13 +364,17 @@ public class FolderListActivity extends ThemedActivity {
                     startActivity(intent);
                 }
                 return true;
-            case MENU_ITEM_GEN:
+            case MENU_ITEM_GENERATE:
                 intent = new Intent();
-                //intent.putExtra(SudokuGenerateActivity.EXTRA_FOLDER_NAME, "Generated");
-                intent.putExtra(SudokuGenerateActivity.EXTRA_NUM_GAMES, 20);
-                intent.putExtra(SudokuGenerateActivity.EXTRA_NUM_EMPTY_CELLS, 60);
-                intent.putExtra(SudokuGenerateActivity.EXTRA_APPEND_TO_FOLDER, true);
                 intent.setClass(this, SudokuGenerateActivity.class);
+                intent.putExtra(SudokuGenerateActivity.EXTRA_NUM_GAMES, 20);
+                intent.putExtra(SudokuGenerateActivity.EXTRA_NUM_EMPTY_CELLS, 55);
+                intent.putExtra(SudokuGenerateActivity.EXTRA_APPEND_TO_FOLDER, true);
+                startActivity(intent);
+                return true;
+            case MENU_ITEM_DOWNLOAD:
+                intent = new Intent();
+                intent.setClass(this, SudokuDownloadActivity.class);
                 startActivity(intent);
                 return true;
             case MENU_ITEM_EXPORT_ALL:

@@ -431,6 +431,24 @@ public class CellCollection {
         return new CellCollection(cells);
     }
 
+    /**
+     * Creates a string from the collection. The string is in
+     * the format "00002343243202...", where each number represents
+     * cell value, no other information can be set using this method.
+     *
+     * @return data string
+     */
+    public String toDataString() {
+        StringBuilder sb = new StringBuilder();
+        for (int r = 0; r < CellCollection.SUDOKU_SIZE; r++) {
+            for (int c = 0; c < CellCollection.SUDOKU_SIZE; c++) {
+                Cell cell = mCells[r][c];
+                sb.append(cell.getValue());
+            }
+        }
+        return sb.toString();
+    }
+
     public String serialize() {
         StringBuilder sb = new StringBuilder();
         serialize(sb);

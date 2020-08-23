@@ -12,7 +12,7 @@ import org.moire.opensudoku.R;
 import org.moire.opensudoku.gui.importing.AbstractImportTask;
 import org.moire.opensudoku.gui.importing.AbstractImportTask.OnImportFinishedListener;
 import org.moire.opensudoku.gui.importing.ExtrasImportTask;
-import org.moire.opensudoku.gui.importing.GenImportTask;
+import org.moire.opensudoku.gui.importing.GenerateImportTask;
 import org.moire.opensudoku.gui.importing.OpenSudokuImportTask;
 import org.moire.opensudoku.gui.importing.SdmImportTask;
 import org.moire.opensudoku.utils.Const;
@@ -84,7 +84,7 @@ public class SudokuImportActivity extends ThemedActivity {
             int numGames = intent.getIntExtra(EXTRA_NUM_GAMES, 20);
             int numEmptyCells = intent.getIntExtra(EXTRA_NUM_EMPTY_CELLS, 60);
             boolean appendToFolder = intent.getBooleanExtra(EXTRA_APPEND_TO_FOLDER, false);
-            importTask = new GenImportTask(folderName, numGames, numEmptyCells, appendToFolder);
+            importTask = new GenerateImportTask(folderName, numGames, numEmptyCells, appendToFolder);
 
         } else if (intent.getStringExtra(EXTRA_FOLDER_NAME) != null) {
 

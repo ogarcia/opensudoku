@@ -93,6 +93,9 @@
             android:name=".gui.SudokuGenerateActivity"
             android:label="@string/app_name"></activity>
         <activity
+            android:name=".gui.SudokuDownloadActivity"
+            android:label="@string/app_name"></activity>
+        <activity
             android:name=".gui.SudokuExportActivity"
             android:label="@string/app_name"></activity>
         <activity

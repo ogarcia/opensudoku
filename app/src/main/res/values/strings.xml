@@ -389,4 +389,7 @@
     <string name="games">Games</string>
     <string name="empty_cells">Empty Cells</string>
     <string name="append_to_folder">Append to Folder</string>
+    <string name="download">Download</string>
+    <string name="dl_url">Download URL</string>
+    <string name="dl_sudoku">Download Games</string>
 </resources>
