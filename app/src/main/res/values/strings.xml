@@ -44,6 +44,13 @@
     <string name="select_number">Select number</string>
     <string name="edit_note">Edit note</string>
 
+
+    <string name="generate">Generate</string>
+    <string name="folder">Folder</string>
+    <string name="games">Games</string>
+    <string name="empty_cells">Empty Cells</string>
+    <string name="append_to_folder">Append to Folder</string>
+
     <string name="add_folder">Add folder</string>
     <string name="import_file">Import</string>
     <string name="import_file_title">Import file %s</string>
@@ -252,7 +259,8 @@
         @TacoTheDank\n
         @steve3424\n
         Chris Lane\n
-        Justin Nordin
+        Justin Nordin\n
+        Chris Awad
     </string>
 
     <!-- Strings added/changed in 2.5.0 -->

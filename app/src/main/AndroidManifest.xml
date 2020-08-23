@@ -60,6 +60,10 @@
                     android:scheme="file" />
                 <data
                     android:host="*"
+                    android:pathPattern=".*\\.opensudoku.xml"
+                    android:scheme="file" />
+                <data
+                    android:host="*"
                     android:pathPattern=".*\\.opensudoku"
                     android:scheme="http" />
             </intent-filter>
@@ -85,6 +89,9 @@
                 <data android:mimeType="application/x-opensudoku" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".gui.SudokuGenerateActivity"
+            android:label="@string/app_name"></activity>
         <activity
             android:name=".gui.SudokuExportActivity"
             android:label="@string/app_name"></activity>

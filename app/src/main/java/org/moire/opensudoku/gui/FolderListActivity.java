@@ -55,6 +55,8 @@ import org.moire.opensudoku.R;
 import org.moire.opensudoku.db.FolderColumns;
 import org.moire.opensudoku.db.SudokuDatabase;
 import org.moire.opensudoku.game.FolderInfo;
+import org.moire.opensudoku.gen.Generator;
+import org.moire.opensudoku.gui.importing.ExtrasImportTask;
 import org.moire.opensudoku.utils.AndroidUtils;
 import org.moire.opensudoku.utils.ThemeUtils;
 
@@ -73,6 +75,7 @@ public class FolderListActivity extends ThemedActivity {
     public static final int MENU_ITEM_EXPORT_ALL = Menu.FIRST + 5;
     public static final int MENU_ITEM_IMPORT = Menu.FIRST + 6;
     public static final int MENU_ITEM_SETTINGS = Menu.FIRST + 7;
+    public static final int MENU_ITEM_GEN = Menu.FIRST + 8;
 
     private static final int DIALOG_ABOUT = 0;
     private static final int DIALOG_ADD_FOLDER = 1;
@@ -176,6 +179,9 @@ public class FolderListActivity extends ThemedActivity {
                 .setIcon(R.drawable.ic_add);
         menu.add(0, MENU_ITEM_IMPORT, 0, R.string.import_file)
                 .setShortcut('8', 'i')
+                .setIcon(R.drawable.ic_cloud_upload);
+        menu.add(0, MENU_ITEM_GEN, 0, R.string.generate)
+                .setShortcut('2', 'g')
                 .setIcon(R.drawable.ic_cloud_upload);
         menu.add(0, MENU_ITEM_EXPORT_ALL, 1, R.string.export_all_folders)
                 .setShortcut('7', 'e')
@@ -357,6 +363,15 @@ public class FolderListActivity extends ThemedActivity {
                 else {
                     startActivity(intent);
                 }
+                return true;
+            case MENU_ITEM_GEN:
+                intent = new Intent();
+                //intent.putExtra(SudokuGenerateActivity.EXTRA_FOLDER_NAME, "Generated");
+                intent.putExtra(SudokuGenerateActivity.EXTRA_NUM_GAMES, 20);
+                intent.putExtra(SudokuGenerateActivity.EXTRA_NUM_EMPTY_CELLS, 60);
+                intent.putExtra(SudokuGenerateActivity.EXTRA_APPEND_TO_FOLDER, true);
+                intent.setClass(this, SudokuGenerateActivity.class);
+                startActivity(intent);
                 return true;
             case MENU_ITEM_EXPORT_ALL:
                 intent = new Intent();

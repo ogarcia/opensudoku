@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/generate_sudoku"
+        android:paddingTop="10dp"
+        android:paddingBottom="30dp"
+        android:textAppearance="@android:style/TextAppearance.DeviceDefault.DialogWindowTitle" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:gravity="center"
+        android:text="@string/add_folder" />
+
+    <EditText
+        android:id="@+id/gen_folder_name"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:inputType=""
+        android:singleLine="true" />
+
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_gravity="center"
+        android:useDefaultMargins="true">
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textStyle="bold"
+            android:text="@string/games"
+            android:gravity="center"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:layout_columnWeight="1"/>
+
+        <NumberPicker
+            android:id="@+id/gen_games"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            />
+
+        <TextView
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="8dp"
+            android:text="@string/empty_cells"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:layout_columnWeight="1" />
+
+        <NumberPicker
+            android:id="@+id/gen_empty_cells"
+            android:layout_height="wrap_content"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:layout_columnWeight="1"/>
+
+    </GridLayout>
+
+    <CheckBox
+        android:id="@+id/gen_append"
+        android:text="@string/append_to_folder"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginTop="8dp" />
+
+    <Button
+        android:id="@+id/gen_button"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/generate_sudoku" />
+
+</LinearLayout>

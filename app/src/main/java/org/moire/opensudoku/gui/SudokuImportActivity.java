@@ -4,8 +4,6 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.util.Log;
 import android.view.Window;
 import android.widget.ProgressBar;
@@ -14,6 +12,7 @@ import org.moire.opensudoku.R;
 import org.moire.opensudoku.gui.importing.AbstractImportTask;
 import org.moire.opensudoku.gui.importing.AbstractImportTask.OnImportFinishedListener;
 import org.moire.opensudoku.gui.importing.ExtrasImportTask;
+import org.moire.opensudoku.gui.importing.GenImportTask;
 import org.moire.opensudoku.gui.importing.OpenSudokuImportTask;
 import org.moire.opensudoku.gui.importing.SdmImportTask;
 import org.moire.opensudoku.utils.Const;
@@ -39,6 +38,8 @@ public class SudokuImportActivity extends ThemedActivity {
      * 120001232...0041\n 456000213...1100\n
      */
     public static final String EXTRA_GAMES = "GAMES";
+    public static final String EXTRA_NUM_GAMES = "NUM_GAMES";
+    public static final String EXTRA_NUM_EMPTY_CELLS = "NUM_EMPTY_CELLS";
 
     private static final String TAG = "ImportSudokuActivity";
 
@@ -77,6 +78,14 @@ public class SudokuImportActivity extends ThemedActivity {
                 return;
 
             }
+        } else if (intent.getIntExtra(EXTRA_NUM_EMPTY_CELLS, 0) > 0) {
+
+            String folderName = intent.getStringExtra(EXTRA_FOLDER_NAME);
+            int numGames = intent.getIntExtra(EXTRA_NUM_GAMES, 20);
+            int numEmptyCells = intent.getIntExtra(EXTRA_NUM_EMPTY_CELLS, 60);
+            boolean appendToFolder = intent.getBooleanExtra(EXTRA_APPEND_TO_FOLDER, false);
+            importTask = new GenImportTask(folderName, numGames, numEmptyCells, appendToFolder);
+
         } else if (intent.getStringExtra(EXTRA_FOLDER_NAME) != null) {
 
             String folderName = intent.getStringExtra(EXTRA_FOLDER_NAME);
