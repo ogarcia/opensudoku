@@ -44,13 +44,6 @@
     <string name="select_number">Select number</string>
     <string name="edit_note">Edit note</string>
 
-
-    <string name="generate">Generate</string>
-    <string name="folder">Folder</string>
-    <string name="games">Games</string>
-    <string name="empty_cells">Empty Cells</string>
-    <string name="append_to_folder">Append to Folder</string>
-
     <string name="add_folder">Add folder</string>
     <string name="import_file">Import</string>
     <string name="import_file_title">Import file %s</string>
@@ -389,4 +382,11 @@
     <string name="sort_creation_date">Creation date</string>
     <string name="sort_play_time">Play time</string>
     <string name="sort_last_played">Last played</string>
+
+    <!-- Strings added/changed in ?.?.? -->
+    <string name="generate">Generate</string>
+    <string name="folder">Folder</string>
+    <string name="games">Games</string>
+    <string name="empty_cells">Empty Cells</string>
+    <string name="append_to_folder">Append to Folder</string>
 </resources>
