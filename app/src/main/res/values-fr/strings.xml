@@ -278,16 +278,16 @@
     <string name="theme_amethyst">Amethyst</string>
     <string name="theme_ruby">Ruby</string>
 
-    <string name="is_light_theme_summary">Change si les couleurs de l\'application sont basées sur le thème clair ou foncé.</string>
     <string name="is_light_theme_title">Thème clair</string>
-    <string name="app_color_primary_summary">Cette couleur est utilisée pour l\'arrière-plan de la barre de titre.</string>
+    <string name="is_light_theme_summary">Change si les couleurs de l\'application sont basées sur le thème clair ou foncé.</string>
     <string name="app_color_primary_title">Couleur primaire de l\'application</string>
-    <string name="app_color_secondary_summary">Cette couleur est utilisée pour la barre d\'état Android et est généralement une version plus foncée de la couleur primaire de l\'application.</string>
+    <string name="app_color_primary_summary">Cette couleur est utilisée pour l\'arrière-plan de la barre de titre.</string>
     <string name="app_color_secondary_title">Couleur secondaire de l\'application</string>
-    <string name="app_color_accent_summary">Cette couleur est utilisée pour accentuer les différents contrôles de l\'interface utilisateur.</string>
+    <string name="app_color_secondary_summary">Cette couleur est utilisée pour la barre d\'état Android et est généralement une version plus foncée de la couleur primaire de l\'application.</string>
     <string name="app_color_accent_title">Couleur d\'accentuation de l\'application</string>
-    <string name="app_color_button_summary">Cette couleur est utilisée pour les boutons de contrôle de l\'interface utilisateur.</string>
+    <string name="app_color_accent_summary">Cette couleur est utilisée pour accentuer les différents contrôles de l\'interface utilisateur.</string>
     <string name="app_color_button_title">Couleur du bouton de l\'application</string>
+    <string name="app_color_button_summary">Cette couleur est utilisée pour les boutons de contrôle de l\'interface utilisateur.</string>
     
     <string name="highlight_similar_notes">Mettre en évidence les notes similaires</string>
     <string name="highlight_similar_notes_summary">Mettre en évidence les cellules ayant des valeurs de note similaires</string>
@@ -300,14 +300,14 @@
     <string name="undo_to_before_mistake_confirm">Voulez-vous vraiment annuler toutes les actions jusqu\'au dernier état solvable?</string>
 
     <!-- Strings added/changed in 3.2.0 -->
-    <string name="remove_notes_summary">Supprime automatiquement les notes d\'une même colonne, d\'une même ligne et d\'une même case lors de la saisie d\'un numéro.</string>
     <string name="remove_notes_title">Supprimer les notes à la saisie de numéro</string>
+    <string name="remove_notes_summary">Supprime automatiquement les notes d\'une même colonne, d\'une même ligne et d\'une même case lors de la saisie d\'un numéro.</string>
 
     <string name="create_from_single_color">Créer à partir d\'une seule couleur...</string>
 
     <!-- Strings added/changed in 3.3.0 -->
-    <string name="show_sudoku_lists_on_startup_summary">Affiche les listes de sudoku au démarrage et saute l\'écran d\'acceuil.</string>
     <string name="show_sudoku_lists_on_startup_title">Afficher les listes de sudoku au démarrage</string>
+    <string name="show_sudoku_lists_on_startup_summary">Affiche les listes de sudoku au démarrage et saute l\'écran d\'acceuil.</string>
     <string name="app_startup_category">Démarrage application</string>
 
     <!-- Strings added/changed in 3.4.0 -->
