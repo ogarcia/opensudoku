@@ -6,7 +6,7 @@
     <string name="puzzle_folders">Dossiers grille OpenSudoku</string>
 
     <string name="version">Version %s</string>
-    <string name="send_me_bugs">Si vous rencontrez un bug, n\'hésitez pas à me contacter par e-mail ou utiliser le tracker de bug sur la page d\'acceuil.</string>
+    <string name="send_me_bugs">Si vous rencontrez un bug, n\'hésitez pas à me contacter par e-mail ou utiliser le tracker de bug sur la page d\'accueil.</string>
 
     <string name="current_developers_label">Développeurs actuels</string>
     <string name="old_developers_label">Anciens développeurs</string>
@@ -19,8 +19,8 @@
 
     <string name="get_more_puzzles_online">Obtenir plus de grilles en ligne</string>
 
-    <string name="name">Nom:</string>
-    <string name="note">Note:</string>
+    <string name="name">Nom :</string>
+    <string name="note">Note :</string>
 
     <string name="select_number">Selection nombre</string>
     <string name="edit_note">Editer une note</string>
@@ -33,7 +33,7 @@
     <string name="delete_folder">Effacer le dossier</string>
     <string name="rename_folder_title">Renommer %s</string>
     <string name="delete_folder_title">Effacer %s</string>
-    <string name="delete_folder_confirm">Voulez-vous vraiment supprimer ce dossier?</string>
+    <string name="delete_folder_confirm">Voulez-vous vraiment supprimer ce dossier ?</string>
 
     <string name="no_puzzles">Aucun grille</string>
     <string name="one_puzzle">1 grille</string>
@@ -55,31 +55,31 @@
     <string name="filter">Filtre</string>
     <string name="filter_by_gamestate">Filtrer par statut</string>
     <string name="folders">Dossiers</string>
-    <string name="delete_puzzle_confirm">Voulez-vous vraiment supprimer la grille sélectionné?</string>
-    <string name="reset_puzzle_confirm">Voulez-vous vraiment réinitialiser la grille sélectionné?</string>
+    <string name="delete_puzzle_confirm">Voulez-vous vraiment supprimer la grille sélectionnée ?</string>
+    <string name="reset_puzzle_confirm">Voulez-vous vraiment réinitialiser la grille sélectionnée ?</string>
     <string name="play_puzzle">Jouer la grille</string>
     <string name="reset_puzzle">Réinitialiser la grille</string>
     <string name="edit_puzzle">Editer la grille</string>
     <string name="delete_puzzle">Supprimer la grille</string>
-    <string name="filter_active">Filtré: %s</string>
+    <string name="filter_active">Filtré : %s</string>
 
     <string name="undo">Annuler</string>
     <string name="clear_all_notes">Effacer toutes les notes</string>
     <string name="fill_in_notes">Remplir les notes</string>
     <string name="restart">Redémarrer</string>
-    <string name="congrats">Félicitiations, vous avez résolu la grille en %s!</string>
-    <string name="restart_confirm">Voulez-vous vraiment redémarrer ce jeu?</string>
-    <string name="well_done">Bien joué!</string>
-    <string name="clear_all_notes_confirm">Voulez-vous vraiment effacer toutes les notes?</string>
+    <string name="congrats">Félicitiations, vous avez résolu la grille en %s !</string>
+    <string name="restart_confirm">Voulez-vous vraiment redémarrer ce jeu ?</string>
+    <string name="well_done">Bien joué !</string>
+    <string name="clear_all_notes_confirm">Voulez-vous vraiment effacer toutes les notes ?</string>
     <string name="settings">Paramètres</string>
     <string name="game_settings">Paramètres de jeu</string>
 
     <string name="game_helpers">Aides de jeu</string>
     <string name="highlight_wrong_values">Surligner les valeurs erronées</string>
-    <string name="highlight_wrong_values_summary">Surligné les valeurs en désaccord avec les règles du sudoku.</string>
+    <string name="highlight_wrong_values_summary">Surligner les valeurs en désaccord avec les règles du sudoku.</string>
     <string name="input_methods">Modes de saisie</string>
     <string name="popup">Popup</string>
-    <string name="popup_summary">Editer la valeur et les notes de la cellule dans une fenêtre contextuelle.</string>
+    <string name="popup_summary">Éditer la valeur et les notes de la cellule dans une fenêtre contextuelle.</string>
     <string name="single_number">Simple Numéro</string>
     <string name="single_number_summary">Sélectionnez le chiffre, puis la cellule pour indiquer s\'il s\'agit du chiffre ou de la note.</string>
     <string name="numpad">Numpad</string>
@@ -96,7 +96,7 @@
     <string name="help">Aide</string>
     <string name="that_is_all">C\'est tout</string>
 
-    <string name="first_run_hint">Plusieurs modes de saisie sont proposés pour remplir une grille. Divers conseils sont fournis pour vous familiariser avec ceux-ci lorsque vous les parcourez.\n\nVous pouvez désactiver ces conseils dans les paramètres du jeu.\n	</string>
+    <string name="first_run_hint">Plusieurs modes de saisie sont proposés pour remplir une grille. Divers conseils sont fournis pour vous familiariser avec ceux-ci lorsque vous les parcourez.\n\nVous pouvez désactiver ces conseils dans les paramètres du jeu.\n</string>
 
     <string name="im_popup_hint">Vous êtes actuellement en mode saisie <i>Popup</i>. Appuyez sur une cellule pour en éditer le contenu.\n\nNotez le bouton dans le coin en bas à droite. Celui-ci vous permet de changer de mode de saisie.\n</string>
 
@@ -133,7 +133,7 @@
     <string name="puzzle_inserted">Nouvelle grille sauvegardée.</string>
     <string name="puzzle_updated">Grille mise à jour.</string>
 
-    <string name="puzzles_saved">Grilles sauvegardés dans le dossier \'%s\'.</string>
+    <string name="puzzles_saved">Grilles sauvegardées dans le dossier \'%s\'.</string>
     <string name="no_puzzles_found">Aucune grille trouvée.</string>
     <string name="unknown_import_error">Erreur inconnue lors de l\'importation des grilles. Importation annulée.</string>
     <string name="invalid_format">Format incorrect. Importation annulée.</string>
@@ -161,9 +161,9 @@
     <string name="select_theme">Selection du thème</string>
     <string name="filename">Nom de fichier</string>
     <string name="directory">Répertoire</string>
-    <string name="sdcard_not_found">carte SD non trouvée</string>
+    <string name="sdcard_not_found">Carte SD non trouvée</string>
     <string name="puzzles_have_been_exported">Les grilles ont été exportées vers \'%s\'</string>
-    <string name="file_exists">Le fichier existe déjà. Le remplacer?</string>
+    <string name="file_exists">Le fichier existe déjà. Le remplacer ?</string>
     <!-- localization of default folder names -->
     <string name="difficulty_hard">Difficile</string>
     <string name="difficulty_medium">Moyen</string>
@@ -172,10 +172,10 @@
     <!-- Strings added/changed in 1.1.0 -->
     <string name="generate_sudoku">Générer un nouveau sudoku</string>
     <string name="select_difficulty">Sélectionner difficulté</string>
-    <string name="generating">Génération du grille...</string>
+    <string name="generating">Génération de la grille...</string>
     <string name="show_number_totals">Afficher les totaux par nombre</string>
     <string name="show_number_totals_summary">Affiche le compte des chiffres placés.</string>
-    <string name="what_is_new">Quoi de neuf?</string>
+    <string name="what_is_new">Quoi de neuf ?</string>
 
     <!-- Strings added/changed in 1.1.1 -->
     <string name="fill_in_notes_summary">Activer l\'élément de menu "Remplir des notes"</string>
@@ -183,7 +183,7 @@
     <!-- Strings added/changed in 1.1.2 -->
     <string name="set_checkpoint">Établir un point de contrôle</string>
     <string name="undo_to_checkpoint">Annuler jusq\'au point de contrôle</string>
-    <string name="undo_to_checkpoint_confirm">Voulez-vous vraiment annuler toutes les actions depuis le dernier point de contrôle?</string>
+    <string name="undo_to_checkpoint_confirm">Voulez-vous vraiment annuler toutes les actions depuis le dernier point de contrôle ?</string>
 
     <!-- Strings added/changed in 2.3.0 -->
     <string name="highlight_similar_cells">Surligner les cellules similaires</string>
@@ -241,7 +241,7 @@
     <string name="default_backgroundColorReadOnly_summary">Couleur de fond des cellules non modifiables.</string>
 
     <string name="default_backgroundColorTouched">Sélecteur</string>
-    <string name="default_backgroundColorTouched_summary">Couleur de la croix de selection qui apparait lors d\'un appui sur une cellule.</string>
+    <string name="default_backgroundColorTouched_summary">Couleur de la croix de sélection qui apparaît lors d\'un appui sur une cellule.</string>
 
     <string name="default_backgroundColorSelected">Fond cellule sélectionnée</string>
     <string name="default_backgroundColorSelected_summary">Couleur de fond de la cellule sélectionnée.</string>
@@ -251,18 +251,18 @@
 
     <!-- Strings added/changed in 2.6.0 -->
     <string name="solve_puzzle">Résoudre la grille</string>
-    <string name="solve_puzzle_confirm">Voulez-vous vraiment voir la solution?</string>
-    <string name="used_solver">Vous avez utilisé le solveur pour voir la solution!</string>
+    <string name="solve_puzzle_confirm">Voulez-vous vraiment voir la solution ?</string>
+    <string name="used_solver">Vous avez utilisé le solveur pour voir la solution !</string>
     <string name="puzzle_not_solved">Aucune solution pour cette grille.</string>
     
     <string name="solver_hint">Indice</string>
-    <string name="hint_confirm">La valeur correcte de le cellule sélectionnée va être complétée. Voulez-vous continuer?</string>
+    <string name="hint_confirm">La valeur correcte de le cellule sélectionnée va être complétée. Voulez-vous continuer ?</string>
     <string name="cannot_give_hint">Vous ne pouvez pas obtenir d\'indice pour cette cellule.</string>
     
     <string name="check_solvabitily">Vérifier résolution</string>
     <string name="puzzle_solvable">Cette grille a une solution.</string>
 
-    <string name="copy_from_existing_theme">Copier du thème existant...</string>
+    <string name="copy_from_existing_theme">Copie du thème existant...</string>
 
     <!-- Strings added/changed in 3.0.0 -->
     <string name="theme_default">Dark</string>
@@ -278,16 +278,16 @@
     <string name="theme_amethyst">Amethyst</string>
     <string name="theme_ruby">Ruby</string>
 
-    <string name="is_light_theme_summary">Change si les couleurs de l\'application sont basées sur le thème clair ou foncé.</string>
     <string name="is_light_theme_title">Thème clair</string>
-    <string name="app_color_primary_summary">Cette couleur est utilisée pour l\'arrière-plan de la barre de titre.</string>
+    <string name="is_light_theme_summary">Change si les couleurs de l\'application sont basées sur le thème clair ou foncé.</string>
     <string name="app_color_primary_title">Couleur primaire de l\'application</string>
-    <string name="app_color_secondary_summary">Cette couleur est utilisée pour la barre d\'état Android et est généralement une version plus foncée de la couleur primaire de l\'application.</string>
+    <string name="app_color_primary_summary">Cette couleur est utilisée pour l\'arrière-plan de la barre de titre.</string>
     <string name="app_color_secondary_title">Couleur secondaire de l\'application</string>
-    <string name="app_color_accent_summary">Cette couleur est utilisée pour accentuer les différents contrôles de l\'interface utilisateur.</string>
+    <string name="app_color_secondary_summary">Cette couleur est utilisée pour la barre d\'état Android et est généralement une version plus foncée de la couleur primaire de l\'application.</string>
     <string name="app_color_accent_title">Couleur d\'accentuation de l\'application</string>
-    <string name="app_color_button_summary">Cette couleur est utilisée pour les boutons de contrôle de l\'interface utilisateur.</string>
+    <string name="app_color_accent_summary">Cette couleur est utilisée pour accentuer les différents contrôles de l\'interface utilisateur.</string>
     <string name="app_color_button_title">Couleur du bouton de l\'application</string>
+    <string name="app_color_button_summary">Cette couleur est utilisée pour les boutons de contrôle de l\'interface utilisateur.</string>
     
     <string name="highlight_similar_notes">Mettre en évidence les notes similaires</string>
     <string name="highlight_similar_notes_summary">Mettre en évidence les cellules ayant des valeurs de note similaires</string>
@@ -297,17 +297,17 @@
 
     <!-- Strings added/changed in 3.1.0 -->
     <string name="undo_to_before_mistake">Annuler jusqu\'avant l\'erreur</string>
-    <string name="undo_to_before_mistake_confirm">Voulez-vous vraiment annuler toutes les actions jusqu\'au dernier état solvable?</string>
+    <string name="undo_to_before_mistake_confirm">Voulez-vous vraiment annuler toutes les actions jusqu\'au dernier état solvable ?</string>
 
     <!-- Strings added/changed in 3.2.0 -->
-    <string name="remove_notes_summary">Supprime automatiquement les notes d\'une même colonne, d\'une même ligne et d\'une même case lors de la saisie d\'un numéro.</string>
     <string name="remove_notes_title">Supprimer les notes à la saisie de numéro</string>
+    <string name="remove_notes_summary">Supprime automatiquement les notes d\'une même colonne, d\'une même ligne et d\'une même case lors de la saisie d\'un numéro.</string>
 
     <string name="create_from_single_color">Créer à partir d\'une seule couleur...</string>
 
     <!-- Strings added/changed in 3.3.0 -->
-    <string name="show_sudoku_lists_on_startup_summary">Affiche les listes de sudoku au démarrage et saute l\'écran d\'acceuil.</string>
     <string name="show_sudoku_lists_on_startup_title">Afficher les listes de sudoku au démarrage</string>
+    <string name="show_sudoku_lists_on_startup_summary">Affiche les listes de sudoku au démarrage et saute l\'écran d\'acceuil.</string>
     <string name="app_startup_category">Démarrage application</string>
 
     <!-- Strings added/changed in 3.4.0 -->

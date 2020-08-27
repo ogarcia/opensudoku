@@ -296,16 +296,17 @@
     <string name="theme_amethyst">Amatista</string>
     <string name="theme_ruby">Rubí</string>
 
-    <string name="is_light_theme_summary">Cambiar si los colores de la aplicación se basan en el tema claro u oscuro.</string>
     <string name="is_light_theme_title">Tema claro</string>
-    <string name="app_color_primary_summary">Este color se usa para el fondo de la barra de título.</string>
+    <string name="is_light_theme_summary">Cambiar si los colores de la aplicación se basan en el tema claro u oscuro.</string>
     <string name="app_color_primary_title">Color primario de la aplicación</string>
-    <string name="app_color_secondary_summary">Este color se usa para la barra de estado de Android y suele ser una versión más oscura del color primario de la aplicación.</string>
+    <string name="app_color_primary_summary">Este color se usa para el fondo de la barra de título.</string>
     <string name="app_color_secondary_title">Color secundario de la aplicación</string>
-    <string name="app_color_accent_summary">Este color se usa para acentuar varios controles de la interfaz.</string>
+    <string name="app_color_secondary_summary">Este color se usa para la barra de estado de Android y suele ser una versión más oscura del color primario de la aplicación.</string>
     <string name="app_color_accent_title">Color de acento de la aplicación</string>
-    <string name="app_color_button_summary">Este color se usa para los botones de la interfaz.</string>
+    <string name="app_color_accent_summary">Este color se usa para acentuar varios controles de la interfaz.</string>
     <string name="app_color_button_title">Color de los botones de la aplicación</string>
+    <string name="app_color_button_summary">Este color se usa para los botones de la interfaz.</string>
+
 
     <string name="highlight_similar_notes">Resaltar notas similares</string>
     <string name="highlight_similar_notes_summary">Resaltar celdas con valores de notas similares</string>
@@ -318,14 +319,14 @@
     <string name="undo_to_before_mistake_confirm">¿Seguro que quieres deshacer todas las acciones desde el último estado solucionable?</string>
 
     <!-- Strings added/changed in 3.2.0 -->
-    <string name="remove_notes_summary">Eliminar automáticamente las anotaciones de la misma columna, fila y celda al ingresar un número</string>
     <string name="remove_notes_title">Eliminar anotaciones al introducir un número</string>
+    <string name="remove_notes_summary">Eliminar automáticamente las anotaciones de la misma columna, fila y celda al ingresar un número</string>
 
     <string name="create_from_single_color">Crear desde un solo color…</string>
 
     <!-- Strings added/changed in 3.3.0 -->
-    <string name="show_sudoku_lists_on_startup_summary">Mostrar la lista de Sudokus al inicio y omitir la pantalla de título.</string>
     <string name="show_sudoku_lists_on_startup_title">Mostrar la lista de Sudokus al inicio</string>
+    <string name="show_sudoku_lists_on_startup_summary">Mostrar la lista de Sudokus al inicio y omitir la pantalla de título.</string>
     <string name="app_startup_category">Inicio de la aplicación</string>
 
     <!-- Strings added/changed in 3.4.0 -->

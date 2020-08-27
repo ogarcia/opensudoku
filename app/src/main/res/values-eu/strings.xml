@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Open Sudoku</string>
+    <string name="edit_sudoku">Editatu sudokua</string>
+
+    <string name="puzzle_folders">Open Sudokuko sudokuen karpetak</string>
+
+    <string name="version">%s bertsioa</string>
+    <string name="homepage" translatable="false">https://opensudoku.moire.org/</string>
+    <string name="email" translatable="false">&lt;opensudoku@moire.org&gt;</string>
+    <string name="send_me_bugs">
+		Akatsik aurkitzen baduzu, jar zaitez nirekin harremanetan e-posta
+		bidez edo erabili proiektuaren webguneko arazo-bilatzailea.        
+	</string>
+
+    <string name="current_developers_label">Gaur egungo garatzailea</string>
+    <string name="current_developers" translatable="false">Óscar García Amor</string>
+
+    <string name="old_developers_label">Garatzaile zaharrak</string>
+    <string name="old_developers" translatable="false">Roman Mašek</string>
+
+    <string name="localization_contributors_label">Itzulpenerako laguntzailea</string>
+    <string name="localization_contributors" translatable="false">
+        Vit Hnilica\n
+        Martin Sobola\n
+        Martin Helff\n
+        Diego Pierotto\n
+        Gokay Can Kayki\n
+        Paulo Schopf\n
+        Joaquim Pedroto Costa\n
+        @madcrow\n
+        @Tubix
+    </string>
+
+    <string name="close">Itxi</string>
+    <string name="clear">Garbitu</string>
+    <string name="save">Gorde</string>
+
+    <string name="get_more_puzzles_online">Lortu sudoku gehiago linean</string>
+
+    <string name="name">Izena:</string>
+    <string name="note">Oharra:</string>
+
+    <string name="select_number">Aukeratu zenbakia</string>
+    <string name="edit_note">Editatu oharra</string>
+
+    <string name="add_folder">Gehitu karpeta</string>
+    <string name="import_file">Inportatu</string>
+    <string name="import_file_title">Inportatu %s fitxategia</string>
+    <string name="about">Honi buruz</string>
+    <string name="rename_folder">Berrizendatu karpeta</string>
+    <string name="delete_folder">Ezabatu karpeta</string>
+    <string name="rename_folder_title">Berrizendatu %s</string>
+    <string name="delete_folder_title">Ezabatu %s</string>
+    <string name="delete_folder_confirm">Ziur karpeta hau ezabatu nahi duzula?</string>
+
+    <string name="no_puzzles">Sudokurik ez</string>
+    <string name="one_puzzle">Sudoku 1</string>
+    <string name="n_puzzles">%d sudoku</string>
+    <string name="all_solved">guztiak ebatzita</string>
+    <string name="n_solved">%s ebatzita</string>
+    <string name="n_unsolved">%d ebatzi gabe</string>
+    <string name="n_playing">%d jolasten</string>
+
+    <string name="solved">Ebatzita</string>
+    <string name="playing">Jolasten</string>
+    <string name="not_started">Hasi gabe</string>
+    <string name="last_played_at">Azkenengoz %s jolastuta</string>
+    <string name="created_at">%s(e)an sortua</string>
+    <string name="at_time">%s(e)tan</string>
+    <string name="yesterday_at_time">atzo %s(e)tan</string>
+    <string name="on_date">%s(e)an</string>
+    <string name="add_sudoku">Gehitu sudokua</string>
+    <string name="filter">Iragazi</string>
+    <string name="filter_by_gamestate">Iragazi egoeraren arabera</string>
+    <string name="folders">Karpetak</string>
+    <string name="delete_puzzle_confirm">Ziur hautatutako sudokua ezabatu nahi duzula?</string>
+    <string name="reset_puzzle_confirm">Ziur hautatutako sudokua berrezarri nahi duzula?</string>
+    <string name="play_puzzle">Jolastu sudoku hau</string>
+    <string name="reset_puzzle">Berrezarri sudokua</string>
+    <string name="edit_puzzle">Editatu sudokua</string>
+    <string name="delete_puzzle">Ezabatu sudokua</string>
+    <string name="filter_active">Iragazita: %s</string>
+
+    <string name="undo">Desegin</string>
+    <string name="clear_all_notes">Ezabatu ohar guztiak</string>
+    <string name="fill_in_notes">Osatu oharrak</string>
+    <string name="restart">Berrasi</string>
+    <string name="congrats">Zorionak, sudokua %s(e)ko denboran ebatzi duzu!</string>
+    <string name="restart_confirm">Are you sure you want to restart this game?</string>
+    <string name="well_done">Well done!</string>
+    <string name="clear_all_notes_confirm">Ziur ohar guztiak garbitu nahi dituzula?</string>
+    <string name="settings">Ezarpenak</string>
+    <string name="game_settings">Jolasaren ezarpenak</string>
+
+    <string name="game_helpers">Laguntzak jolasean</string>
+    <string name="highlight_wrong_values">Nabarmendu balio okerrak</string>
+    <string name="highlight_wrong_values_summary">Nabarmendu sudokuaren arauak apurtzen dituzten balioak.</string>
+    <string name="input_methods">Sarrera moduak</string>
+    <string name="popup">Leihotxoa</string>
+    <string name="popup_summary">Editatu gelaxkaren balioa eta oharrak leihotxo batean.</string>
+    <string name="single_number">Zenbaki bakarra</string>
+    <string name="single_number_summary">Aukeratu zenbakia eta gero ukitu gelaxka bat balio edo ohar hori ezartzeko.</string>
+    <string name="numpad">Zenbaki-teklatua</string>
+    <string name="numpad_summary">Erakutsi zenbaki-teklatua (betiko zenbaki-teklatuak bezala funtzionatzen du)</string>
+    <string name="numpad_move_right">Mugitu eskuinera ukitu bitartean</string>
+    <string name="numpad_move_right_summary">Gelaxkaren hautapena bat eskuinera mugitzen du zenbaki-botoia ukitzean.
+	</string>
+
+    <string name="numpad_abbr">Zk\nTek</string>
+    <string name="popup_abbr">Lei\nho\txo</string>
+    <string name="single_number_abbr">ZB</string>
+    <string name="welcome">Ongi etorri</string>
+    <string name="hint">Pista</string>
+    <string name="help">Laguntza</string>
+    <string name="that_is_all">Hori da dena</string>
+
+    <string name="first_run_hint">
+		Sudokua osatzeko hainbat sarrera modu dituzu.
+		Modu horietara ohitzen laguntzeko hainbat aholku erakutsiko zaizkizu modu horietatik igaro ahala.
+		\n\nJolasaren ezarpenetan aholku hauek desgaitu ditzakezu.\n
+	</string>
+
+    <string name="im_popup_hint">
+		<i>Leihotxo</i> sarrera moduan zaude.
+		Ukitu edozein gelaxka bere edukia editatzeko.
+		\n\nIkusi behe-eskuin izkineko botoia.
+		Botoi hau beste sarrera modu batera aldatzeko erabil dezakezu.\n
+	</string>
+
+    <string name="im_single_number_hint">
+		<i>Zenbaki bakarra</i> sarrera moduan zaude.
+		Lehenik, sakatu edozein zenbaki-botoi zenbakia hautatzeko.
+		Gero, ukitu nahi duzun gelaxka hautatutako zenbakiarekin betetzeko.
+		\n\nSakatu <i>Arkatz</i> botoia gelaxketan oharrak gehitzeko.\n
+	</string>
+
+    <string name="im_numpad_hint">
+		<i>Zenbaki-teklatu</i> sarrera moduan zaude.
+		Botoiek betiko zenbaki-teklatuek bezala funtzionatzen dute.
+		\n\nSakatu <i>Arkatz</i> botoia gelaxketan oharrak gehitzeko.\n
+	</string>
+
+    <string name="im_disable_modes_hint">
+		Gogoan izan ez dituzula sarrera modu guztiak zertan erabili.
+		Haietako edozein desgaitu dezakezu jolasaren ezarpenetan.
+		\n\nTeklatua eta kontrol-bola ere erabil ditzakezu jolasa kontrolatzeko.
+		Teklatua erabiliz oharrik sartu nahi baduzu, sakatu zenbakia Alt edo Maius botoiekin batera.
+
+	</string>
+
+    <string name="help_text">
+		<b>Teklatuaren kontrolak</b>
+		\n\nErabili kontrol-bola nahi duzun gelaxkara joateko eta gero sakatu zenbakia teklatuan balioa txertatzeko.
+		Gelaxkako oharra editatu nahi baduzu, sakatu zenbakia Alt edo Maius botoiekin batera.\n\n
+
+		<b>Sarrera moduak</b>
+		\n\nSarrera modua aldatzeko erabili behe-eskuin izkineko botoia.
+		Edozein sarrera modu desgaitu dezakezu jolasaren ezarpenetan - guztiz ezkutatuko da.\n\n
+
+		<b>Leihotxo sarrera modua</b>
+		\n\nLaster-leiho bat agertzen da gelaxka ukitzean.
+		Gelaxkako edukia editatu dezakezu leihotxoa erabiliz.\n\n
+
+		<b>Zenbaki bakar sarrera modua</b>
+		\n\nLehenik, sakatu edozein zenbaki-botoi zenbakia hautatzeko.
+		Gero, ukitu nahi duzun gelaxka hautatutako zenbakiarekin betetzeko.
+		\n\nSakatu <i>Arkatz</i> botoia gelaxketan oharrak gehitzeko.\n	
+
+        <b>Zenbaki-teklatua sarrera modua</b>
+		\n\nBotoiek betiko zenbaki-teklatuek bezala funtzionatzen dute.
+		\n\nSakatu <i>Arkatz</i> botoia gelaxketan oharrak gehitzeko.\n
+	</string>
+
+
+    <string name="game">Jolasa</string>
+    <string name="show_hints">Lehenengo aldiko pistak</string>
+    <string name="show_hints_summary">Aplikazio-kontrolak irakasten dizkizuten pistak erakusten ditu</string>
+    <string name="show_time">Erakutsi denbora</string>
+    <string name="show_time_summary">Jolasten emandako denbora erakusten du</string>
+
+    <string name="puzzle_inserted">Sudoku berriak gorde dira</string>
+    <string name="puzzle_updated">Sudokua eguneratu da</string>
+
+    <string name="puzzles_saved">Sudokuak \'%s\' karpetan gorde dira</string>
+    <string name="no_puzzles_found">Ez da sudokurik aukitu</string>
+    <string name="unknown_import_error">Errore ezezagun bat gertatu da sudokuak inportatzean; inportazioa bertan behera utzi da</string>
+    <string name="invalid_format">Formatu baliogabea; inportazioa bertan behera utzi da</string>
+
+    <!-- Strings added in 0.7.0 -->
+    <string name="loading">Kargatzen…</string>
+
+    <!-- Strings added/changed in 0.7.1 -->
+    <string name="more_settings">Ezarpen gehiago</string>
+    <string name="screen_border_size">Pantailako ertzaren tamaina</string>
+    <string name="screen_border_size_summary">
+		Pantaila batzuk ez dute erantzuten pantailaren ertzetan ukitzean.
+		Honek kasu horietan lagun dezake.
+	</string>
+    <string name="highlight_touched_cell">Nabarmendu gelaxka ukitzean</string>
+    <string name="highlight_touched_cell_summary">Ukitutako gelaxkaren lerroa eta zutabea nabarmentzen ditu</string>
+    <string name="export">Esportatu</string>
+    <string name="export_folder">Esportatu karpeta</string>
+    <string name="export_all_folders">Esportatu karpeta guztiak</string>
+    <string name="folders_created">%d karpeta inportatu dira</string>
+    <string name="importing">Sudokuak inportatzen…</string>
+    <string name="exporting">Sudokuak esportatzen…</string>
+    <string name="unknown_export_error">Errore ezezagun bat gertatu da sudokuak esportatzean</string>
+    <string name="highlight_completed_values">Nabarmendu osatutako balioak</string>
+    <string name="highlight_completed_values_summary">9 aldiz sartutako zenbakien botoiak nabarmentzen ditu</string>
+    <string name="theme">Itxura</string>
+    <string name="theme_summary">Aukeratu sudokuarentzako kolore-sorta</string>
+    <string name="select_theme">Hautatu itxura</string>
+    <string name="filename">Fitxategi-izena</string>
+    <string name="directory">Direktorioa</string>
+    <string name="sdcard_not_found">Ez da aurkitu SD txartela</string>
+    <string name="puzzles_have_been_exported">Sudokuak \'%s\' direktoriora esportatu dira</string>
+    <string name="file_exists">Fitxategia badago dagoeneko. Gainidatzi?</string>
+    <!-- localization of default folder names -->
+    <string name="difficulty_hard">Zailak</string>
+    <string name="difficulty_medium">Bitartekoak</string>
+    <string name="difficulty_easy">Errazak</string>
+
+    <!-- Strings added/changed in 1.1.0 -->
+    <string name="generate_sudoku">Sortu sudoku berria</string>
+    <string name="select_difficulty">Hautatu zailtasuna</string>
+    <string name="generating">Sudokua sortzen…</string>
+    <string name="show_number_totals">Erakutsi guztizko zenbakiak</string>
+    <string name="show_number_totals_summary">Zenbaki bakoitza zenbat aldiz jarri den erakusten du</string>
+    <string name="what_is_new">Zer berri?</string>
+
+    <!-- Strings added/changed in 1.1.1 -->
+    <string name="fill_in_notes_summary">Gaitu "Osatu oharrak" menu-aukera</string>
+
+    <!-- Strings added/changed in 1.1.2 -->
+    <string name="set_checkpoint">Ezarri kontrol-puntua</string>
+    <string name="undo_to_checkpoint">Desegin kontrol-puntura</string>
+    <string name="undo_to_checkpoint_confirm">Ziur azken kontrol-puntuaz geroztiko ekintza guztiak desegin nahi dituzula?</string>
+
+    <!-- Strings added/changed in 2.3.0 -->
+    <string name="highlight_similar_cells">Nabarmendu antzeko gelaxkak</string>
+    <string name="highlight_similar_cells_summary">Nabarmendu zenbaki berbera duten gelaxkak</string>
+
+    <!-- Strings added/changed in 2.4.0 -->
+    <string name="bidirectional_selection">Bi noranzkoko hautapena</string>
+    <string name="bidirectional_selection_summary">
+		Zenbaki bakar sarrera moduan, editatu ezin daiteken gelaxka bat ukitzean zenbaki
+		berbereko botoia hautatuko da (eta alderantziz).
+    </string>
+    <string name="contributors_label">Laguntzaileak</string>
+    <string name="contributors" translatable="false">
+        Sergey Pimanov\n
+        @TacoTheDank\n
+        @steve3424\n
+        Chris Lane\n
+        Justin Nordin
+    </string>
+
+    <!-- Strings added/changed in 2.5.0 -->
+    <string name="game_state_not_started">Hasi gabea</string>
+    <string name="game_state_playing">Jolasten</string>
+    <string name="game_state_solved">Ebatzia</string>
+
+    <string name="game_level_easy">Erraza</string>
+    <string name="game_level_medium">Bitartekoa</string>
+    <string name="game_level_hard">Zaila</string>
+
+    <string name="theme_paper">Papera</string>
+    <string name="theme_graph_paper">Paper grafikoa</string>
+    <string name="theme_light">Argia</string>
+    <string name="theme_paper_light">Paper argia</string>
+    <string name="theme_graph_paper_light">Paper grafiko argia</string>
+    <string name="theme_high_contrast">Kontraste handia</string>
+    <string name="theme_inverted_high_contrast">Kontraste handi alderantzikatua</string>
+    <string name="theme_custom">Itxura pertsonalizatua</string>
+
+    <string name="screen_custom_theme">Itxura pertsonalizatuaren koloreak</string>
+    <string name="screen_custom_theme_summary">Aldatu itxura pertsonalizatuaren koloreak</string>
+    <string name="screen_custom_theme_summary_disabled">
+		Ezarpen hau gaitzeko, aukeratu \"Itxura pertsonalizatua\" gaineko \"Itxura\" atalean
+    </string>
+
+    <string name="default_lineColor">Ingerada</string>
+    <string name="default_lineColor_summary">Gelaxken inguruko ertzen kolorea</string>
+
+    <string name="default_sectorLineColor">Sektore-ingerada</string>
+    <string name="default_sectorLineColor_summary">3x3 gelaxkako blokeen inguruko ertzen kolorea</string>
+
+    <string name="default_textColor">Testua</string>
+    <string name="default_textColor_summary">Gelaxka editagarrien testuaren kolorea</string>
+
+    <string name="default_textColorReadOnly">Testu ez-editagarria</string>
+    <string name="default_textColorReadOnly_summary">Gelaxka ez-editagarrien testuaren kolorea</string>
+
+    <string name="default_textColorNote">Oharren testua</string>
+    <string name="default_textColorNote_summary">Oharren testuen kolorea</string>
+
+    <string name="default_backgroundColor">Atzeko plano nagusia</string>
+    <string name="default_backgroundColor_summary">3x3 gelaxka-bloke bakoitien atzeko planoko kolorea</string>
+
+    <string name="default_backgroundColorSecondary">Atzeko plano sekundarioa</string>
+    <string name="default_backgroundColorSecondary_summary">3x3 gelaxka-bloke bikoitien atzeko planoko kolorea</string>
+
+    <string name="default_backgroundColorReadOnly">Gelaxka ez-editagarrien atzeko planoa</string>
+    <string name="default_backgroundColorReadOnly_summary">Gelaxka ez-editagarrien atzeko planoko kolorea</string>
+
+    <string name="default_backgroundColorTouched">Hautatzailea</string>
+    <string name="default_backgroundColorTouched_summary">
+        Gelaxka bat ukitzean agertzen den hautaketa-gurutzearen kolorea
+    </string>
+
+    <string name="default_backgroundColorSelected">Hautatutako gelaxkaren atzeko planoa</string>
+    <string name="default_backgroundColorSelected_summary">Hautatutako gelaxkaren atzeko planoko kolorea</string>
+
+    <string name="default_backgroundColorHighlighted">Nabarmendutako gelaxkaren atzeko planoa</string>
+    <string name="default_backgroundColorHighlighted_summary">Nabarmendutako gelaxkaren atzeko planoko kolorea</string>
+
+    <!-- Strings added/changed in 2.6.0 -->
+    <string name="solve_puzzle">Ebatzi sudokua</string>
+    <string name="solve_puzzle_confirm">Ziur soluzioa ikusi nahi duzula?</string>
+    <string name="used_solver">Ebaztailea erabili duzu soluzioa ikusteko!</string>
+    <string name="puzzle_not_solved">Sudoku honek ez du soluziorik.</string>
+
+    <string name="solver_hint">Pista</string>
+    <string name="hint_confirm">Honek hautatutako gelaxka balio zuzenarekin osatuko du. Jarraitu nahi al duzu?</string>
+    <string name="cannot_give_hint">Ezin duzu gelaxka horrentzat pistarik lortu.</string>
+
+    <string name="check_solvabitily">Egiaztatu ebazgarritasuna</string>
+    <string name="puzzle_solvable">Sudoku honek badu soluzioa.</string>
+
+    <string name="copy_from_existing_theme">Kopiatu jada badagoen itxuratik…</string>
+
+    <!-- Strings added/changed in 3.0.0 -->
+    <string name="theme_default">Iluna</string>
+    <string name="theme_amoled">AMOLED</string>
+    <string name="theme_latte">Latte karamelo</string>
+    <string name="theme_espresso">Espresso</string>
+    <string name="theme_sunrise">Egunsentia</string>
+    <string name="theme_honeybee">Ezti-erlea</string>
+    <string name="theme_crystal">Kristala</string>
+    <string name="theme_midnight_blue">Gauerdiko urdina</string>
+    <string name="theme_emerald">Esmeralda</string>
+    <string name="theme_forest">Oihana</string>
+    <string name="theme_amethyst">Ametista</string>
+    <string name="theme_ruby">Errubia</string>
+
+    <string name="is_light_theme_title">Itxura argia</string>
+    <string name="is_light_theme_summary">Aplikazioaren koloreak itxura argi edo ilunean oinarritzen diren aldatzen du.</string>
+    <string name="app_color_primary_title">Aplikazioaren kolore nagusia</string>
+    <string name="app_color_primary_summary">Kolore hau izenburu-barraren atzeko planorako erabiliko da.</string>
+    <string name="app_color_secondary_title">Aplikazioaren kolore sekundarioa</string>
+    <string name="app_color_secondary_summary">Kolore hau Androideko egoera-barrarako erabiliko da eta aplikazioko kolore nagusiaren bertsio ilunago bat izan ohi da.</string>
+    <string name="app_color_accent_title">Aplikazioaren nabarmentze kolorea</string>
+	<string name="app_color_accent_summary">Kolore hau interfazeko zati batzuk nabarmentzeko erabiliko da.</string>
+ 	<string name="app_color_button_title">Aplikazioko botoien kolorea</string>
+    <string name="app_color_button_summary">Kolore hau interfazeko botoientzako erabiliko da.</string>
+       
+    <string name="highlight_similar_notes">Nabarmendu antzeko oharrak</string>
+    <string name="highlight_similar_notes_summary">Nabarmendu ohar berbera duten gelaxkak</string>
+
+    <string name="resume">Berrekin</string>
+    <string name="sudoku_lists">Sudoku zerrenda</string>
+
+    <!-- Strings added/changed in 3.1.0 -->
+    <string name="undo_to_before_mistake">Desegin aurreko akatsera</string>
+    <string name="undo_to_before_mistake_confirm">Ziur azken egoera ebazgarrira arteko ekintza guztiak desegin nahi dituzula?</string>
+
+    <!-- Strings added/changed in 3.2.0 -->
+	<string name="remove_notes_title">Ezabatu oharrak zenbakia sartzean</string>
+    <string name="remove_notes_summary">Ezabatu automatikoki zutabe, lerro eta bloke bereko oharrak zenbaki bat sartzean</string>
+    
+    <string name="create_from_single_color">Sortu kolore bakarretik…</string>
+
+    <!-- Strings added/changed in 3.3.0 -->
+    <string name="show_sudoku_lists_on_startup_title">Erakutsi sudoku zerrenda aplikazio hasieran</string>
+    <string name="show_sudoku_lists_on_startup_summary">Erakutsi sudoku zerrenda aplikazio hasieran eta saltatu hasiera-pantaila.</string>
+    <string name="app_startup_category">Aplikazio hasiera</string>
+
+    <!-- Strings added/changed in 3.4.0 -->
+    <string name="sort">Sailkatu</string>
+    <string name="sort_puzzles_by">Sailkatu sudokuak honela:</string>
+    <string name="sort_creation_date">Sortze-data</string>
+    <string name="sort_play_time">Jolastutako denbora</string>
+    <string name="sort_last_played">Azkenengoz jolastua</string>
+</resources>
