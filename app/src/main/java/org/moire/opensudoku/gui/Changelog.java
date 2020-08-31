@@ -3,11 +3,10 @@ package org.moire.opensudoku.gui;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-
-import androidx.appcompat.app.AlertDialog;
-
 import android.util.Log;
 import android.webkit.WebView;
+
+import androidx.appcompat.app.AlertDialog;
 
 import org.moire.opensudoku.R;
 import org.moire.opensudoku.utils.AndroidUtils;

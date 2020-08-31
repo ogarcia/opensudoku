@@ -30,11 +30,10 @@ import java.util.List;
 
 public class SudokuListFilter {
 
-    private Context mContext;
-
     public boolean showStateNotStarted = true;
     public boolean showStatePlaying = true;
     public boolean showStateCompleted = true;
+    private Context mContext;
 
     public SudokuListFilter(Context context) {
         mContext = context;

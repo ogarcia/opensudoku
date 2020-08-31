@@ -1,14 +1,8 @@
 package org.moire.opensudoku.gui;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
-import android.Manifest;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
@@ -18,12 +12,16 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
+
 import org.moire.opensudoku.R;
-import org.moire.opensudoku.db.SudokuDatabase;
 import org.moire.opensudoku.utils.AndroidUtils;
 
 public class TitleScreenActivity extends ThemedActivity {
 
+    private final int MENU_ITEM_SETTINGS = 0;
+    private final int MENU_ITEM_ABOUT = 1;
+    private final int DIALOG_ABOUT = 0;
     private Button mResumeButton;
     private Button mSudokuListButton;
     private Button mSettingsButton;
@@ -74,9 +72,6 @@ public class TitleScreenActivity extends ThemedActivity {
         }
     }
 
-    private final int MENU_ITEM_SETTINGS = 0;
-    private final int MENU_ITEM_ABOUT = 1;
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
@@ -91,8 +86,6 @@ public class TitleScreenActivity extends ThemedActivity {
 
         return true;
     }
-
-    private final int DIALOG_ABOUT = 0;
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

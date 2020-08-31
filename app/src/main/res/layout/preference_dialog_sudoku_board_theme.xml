@@ -8,10 +8,10 @@
 
     <org.moire.opensudoku.gui.SudokuBoardView
         android:id="@+id/sudoku_board"
-        android:layout_marginEnd="6dp"
-        android:layout_marginRight="6dp"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:keepScreenOn="true"/>
+        android:layout_marginEnd="6dp"
+        android:layout_marginRight="6dp"
+        android:keepScreenOn="true" />
 
 </LinearLayout>

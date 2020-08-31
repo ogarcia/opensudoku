@@ -40,20 +40,16 @@ import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
+
+import androidx.core.graphics.ColorUtils;
 
 import net.margaritov.preference.colorpicker.ColorPickerDialog;
 import net.margaritov.preference.colorpicker.ColorPickerPreference;
 
 import org.moire.opensudoku.R;
-import org.moire.opensudoku.utils.AndroidUtils;
 import org.moire.opensudoku.utils.ThemeUtils;
 
 import java.util.Arrays;
-import java.util.Vector;
-
-import androidx.annotation.ColorInt;
-import androidx.core.graphics.ColorUtils;
 
 /**
  * A {@link Preference} that allows for setting and previewing a custom Sudoku Board theme.
@@ -152,7 +148,7 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
         String theme = getContext().getResources().getStringArray(R.array.theme_codes)[which];
         ContextThemeWrapper themeWrapper = new ContextThemeWrapper(getContext(), ThemeUtils.getThemeResourceIdFromString(theme));
 
-        ((SwitchPreference)getPreference(0)).setChecked(ThemeUtils.isLightTheme(theme));
+        ((SwitchPreference) getPreference(0)).setChecked(ThemeUtils.isLightTheme(theme));
 
         int[] attributes = {
                 R.attr.colorPrimary,
@@ -174,7 +170,7 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
 
         TypedArray themeColors = themeWrapper.getTheme().obtainStyledAttributes(attributes);
         for (int i = 0; i < attributes.length; i++) {
-            ((ColorPickerPreference)getPreference(i + 1)).onColorChanged(themeColors.getColor(i, Color.GRAY));
+            ((ColorPickerPreference) getPreference(i + 1)).onColorChanged(themeColors.getColor(i, Color.GRAY));
         }
     }
 
@@ -188,18 +184,17 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
         colorDialog.show();
     }
 
-    private void createCustomThemeFromSingleColor(int colorPrimary)
-    {
+    private void createCustomThemeFromSingleColor(int colorPrimary) {
         double whiteContrast = ColorUtils.calculateContrast(colorPrimary, Color.WHITE);
         double blackContrast = ColorUtils.calculateContrast(colorPrimary, Color.BLACK);
         boolean isLightTheme = whiteContrast < blackContrast;
-        ((SwitchPreference)findPreference("custom_theme_isLightTheme")).setChecked(isLightTheme);
+        ((SwitchPreference) findPreference("custom_theme_isLightTheme")).setChecked(isLightTheme);
 
         float colorAsHSL[] = new float[3];
         ColorUtils.colorToHSL(colorPrimary, colorAsHSL);
 
         float tempHSL[] = colorAsHSL.clone();
-        tempHSL[0] =  (colorAsHSL[0] + 180f) % 360.0f;
+        tempHSL[0] = (colorAsHSL[0] + 180f) % 360.0f;
         int colorAccent = ColorUtils.HSLToColor(tempHSL);
 
         tempHSL = colorAsHSL.clone();
@@ -209,29 +204,29 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
         int textColor = isLightTheme ? Color.BLACK : Color.WHITE;
         int backgroundColor = isLightTheme ? Color.WHITE : Color.BLACK;
 
-        ((ColorPickerPreference)findPreference("custom_theme_colorPrimary")).onColorChanged(colorPrimary);
-        ((ColorPickerPreference)findPreference("custom_theme_colorPrimaryDark")).onColorChanged(colorPrimaryDark);
-        ((ColorPickerPreference)findPreference("custom_theme_colorAccent")).onColorChanged(colorAccent);
-        ((ColorPickerPreference)findPreference("custom_theme_colorButtonNormal")).onColorChanged(isLightTheme ? Color.LTGRAY : Color.DKGRAY);
-        ((ColorPickerPreference)findPreference("custom_theme_lineColor")).onColorChanged(colorPrimaryDark);
-        ((ColorPickerPreference)findPreference("custom_theme_sectorLineColor")).onColorChanged(colorPrimaryDark);
-        ((ColorPickerPreference)findPreference("custom_theme_textColor")).onColorChanged(textColor);
-        ((ColorPickerPreference)findPreference("custom_theme_textColorReadOnly")).onColorChanged(textColor);
-        ((ColorPickerPreference)findPreference("custom_theme_textColorNote")).onColorChanged(textColor);
-        ((ColorPickerPreference)findPreference("custom_theme_backgroundColor")).onColorChanged(backgroundColor);
-        ((ColorPickerPreference)findPreference("custom_theme_backgroundColorSecondary")).onColorChanged(backgroundColor);
-        ((ColorPickerPreference)findPreference("custom_theme_backgroundColorReadOnly")).onColorChanged(ColorUtils.setAlphaComponent(colorPrimaryDark, 64));
-        ((ColorPickerPreference)findPreference("custom_theme_backgroundColorTouched")).onColorChanged(colorAccent);
-        ((ColorPickerPreference)findPreference("custom_theme_backgroundColorSelected")).onColorChanged(colorPrimaryDark);
-        ((ColorPickerPreference)findPreference("custom_theme_backgroundColorHighlighted")).onColorChanged(colorPrimary);
+        ((ColorPickerPreference) findPreference("custom_theme_colorPrimary")).onColorChanged(colorPrimary);
+        ((ColorPickerPreference) findPreference("custom_theme_colorPrimaryDark")).onColorChanged(colorPrimaryDark);
+        ((ColorPickerPreference) findPreference("custom_theme_colorAccent")).onColorChanged(colorAccent);
+        ((ColorPickerPreference) findPreference("custom_theme_colorButtonNormal")).onColorChanged(isLightTheme ? Color.LTGRAY : Color.DKGRAY);
+        ((ColorPickerPreference) findPreference("custom_theme_lineColor")).onColorChanged(colorPrimaryDark);
+        ((ColorPickerPreference) findPreference("custom_theme_sectorLineColor")).onColorChanged(colorPrimaryDark);
+        ((ColorPickerPreference) findPreference("custom_theme_textColor")).onColorChanged(textColor);
+        ((ColorPickerPreference) findPreference("custom_theme_textColorReadOnly")).onColorChanged(textColor);
+        ((ColorPickerPreference) findPreference("custom_theme_textColorNote")).onColorChanged(textColor);
+        ((ColorPickerPreference) findPreference("custom_theme_backgroundColor")).onColorChanged(backgroundColor);
+        ((ColorPickerPreference) findPreference("custom_theme_backgroundColorSecondary")).onColorChanged(backgroundColor);
+        ((ColorPickerPreference) findPreference("custom_theme_backgroundColorReadOnly")).onColorChanged(ColorUtils.setAlphaComponent(colorPrimaryDark, 64));
+        ((ColorPickerPreference) findPreference("custom_theme_backgroundColorTouched")).onColorChanged(colorAccent);
+        ((ColorPickerPreference) findPreference("custom_theme_backgroundColorSelected")).onColorChanged(colorPrimaryDark);
+        ((ColorPickerPreference) findPreference("custom_theme_backgroundColorHighlighted")).onColorChanged(colorPrimary);
     }
 
-    public void onActivityDestroy() {   
+    public void onActivityDestroy() {
         if (mDialog != null && mDialog.isShowing()) {
             mDialog.dismiss();
         }
 
-        if (mCopyFromExistingThemeDialog!= null && mCopyFromExistingThemeDialog.isShowing()) {
+        if (mCopyFromExistingThemeDialog != null && mCopyFromExistingThemeDialog.isShowing()) {
             mCopyFromExistingThemeDialog.dismiss();
         }
     }
@@ -335,7 +330,7 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
 
         @Override
         public View getView(int position, View convertView, ViewGroup parent) {
-            Preference preference = ((Preference)getItem(position));
+            Preference preference = ((Preference) getItem(position));
 
             // we pass convertView as null for the first and final elements to make sure we don't
             // have a color preview on the list view items that don't edit colors

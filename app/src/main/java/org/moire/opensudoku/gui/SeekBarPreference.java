@@ -105,6 +105,15 @@ public class SeekBarPreference extends DialogPreference {
     }
 
     /**
+     * Returns minimal value which can be set by this preference object.
+     *
+     * @return
+     */
+    public int getMin() {
+        return mMin;
+    }
+
+    /**
      * Sets minimal value which can be set by this preference object.
      *
      * @param min
@@ -116,12 +125,12 @@ public class SeekBarPreference extends DialogPreference {
     }
 
     /**
-     * Returns minimal value which can be set by this preference object.
+     * Returns maximal value which can be set by this preference object.
      *
      * @return
      */
-    public int getMin() {
-        return mMin;
+    public int getMax() {
+        return mMax;
     }
 
     /**
@@ -136,12 +145,12 @@ public class SeekBarPreference extends DialogPreference {
     }
 
     /**
-     * Returns maximal value which can be set by this preference object.
+     * Gets the value from the {@link SharedPreferences}.
      *
-     * @return
+     * @return The current preference value.
      */
-    public int getMax() {
-        return mMax;
+    public int getValue() {
+        return mValue;
     }
 
     /**
@@ -166,21 +175,12 @@ public class SeekBarPreference extends DialogPreference {
         }
     }
 
-    /**
-     * Gets the value from the {@link SharedPreferences}.
-     *
-     * @return The current preference value.
-     */
-    public int getValue() {
-        return mValue;
+    public String getValueFormat() {
+        return mValueFormat;
     }
 
     public void setValueFormat(String valueFormat) {
         mValueFormat = valueFormat;
-    }
-
-    public String getValueFormat() {
-        return mValueFormat;
     }
 
     @Override
@@ -281,23 +281,6 @@ public class SeekBarPreference extends DialogPreference {
     }
 
     private static class SavedState extends BaseSavedState {
-        int value;
-
-        public SavedState(Parcel source) {
-            super(source);
-            value = source.readInt();
-        }
-
-        @Override
-        public void writeToParcel(Parcel dest, int flags) {
-            super.writeToParcel(dest, flags);
-            dest.writeInt(value);
-        }
-
-        public SavedState(Parcelable superState) {
-            super(superState);
-        }
-
         public static final Parcelable.Creator<SavedState> CREATOR =
                 new Parcelable.Creator<SavedState>() {
                     public SavedState createFromParcel(Parcel in) {
@@ -308,6 +291,22 @@ public class SeekBarPreference extends DialogPreference {
                         return new SavedState[size];
                     }
                 };
+        int value;
+
+        public SavedState(Parcel source) {
+            super(source);
+            value = source.readInt();
+        }
+
+        public SavedState(Parcelable superState) {
+            super(superState);
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            super.writeToParcel(dest, flags);
+            dest.writeInt(value);
+        }
     }
 
 }

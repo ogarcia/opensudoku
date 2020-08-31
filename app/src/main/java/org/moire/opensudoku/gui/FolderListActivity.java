@@ -30,13 +30,6 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -51,12 +44,16 @@ import android.widget.SimpleCursorAdapter.ViewBinder;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import org.moire.opensudoku.R;
 import org.moire.opensudoku.db.FolderColumns;
 import org.moire.opensudoku.db.SudokuDatabase;
 import org.moire.opensudoku.game.FolderInfo;
 import org.moire.opensudoku.utils.AndroidUtils;
-import org.moire.opensudoku.utils.ThemeUtils;
 
 /**
  * List of puzzle's folder. This activity also serves as root activity of application.
@@ -78,11 +75,8 @@ public class FolderListActivity extends ThemedActivity {
     private static final int DIALOG_ADD_FOLDER = 1;
     private static final int DIALOG_RENAME_FOLDER = 2;
     private static final int DIALOG_DELETE_FOLDER = 3;
-
-    private int STORAGE_PERMISSION_CODE = 1;
-
     private static final String TAG = "FolderListActivity";
-
+    private int STORAGE_PERMISSION_CODE = 1;
     private Cursor mCursor;
     private SudokuDatabase mDatabase;
     private FolderListViewBinder mFolderListBinder;
@@ -353,8 +347,7 @@ public class FolderListActivity extends ThemedActivity {
                 // need to request permission before FileListActivity can even be started
                 if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                     requestStoragePermission();
-                }
-                else {
+                } else {
                     startActivity(intent);
                 }
                 return true;
@@ -404,8 +397,7 @@ public class FolderListActivity extends ThemedActivity {
         if (requestCode == STORAGE_PERMISSION_CODE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 onOptionsItemSelected(mMenu.findItem(MENU_ITEM_IMPORT));
-            }
-            else {
+            } else {
                 Toast.makeText(this, "Permission DENIED", Toast.LENGTH_SHORT).show();
             }
         }

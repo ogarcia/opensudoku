@@ -64,19 +64,13 @@ public class SudokuBoardView extends View {
     private boolean mHighlightWrongVals = true;
     private boolean mHighlightTouchedCell = true;
     private boolean mAutoHideTouchedCellHint = true;
-    public enum HighlightMode {
-        NONE,
-        NUMBERS,
-        NUMBERS_AND_NOTES
-    };
     private HighlightMode mHighlightSimilarCells = HighlightMode.NONE;
 
+    ;
     private SudokuGame mGame;
     private CellCollection mCells;
-
     private OnCellTappedListener mOnCellTappedListener;
     private OnCellSelectedListener mOnCellSelectedListener;
-
     private Paint mLinePaint;
     private Paint mSectorLinePaint;
     private Paint mCellValuePaint;
@@ -91,16 +85,11 @@ public class SudokuBoardView extends View {
     private Paint mBackgroundColorTouched;
     private Paint mBackgroundColorSelected;
     private Paint mBackgroundColorHighlighted;
-
     private Paint mCellValueInvalidPaint;
 
     public SudokuBoardView(Context context) {
         this(context, null);
     }
-
-    //	public SudokuBoardView(Context context, AttributeSet attrs) {
-    //		this(context, attrs, R.attr.sudokuBoardViewStyle);
-    //	}
 
     // TODO: do I need an defStyle?
     public SudokuBoardView(Context context, AttributeSet attrs/*, int defStyle*/) {
@@ -143,6 +132,10 @@ public class SudokuBoardView extends View {
 
         a.recycle();
     }
+
+    //	public SudokuBoardView(Context context, AttributeSet attrs) {
+    //		this(context, attrs, R.attr.sudokuBoardViewStyle);
+    //	}
 
     public int getLineColor() {
         return mLinePaint.getColor();
@@ -229,6 +222,10 @@ public class SudokuBoardView extends View {
         setCells(game.getCells());
     }
 
+    public CellCollection getCells() {
+        return mCells;
+    }
+
     public void setCells(CellCollection cells) {
         mCells = cells;
 
@@ -244,12 +241,12 @@ public class SudokuBoardView extends View {
         postInvalidate();
     }
 
-    public CellCollection getCells() {
-        return mCells;
-    }
-
     public Cell getSelectedCell() {
         return mSelectedCell;
+    }
+
+    public boolean isReadOnly() {
+        return mReadonly;
     }
 
     public void setReadOnly(boolean readonly) {
@@ -257,8 +254,8 @@ public class SudokuBoardView extends View {
         postInvalidate();
     }
 
-    public boolean isReadOnly() {
-        return mReadonly;
+    public boolean getHighlightWrongVals() {
+        return mHighlightWrongVals;
     }
 
     public void setHighlightWrongVals(boolean highlightWrongVals) {
@@ -266,36 +263,32 @@ public class SudokuBoardView extends View {
         postInvalidate();
     }
 
-    public boolean getHighlightWrongVals() {
-        return mHighlightWrongVals;
+    public boolean getHighlightTouchedCell() {
+        return mHighlightTouchedCell;
     }
 
     public void setHighlightTouchedCell(boolean highlightTouchedCell) {
         mHighlightTouchedCell = highlightTouchedCell;
     }
 
-    public boolean getHighlightTouchedCell() {
-        return mHighlightTouchedCell;
+    public boolean getAutoHideTouchedCellHint() {
+        return mAutoHideTouchedCellHint;
     }
 
     public void setAutoHideTouchedCellHint(boolean autoHideTouchedCellHint) {
         mAutoHideTouchedCellHint = autoHideTouchedCellHint;
     }
 
-    public boolean getAutoHideTouchedCellHint() {
-        return mAutoHideTouchedCellHint;
-    }
-
     public void setHighlightSimilarCell(HighlightMode highlightSimilarCell) {
         mHighlightSimilarCells = highlightSimilarCell;
     }
 
-    public void setHighlightedValue(int value) {
-        mHighlightedValue = value;
-    }
-
     public int getHighlightedValue() {
         return mHighlightedValue;
+    }
+
+    public void setHighlightedValue(int value) {
+        mHighlightedValue = value;
     }
 
     /**
@@ -327,7 +320,6 @@ public class SudokuBoardView extends View {
         mTouchedCell = null;
         postInvalidate();
     }
-
 
     protected void onCellSelected(Cell cell) {
         if (mOnCellSelectedListener != null) {
@@ -484,18 +476,18 @@ public class SudokuBoardView extends View {
                         case NUMBERS: {
                             shouldHighlightCell =
                                     cellIsNotAlreadySelected &&
-                                    highlightedValueIsValid &&
-                                    mHighlightedValue == cell.getValue();
+                                            highlightedValueIsValid &&
+                                            mHighlightedValue == cell.getValue();
                             break;
                         }
 
                         case NUMBERS_AND_NOTES: {
                             shouldHighlightCell =
                                     cellIsNotAlreadySelected &&
-                                    highlightedValueIsValid &&
-                                    (mHighlightedValue == cell.getValue() ||
-                                            (cell.getNote().getNotedNumbers().contains(mHighlightedValue)) &&
-                                            cell.getValue() == 0);
+                                            highlightedValueIsValid &&
+                                            (mHighlightedValue == cell.getValue() ||
+                                                    (cell.getNote().getNotedNumbers().contains(mHighlightedValue)) &&
+                                                            cell.getValue() == 0);
                         }
                     }
 
@@ -686,7 +678,6 @@ public class SudokuBoardView extends View {
         return false;
     }
 
-
     /**
      * Moves selected cell by one cell to the right. If edge is reached, selection
      * skips on beginning of another line.
@@ -722,7 +713,6 @@ public class SudokuBoardView extends View {
         }
     }
 
-
     /**
      * Moves selected by vx cells right and vy cells down. vx and vy can be negative. Returns true,
      * if new cell is selected.
@@ -741,7 +731,6 @@ public class SudokuBoardView extends View {
 
         return moveCellSelectionTo(newRow, newCol);
     }
-
 
     /**
      * Moves selection to the cell given by row and column index.
@@ -792,6 +781,12 @@ public class SudokuBoardView extends View {
         }
     }
 
+    public enum HighlightMode {
+        NONE,
+        NUMBERS,
+        NUMBERS_AND_NOTES
+    }
+
     /**
      * Occurs when user tap the cell.
      *
@@ -823,10 +818,10 @@ public class SudokuBoardView extends View {
 //			modeString = "MeasureSpec.UNSPECIFIED";
 //			break;
 //		}
-//		
+//
 //		if (modeString == null)
 //			modeString = new Integer(mode).toString();
-//		
+//
 //		return modeString;
 //	}
 

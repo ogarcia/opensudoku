@@ -10,7 +10,7 @@
     <string name="email" translatable="false">&lt;opensudoku@moire.org&gt;</string>
     <string name="send_me_bugs">
 		Akatsik aurkitzen baduzu, jar zaitez nirekin harremanetan e-posta
-		bidez edo erabili proiektuaren webguneko arazo-bilatzailea.        
+		bidez edo erabili proiektuaren webguneko arazo-bilatzailea.
 	</string>
 
     <string name="current_developers_label">Gaur egungo garatzailea</string>
@@ -165,7 +165,7 @@
 		<b>Zenbaki bakar sarrera modua</b>
 		\n\nLehenik, sakatu edozein zenbaki-botoi zenbakia hautatzeko.
 		Gero, ukitu nahi duzun gelaxka hautatutako zenbakiarekin betetzeko.
-		\n\nSakatu <i>Arkatz</i> botoia gelaxketan oharrak gehitzeko.\n	
+		\n\nSakatu <i>Arkatz</i> botoia gelaxketan oharrak gehitzeko.\n
 
         <b>Zenbaki-teklatua sarrera modua</b>
 		\n\nBotoiek betiko zenbaki-teklatuek bezala funtzionatzen dute.
@@ -351,10 +351,10 @@
     <string name="app_color_secondary_title">Aplikazioaren kolore sekundarioa</string>
     <string name="app_color_secondary_summary">Kolore hau Androideko egoera-barrarako erabiliko da eta aplikazioko kolore nagusiaren bertsio ilunago bat izan ohi da.</string>
     <string name="app_color_accent_title">Aplikazioaren nabarmentze kolorea</string>
-	<string name="app_color_accent_summary">Kolore hau interfazeko zati batzuk nabarmentzeko erabiliko da.</string>
- 	<string name="app_color_button_title">Aplikazioko botoien kolorea</string>
+    <string name="app_color_accent_summary">Kolore hau interfazeko zati batzuk nabarmentzeko erabiliko da.</string>
+    <string name="app_color_button_title">Aplikazioko botoien kolorea</string>
     <string name="app_color_button_summary">Kolore hau interfazeko botoientzako erabiliko da.</string>
-       
+
     <string name="highlight_similar_notes">Nabarmendu antzeko oharrak</string>
     <string name="highlight_similar_notes_summary">Nabarmendu ohar berbera duten gelaxkak</string>
 
@@ -366,9 +366,9 @@
     <string name="undo_to_before_mistake_confirm">Ziur azken egoera ebazgarrira arteko ekintza guztiak desegin nahi dituzula?</string>
 
     <!-- Strings added/changed in 3.2.0 -->
-	<string name="remove_notes_title">Ezabatu oharrak zenbakia sartzean</string>
+    <string name="remove_notes_title">Ezabatu oharrak zenbakia sartzean</string>
     <string name="remove_notes_summary">Ezabatu automatikoki zutabe, lerro eta bloke bereko oharrak zenbaki bat sartzean</string>
-    
+
     <string name="create_from_single_color">Sortu kolore bakarretik…</string>
 
     <!-- Strings added/changed in 3.3.0 -->

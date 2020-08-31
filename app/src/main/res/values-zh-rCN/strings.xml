@@ -22,16 +22,6 @@
     <string name="localization_contributors_label">本地化贡献者</string>
 
 
-
-
-
-
-
-
-
-
-
-
     <string name="close">关闭</string>
     <string name="clear">清除</string>
     <string name="save">保存</string>
@@ -245,13 +235,6 @@
         在单数输入面板，选择不可编辑的格子会自动选择相应的按钮（反之亦然）。
     </string>
     <string name="contributors_label">贡献者</string>
-
-
-
-
-
-
-
 
 
     <!-- Strings added/changed in 2.5.0 -->

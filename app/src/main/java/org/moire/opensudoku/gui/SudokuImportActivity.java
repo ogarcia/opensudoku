@@ -3,9 +3,6 @@ package org.moire.opensudoku.gui;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.util.Log;
 import android.view.Window;
 import android.widget.ProgressBar;
@@ -41,6 +38,24 @@ public class SudokuImportActivity extends ThemedActivity {
     public static final String EXTRA_GAMES = "GAMES";
 
     private static final String TAG = "ImportSudokuActivity";
+    private OnImportFinishedListener mOnImportFinishedListener = (importSuccessful, folderId) -> {
+        if (importSuccessful) {
+            if (folderId == -1) {
+                // multiple folders were imported, go to folder list
+                Intent i = new Intent(SudokuImportActivity.this,
+                        FolderListActivity.class);
+                startActivity(i);
+            } else {
+                // one folder was imported, go to this folder
+                Intent i = new Intent(SudokuImportActivity.this,
+                        SudokuListActivity.class);
+                i.putExtra(SudokuListActivity.EXTRA_FOLDER_ID, folderId);
+                startActivity(i);
+            }
+        }
+        // call finish, so this activity won't be part of history
+        finish();
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,24 +111,5 @@ public class SudokuImportActivity extends ThemedActivity {
 
         importTask.execute();
     }
-
-    private OnImportFinishedListener mOnImportFinishedListener = (importSuccessful, folderId) -> {
-        if (importSuccessful) {
-            if (folderId == -1) {
-                // multiple folders were imported, go to folder list
-                Intent i = new Intent(SudokuImportActivity.this,
-                        FolderListActivity.class);
-                startActivity(i);
-            } else {
-                // one folder was imported, go to this folder
-                Intent i = new Intent(SudokuImportActivity.this,
-                        SudokuListActivity.class);
-                i.putExtra(SudokuListActivity.EXTRA_FOLDER_ID, folderId);
-                startActivity(i);
-            }
-        }
-        // call finish, so this activity won't be part of history
-        finish();
-    };
 
 }

@@ -21,7 +21,6 @@
 package org.moire.opensudoku.gui.inputmethod;
 
 import android.content.Context;
-import android.graphics.PorterDuff;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -45,19 +44,52 @@ import java.util.Map;
 
 public class IMNumpad extends InputMethod {
 
+    private static final int MODE_EDIT_VALUE = 0;
+    private static final int MODE_EDIT_NOTE = 1;
     private boolean moveCellSelectionOnPress = true;
     private boolean mHighlightCompletedValues = true;
     private boolean mShowNumberTotals = false;
-
-    private static final int MODE_EDIT_VALUE = 0;
-    private static final int MODE_EDIT_NOTE = 1;
-
     private Cell mSelectedCell;
     private ImageButton mSwitchNumNoteButton;
 
     private int mEditMode = MODE_EDIT_VALUE;
 
     private Map<Integer, Button> mNumberButtons;
+    private OnClickListener mNumberButtonClick = new OnClickListener() {
+
+        @Override
+        public void onClick(View v) {
+            int selNumber = (Integer) v.getTag();
+            Cell selCell = mSelectedCell;
+
+            if (selCell != null) {
+                switch (mEditMode) {
+                    case MODE_EDIT_NOTE:
+                        if (selNumber == 0) {
+                            mGame.setCellNote(selCell, CellNote.EMPTY);
+                        } else if (selNumber > 0 && selNumber <= 9) {
+                            mGame.setCellNote(selCell, selCell.getNote().toggleNumber(selNumber));
+                        }
+                        break;
+                    case MODE_EDIT_VALUE:
+                        if (selNumber >= 0 && selNumber <= 9) {
+                            mGame.setCellValue(selCell, selNumber);
+                            mBoard.setHighlightedValue(selNumber);
+                            if (isMoveCellSelectionOnPress()) {
+                                mBoard.moveCellSelectionRight();
+                            }
+                        }
+                        break;
+                }
+            }
+        }
+
+    };
+    private OnChangeListener mOnCellsChangeListener = () -> {
+        if (mActive) {
+            update();
+        }
+    };
 
     public boolean isMoveCellSelectionOnPress() {
         return moveCellSelectionOnPress;
@@ -161,44 +193,6 @@ public class IMNumpad extends InputMethod {
         mSelectedCell = cell;
         update();
     }
-
-    private OnClickListener mNumberButtonClick = new OnClickListener() {
-
-        @Override
-        public void onClick(View v) {
-            int selNumber = (Integer) v.getTag();
-            Cell selCell = mSelectedCell;
-
-            if (selCell != null) {
-                switch (mEditMode) {
-                    case MODE_EDIT_NOTE:
-                        if (selNumber == 0) {
-                            mGame.setCellNote(selCell, CellNote.EMPTY);
-                        } else if (selNumber > 0 && selNumber <= 9) {
-                            mGame.setCellNote(selCell, selCell.getNote().toggleNumber(selNumber));
-                        }
-                        break;
-                    case MODE_EDIT_VALUE:
-                        if (selNumber >= 0 && selNumber <= 9) {
-                            mGame.setCellValue(selCell, selNumber);
-                            mBoard.setHighlightedValue(selNumber);
-                            if (isMoveCellSelectionOnPress()) {
-                                mBoard.moveCellSelectionRight();
-                            }
-                        }
-                        break;
-                }
-            }
-        }
-
-    };
-
-    private OnChangeListener mOnCellsChangeListener = () -> {
-        if (mActive) {
-            update();
-        }
-    };
-
 
     private void update() {
         switch (mEditMode) {

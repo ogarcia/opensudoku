@@ -11,10 +11,6 @@ public class SetCellValueAndRemoveNotesCommand extends AbstractMultiNoteCommand 
     private int mValue;
     private int mOldValue;
 
-    public Cell getCell() {
-        return getCells().getCell(mCellRow, mCellColumn);
-    }
-
     public SetCellValueAndRemoveNotesCommand(Cell cell, int value) {
         mCellRow = cell.getRowIndex();
         mCellColumn = cell.getColumnIndex();
@@ -22,6 +18,10 @@ public class SetCellValueAndRemoveNotesCommand extends AbstractMultiNoteCommand 
     }
 
     SetCellValueAndRemoveNotesCommand() {
+    }
+
+    public Cell getCell() {
+        return getCells().getCell(mCellRow, mCellColumn);
     }
 
     @Override
