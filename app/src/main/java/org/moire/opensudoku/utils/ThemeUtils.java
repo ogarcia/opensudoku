@@ -6,6 +6,7 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
 import android.view.ContextThemeWrapper;
 import android.widget.TextView;
 
@@ -401,12 +402,14 @@ public class ThemeUtils {
                 break;
 
             case ACCENT:
-                view.getBackground().setColorFilter(getCurrentThemeColor(view.getContext(), android.R.attr.colorAccent), PorterDuff.Mode.SRC_ATOP);
+                view.getBackground().setColorFilter(new PorterDuffColorFilter(
+                        getCurrentThemeColor(view.getContext(), android.R.attr.colorAccent), PorterDuff.Mode.SRC_ATOP));
                 view.setTextColor(getCurrentThemeColor(view.getContext(), android.R.attr.textColorPrimaryInverse));
                 break;
 
             case ACCENT_HIGHCONTRAST:
-                view.getBackground().setColorFilter(getCurrentThemeColor(view.getContext(), android.R.attr.textColorPrimaryInverse), PorterDuff.Mode.SRC_ATOP);
+                view.getBackground().setColorFilter(new PorterDuffColorFilter(
+                        getCurrentThemeColor(view.getContext(), android.R.attr.textColorPrimaryInverse), PorterDuff.Mode.SRC_ATOP));
                 view.setTextColor(getCurrentThemeColor(view.getContext(), android.R.attr.textColorPrimary));
                 break;
         }
