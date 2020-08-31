@@ -190,10 +190,10 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
         boolean isLightTheme = whiteContrast < blackContrast;
         ((SwitchPreference) findPreference("custom_theme_isLightTheme")).setChecked(isLightTheme);
 
-        float colorAsHSL[] = new float[3];
+        float[] colorAsHSL = new float[3];
         ColorUtils.colorToHSL(colorPrimary, colorAsHSL);
 
-        float tempHSL[] = colorAsHSL.clone();
+        float[] tempHSL = colorAsHSL.clone();
         tempHSL[0] = (colorAsHSL[0] + 180f) % 360.0f;
         int colorAccent = ColorUtils.HSLToColor(tempHSL);
 
@@ -232,7 +232,7 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
     }
 
     private void prepareSudokuPreviewView(View view) {
-        mBoard = (SudokuBoardView) view.findViewById(R.id.sudoku_board);
+        mBoard = view.findViewById(R.id.sudoku_board);
         mBoard.setOnCellSelectedListener((cell) -> {
             if (cell != null) {
                 mBoard.setHighlightedValue(cell.getValue());

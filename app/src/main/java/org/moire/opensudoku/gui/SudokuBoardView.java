@@ -66,7 +66,6 @@ public class SudokuBoardView extends View {
     private boolean mAutoHideTouchedCellHint = true;
     private HighlightMode mHighlightSimilarCells = HighlightMode.NONE;
 
-    ;
     private SudokuGame mGame;
     private CellCollection mCells;
     private OnCellTappedListener mOnCellTappedListener;

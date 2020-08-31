@@ -103,7 +103,7 @@ public class CellNote {
      * @param data
      */
     public void serialize(StringBuilder data) {
-        data.append((int) mNotedNumbers);
+        data.append(mNotedNumbers);
         data.append("|");
     }
 

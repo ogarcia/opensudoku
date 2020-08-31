@@ -92,7 +92,7 @@ public class SudokuBoardThemePreference extends ListPreference {
     }
 
     private void prepareSudokuPreviewView(View view, String initialTheme) {
-        mBoard = (SudokuBoardView) view.findViewById(R.id.sudoku_board);
+        mBoard = view.findViewById(R.id.sudoku_board);
         mBoard.setOnCellSelectedListener((cell) -> {
             if (cell != null) {
                 mBoard.setHighlightedValue(cell.getValue());
