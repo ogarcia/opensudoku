@@ -22,7 +22,6 @@ package org.moire.opensudoku.gui;
 
 import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -60,12 +59,10 @@ public class SudokuBoardThemePreference extends ListPreference {
         }
         mClickedDialogEntryIndex = findIndexOfValue(selectedTheme);
         builder.setSingleChoiceItems(getEntries(), mClickedDialogEntryIndex,
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        mClickedDialogEntryIndex = which;
-                        SudokuBoardThemePreference.this.applyThemePreview(
-                                getEntryValues()[mClickedDialogEntryIndex].toString());
-                    }
+                (dialog, which) -> {
+                    mClickedDialogEntryIndex = which;
+                    SudokuBoardThemePreference.this.applyThemePreview(
+                            getEntryValues()[mClickedDialogEntryIndex].toString());
                 });
 
         LayoutInflater inflater = LayoutInflater.from(getContext());

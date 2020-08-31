@@ -148,12 +148,7 @@ public class SudokuListActivity extends ThemedActivity {
 
         mListView = findViewById(android.R.id.list);
         mListView.setAdapter(mAdapter);
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                playSudoku(id);
-            }
-        });
+        mListView.setOnItemClickListener((parent, view, position, id) -> playSudoku(id));
         registerForContextMenu(mListView);
     }
 
@@ -332,9 +327,7 @@ public class SudokuListActivity extends ThemedActivity {
                         .setSingleChoiceItems(
                                 R.array.game_sort,
                                 mListSorter.getSortType(),
-                                (dialog, whichButton) -> {
-                                    mListSorter.setSortType(whichButton);
-                                })
+                                (dialog, whichButton) -> mListSorter.setSortType(whichButton))
                         .setPositiveButton(android.R.string.ok, (dialog, whichButton) -> {
                             settings.edit()
                                     .putInt(SORT_TYPE, mListSorter.getSortType())
@@ -352,13 +345,10 @@ public class SudokuListActivity extends ThemedActivity {
     protected void onPrepareDialog(int id, Dialog dialog) {
         super.onPrepareDialog(id, dialog);
 
-        switch (id) {
-            case DIALOG_EDIT_NOTE: {
-                SudokuDatabase db = new SudokuDatabase(getApplicationContext());
-                SudokuGame game = db.getSudoku(mEditNotePuzzleID);
-                mEditNoteInput.setText(game.getNote());
-                break;
-            }
+        if (id == DIALOG_EDIT_NOTE) {
+            SudokuDatabase db = new SudokuDatabase(getApplicationContext());
+            SudokuGame game = db.getSudoku(mEditNotePuzzleID);
+            mEditNoteInput.setText(game.getNote());
         }
     }
 

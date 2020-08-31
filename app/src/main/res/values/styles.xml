@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme" parent="Theme.AppCompat"></style>
+    <style name="Theme" parent="Theme.AppCompat" />
 
     <style name="Theme.Default">
         <item name="colorPrimary">@color/default_backgroundColorTouched</item>

@@ -23,8 +23,6 @@ public class TitleScreenActivity extends ThemedActivity {
     private final int MENU_ITEM_ABOUT = 1;
     private final int DIALOG_ABOUT = 0;
     private Button mResumeButton;
-    private Button mSudokuListButton;
-    private Button mSettingsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,18 +30,16 @@ public class TitleScreenActivity extends ThemedActivity {
         setContentView(R.layout.activity_title_screen);
 
         mResumeButton = findViewById(R.id.resume_button);
-        mSudokuListButton = findViewById(R.id.sudoku_lists_button);
-        mSettingsButton = findViewById(R.id.settings_button);
+        Button mSudokuListButton = findViewById(R.id.sudoku_lists_button);
+        Button mSettingsButton = findViewById(R.id.settings_button);
 
         setupResumeButton();
 
-        mSudokuListButton.setOnClickListener((view) -> {
-            startActivity(new Intent(this, FolderListActivity.class));
-        });
+        mSudokuListButton.setOnClickListener((view) ->
+                startActivity(new Intent(this, FolderListActivity.class)));
 
-        mSettingsButton.setOnClickListener((view) -> {
-            startActivity(new Intent(this, GameSettingsActivity.class));
-        });
+        mSettingsButton.setOnClickListener((view) ->
+                startActivity(new Intent(this, GameSettingsActivity.class)));
 
         // check the preference to skip the title screen and launch the folder list activity
         // directly
@@ -105,18 +101,17 @@ public class TitleScreenActivity extends ThemedActivity {
     protected Dialog onCreateDialog(int id) {
         LayoutInflater factory = LayoutInflater.from(this);
 
-        switch (id) {
-            case DIALOG_ABOUT:
-                final View aboutView = factory.inflate(R.layout.about, null);
-                TextView versionLabel = aboutView.findViewById(R.id.version_label);
-                String versionName = AndroidUtils.getAppVersionName(getApplicationContext());
-                versionLabel.setText(getString(R.string.version, versionName));
-                return new AlertDialog.Builder(this)
-                        .setIcon(R.mipmap.ic_launcher)
-                        .setTitle(R.string.app_name)
-                        .setView(aboutView)
-                        .setPositiveButton("OK", null)
-                        .create();
+        if (id == DIALOG_ABOUT) {
+            final View aboutView = factory.inflate(R.layout.about, null);
+            TextView versionLabel = aboutView.findViewById(R.id.version_label);
+            String versionName = AndroidUtils.getAppVersionName(getApplicationContext());
+            versionLabel.setText(getString(R.string.version, versionName));
+            return new AlertDialog.Builder(this)
+                    .setIcon(R.mipmap.ic_launcher)
+                    .setTitle(R.string.app_name)
+                    .setView(aboutView)
+                    .setPositiveButton("OK", null)
+                    .create();
         }
 
         return null;

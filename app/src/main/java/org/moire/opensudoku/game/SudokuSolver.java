@@ -2,6 +2,7 @@ package org.moire.opensudoku.game;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SudokuSolver {
 
@@ -66,9 +67,7 @@ public class SudokuSolver {
     private void initializeConstraintMatrix() {
         // add row of 1's for column headers
         mConstraintMatrix = new int[NUM_ROWS * NUM_COLS * NUM_VALS + 1][NUM_CELLS * NUM_CONSTRAINTS];
-        for (int j = 0; j < mConstraintMatrix[0].length; j++) {
-            mConstraintMatrix[0][j] = 1;
-        }
+        Arrays.fill(mConstraintMatrix[0], 1);
 
         // calculate column where constraint will go
         int rowShift = NUM_CELLS;

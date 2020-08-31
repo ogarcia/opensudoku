@@ -66,7 +66,7 @@ public class CellCollection {
     private static Pattern DATA_PATTERN_VERSION_1 = Pattern.compile("^version: 1\\n((?#value)\\d\\|(?#note)((\\d,)+|-)\\|(?#editable)[01]\\|){0,81}$");
     private static Pattern DATA_PATTERN_VERSION_2 = Pattern.compile("^version: 2\\n((?#value)\\d\\|(?#note)(\\d){1,3}\\|{1,2}(?#editable)[01]\\|){0,81}$");
     private static Pattern DATA_PATTERN_VERSION_3 = Pattern.compile("^version: 3\\n((?#value)\\d\\|(?#note)(\\d){1,3}\\|(?#editable)[01]\\|){0,81}$");
-    private final List<OnChangeListener> mChangeListeners = new ArrayList<OnChangeListener>();
+    private final List<OnChangeListener> mChangeListeners = new ArrayList<>();
     // TODO: An array of ints is a much better than an array of Integers, but this also generalizes to the fact that two parallel arrays of ints are also a lot more efficient than an array of (int,int) objects
     // Cell's data.
     private Cell[][] mCells;

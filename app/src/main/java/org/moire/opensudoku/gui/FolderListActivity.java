@@ -24,7 +24,6 @@ import android.Manifest;
 import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -114,13 +113,10 @@ public class FolderListActivity extends ThemedActivity {
 
         mListView = findViewById(android.R.id.list);
         mListView.setAdapter(adapter);
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(getApplicationContext(), SudokuListActivity.class);
-                i.putExtra(SudokuListActivity.EXTRA_FOLDER_ID, id);
-                startActivity(i);
-            }
+        mListView.setOnItemClickListener((parent, view, position, id) -> {
+            Intent i = new Intent(getApplicationContext(), SudokuListActivity.class);
+            i.putExtra(SudokuListActivity.EXTRA_FOLDER_ID, id);
+            startActivity(i);
         });
         registerForContextMenu(mListView);
 
@@ -374,18 +370,10 @@ public class FolderListActivity extends ThemedActivity {
             new AlertDialog.Builder(this)
                     .setTitle("Permission needed")
                     .setMessage("This permission is needed in order to access your SD Card")
-                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            ActivityCompat.requestPermissions(FolderListActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
-                        }
-                    })
-                    .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    })
+                    .setPositiveButton("ok", (dialog, which) ->
+                            ActivityCompat.requestPermissions(FolderListActivity.this,
+                                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE))
+                    .setNegativeButton("cancel", (dialog, which) -> dialog.dismiss())
                     .create().show();
         } else {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);

@@ -397,7 +397,7 @@ public class SudokuBoardView extends View {
     }
 
     private void computeSectorLineWidth(int widthInPx, int heightInPx) {
-        int sizeInPx = widthInPx < heightInPx ? widthInPx : heightInPx;
+        int sizeInPx = Math.min(widthInPx, heightInPx);
         float dipScale = getContext().getResources().getDisplayMetrics().density;
         float sizeInDip = sizeInPx / dipScale;
 

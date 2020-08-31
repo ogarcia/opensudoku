@@ -138,9 +138,7 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
         });
 
         mCopyFromExistingThemeDialog = builder.create();
-        mCopyFromExistingThemeDialog.setOnDismissListener((dialog) -> {
-            mCopyFromExistingThemeDialog = null;
-        });
+        mCopyFromExistingThemeDialog.setOnDismissListener((dialog) -> mCopyFromExistingThemeDialog = null);
         mCopyFromExistingThemeDialog.show();
     }
 
@@ -178,9 +176,7 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
         ColorPickerDialog colorDialog = new ColorPickerDialog(getContext(), mGameSettings.getInt("custom_theme_colorPrimary", Color.WHITE));
         colorDialog.setAlphaSliderVisible(false);
         colorDialog.setHexValueEnabled(false);
-        colorDialog.setOnColorChangedListener((color) -> {
-            createCustomThemeFromSingleColor(color);
-        });
+        colorDialog.setOnColorChangedListener(this::createCustomThemeFromSingleColor);
         colorDialog.show();
     }
 
@@ -284,7 +280,7 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
         }
     }
 
-    private class CustomThemeListAdapter extends BaseAdapter implements ListAdapter {
+    private static class CustomThemeListAdapter extends BaseAdapter implements ListAdapter {
         private SudokuBoardCustomThemePreferenceGroup mPreferenceGroup;
         private Preference mCopyFromExistingThemePreference;
         private Preference mCreateFromColorPreference;

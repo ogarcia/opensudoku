@@ -162,22 +162,21 @@ public class FileListActivity extends ListActivity {
     @Override
     protected Dialog onCreateDialog(final int id) {
         LayoutInflater.from(this);
-        switch (id) {
-            case DIALOG_IMPORT_FILE:
-                return new AlertDialog.Builder(this)
-                        .setIcon(R.drawable.ic_cloud_upload)
-                        .setTitle(R.string.import_file)
-                        .setPositiveButton(R.string.import_file, (dialog, whichButton) -> {
-                            //importovani
-                            File f = mSelectedFile;
-                            Intent i = new Intent(mContext, ImportSudokuActivity.class);
-                            Uri u = Uri.fromFile(f);
-                            i.setData(u);
-                            startActivity(i);
-                            //finish();
-                        })
-                        .setNegativeButton(android.R.string.cancel, null)
-                        .create();
+        if (id == DIALOG_IMPORT_FILE) {
+            return new AlertDialog.Builder(this)
+                    .setIcon(R.drawable.ic_cloud_upload)
+                    .setTitle(R.string.import_file)
+                    .setPositiveButton(R.string.import_file, (dialog, whichButton) -> {
+                        //importovani
+                        File f = mSelectedFile;
+                        Intent i = new Intent(mContext, ImportSudokuActivity.class);
+                        Uri u = Uri.fromFile(f);
+                        i.setData(u);
+                        startActivity(i);
+                        //finish();
+                    })
+                    .setNegativeButton(android.R.string.cancel, null)
+                    .create();
         }
 
         return null;
@@ -187,10 +186,8 @@ public class FileListActivity extends ListActivity {
     protected void onPrepareDialog(int id, Dialog dialog) {
         super.onPrepareDialog(id, dialog);
 
-        switch (id) {
-            case DIALOG_IMPORT_FILE:
-                dialog.setTitle(getString(R.string.import_file_title, mSelectedFile.getName()));
-                break;
+        if (id == DIALOG_IMPORT_FILE) {
+            dialog.setTitle(getString(R.string.import_file_title, mSelectedFile.getName()));
         }
     }
 
@@ -213,13 +210,12 @@ public class FileListActivity extends ListActivity {
 
         @Override
         public boolean setViewValue(View view, Object data, String textRepresentation) {
-            switch (view.getId()) {
-                case R.id.detail:
-                    if (data == null) {
-                        final TextView detailView = (TextView) view;
-                        detailView.setVisibility(View.INVISIBLE);
-                        return true;
-                    }
+            if (view.getId() == R.id.detail) {
+                if (data == null) {
+                    final TextView detailView = (TextView) view;
+                    detailView.setVisibility(View.INVISIBLE);
+                    return true;
+                }
             }
             return false;
         }

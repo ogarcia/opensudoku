@@ -50,7 +50,7 @@ public class IMControlPanel extends LinearLayout {
     private SudokuGame mGame;
     private HintsQueue mHintsQueue;
 
-    private List<InputMethod> mInputMethods = new ArrayList<InputMethod>();
+    private List<InputMethod> mInputMethods = new ArrayList<>();
     private int mActiveMethodIndex = -1;
     private OnCellTappedListener mOnCellTapListener = cell -> {
         if (mActiveMethodIndex != -1 && mInputMethods != null) {

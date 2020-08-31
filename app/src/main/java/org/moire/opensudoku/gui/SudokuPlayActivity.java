@@ -22,7 +22,6 @@ package org.moire.opensudoku.gui;
 
 import android.app.Dialog;
 import android.content.ComponentName;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -473,10 +472,9 @@ public class SudokuPlayActivity extends ThemedActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch (requestCode) {
-            case REQUEST_SETTINGS:
-                restartActivity();
-                break;
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_SETTINGS) {
+            restartActivity();
         }
     }
 
@@ -554,13 +552,11 @@ public class SudokuPlayActivity extends ThemedActivity {
                 return new AlertDialog.Builder(this)
                         .setTitle(R.string.app_name)
                         .setMessage(R.string.solve_puzzle_confirm)
-                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int whichButton) {
-                                if (mSudokuGame.isSolvable()) {
-                                    mSudokuGame.solve();
-                                } else {
-                                    showDialog(DIALOG_PUZZLE_NOT_SOLVED);
-                                }
+                        .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> {
+                            if (mSudokuGame.isSolvable()) {
+                                mSudokuGame.solve();
+                            } else {
+                                showDialog(DIALOG_PUZZLE_NOT_SOLVED);
                             }
                         })
                         .setNegativeButton(android.R.string.no, null)
@@ -581,18 +577,16 @@ public class SudokuPlayActivity extends ThemedActivity {
                 return new AlertDialog.Builder(this)
                         .setTitle(R.string.app_name)
                         .setMessage(R.string.hint_confirm)
-                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int whichButton) {
-                                Cell cell = mSudokuBoard.getSelectedCell();
-                                if (cell != null && cell.isEditable()) {
-                                    if (mSudokuGame.isSolvable()) {
-                                        mSudokuGame.solveCell(cell);
-                                    } else {
-                                        showDialog(DIALOG_PUZZLE_NOT_SOLVED);
-                                    }
+                        .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> {
+                            Cell cell = mSudokuBoard.getSelectedCell();
+                            if (cell != null && cell.isEditable()) {
+                                if (mSudokuGame.isSolvable()) {
+                                    mSudokuGame.solveCell(cell);
                                 } else {
-                                    showDialog(DIALOG_CANNOT_GIVE_HINT);
+                                    showDialog(DIALOG_PUZZLE_NOT_SOLVED);
                                 }
+                            } else {
+                                showDialog(DIALOG_CANNOT_GIVE_HINT);
                             }
                         })
                         .setNegativeButton(android.R.string.no, null)

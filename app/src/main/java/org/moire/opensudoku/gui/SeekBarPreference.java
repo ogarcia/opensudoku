@@ -162,11 +162,7 @@ public class SeekBarPreference extends DialogPreference {
 
         if (value > mMax) {
             mValue = mMax;
-        } else if (value < mMin) {
-            mValue = mMin;
-        } else {
-            mValue = value;
-        }
+        } else mValue = Math.max(value, mMin);
 
         persistInt(value);
 

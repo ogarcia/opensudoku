@@ -282,8 +282,6 @@ public class ThemeUtils {
         switch (theme) {
             case "default":
                 return R.style.Theme_Default;
-            case "opensudoku":
-                return R.style.Theme_OpenSudoku;
             case "amoled":
                 return R.style.Theme_AMOLED;
             case "latte":
@@ -324,6 +322,7 @@ public class ThemeUtils {
                 return R.style.Theme_AppCompat;
             case "custom_light":
                 return R.style.Theme_AppCompat_Light;
+            case "opensudoku":
             default:
                 return R.style.Theme_OpenSudoku;
         }
