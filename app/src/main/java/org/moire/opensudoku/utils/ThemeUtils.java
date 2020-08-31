@@ -6,9 +6,10 @@ import android.content.res.Resources;
 import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
-import android.preference.PreferenceManager;
 import android.view.ContextThemeWrapper;
 import android.widget.TextView;
+
+import androidx.preference.PreferenceManager;
 
 import org.moire.opensudoku.R;
 import org.moire.opensudoku.game.CellCollection;

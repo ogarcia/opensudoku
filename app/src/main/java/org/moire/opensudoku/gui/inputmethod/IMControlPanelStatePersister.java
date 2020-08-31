@@ -3,7 +3,8 @@ package org.moire.opensudoku.gui.inputmethod;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.preference.PreferenceManager;
+
+import androidx.preference.PreferenceManager;
 
 /**
  * This class is responsible for persisting of control panel's state.
