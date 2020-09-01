@@ -164,7 +164,7 @@ public class FileListActivity extends ListActivity {
         LayoutInflater.from(this);
         if (id == DIALOG_IMPORT_FILE) {
             return new AlertDialog.Builder(this)
-                    .setIcon(R.drawable.ic_cloud_upload)
+                    .setIcon(R.drawable.ic_cloud_download)
                     .setTitle(R.string.import_file)
                     .setPositiveButton(R.string.import_file, (dialog, whichButton) -> {
                         //importovani

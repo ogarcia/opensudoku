@@ -166,7 +166,7 @@ public class FolderListActivity extends ThemedActivity {
                 .setIcon(R.drawable.ic_add);
         menu.add(0, MENU_ITEM_IMPORT, 0, R.string.import_file)
                 .setShortcut('8', 'i')
-                .setIcon(R.drawable.ic_cloud_upload);
+                .setIcon(R.drawable.ic_cloud_download);
         menu.add(0, MENU_ITEM_EXPORT_ALL, 1, R.string.export_all_folders)
                 .setShortcut('7', 'e')
                 .setIcon(R.drawable.ic_share);

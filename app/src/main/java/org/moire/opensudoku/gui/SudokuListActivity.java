@@ -208,7 +208,7 @@ public class SudokuListActivity extends ThemedActivity {
         // This is our one standard application action -- inserting a
         // new note into the list.
         menu.add(0, MENU_ITEM_FOLDERS, 0, R.string.folders).setShortcut('1', 'f')
-                .setIcon(R.drawable.ic_sort);
+                .setIcon(R.drawable.ic_folder);
         menu.add(0, MENU_ITEM_FILTER, 1, R.string.filter).setShortcut('1', 'f')
                 .setIcon(R.drawable.ic_view);
         menu.add(0, MENU_ITEM_SORT, 2, R.string.sort).setShortcut('1', 'f')
