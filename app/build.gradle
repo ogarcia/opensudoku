@@ -45,4 +45,6 @@ dependencies {
     implementation 'androidx.preference:preference:1.1.1'
 
     implementation 'net.margaritov.preference.colorpicker.ColorPickerPreference:ColorPickerPreference:1.0.0'
+    // TODO: Migrate entirely to AndroidX Preference, using this version with it
+    //implementation 'com.github.attenzione:android-ColorPickerPreference:v1.2'
 }
