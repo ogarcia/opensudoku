@@ -35,7 +35,7 @@ public class SdmImportTask extends AbstractImportTask {
                 while ((s = br.readLine()) != null) {
                     if (!s.equals("")) {
                         if (s.contains(".")) {
-                            s = s.replace(".","0");
+                            s = s.replace(".", "0");
                         }
                         importGame(s);
                     }

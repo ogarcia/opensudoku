@@ -29,34 +29,6 @@ import java.util.StringTokenizer;
  */
 public abstract class AbstractCommand {
 
-    private interface CommandCreatorFunction {
-        AbstractCommand create();
-    }
-
-    private static class CommandDef {
-        String mLongName;
-        String mShortName;
-        CommandCreatorFunction mCreator;
-
-        public CommandDef(String longName, String shortName, CommandCreatorFunction creator) {
-            mLongName = longName;
-            mShortName = shortName;
-            mCreator = creator;
-        }
-
-        public AbstractCommand create() {
-            return mCreator.create();
-        }
-
-        public String getLongName() {
-            return mLongName;
-        }
-
-        public String getShortName() {
-            return mShortName;
-        }
-    }
-
     private static final CommandDef[] commands = {
             new CommandDef(ClearAllNotesCommand.class.getSimpleName(), "c1",
                     ClearAllNotesCommand::new),
@@ -113,5 +85,33 @@ public abstract class AbstractCommand {
      * Undo this command.
      */
     abstract void undo();
+
+    private interface CommandCreatorFunction {
+        AbstractCommand create();
+    }
+
+    private static class CommandDef {
+        String mLongName;
+        String mShortName;
+        CommandCreatorFunction mCreator;
+
+        public CommandDef(String longName, String shortName, CommandCreatorFunction creator) {
+            mLongName = longName;
+            mShortName = shortName;
+            mCreator = creator;
+        }
+
+        public AbstractCommand create() {
+            return mCreator.create();
+        }
+
+        public String getLongName() {
+            return mLongName;
+        }
+
+        public String getShortName() {
+            return mShortName;
+        }
+    }
 
 }

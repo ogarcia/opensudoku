@@ -2,6 +2,7 @@ package org.moire.opensudoku.game;
 
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class SudokuSolver {
 
@@ -34,8 +35,8 @@ public class SudokuSolver {
                 Cell cell = board[row][col];
                 int val = cell.getValue();
                 if (!cell.isEditable()) {
-                    int matrixRow = cellToRow(row, col, val-1, true);
-                    int matrixCol = 9*row + col; // calculates column of node based on cell constraint
+                    int matrixRow = cellToRow(row, col, val - 1, true);
+                    int matrixCol = 9 * row + col; // calculates column of node based on cell constraint
 
                     Node rowNode = mLinkedList[matrixRow][matrixCol];
                     Node rightNode = rowNode;
@@ -66,9 +67,7 @@ public class SudokuSolver {
     private void initializeConstraintMatrix() {
         // add row of 1's for column headers
         mConstraintMatrix = new int[NUM_ROWS * NUM_COLS * NUM_VALS + 1][NUM_CELLS * NUM_CONSTRAINTS];
-        for (int j = 0; j < mConstraintMatrix[0].length; j++) {
-            mConstraintMatrix[0][j] = 1;
-        }
+        Arrays.fill(mConstraintMatrix[0], 1);
 
         // calculate column where constraint will go
         int rowShift = NUM_CELLS;
@@ -183,13 +182,13 @@ public class SudokuSolver {
 
     /**
      * Dancing links algorithm
+     *
      * @return array of solution nodes or empty array if no solution exists
      */
     public ArrayList<Node> DLX() {
         if (mHead.right == mHead) {
             return mSolution;
-        }
-        else {
+        } else {
             Node colNode = chooseColumn();
             cover(colNode);
 
@@ -225,14 +224,15 @@ public class SudokuSolver {
 
     /**
      * Converts from puzzle cell to constraint matrix
-     * @param row 0-8 index
-     * @param col 0-8 index
-     * @param val 0-8 index (representing values 1-9)
+     *
+     * @param row             0-8 index
+     * @param col             0-8 index
+     * @param val             0-8 index (representing values 1-9)
      * @param headersInMatrix true when headers are in mConstraintMatrix, false if in separate vector
      * @return row in mConstraintMatrix corresponding to cell indices and value
      */
     private int cellToRow(int row, int col, int val, boolean headersInMatrix) {
-        int matrixRow = 81*row + 9*col + val;
+        int matrixRow = 81 * row + 9 * col + val;
         if (headersInMatrix) {
             matrixRow++;
         }
@@ -254,10 +254,21 @@ public class SudokuSolver {
     /**
      * Functions to move cyclically through matrix
      */
-    private int moveLeft (int j, int numCols) {return j - 1 < 0 ? numCols - 1 : j - 1;}
-    private int moveRight (int j, int numCols) {return (j + 1) % numCols;}
-    private int moveUp (int i, int numRows) {return i - 1 < 0 ? numRows - 1 : i -1;}
-    private int moveDown (int i, int numRows) {return (i + 1) % numRows;}
+    private int moveLeft(int j, int numCols) {
+        return j - 1 < 0 ? numCols - 1 : j - 1;
+    }
+
+    private int moveRight(int j, int numCols) {
+        return (j + 1) % numCols;
+    }
+
+    private int moveUp(int i, int numRows) {
+        return i - 1 < 0 ? numRows - 1 : i - 1;
+    }
+
+    private int moveDown(int i, int numRows) {
+        return (i + 1) % numRows;
+    }
 
     /**
      * Unlinks node from linked list

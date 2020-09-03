@@ -1,16 +1,9 @@
 package org.moire.opensudoku.gui;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
-import android.Manifest;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -18,15 +11,18 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AlertDialog;
+import androidx.preference.PreferenceManager;
+
 import org.moire.opensudoku.R;
-import org.moire.opensudoku.db.SudokuDatabase;
 import org.moire.opensudoku.utils.AndroidUtils;
 
 public class TitleScreenActivity extends ThemedActivity {
 
+    private final int MENU_ITEM_SETTINGS = 0;
+    private final int MENU_ITEM_ABOUT = 1;
+    private final int DIALOG_ABOUT = 0;
     private Button mResumeButton;
-    private Button mSudokuListButton;
-    private Button mSettingsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,18 +30,16 @@ public class TitleScreenActivity extends ThemedActivity {
         setContentView(R.layout.activity_title_screen);
 
         mResumeButton = findViewById(R.id.resume_button);
-        mSudokuListButton = findViewById(R.id.sudoku_lists_button);
-        mSettingsButton = findViewById(R.id.settings_button);
+        Button mSudokuListButton = findViewById(R.id.sudoku_lists_button);
+        Button mSettingsButton = findViewById(R.id.settings_button);
 
         setupResumeButton();
 
-        mSudokuListButton.setOnClickListener((view) -> {
-            startActivity(new Intent(this, FolderListActivity.class));
-        });
+        mSudokuListButton.setOnClickListener((view) ->
+                startActivity(new Intent(this, FolderListActivity.class)));
 
-        mSettingsButton.setOnClickListener((view) -> {
-            startActivity(new Intent(this, GameSettingsActivity.class));
-        });
+        mSettingsButton.setOnClickListener((view) ->
+                startActivity(new Intent(this, GameSettingsActivity.class)));
 
         // check the preference to skip the title screen and launch the folder list activity
         // directly
@@ -74,9 +68,6 @@ public class TitleScreenActivity extends ThemedActivity {
         }
     }
 
-    private final int MENU_ITEM_SETTINGS = 0;
-    private final int MENU_ITEM_ABOUT = 1;
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         super.onCreateOptionsMenu(menu);
@@ -91,8 +82,6 @@ public class TitleScreenActivity extends ThemedActivity {
 
         return true;
     }
-
-    private final int DIALOG_ABOUT = 0;
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -112,18 +101,17 @@ public class TitleScreenActivity extends ThemedActivity {
     protected Dialog onCreateDialog(int id) {
         LayoutInflater factory = LayoutInflater.from(this);
 
-        switch (id) {
-            case DIALOG_ABOUT:
-                final View aboutView = factory.inflate(R.layout.about, null);
-                TextView versionLabel = aboutView.findViewById(R.id.version_label);
-                String versionName = AndroidUtils.getAppVersionName(getApplicationContext());
-                versionLabel.setText(getString(R.string.version, versionName));
-                return new AlertDialog.Builder(this)
-                        .setIcon(R.mipmap.ic_launcher)
-                        .setTitle(R.string.app_name)
-                        .setView(aboutView)
-                        .setPositiveButton("OK", null)
-                        .create();
+        if (id == DIALOG_ABOUT) {
+            final View aboutView = factory.inflate(R.layout.about, null);
+            TextView versionLabel = aboutView.findViewById(R.id.version_label);
+            String versionName = AndroidUtils.getAppVersionName(getApplicationContext());
+            versionLabel.setText(getString(R.string.version, versionName));
+            return new AlertDialog.Builder(this)
+                    .setIcon(R.mipmap.ic_launcher)
+                    .setTitle(R.string.app_name)
+                    .setView(aboutView)
+                    .setPositiveButton("OK", null)
+                    .create();
         }
 
         return null;

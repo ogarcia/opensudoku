@@ -21,9 +21,6 @@
 package org.moire.opensudoku.gui.inputmethod;
 
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,6 +67,22 @@ public class IMSingleNumber extends InputMethod {
     private ImageButton mSwitchNumNoteButton;
 
     private SudokuPlayActivity.OnSelectedNumberChangedListener mOnSelectedNumberChangedListener = null;
+    private View.OnTouchListener mNumberButtonTouched = (view, motionEvent) -> {
+        mSelectedNumber = (Integer) view.getTag();
+        onSelectedNumberChanged();
+        update();
+        return true;
+    };
+    private OnClickListener mNumberButtonClicked = v -> {
+        mSelectedNumber = (Integer) v.getTag();
+        onSelectedNumberChanged();
+        update();
+    };
+    private OnChangeListener mOnCellsChangeListener = () -> {
+        if (mActive) {
+            update();
+        }
+    };
 
     public IMSingleNumber() {
         super();
@@ -174,25 +187,6 @@ public class IMSingleNumber extends InputMethod {
 
         return controlPanel;
     }
-
-    private View.OnTouchListener mNumberButtonTouched = (view, motionEvent) -> {
-        mSelectedNumber = (Integer) view.getTag();
-        onSelectedNumberChanged();
-        update();
-        return true;
-    };
-
-    private OnClickListener mNumberButtonClicked = v -> {
-        mSelectedNumber = (Integer) v.getTag();
-        onSelectedNumberChanged();
-        update();
-    };
-
-    private OnChangeListener mOnCellsChangeListener = () -> {
-        if (mActive) {
-            update();
-        }
-    };
 
     private void update() {
         switch (mEditMode) {

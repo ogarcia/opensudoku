@@ -22,8 +22,6 @@ package org.moire.opensudoku.gui.inputmethod;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.PorterDuff;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -33,7 +31,6 @@ import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TabHost;
 import android.widget.TabWidget;
-import android.widget.TextView;
 import android.widget.ToggleButton;
 
 import org.moire.opensudoku.R;
@@ -63,6 +60,68 @@ public class IMPopupDialog extends Dialog {
 
     private OnNumberEditListener mOnNumberEditListener;
     private OnNoteEditListener mOnNoteEditListener;
+    /**
+     * Occurs when user selects number in "Select number" tab.
+     */
+    private View.OnClickListener editNumberButtonClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            Integer number = (Integer) v.getTag();
+
+            if (mOnNumberEditListener != null) {
+                mOnNumberEditListener.onNumberEdit(number);
+            }
+
+            dismiss();
+        }
+    };
+    /**
+     * Occurs when user checks or unchecks number in "Edit note" tab.
+     */
+    private OnCheckedChangeListener editNoteCheckedChangeListener = (buttonView, isChecked) -> {
+        Integer number = (Integer) buttonView.getTag();
+        if (isChecked) {
+            mNoteSelectedNumbers.add(number);
+        } else {
+            mNoteSelectedNumbers.remove(number);
+        }
+        ThemeUtils.applyIMButtonStateToView(buttonView, isChecked ? ThemeUtils.IMButtonStyle.ACCENT : ThemeUtils.IMButtonStyle.DEFAULT);
+    };
+    /**
+     * Occurs when user presses "Clear" button.
+     */
+    private View.OnClickListener clearButtonListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            String currentTab = mTabHost.getCurrentTabTag();
+
+            if (currentTab.equals("number")) {
+                if (mOnNumberEditListener != null) {
+                    mOnNumberEditListener.onNumberEdit(0); // 0 as clear
+                }
+                dismiss();
+            } else {
+                for (ToggleButton b : mNoteNumberButtons.values()) {
+                    b.setChecked(false);
+                    mNoteSelectedNumbers.remove(b.getTag());
+                }
+            }
+        }
+    };
+    /**
+     * Occurs when user presses "Close" button.
+     */
+    private View.OnClickListener closeButtonListener = new View.OnClickListener() {
+
+        @Override
+        public void onClick(View v) {
+            if (mOnNoteEditListener != null) {
+                Integer[] numbers = new Integer[mNoteSelectedNumbers.size()];
+                mOnNoteEditListener.onNoteEdit(mNoteSelectedNumbers.toArray(numbers));
+            }
+            dismiss();
+        }
+    };
 
     public IMPopupDialog(Context context) {
         super(context);
@@ -227,7 +286,6 @@ public class IMPopupDialog extends Dialog {
         return v;
     }
 
-
     /**
      * Creates view for note editing.
      *
@@ -259,72 +317,6 @@ public class IMPopupDialog extends Dialog {
 
         return v;
     }
-
-    /**
-     * Occurs when user selects number in "Select number" tab.
-     */
-    private View.OnClickListener editNumberButtonClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            Integer number = (Integer) v.getTag();
-
-            if (mOnNumberEditListener != null) {
-                mOnNumberEditListener.onNumberEdit(number);
-            }
-
-            dismiss();
-        }
-    };
-
-    /**
-     * Occurs when user checks or unchecks number in "Edit note" tab.
-     */
-    private OnCheckedChangeListener editNoteCheckedChangeListener = (buttonView, isChecked) -> {
-        Integer number = (Integer) buttonView.getTag();
-        if (isChecked) {
-            mNoteSelectedNumbers.add(number);
-        } else {
-            mNoteSelectedNumbers.remove(number);
-        }
-        ThemeUtils.applyIMButtonStateToView(buttonView, isChecked ? ThemeUtils.IMButtonStyle.ACCENT : ThemeUtils.IMButtonStyle.DEFAULT);
-    };
-
-    /**
-     * Occurs when user presses "Clear" button.
-     */
-    private View.OnClickListener clearButtonListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            String currentTab = mTabHost.getCurrentTabTag();
-
-            if (currentTab.equals("number")) {
-                if (mOnNumberEditListener != null) {
-                    mOnNumberEditListener.onNumberEdit(0); // 0 as clear
-                }
-                dismiss();
-            } else {
-                for (ToggleButton b : mNoteNumberButtons.values()) {
-                    b.setChecked(false);
-                    mNoteSelectedNumbers.remove(b.getTag());
-                }
-            }
-        }
-    };
-
-    /**
-     * Occurs when user presses "Close" button.
-     */
-    private View.OnClickListener closeButtonListener = new View.OnClickListener() {
-
-        @Override
-        public void onClick(View v) {
-            if (mOnNoteEditListener != null) {
-                Integer[] numbers = new Integer[mNoteSelectedNumbers.size()];
-                mOnNoteEditListener.onNoteEdit(mNoteSelectedNumbers.toArray(numbers));
-            }
-            dismiss();
-        }
-    };
 
     /**
      * Interface definition for a callback to be invoked, when user selects number, which

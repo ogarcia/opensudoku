@@ -27,10 +27,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
-import android.preference.PreferenceManager;
-
-import androidx.appcompat.app.AlertDialog;
-
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -44,6 +40,9 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.SimpleCursorAdapter.ViewBinder;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.preference.PreferenceManager;
 
 import org.moire.opensudoku.R;
 import org.moire.opensudoku.db.SudokuColumns;
@@ -149,12 +148,7 @@ public class SudokuListActivity extends ThemedActivity {
 
         mListView = findViewById(android.R.id.list);
         mListView.setAdapter(mAdapter);
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                playSudoku(id);
-            }
-        });
+        mListView.setOnItemClickListener((parent, view, position, id) -> playSudoku(id));
         registerForContextMenu(mListView);
     }
 
@@ -214,7 +208,7 @@ public class SudokuListActivity extends ThemedActivity {
         // This is our one standard application action -- inserting a
         // new note into the list.
         menu.add(0, MENU_ITEM_FOLDERS, 0, R.string.folders).setShortcut('1', 'f')
-                .setIcon(R.drawable.ic_sort);
+                .setIcon(R.drawable.ic_folder);
         menu.add(0, MENU_ITEM_FILTER, 1, R.string.filter).setShortcut('1', 'f')
                 .setIcon(R.drawable.ic_view);
         menu.add(0, MENU_ITEM_SORT, 2, R.string.sort).setShortcut('1', 'f')
@@ -333,9 +327,7 @@ public class SudokuListActivity extends ThemedActivity {
                         .setSingleChoiceItems(
                                 R.array.game_sort,
                                 mListSorter.getSortType(),
-                                (dialog, whichButton) -> {
-                                    mListSorter.setSortType(whichButton);
-                                })
+                                (dialog, whichButton) -> mListSorter.setSortType(whichButton))
                         .setPositiveButton(android.R.string.ok, (dialog, whichButton) -> {
                             settings.edit()
                                     .putInt(SORT_TYPE, mListSorter.getSortType())
@@ -353,13 +345,10 @@ public class SudokuListActivity extends ThemedActivity {
     protected void onPrepareDialog(int id, Dialog dialog) {
         super.onPrepareDialog(id, dialog);
 
-        switch (id) {
-            case DIALOG_EDIT_NOTE: {
-                SudokuDatabase db = new SudokuDatabase(getApplicationContext());
-                SudokuGame game = db.getSudoku(mEditNotePuzzleID);
-                mEditNoteInput.setText(game.getNote());
-                break;
-            }
+        if (id == DIALOG_EDIT_NOTE) {
+            SudokuDatabase db = new SudokuDatabase(getApplicationContext());
+            SudokuGame game = db.getSudoku(mEditNotePuzzleID);
+            mEditNoteInput.setText(game.getNote());
         }
     }
 

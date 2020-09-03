@@ -27,7 +27,6 @@ import android.content.res.TypedArray;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.preference.DialogPreference;
-import android.preference.Preference;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,6 +34,8 @@ import android.view.ViewParent;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.TextView;
+
+import androidx.preference.Preference;
 
 import org.moire.opensudoku.R;
 
@@ -105,17 +106,6 @@ public class SeekBarPreference extends DialogPreference {
     }
 
     /**
-     * Sets minimal value which can be set by this preference object.
-     *
-     * @param min
-     */
-    public void setMin(int min) {
-        mMin = min;
-        mSeekBar.setMax(mMax - mMin);
-        mSeekBar.setProgress(mMin);
-    }
-
-    /**
      * Returns minimal value which can be set by this preference object.
      *
      * @return
@@ -125,12 +115,12 @@ public class SeekBarPreference extends DialogPreference {
     }
 
     /**
-     * Sets maximal value which can be set by this preference object.
+     * Sets minimal value which can be set by this preference object.
      *
-     * @param max
+     * @param min
      */
-    public void setMax(int max) {
-        mMax = max;
+    public void setMin(int min) {
+        mMin = min;
         mSeekBar.setMax(mMax - mMin);
         mSeekBar.setProgress(mMin);
     }
@@ -145,25 +135,14 @@ public class SeekBarPreference extends DialogPreference {
     }
 
     /**
-     * Saves the value to the {@link SharedPreferences}.
+     * Sets maximal value which can be set by this preference object.
+     *
+     * @param max
      */
-    public void setValue(int value) {
-        final boolean wasBlocking = shouldDisableDependents();
-
-        if (value > mMax) {
-            mValue = mMax;
-        } else if (value < mMin) {
-            mValue = mMin;
-        } else {
-            mValue = value;
-        }
-
-        persistInt(value);
-
-        final boolean isBlocking = shouldDisableDependents();
-        if (isBlocking != wasBlocking) {
-            notifyDependencyChange(isBlocking);
-        }
+    public void setMax(int max) {
+        mMax = max;
+        mSeekBar.setMax(mMax - mMin);
+        mSeekBar.setProgress(mMin);
     }
 
     /**
@@ -175,12 +154,30 @@ public class SeekBarPreference extends DialogPreference {
         return mValue;
     }
 
-    public void setValueFormat(String valueFormat) {
-        mValueFormat = valueFormat;
+    /**
+     * Saves the value to the {@link SharedPreferences}.
+     */
+    public void setValue(int value) {
+        final boolean wasBlocking = shouldDisableDependents();
+
+        if (value > mMax) {
+            mValue = mMax;
+        } else mValue = Math.max(value, mMin);
+
+        persistInt(value);
+
+        final boolean isBlocking = shouldDisableDependents();
+        if (isBlocking != wasBlocking) {
+            notifyDependencyChange(isBlocking);
+        }
     }
 
     public String getValueFormat() {
         return mValueFormat;
+    }
+
+    public void setValueFormat(String valueFormat) {
+        mValueFormat = valueFormat;
     }
 
     @Override
@@ -281,23 +278,6 @@ public class SeekBarPreference extends DialogPreference {
     }
 
     private static class SavedState extends BaseSavedState {
-        int value;
-
-        public SavedState(Parcel source) {
-            super(source);
-            value = source.readInt();
-        }
-
-        @Override
-        public void writeToParcel(Parcel dest, int flags) {
-            super.writeToParcel(dest, flags);
-            dest.writeInt(value);
-        }
-
-        public SavedState(Parcelable superState) {
-            super(superState);
-        }
-
         public static final Parcelable.Creator<SavedState> CREATOR =
                 new Parcelable.Creator<SavedState>() {
                     public SavedState createFromParcel(Parcel in) {
@@ -308,6 +288,22 @@ public class SeekBarPreference extends DialogPreference {
                         return new SavedState[size];
                     }
                 };
+        int value;
+
+        public SavedState(Parcel source) {
+            super(source);
+            value = source.readInt();
+        }
+
+        public SavedState(Parcelable superState) {
+            super(superState);
+        }
+
+        @Override
+        public void writeToParcel(Parcel dest, int flags) {
+            super.writeToParcel(dest, flags);
+            dest.writeInt(value);
+        }
     }
 
 }

@@ -46,6 +46,7 @@ public abstract class AbstractImportTask extends
     private int mGameCount; //count of processed puzzles
     private String mImportError;
     private boolean mImportSuccessful;
+    private SudokuImportParams mImportParams = new SudokuImportParams();
 
     public void initialize(Context context, ProgressBar progressBar) {
         mContext = context;
@@ -144,7 +145,6 @@ public abstract class AbstractImportTask extends
      */
     protected abstract void processImport() throws SudokuInvalidFormatException;
 
-
     /**
      * Creates new folder and starts appending puzzles to this folder.
      *
@@ -153,7 +153,6 @@ public abstract class AbstractImportTask extends
     protected void importFolder(String name) {
         importFolder(name, System.currentTimeMillis());
     }
-
 
     /**
      * Creates new folder and starts appending puzzles to this folder.
@@ -190,8 +189,6 @@ public abstract class AbstractImportTask extends
             mFolder = mDatabase.insertFolder(name, System.currentTimeMillis());
         }
     }
-
-    private SudokuImportParams mImportParams = new SudokuImportParams();
 
     /**
      * Imports game. Game will be stored in folder, which was set by

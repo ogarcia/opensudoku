@@ -41,6 +41,35 @@ public class IMPopup extends InputMethod {
 
     private IMPopupDialog mEditCellDialog;
     private Cell mSelectedCell;
+    /**
+     * Occurs when user selects number in EditCellDialog.
+     */
+    private OnNumberEditListener mOnNumberEditListener = new OnNumberEditListener() {
+        @Override
+        public boolean onNumberEdit(int number) {
+            if (number != -1 && mSelectedCell != null) {
+                mGame.setCellValue(mSelectedCell, number);
+                mBoard.setHighlightedValue(number);
+            }
+            return true;
+        }
+    };
+    /**
+     * Occurs when user edits note in EditCellDialog
+     */
+    private OnNoteEditListener mOnNoteEditListener = new OnNoteEditListener() {
+        @Override
+        public boolean onNoteEdit(Integer[] numbers) {
+            if (mSelectedCell != null) {
+                mGame.setCellNote(mSelectedCell, CellNote.fromIntArray(numbers));
+            }
+            return true;
+        }
+    };
+    /**
+     * Occurs when popup dialog is closed.
+     */
+    private OnDismissListener mOnPopupDismissedListener = dialog -> mBoard.hideTouchedCellHint();
 
     public boolean getHighlightCompletedValues() {
         return mHighlightCompletedValues;
@@ -156,37 +185,5 @@ public class IMPopup extends InputMethod {
         LayoutInflater inflater = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         return inflater.inflate(R.layout.im_popup, null);
     }
-
-    /**
-     * Occurs when user selects number in EditCellDialog.
-     */
-    private OnNumberEditListener mOnNumberEditListener = new OnNumberEditListener() {
-        @Override
-        public boolean onNumberEdit(int number) {
-            if (number != -1 && mSelectedCell != null) {
-                mGame.setCellValue(mSelectedCell, number);
-                mBoard.setHighlightedValue(number);
-            }
-            return true;
-        }
-    };
-
-    /**
-     * Occurs when user edits note in EditCellDialog
-     */
-    private OnNoteEditListener mOnNoteEditListener = new OnNoteEditListener() {
-        @Override
-        public boolean onNoteEdit(Integer[] numbers) {
-            if (mSelectedCell != null) {
-                mGame.setCellNote(mSelectedCell, CellNote.fromIntArray(numbers));
-            }
-            return true;
-        }
-    };
-
-    /**
-     * Occurs when popup dialog is closed.
-     */
-    private OnDismissListener mOnPopupDismissedListener = dialog -> mBoard.hideTouchedCellHint();
 
 }

@@ -46,120 +46,29 @@ abstract class Timer
     // Constructor.
     // ******************************************************************** //
 
-    /**
-     * Construct a periodic timer with a given tick interval.
-     *
-     * @param ival Tick interval in ms.
-     */
-    public Timer(long ival) {
-        mTickInterval = ival;
-        mIsRunning = false;
-        mAccumTime = 0;
-    }
+    // The tick interval in ms.
+    private long mTickInterval;
 
 
     // ******************************************************************** //
     // Timer Control.
     // ******************************************************************** //
-
-    /**
-     * Start the timer.  step() will be called at regular intervals
-     * until it returns true; then done() will be called.
-     * <p/>
-     * Subclasses may override this to do their own setup; but they
-     * must then call super.start().
-     */
-    public void start() {
-        if (mIsRunning)
-            return;
-
-        mIsRunning = true;
-
-        long now = SystemClock.uptimeMillis();
-
-        // Start accumulating time again.
-        mLastLogTime = now;
-
-        // Schedule the first event at once.
-        mNextTime = now;
-        postAtTime(runner, mNextTime);
-    }
-
-
-    /**
-     * Stop the timer.  step() will not be called again until it is
-     * restarted.
-     * <p/>
-     * Subclasses may override this to do their own setup; but they
-     * must then call super.stop().
-     */
-    public void stop() {
-        if (mIsRunning) {
-            mIsRunning = false;
-            long now = SystemClock.uptimeMillis();
-            mAccumTime += now - mLastLogTime;
-            mLastLogTime = now;
-        }
-    }
-
-
-    /**
-     * Stop the timer, and reset the accumulated time and tick count.
-     */
-    public final void reset() {
-        stop();
-        mTickCount = 0;
-        mAccumTime = 0;
-    }
-
-
-    /**
-     * Query whether this Timer is running.
-     *
-     * @return true iff we're running.
-     */
-    public final boolean isRunning() {
-        return mIsRunning;
-    }
-
-
-    /**
-     * Get the accumulated time of this Timer.
-     *
-     * @return How long this timer has been running, in ms.
-     */
-    public final long getTime() {
-        return mAccumTime;
-    }
+    // true iff the timer is running.
+    private boolean mIsRunning;
+    // Number of times step() has been called.
+    private int mTickCount;
+    // Time at which to execute the next step.  We schedule each
+    // step at this plus x ms; this gives us an even execution rate.
+    private long mNextTime;
+    // The accumulated time in ms for which this timer has been running.
+    // Increments between start() and stop(); start(true) resets it.
+    private long mAccumTime;
+    // The time at which we last added to accumTime.
+    private long mLastLogTime;
 
     // ******************************************************************** //
     // Handlers.
     // ******************************************************************** //
-
-    /**
-     * Subclasses override this to handle a timer tick.
-     *
-     * @param count The call count; 0 on the first call.
-     * @param time  The total time for which this timer has been
-     *              running, in ms.  Reset by reset().
-     * @return true if the timer should stop; this will
-     * trigger a call to done().  false otherwise;
-     * we will continue calling step().
-     */
-    protected abstract boolean step(int count, long time);
-
-
-    /**
-     * Subclasses may override this to handle completion of a run.
-     */
-    protected void done() {
-    }
-
-
-    // ******************************************************************** //
-    // Implementation.
-    // ******************************************************************** //
-
     /**
      * Handle a step of the animation.
      */
@@ -191,9 +100,115 @@ abstract class Timer
     };
 
 
+    /**
+     * Construct a periodic timer with a given tick interval.
+     *
+     * @param ival Tick interval in ms.
+     */
+    public Timer(long ival) {
+        mTickInterval = ival;
+        mIsRunning = false;
+        mAccumTime = 0;
+    }
+
+
+    // ******************************************************************** //
+    // Implementation.
+    // ******************************************************************** //
+
+    /**
+     * Start the timer.  step() will be called at regular intervals
+     * until it returns true; then done() will be called.
+     * <p/>
+     * Subclasses may override this to do their own setup; but they
+     * must then call super.start().
+     */
+    public void start() {
+        if (mIsRunning)
+            return;
+
+        mIsRunning = true;
+
+        long now = SystemClock.uptimeMillis();
+
+        // Start accumulating time again.
+        mLastLogTime = now;
+
+        // Schedule the first event at once.
+        mNextTime = now;
+        postAtTime(runner, mNextTime);
+    }
+
+
     // ******************************************************************** //
     // State Save/Restore.
     // ******************************************************************** //
+
+    /**
+     * Stop the timer.  step() will not be called again until it is
+     * restarted.
+     * <p/>
+     * Subclasses may override this to do their own setup; but they
+     * must then call super.stop().
+     */
+    public void stop() {
+        if (mIsRunning) {
+            mIsRunning = false;
+            long now = SystemClock.uptimeMillis();
+            mAccumTime += now - mLastLogTime;
+            mLastLogTime = now;
+        }
+    }
+
+    /**
+     * Stop the timer, and reset the accumulated time and tick count.
+     */
+    public final void reset() {
+        stop();
+        mTickCount = 0;
+        mAccumTime = 0;
+    }
+
+    /**
+     * Query whether this Timer is running.
+     *
+     * @return true iff we're running.
+     */
+    public final boolean isRunning() {
+        return mIsRunning;
+    }
+
+
+    // ******************************************************************** //
+    // Member Data.
+    // ******************************************************************** //
+
+    /**
+     * Get the accumulated time of this Timer.
+     *
+     * @return How long this timer has been running, in ms.
+     */
+    public final long getTime() {
+        return mAccumTime;
+    }
+
+    /**
+     * Subclasses override this to handle a timer tick.
+     *
+     * @param count The call count; 0 on the first call.
+     * @param time  The total time for which this timer has been
+     *              running, in ms.  Reset by reset().
+     * @return true if the timer should stop; this will
+     * trigger a call to done().  false otherwise;
+     * we will continue calling step().
+     */
+    protected abstract boolean step(int count, long time);
+
+    /**
+     * Subclasses may override this to handle completion of a run.
+     */
+    protected void done() {
+    }
 
     /**
      * Save game state so that the user does not lose anything
@@ -217,7 +232,6 @@ abstract class Timer
         outState.putLong("accumTime", mAccumTime);
     }
 
-
     /**
      * Restore our game state from the given Bundle.  If the saved
      * state was running, we will continue running.
@@ -230,7 +244,6 @@ abstract class Timer
     boolean restoreState(Bundle map) {
         return restoreState(map, true);
     }
-
 
     /**
      * Restore our game state from the given Bundle.
@@ -259,29 +272,4 @@ abstract class Timer
 
         return true;
     }
-
-
-    // ******************************************************************** //
-    // Member Data.
-    // ******************************************************************** //
-
-    // The tick interval in ms.
-    private long mTickInterval;
-
-    // true iff the timer is running.
-    private boolean mIsRunning;
-
-    // Number of times step() has been called.
-    private int mTickCount;
-
-    // Time at which to execute the next step.  We schedule each
-    // step at this plus x ms; this gives us an even execution rate.
-    private long mNextTime;
-
-    // The accumulated time in ms for which this timer has been running.
-    // Increments between start() and stop(); start(true) resets it.
-    private long mAccumTime;
-
-    // The time at which we last added to accumTime.
-    private long mLastLogTime;
 }

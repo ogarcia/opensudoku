@@ -50,8 +50,19 @@ public class IMControlPanel extends LinearLayout {
     private SudokuGame mGame;
     private HintsQueue mHintsQueue;
 
-    private List<InputMethod> mInputMethods = new ArrayList<InputMethod>();
+    private List<InputMethod> mInputMethods = new ArrayList<>();
     private int mActiveMethodIndex = -1;
+    private OnCellTappedListener mOnCellTapListener = cell -> {
+        if (mActiveMethodIndex != -1 && mInputMethods != null) {
+            mInputMethods.get(mActiveMethodIndex).onCellTapped(cell);
+        }
+    };
+    private OnCellSelectedListener mOnCellSelected = cell -> {
+        if (mActiveMethodIndex != -1 && mInputMethods != null) {
+            mInputMethods.get(mActiveMethodIndex).onCellSelected(cell);
+        }
+    };
+    private OnClickListener mSwitchModeListener = v -> activateNextInputMethod();
 
     public IMControlPanel(Context context) {
         super(context);
@@ -173,6 +184,8 @@ public class IMControlPanel extends LinearLayout {
         return (T) mInputMethods.get(methodId);
     }
 
+    // TODO: Is this really necessary?
+
     public List<InputMethod> getInputMethods() {
         return Collections.unmodifiableList(mInputMethods);
     }
@@ -191,8 +204,6 @@ public class IMControlPanel extends LinearLayout {
             mHintsQueue.showHint(activeMethod.getNameResID(), activeMethod.getHelpResID());
         }
     }
-
-    // TODO: Is this really necessary?
 
     /**
      * This should be called when activity is paused (so Input Methods can do some cleanup,
@@ -241,20 +252,6 @@ public class IMControlPanel extends LinearLayout {
             this.addView(controlPanel, LayoutParams.FILL_PARENT, LayoutParams.FILL_PARENT);
         }
     }
-
-    private OnCellTappedListener mOnCellTapListener = cell -> {
-        if (mActiveMethodIndex != -1 && mInputMethods != null) {
-            mInputMethods.get(mActiveMethodIndex).onCellTapped(cell);
-        }
-    };
-
-    private OnCellSelectedListener mOnCellSelected = cell -> {
-        if (mActiveMethodIndex != -1 && mInputMethods != null) {
-            mInputMethods.get(mActiveMethodIndex).onCellSelected(cell);
-        }
-    };
-
-    private OnClickListener mSwitchModeListener = v -> activateNextInputMethod();
 /*
     /**
      * Used to save / restore state of control panel.

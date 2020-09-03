@@ -62,20 +62,31 @@ public class CellCollection {
     public static int DATA_VERSION_3 = 3;
 
     public static int DATA_VERSION = DATA_VERSION_3;
-
+    private static Pattern DATA_PATTERN_VERSION_PLAIN = Pattern.compile("^\\d{81}$");
+    private static Pattern DATA_PATTERN_VERSION_1 = Pattern.compile("^version: 1\\n((?#value)\\d\\|(?#note)((\\d,)+|-)\\|(?#editable)[01]\\|){0,81}$");
+    private static Pattern DATA_PATTERN_VERSION_2 = Pattern.compile("^version: 2\\n((?#value)\\d\\|(?#note)(\\d){1,3}\\|{1,2}(?#editable)[01]\\|){0,81}$");
+    private static Pattern DATA_PATTERN_VERSION_3 = Pattern.compile("^version: 3\\n((?#value)\\d\\|(?#note)(\\d){1,3}\\|(?#editable)[01]\\|){0,81}$");
+    private final List<OnChangeListener> mChangeListeners = new ArrayList<>();
     // TODO: An array of ints is a much better than an array of Integers, but this also generalizes to the fact that two parallel arrays of ints are also a lot more efficient than an array of (int,int) objects
     // Cell's data.
     private Cell[][] mCells;
-
     // Helper arrays, contains references to the groups of cells, which should contain unique
     // numbers.
     private CellGroup[] mSectors;
     private CellGroup[] mRows;
     private CellGroup[] mColumns;
-
     private boolean mOnChangeEnabled = true;
 
-    private final List<OnChangeListener> mChangeListeners = new ArrayList<OnChangeListener>();
+    /**
+     * Wraps given array in this object.
+     *
+     * @param cells
+     */
+    private CellCollection(Cell[][] cells) {
+
+        mCells = cells;
+        initCollection();
+    }
 
     /**
      * Creates empty sudoku.
@@ -94,23 +105,6 @@ public class CellCollection {
 
         return new CellCollection(cells);
     }
-
-    /**
-     * Return true, if no value is entered in any of cells.
-     *
-     * @return
-     */
-    public boolean isEmpty() {
-        for (int r = 0; r < SUDOKU_SIZE; r++) {
-            for (int c = 0; c < SUDOKU_SIZE; c++) {
-                Cell cell = mCells[r][c];
-                if (cell.getValue() != 0)
-                    return false;
-            }
-        }
-        return true;
-    }
-
 
     /**
      * Generates debug game.
@@ -133,19 +127,143 @@ public class CellCollection {
         return debugGame;
     }
 
-    public Cell[][] getCells() {
-        return mCells;
+    /**
+     * Creates instance from given <code>StringTokenizer</code>.
+     *
+     * @param data
+     * @return
+     */
+    public static CellCollection deserialize(StringTokenizer data, int version) {
+        Cell[][] cells = new Cell[SUDOKU_SIZE][SUDOKU_SIZE];
+
+        int r = 0, c = 0;
+        while (data.hasMoreTokens() && r < 9) {
+            cells[r][c] = Cell.deserialize(data, version);
+            c++;
+
+            if (c == 9) {
+                r++;
+                c = 0;
+            }
+        }
+
+        return new CellCollection(cells);
     }
 
     /**
-     * Wraps given array in this object.
+     * Creates instance from given string (string which has been
+     * created by {@link #serialize(StringBuilder)} or {@link #serialize()} method).
+     * earlier.
      *
-     * @param cells
+     * @param note
      */
-    private CellCollection(Cell[][] cells) {
+    public static CellCollection deserialize(String data) {
+        // TODO: use DATA_PATTERN_VERSION_1 to validate and extract puzzle data
+        String[] lines = data.split("\n");
+        if (lines.length == 0) {
+            throw new IllegalArgumentException("Cannot deserialize Sudoku, data corrupted.");
+        }
 
-        mCells = cells;
-        initCollection();
+        String line = lines[0];
+        if (line.startsWith("version:")) {
+            String[] kv = line.split(":");
+            int version = Integer.parseInt(kv[1].trim());
+            StringTokenizer st = new StringTokenizer(lines[1], "|");
+            return deserialize(st, version);
+        } else {
+            return fromString(data);
+        }
+    }
+
+    /**
+     * Creates collection instance from given string. String is expected
+     * to be in format "00002343243202...", where each number represents
+     * cell value, no other information can be set using this method.
+     *
+     * @param data
+     * @return
+     */
+    public static CellCollection fromString(String data) {
+        // TODO: validate
+
+        Cell[][] cells = new Cell[SUDOKU_SIZE][SUDOKU_SIZE];
+
+        int pos = 0;
+        for (int r = 0; r < CellCollection.SUDOKU_SIZE; r++) {
+            for (int c = 0; c < CellCollection.SUDOKU_SIZE; c++) {
+                int value = 0;
+                while (pos < data.length()) {
+                    pos++;
+                    if (data.charAt(pos - 1) >= '0'
+                            && data.charAt(pos - 1) <= '9') {
+                        // value=Integer.parseInt(data.substring(pos-1, pos));
+                        value = data.charAt(pos - 1) - '0';
+                        break;
+                    }
+                }
+                Cell cell = new Cell();
+                cell.setValue(value);
+                cell.setEditable(value == 0);
+                cells[r][c] = cell;
+            }
+        }
+
+        return new CellCollection(cells);
+    }
+
+    /**
+     * Returns true, if given <code>data</code> conform to format of given data version.
+     *
+     * @param data
+     * @param dataVersion
+     * @return
+     */
+    public static boolean isValid(String data, int dataVersion) {
+        if (dataVersion == DATA_VERSION_PLAIN) {
+            return DATA_PATTERN_VERSION_PLAIN.matcher(data).matches();
+        } else if (dataVersion == DATA_VERSION_1) {
+            return DATA_PATTERN_VERSION_1.matcher(data).matches();
+        } else if (dataVersion == DATA_VERSION_2) {
+            return DATA_PATTERN_VERSION_2.matcher(data).matches();
+        } else if (dataVersion == DATA_VERSION_3) {
+            return DATA_PATTERN_VERSION_3.matcher(data).matches();
+        } else {
+            throw new IllegalArgumentException("Unknown version: " + dataVersion);
+        }
+    }
+
+    /**
+     * Returns true, if given <code>data</code> conform to format of any version.
+     *
+     * @param data
+     * @return
+     */
+    public static boolean isValid(String data) {
+        return (DATA_PATTERN_VERSION_PLAIN.matcher(data).matches() ||
+                DATA_PATTERN_VERSION_1.matcher(data).matches() ||
+                DATA_PATTERN_VERSION_2.matcher(data).matches() ||
+                DATA_PATTERN_VERSION_3.matcher(data).matches()
+        );
+    }
+
+    /**
+     * Return true, if no value is entered in any of cells.
+     *
+     * @return
+     */
+    public boolean isEmpty() {
+        for (int r = 0; r < SUDOKU_SIZE; r++) {
+            for (int c = 0; c < SUDOKU_SIZE; c++) {
+                Cell cell = mCells[r][c];
+                if (cell.getValue() != 0)
+                    return false;
+            }
+        }
+        return true;
+    }
+
+    public Cell[][] getCells() {
+        return mCells;
     }
 
     /**
@@ -159,7 +277,6 @@ public class CellCollection {
         return mCells[rowIndex][colIndex];
     }
 
-
     public Cell findFirstCell(int val) {
         for (int r = 0; r < SUDOKU_SIZE; r++) {
             for (int c = 0; c < SUDOKU_SIZE; c++) {
@@ -170,7 +287,6 @@ public class CellCollection {
         }
         return null;
     }
-
 
     public void markAllCellsAsValid() {
         mOnChangeEnabled = false;
@@ -280,7 +396,7 @@ public class CellCollection {
     }
 
     public void removeNotesForChangedCell(Cell cell, int number) {
-        if (number < 1 || number> 9) {
+        if (number < 1 || number > 9) {
             return;
         }
 
@@ -347,90 +463,6 @@ public class CellCollection {
         }
     }
 
-    /**
-     * Creates instance from given <code>StringTokenizer</code>.
-     *
-     * @param data
-     * @return
-     */
-    public static CellCollection deserialize(StringTokenizer data, int version) {
-        Cell[][] cells = new Cell[SUDOKU_SIZE][SUDOKU_SIZE];
-
-        int r = 0, c = 0;
-        while (data.hasMoreTokens() && r < 9) {
-            cells[r][c] = Cell.deserialize(data, version);
-            c++;
-
-            if (c == 9) {
-                r++;
-                c = 0;
-            }
-        }
-
-        return new CellCollection(cells);
-    }
-
-    /**
-     * Creates instance from given string (string which has been
-     * created by {@link #serialize(StringBuilder)} or {@link #serialize()} method).
-     * earlier.
-     *
-     * @param note
-     */
-    public static CellCollection deserialize(String data) {
-        // TODO: use DATA_PATTERN_VERSION_1 to validate and extract puzzle data
-        String[] lines = data.split("\n");
-        if (lines.length == 0) {
-            throw new IllegalArgumentException("Cannot deserialize Sudoku, data corrupted.");
-        }
-
-        String line = lines[0];
-        if (line.startsWith("version:")) {
-            String[] kv = line.split(":");
-            int version = Integer.parseInt(kv[1].trim());
-            StringTokenizer st = new StringTokenizer(lines[1], "|");
-            return deserialize(st, version);
-        } else {
-            return fromString(data);
-        }
-    }
-
-    /**
-     * Creates collection instance from given string. String is expected
-     * to be in format "00002343243202...", where each number represents
-     * cell value, no other information can be set using this method.
-     *
-     * @param data
-     * @return
-     */
-    public static CellCollection fromString(String data) {
-        // TODO: validate
-
-        Cell[][] cells = new Cell[SUDOKU_SIZE][SUDOKU_SIZE];
-
-        int pos = 0;
-        for (int r = 0; r < CellCollection.SUDOKU_SIZE; r++) {
-            for (int c = 0; c < CellCollection.SUDOKU_SIZE; c++) {
-                int value = 0;
-                while (pos < data.length()) {
-                    pos++;
-                    if (data.charAt(pos - 1) >= '0'
-                            && data.charAt(pos - 1) <= '9') {
-                        // value=Integer.parseInt(data.substring(pos-1, pos));
-                        value = data.charAt(pos - 1) - '0';
-                        break;
-                    }
-                }
-                Cell cell = new Cell();
-                cell.setValue(value);
-                cell.setEditable(value == 0);
-                cells[r][c] = cell;
-            }
-        }
-
-        return new CellCollection(cells);
-    }
-
     public String serialize() {
         StringBuilder sb = new StringBuilder();
         serialize(sb);
@@ -454,46 +486,6 @@ public class CellCollection {
                 cell.serialize(data);
             }
         }
-    }
-
-    private static Pattern DATA_PATTERN_VERSION_PLAIN = Pattern.compile("^\\d{81}$");
-    private static Pattern DATA_PATTERN_VERSION_1 = Pattern.compile("^version: 1\\n((?#value)\\d\\|(?#note)((\\d,)+|-)\\|(?#editable)[01]\\|){0,81}$");
-    private static Pattern DATA_PATTERN_VERSION_2 = Pattern.compile("^version: 2\\n((?#value)\\d\\|(?#note)(\\d){1,3}\\|{1,2}(?#editable)[01]\\|){0,81}$");
-    private static Pattern DATA_PATTERN_VERSION_3 = Pattern.compile("^version: 3\\n((?#value)\\d\\|(?#note)(\\d){1,3}\\|(?#editable)[01]\\|){0,81}$");
-
-    /**
-     * Returns true, if given <code>data</code> conform to format of given data version.
-     *
-     * @param data
-     * @param dataVersion
-     * @return
-     */
-    public static boolean isValid(String data, int dataVersion) {
-        if (dataVersion == DATA_VERSION_PLAIN) {
-            return DATA_PATTERN_VERSION_PLAIN.matcher(data).matches();
-        } else if (dataVersion == DATA_VERSION_1) {
-            return DATA_PATTERN_VERSION_1.matcher(data).matches();
-        } else if (dataVersion == DATA_VERSION_2) {
-            return DATA_PATTERN_VERSION_2.matcher(data).matches();
-        } else if (dataVersion == DATA_VERSION_3) {
-            return DATA_PATTERN_VERSION_3.matcher(data).matches();
-        } else {
-            throw new IllegalArgumentException("Unknown version: " + dataVersion);
-        }
-    }
-
-    /**
-     * Returns true, if given <code>data</code> conform to format of any version.
-     *
-     * @param data
-     * @return
-     */
-    public static boolean isValid(String data) {
-        return (DATA_PATTERN_VERSION_PLAIN.matcher(data).matches() ||
-                DATA_PATTERN_VERSION_1.matcher(data).matches() ||
-                DATA_PATTERN_VERSION_2.matcher(data).matches() ||
-                DATA_PATTERN_VERSION_3.matcher(data).matches()
-        );
     }
 
     public void addOnChangeListener(OnChangeListener listener) {
