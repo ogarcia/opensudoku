@@ -117,6 +117,7 @@ public class SudokuPlayActivity extends ThemedActivity {
                 mGameTimer.stop();
             }
             mSudokuBoard.setReadOnly(true);
+            mOptionsMenu.findItem(MENU_ITEM_UNDO_ACTION).setEnabled(false);
             if (mSudokuGame.usedSolver()) {
                 showDialog(DIALOG_USED_SOLVER);
             } else {
@@ -514,7 +515,8 @@ public class SudokuPlayActivity extends ThemedActivity {
                             menuItemSolve.setEnabled(true);
                             MenuItem menuItemHint = mOptionsMenu.findItem(MENU_ITEM_HINT);
                             menuItemHint.setEnabled(true);
-
+                            MenuItem menuItemUndoAction = mOptionsMenu.findItem(MENU_ITEM_UNDO_ACTION);
+                            menuItemUndoAction.setEnabled(true);
                         })
                         .setNegativeButton(android.R.string.no, null)
                         .create();
