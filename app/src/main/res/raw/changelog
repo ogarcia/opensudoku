@@ -1,6 +1,14 @@
 <html>
 <head><style type="text/css">body {font-size: smaller;}</style></head>
 <body>
+  <b>3.5.0</b>
+  <ul>
+    <li>Prevent use undo once the game is finish.</li>
+    <li>Code cleanup, update and convert drawables to vectors. Thanks @TacoTheDank!</li>
+    <li>Added basque language. Thanks @Porrumentzio!</li>
+    <li>French translation updated. Thanks @guy-teube!</li>
+    <li>Chinese translation updated. Thanks @kevinshq!</li>
+  </ul>
   <b>3.4.1</b>
   <ul>
     <li>Improved SDM importer to support files with dots instead of zeros.</li>
