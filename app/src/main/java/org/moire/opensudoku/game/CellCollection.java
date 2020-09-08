@@ -265,22 +265,13 @@ public class CellCollection {
         for (int r = 0; r < SUDOKU_SIZE; r++) {
             for (int c = 0; c < SUDOKU_SIZE; c++) {
                 Cell cell = getCell(r, c);
-                cell.setNote(new CellNote());
-
-                CellGroup row = cell.getRow();
-                CellGroup column = cell.getColumn();
-                CellGroup sector = cell.getSector();
-                for (int i = 1; i <= SUDOKU_SIZE; i++) {
-                    if (row.DoesntContain(i) && column.DoesntContain(i) && sector.DoesntContain(i)) {
-                        cell.setNote(cell.getNote().addNumber(i));
-                    }
-                }
+                cell.fillInNotes();
             }
         }
     }
 
     public void removeNotesForChangedCell(Cell cell, int number) {
-        if (number < 1 || number> 9) {
+        if (number < 1 || number > 9) {
             return;
         }
 
@@ -375,7 +366,7 @@ public class CellCollection {
      * created by {@link #serialize(StringBuilder)} or {@link #serialize()} method).
      * earlier.
      *
-     * @param note
+     * @param data
      */
     public static CellCollection deserialize(String data) {
         // TODO: use DATA_PATTERN_VERSION_1 to validate and extract puzzle data
@@ -503,7 +494,7 @@ public class CellCollection {
     /**
      * Returns true, if given <code>data</code> conform to format of any version.
      *
-     * @param data
+     * @param data string
      * @return
      */
     public static boolean isValid(String data) {
@@ -580,5 +571,21 @@ public class CellCollection {
          * Called when anything in the collection changes (cell's value, note, etc.)
          */
         void onChange();
+    }
+
+
+    public CellCollection copy() {
+        Cell[][] cells = new Cell[SUDOKU_SIZE][SUDOKU_SIZE];
+        for (int r = 0; r < SUDOKU_SIZE; r++) {
+            for (int c = 0; c < SUDOKU_SIZE; c++) {
+                cells[r][c] = mCells[r][c].copy();
+            }
+        }
+
+        CellCollection newCells = new CellCollection(cells);
+        if (!toDataString().equals(newCells.toDataString()))
+            throw new RuntimeException("Copy is not equal??");
+
+        return newCells;
     }
 }

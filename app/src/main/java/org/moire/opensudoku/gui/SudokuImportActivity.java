@@ -81,8 +81,8 @@ public class SudokuImportActivity extends ThemedActivity {
         } else if (intent.getIntExtra(EXTRA_NUM_EMPTY_CELLS, 0) > 0) {
 
             String folderName = intent.getStringExtra(EXTRA_FOLDER_NAME);
-            int numGames = intent.getIntExtra(EXTRA_NUM_GAMES, 20);
-            int numEmptyCells = intent.getIntExtra(EXTRA_NUM_EMPTY_CELLS, 60);
+            int numGames = intent.getIntExtra(EXTRA_NUM_GAMES, 10);
+            int numEmptyCells = intent.getIntExtra(EXTRA_NUM_EMPTY_CELLS, 55);
             boolean appendToFolder = intent.getBooleanExtra(EXTRA_APPEND_TO_FOLDER, false);
             importTask = new GenerateImportTask(folderName, numGames, numEmptyCells, appendToFolder);
 

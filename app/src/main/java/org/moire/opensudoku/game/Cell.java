@@ -20,7 +20,11 @@
 
 package org.moire.opensudoku.game;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
+
+import static org.moire.opensudoku.game.CellCollection.SUDOKU_SIZE;
 
 /**
  * Sudoku cell. Every cell has value, some notes attached to it and some basic
@@ -71,6 +75,10 @@ public class Cell {
         mValid = valid;
     }
 
+    public Cell copy() {
+        return new Cell(mValue, mNote, mEditable, mValid);
+    }
+
     /**
      * Gets cell's row index within {@link CellCollection}.
      *
@@ -113,6 +121,36 @@ public class Cell {
         sector.addCell(this);
         row.addCell(this);
         column.addCell(this);
+    }
+
+    /**
+     * Fills in all valid notes for this cell based on the values in each row, column, and sector.
+     * This is a destructive operation in that the existing notes are overwritten.
+     */
+    public void fillInNotes() {
+        setNote(new CellNote());
+        for (int n : getPossibleSolutions()) {
+            setNote(getNote().addNumber(n));
+        }
+    }
+
+    /**
+     * Returns a list of possible values for this cell.
+     *
+     * @return all possible values for this cell
+     */
+    public List<Integer> getPossibleSolutions() {
+        CellGroup row = getRow();
+        CellGroup column = getColumn();
+        CellGroup sector = getSector();
+
+        List<Integer> values = new ArrayList<>();
+        for (int i = 1; i <= SUDOKU_SIZE; i++) {
+            if (row.DoesntContain(i) && column.DoesntContain(i) && sector.DoesntContain(i)) {
+                values.add(i);
+            }
+        }
+        return values;
     }
 
     /**

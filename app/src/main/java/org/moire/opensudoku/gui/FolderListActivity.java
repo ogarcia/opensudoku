@@ -367,7 +367,7 @@ public class FolderListActivity extends ThemedActivity {
             case MENU_ITEM_GENERATE:
                 intent = new Intent();
                 intent.setClass(this, SudokuGenerateActivity.class);
-                intent.putExtra(SudokuGenerateActivity.EXTRA_NUM_GAMES, 20);
+                intent.putExtra(SudokuGenerateActivity.EXTRA_NUM_GAMES, 5);
                 intent.putExtra(SudokuGenerateActivity.EXTRA_NUM_EMPTY_CELLS, 55);
                 intent.putExtra(SudokuGenerateActivity.EXTRA_APPEND_TO_FOLDER, true);
                 startActivity(intent);

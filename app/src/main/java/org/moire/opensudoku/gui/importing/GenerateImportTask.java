@@ -1,7 +1,10 @@
 package org.moire.opensudoku.gui.importing;
 
+import android.util.Log;
+
 import org.moire.opensudoku.db.SudokuInvalidFormatException;
 import org.moire.opensudoku.game.SudokuGame;
+import org.moire.opensudoku.game.SudokuGenerator;
 
 /**
  * Handles import of puzzles via intent's extras.
@@ -9,6 +12,8 @@ import org.moire.opensudoku.game.SudokuGame;
  * @author romario
  */
 public class GenerateImportTask extends AbstractImportTask {
+
+    private static String TAG = GenerateImportTask.class.getName();
 
     private String mFolderName;
     private int mNumEmptyCells;
@@ -30,17 +35,14 @@ public class GenerateImportTask extends AbstractImportTask {
             importFolder(mFolderName);
         }
 
+        SudokuGenerator generator = new SudokuGenerator();
         for (int i=0; i<mNumGames; i++) {
-            SudokuGame game = SudokuGame.generateNewGame(mNumEmptyCells);
+            SudokuGame game = generator.generate(mNumEmptyCells);
             String data = game.toDataString();
             importGame(data);
         }
 
-//        Generator g = new Generator();
-//        for (int i=0; i<mNumGames; i++) {
-//            String game = g.generateData(mNumEmptyCells);
-//            importGame(game);
-//        }
+        Log.d(TAG, "processImport: Generating "+mNumGames+" games took "+generator.getTotalAttempts()+" attempts");
     }
 
 }

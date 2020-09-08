@@ -43,23 +43,27 @@ public class SudokuGenerateActivity extends ThemedActivity {
         Intent intent = getIntent();
         String folderName = intent.getStringExtra(EXTRA_FOLDER_NAME);
         mFolderNameEdit.setText(folderName == null
-                ? "Gen_"+DateFormat.format("yyyy-MM-dd-hh-mm-ss", new Date()).toString()
+                ? "Gen_"+DateFormat.format("yyyy-MM-dd-hh-mm-ss", new Date()).toString()+"_{games}x{empty}"
                 : folderName);
 
         mNumEmptyCellsPicker.setMinValue(1);
         mNumEmptyCellsPicker.setMaxValue(81);
-        mNumEmptyCellsPicker.setValue(intent.getIntExtra(EXTRA_NUM_EMPTY_CELLS, 60));
+        mNumEmptyCellsPicker.setValue(intent.getIntExtra(EXTRA_NUM_EMPTY_CELLS, 55));
 
         mNumGamesPicker.setMinValue(1);
         mNumGamesPicker.setMaxValue(100);
-        mNumGamesPicker.setValue(intent.getIntExtra(EXTRA_NUM_GAMES, 20));
+        mNumGamesPicker.setValue(intent.getIntExtra(EXTRA_NUM_GAMES, 5));
 
         mAppendToFolderCb.setChecked(intent.getBooleanExtra(EXTRA_APPEND_TO_FOLDER, false));
 
         Button mGenButton = findViewById(R.id.gen_button);
         mGenButton.setOnClickListener(v -> {
+            String folder = mFolderNameEdit.getText().toString()
+                    .replace("{games}", Integer.toString(mNumGamesPicker.getValue()))
+                    .replace("{empty}", Integer.toString(mNumEmptyCellsPicker.getValue()));
+
             Intent i = new Intent(this, SudokuImportActivity.class);
-            i.putExtra(EXTRA_FOLDER_NAME, mFolderNameEdit.getText().toString());
+            i.putExtra(EXTRA_FOLDER_NAME, folder);
             i.putExtra(EXTRA_NUM_GAMES, mNumGamesPicker.getValue());
             i.putExtra(EXTRA_NUM_EMPTY_CELLS, mNumEmptyCellsPicker.getValue());
             i.putExtra(EXTRA_APPEND_TO_FOLDER, mAppendToFolderCb.isChecked());

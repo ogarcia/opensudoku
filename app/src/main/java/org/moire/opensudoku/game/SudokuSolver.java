@@ -27,13 +27,20 @@ public class SudokuSolver {
      * Modifies linked list based on the original state of the board
      */
     public void setPuzzle(CellCollection mCells) {
+        setPuzzle(mCells, true);
+    }
+
+    /**
+     * Modifies linked list based on the selected state of the board
+     */
+    public void setPuzzle(CellCollection mCells, boolean originalState) {
         Cell[][] board = mCells.getCells();
 
         for (int row = 0; row < 9; row++) {
             for (int col = 0; col < 9; col++) {
                 Cell cell = board[row][col];
                 int val = cell.getValue();
-                if (!cell.isEditable()) {
+                if (originalState ? !cell.isEditable() : val != 0) {
                     int matrixRow = cellToRow(row, col, val-1, true);
                     int matrixCol = 9*row + col; // calculates column of node based on cell constraint
 
