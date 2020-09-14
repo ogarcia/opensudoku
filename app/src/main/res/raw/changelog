@@ -4,6 +4,7 @@
   <b>3.5.0</b>
   <ul>
     <li>Prevent use undo once the game is finish.</li>
+    <li>Show the resume button on the title screen only if you can resume a game.</li>
     <li>Code cleanup, update and convert drawables to vectors. Thanks @TacoTheDank!</li>
     <li>Added basque language. Thanks @Porrumentzio!</li>
     <li>French translation updated. Thanks @guy-teube!</li>

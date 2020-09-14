@@ -15,6 +15,8 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.preference.PreferenceManager;
 
 import org.moire.opensudoku.R;
+import org.moire.opensudoku.db.SudokuDatabase;
+import org.moire.opensudoku.game.SudokuGame;
 import org.moire.opensudoku.utils.AndroidUtils;
 
 public class TitleScreenActivity extends ThemedActivity {
@@ -54,13 +56,23 @@ public class TitleScreenActivity extends ThemedActivity {
         }
     }
 
+    private boolean canResume(long mSudokuGameID) {
+        SudokuDatabase mDatabase = new SudokuDatabase(getApplicationContext());
+        SudokuGame mSudokuGame = mDatabase.getSudoku(mSudokuGameID);
+        if (mSudokuGame != null) {
+            return mSudokuGame.getState() != SudokuGame.GAME_STATE_COMPLETED;
+        }
+        return false;
+    }
+
     private void setupResumeButton() {
         SharedPreferences gameSettings = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        if (gameSettings.contains("most_recently_played_sudoku_id")) {
+        long mSudokuGameID = gameSettings.getLong("most_recently_played_sudoku_id", 0);
+        if (canResume(mSudokuGameID)) {
             mResumeButton.setVisibility(View.VISIBLE);
             mResumeButton.setOnClickListener((view) -> {
                 Intent intentToPlay = new Intent(TitleScreenActivity.this, SudokuPlayActivity.class);
-                intentToPlay.putExtra(SudokuPlayActivity.EXTRA_SUDOKU_ID, gameSettings.getLong("most_recently_played_sudoku_id", 0));
+                intentToPlay.putExtra(SudokuPlayActivity.EXTRA_SUDOKU_ID, mSudokuGameID);
                 startActivity(intentToPlay);
             });
         } else {
