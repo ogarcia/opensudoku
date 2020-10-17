@@ -3,7 +3,7 @@
 <body>
   <b>3.5.1</b>
   <ul>
-    <li>Fixed a crash when import Sudokus.</li>
+    <li>Fixed a crash when import Sudokus on Android 10 or higher.</li>
     <li>Basque translation updated. Thanks @Porrumentzio!</li>
     <li>German translation updated. Thanks @cyclingcat!</li>
   </ul>
