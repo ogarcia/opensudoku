@@ -100,10 +100,10 @@ public class FileListActivity extends ListActivity {
         Arrays.sort(files);
 
         mList = new ArrayList<>();
-        if (selected_dir.getParentFile() != null) {
+        if (selected_dir.getParentFile() != null && selected_dir.getParentFile().canRead()) {
             Map<String, Object> map = new HashMap<>();
             map.put(ITEM_KEY_FILE, selected_dir.getParentFile());
-            map.put(ITEM_KEY_NAME, "build/source/rs");
+            map.put(ITEM_KEY_NAME, "..");
             mList.add(map);
         }
         for (File f : dirs) {
