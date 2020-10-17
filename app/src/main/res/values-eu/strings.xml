@@ -19,7 +19,7 @@
     <string name="old_developers_label">Garatzaile zaharrak</string>
     <string name="old_developers" translatable="false">Roman Mašek</string>
 
-    <string name="localization_contributors_label">Itzulpenerako laguntzailea</string>
+    <string name="localization_contributors_label">Itzulpenerako kolaboratzaileak</string>
     <string name="localization_contributors" translatable="false">
         Vit Hnilica\n
         Martin Sobola\n
@@ -29,7 +29,8 @@
         Paulo Schopf\n
         Joaquim Pedroto Costa\n
         @madcrow\n
-        @Tubix
+        @Tubix\n
+		Porrumentzio
     </string>
 
     <string name="close">Itxi</string>
@@ -247,7 +248,7 @@
 		Zenbaki bakar sarrera moduan, editatu ezin daiteken gelaxka bat ukitzean zenbaki
 		berbereko botoia hautatuko da (eta alderantziz).
     </string>
-    <string name="contributors_label">Laguntzaileak</string>
+    <string name="contributors_label">Kolaboratzaileak</string>
     <string name="contributors" translatable="false">
         Sergey Pimanov\n
         @TacoTheDank\n
@@ -377,8 +378,8 @@
     <string name="app_startup_category">Aplikazio hasiera</string>
 
     <!-- Strings added/changed in 3.4.0 -->
-    <string name="sort">Sailkatu</string>
-    <string name="sort_puzzles_by">Sailkatu sudokuak honela:</string>
+    <string name="sort">Ordenatu</string>
+    <string name="sort_puzzles_by">Ordenatu sudokuak honela:</string>
     <string name="sort_creation_date">Sortze-data</string>
     <string name="sort_play_time">Jolastutako denbora</string>
     <string name="sort_last_played">Azkenengoz jolastua</string>
