@@ -1,6 +1,12 @@
 <html>
 <head><style type="text/css">body {font-size: smaller;}</style></head>
 <body>
+  <b>3.5.1</b>
+  <ul>
+    <li>Fixed a crash when import Sudokus.</li>
+    <li>Basque translation updated. Thanks @Porrumentzio!</li>
+    <li>German translation updated. Thanks @cyclingcat!</li>
+  </ul>
   <b>3.5.0</b>
   <ul>
     <li>Prevent use undo once the game is finish.</li>
