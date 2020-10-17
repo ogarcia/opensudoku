@@ -1,40 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">开源数独</string>
     <string name="edit_sudoku">编辑数独</string>
-    <string name="app_name">数独</string>
-    <string name="puzzle_folders">数独谜题分类</string>
-    <string name="version">版本  %s</string>
-    <string name="send_me_bugs">假如你想修复你游戏时遇到的问题，不用犹豫，直接通过邮件或项目主页的问题跟踪联系我。</string>
+
+    <string name="puzzle_folders">开源数独谜题集</string>
+
+    <string name="version">版本 %s</string>
+
+
+    <string name="send_me_bugs">
+        如果游戏时遇到问题，可立即通过邮件或项目主页的问题跟踪联系我。
+    </string>
+
+
+    <string name="current_developers_label">当前开发者</string>
+
+
+    <string name="old_developers_label">旧开发者</string>
+
+
+    <string name="localization_contributors_label">本地化贡献者</string>
+
+
     <string name="close">关闭</string>
     <string name="clear">清除</string>
     <string name="save">保存</string>
+
     <string name="get_more_puzzles_online">从线上获取更多谜题</string>
+
     <string name="name">名称：</string>
-    <string name="add_folder">添加分类</string>
-    <string name="about">关于</string>
-    <string name="edit_note">编辑提示</string>
+    <string name="note">笔记：</string>
+
     <string name="select_number">选择数字</string>
-    <string name="note">提示：</string>
+    <string name="edit_note">编辑笔记</string>
+
+    <string name="add_folder">添加分类</string>
+    <string name="import_file">导入</string>
+    <string name="import_file_title">导入文件 %s</string>
+    <string name="about">关于</string>
     <string name="rename_folder">重命名分类</string>
     <string name="delete_folder">删除分类</string>
     <string name="rename_folder_title">重命名 %s</string>
     <string name="delete_folder_title">删除 %s</string>
     <string name="delete_folder_confirm">你确定想删除这个分类？</string>
+
     <string name="no_puzzles">没有谜题</string>
-    <string name="one_puzzle">1 谜题</string>
-    <string name="n_puzzles">%d 谜题</string>
+    <string name="one_puzzle">1个谜题</string>
+    <string name="n_puzzles">%d个谜题</string>
     <string name="all_solved">全部已解决</string>
-    <string name="n_solved">%s 已解决</string>
-    <string name="n_unsolved">%d 未解决</string>
-    <string name="n_playing">%d 解题中</string>
+    <string name="n_solved">%s个已解决</string>
+    <string name="n_unsolved">%d个未解决</string>
+    <string name="n_playing">%d个游戏中</string>
+
     <string name="solved">已解决</string>
-    <string name="playing">解题中</string>
+    <string name="playing">游戏中</string>
     <string name="not_started">未开始</string>
     <string name="created_at">创建于 %s</string>
-    <string name="last_played_at">最后解题在 %s</string>
-    <string name="at_time">在 %s</string>
-    <string name="yesterday_at_time">在昨天 %s</string>
-    <string name="on_date">在 %s</string>
+    <string name="last_played_at">最后解决在 %s</string>
+    <string name="at_time">"%s"</string>
+    <string name="yesterday_at_time">昨天 %s</string>
+    <string name="on_date">"%s"</string>
     <string name="add_sudoku">添加数独</string>
     <string name="filter">过滤</string>
     <string name="filter_by_gamestate">按游戏状态过滤</string>
@@ -46,55 +71,121 @@
     <string name="edit_puzzle">编辑谜题</string>
     <string name="delete_puzzle">删除谜题</string>
     <string name="filter_active">过滤：%s</string>
+
     <string name="undo">撤销</string>
-    <string name="clear_all_notes">清除所有提示</string>
-    <string name="fill_in_notes">填充提示</string>
+    <string name="clear_all_notes">清除所有笔记</string>
+    <string name="fill_in_notes">填写笔记</string>
     <string name="restart">重新开始</string>
-    <string name="congrats">恭喜，你已解决%s谜题</string>
-    <string name="restart_confirm">你确定想重新开始游戏？</string>
-    <string name="well_done">做得好！</string>
-    <string name="clear_all_notes_confirm">你确定想清除所有提示？</string>
+    <string name="congrats">恭喜，你解决这个谜题用时 %s</string>
+    <string name="restart_confirm">你确定想重新开始这个游戏？</string>
+    <string name="well_done">非常好！</string>
+    <string name="clear_all_notes_confirm">你确定想清除所有笔记？</string>
     <string name="settings">设置</string>
     <string name="game_settings">游戏设置</string>
+
     <string name="game_helpers">游戏帮助</string>
     <string name="highlight_wrong_values">高亮错误值</string>
-    <string name="highlight_wrong_values_summary">高亮违规值</string>
+    <string name="highlight_wrong_values_summary">高亮违反数独规则的值。</string>
     <string name="input_methods">输入模式</string>
     <string name="popup">弹框</string>
-    <string name="numpad">数字键盘</string>
+    <string name="popup_summary">在弹框编辑格子的值和笔记。</string>
     <string name="single_number">单数字</string>
-    <string name="popup_summary">编辑格子值和提示用弹框模式。</string>
-    <string name="single_number_summary">选择数字，然后仅仅点击格子来设置数值或提示。</string>
-    <string name="numpad_summary">显示数字键盘当做标准数字键盘</string>
+    <string name="single_number_summary">选择数字，然后仅仅点击格子来设置数值或笔记。</string>
+    <string name="numpad">数字键盘</string>
+    <string name="numpad_summary">显示数字面板（作为标准数字键盘）</string>
+    <string name="numpad_move_right">按下后向右移动</string>
+    <string name="numpad_move_right_summary">按下数字后，向右移动选择一个格子。</string>
+
+    <string name="numpad_abbr">数字面板</string>
+    <string name="popup_abbr">弹出</string>
     <string name="single_number_abbr">单数字</string>
     <string name="welcome">欢迎</string>
     <string name="hint">提示</string>
     <string name="help">帮助</string>
-    <string name="that_is_all">这是所有</string>
-    <string name="popup_abbr">弹出</string>
-    <string name="numpad_move_right">移动到正确位置按下</string>
-    <string name="numpad_move_right_summary">当数字被按下，点击一个正确的格子。</string>
-    <string name="numpad_abbr">数字\nPad</string>
-    <string name="first_run_hint">这是你能够用来填写谜题的几种输入模式，为了帮你熟悉这些种模式，在你使用它们的时候会显示几个提示。你可以在游戏设置中关闭这些提示。</string>
-    <string name="im_popup_hint">你现在在<i>弹框</i>输入模式。用手指点击任何单元格，编辑其内容。注意右下角的按钮。您可以使用此按钮切换到另一个输入模式。</string>
-    <string name="im_single_number_hint"> 您现在在<i>单数字</i>输入模式中。首先按下任意数字按钮。然后点击你想用选择的数字填充的格子。按<i>笔</i>按钮切换单元格的提示编辑。</string>
-    <string name="im_numpad_hint">你现在在<i>数字键盘</i>输入模式。按钮作为标准的数字键盘。按<i>笔</i>按钮切换单元格的提示编辑。</string>
-    <string name="im_disable_modes_hint">请记住，你不必用所有的输入模式。你能够在游戏设置中禁用一些。你也能用键盘和鼠标控制游戏。假如你想用键盘输入提示，按住alt或shift，再同时按下数字键。</string>
-    <string name="help_text"><b>键盘控制</b>使用轨迹球导航到所需的格子，然后按键盘上数字的填充数字。如果你想编辑格子提示，按住shift或alt。 <b>输入模式</b>您可以用屏幕右下角的按钮在几种输入法间切换。您也可以禁用任何输入模式在游戏设置-它将被完全隐藏。<b>弹框输入模式</b>当你点击格子弹出对话框。您可以使用这个对话框编辑格子的内容。<b>单数字输入模式</b>首先按下任意号码按钮。然后点击你想用选择的数字填充的格子。使用<i>铅笔</i>按钮在单元格的值和注释编辑之间切换。<b>小键盘输入模式</b>按钮作为一个标准的数字键盘。用<i>笔</i>按钮在格子的值和提示编辑之间切换。</string>
+    <string name="that_is_all">完结</string>
+
+    <string name="first_run_hint">
+        这是你能够用来填写谜题的几种输入模式。
+        为了帮你熟悉这些种模式，在你使用它们的时候会显示几个提示。
+        \n\n你可以在游戏设置中关闭这些提示。\n
+    </string>
+
+    <string name="im_popup_hint">
+        你现在在<i>弹框</i>输入模式。
+        用手指点击任何单元格编辑其内容。
+        \n\n注意右下角的按钮。
+        你可以使用这个按钮切换到另一种输入模式。\n
+    </string>
+
+    <string name="im_single_number_hint">
+        你现在在<i>单数字</i>输入模式。
+        首先按下任意数字按钮。
+        然后只需点击想用所选数字填充的格子即可。
+        \n\n按<i>笔</i>按钮可切换单元格的笔记编辑。\n
+    </string>
+
+    <string name="im_numpad_hint">
+        你现在在<i>数字键盘</i>输入模式。
+        按钮作为标准的数字键盘。
+        \n\n按<i>笔</i>按钮切换单元格的笔记编辑。\n
+    </string>
+
+    <string name="im_disable_modes_hint">
+        请记住，你不必用所有的输入模式。
+        你能够在游戏设置中禁用它们中的一些。
+        \n\n你也能用键盘和鼠标控制游戏。
+        假如你想用键盘输入笔记，按住alt或shift，再同时按下数字键。\n
+    </string>
+
+    <string name="help_text">
+        <b>键盘控制</b>
+        \n\n使用轨迹球导航到所需的格子，然后按键盘上数字键的填写值。
+        如果你想编辑格子笔记，按住shift或alt的同时按数字键。\n\n
+
+        <b>输入模式</b>
+        \n\n你可以用屏幕右下角的按钮在几种输入法间切换。
+        你也可以在游戏设置中禁用任何输入模式 - 它会被完全隐藏。\n\n
+
+        <b>弹框输入模式</b>
+        \n\n当你点击格子，会显示弹出对话框。
+        你可以用这个对话框编辑格子的内容。\n\n
+
+        <b>单数字输入模式</b>
+        \n\n首先按下任意数字按钮。
+        然后点击你想用选择的数字填充的格子。
+        \n\n使用<i>笔</i>按钮在编辑单元格的值和笔记之间切换。\n\n
+
+        <b>数字键盘输入模式</b>
+        \n\n按钮作为标准的数字键盘。
+        \n\n用<i>笔</i>按钮在编辑格子的值和笔记之间切换。\n
+    </string>
+
+
     <string name="game">游戏</string>
-    <string name="show_time">显示时间</string>
     <string name="show_hints">第一次启动时提示</string>
-    <string name="show_hints_summary">显示提示来引导你使用应用。</string>
+    <string name="show_hints_summary">显示提示引导你使用应用。</string>
+    <string name="show_time">显示时间</string>
     <string name="show_time_summary">显示游戏持续时间</string>
+
     <string name="puzzle_inserted">新谜题被保存</string>
+    <string name="puzzle_updated">谜题已被更新。</string>
+
     <string name="puzzles_saved">谜题被保存到\'%s\'分类</string>
     <string name="no_puzzles_found">没有发现谜题</string>
-    <string name="unknown_import_error">导入谜题时出现未知错误，取消导入。</string>
+    <string name="unknown_import_error">导入谜题时发生未知错误，取消导入。</string>
     <string name="invalid_format">无效的格式，取消导入</string>
+
+    <!-- Strings added in 0.7.0 -->
     <string name="loading">装载…</string>
+
+    <!-- Strings added/changed in 0.7.1 -->
     <string name="more_settings">更多设置</string>
     <string name="screen_border_size">屏幕边框大小</string>
-    <string name="highlight_touched_cell">高亮点击的格子</string>
+    <string name="screen_border_size_summary">
+        有些显示屏对屏幕边缘的触摸没有反应。
+        在这种情况下可能会有所帮助。
+    </string>
+    <string name="highlight_touched_cell">点击格子时高亮</string>
     <string name="highlight_touched_cell_summary">点击格子时高亮行和列</string>
     <string name="export">导出</string>
     <string name="export_folder">导出分类</string>
@@ -106,75 +197,170 @@
     <string name="highlight_completed_values">高亮完成的数字</string>
     <string name="highlight_completed_values_summary">高亮输入了9次的数字按钮</string>
     <string name="theme">主题</string>
-    <string name="theme_summary">选择谜题面板的主题颜色</string>
+    <string name="theme_summary">选择谜题面板的颜色主题</string>
     <string name="select_theme">选择主题</string>
     <string name="filename">文件名</string>
     <string name="directory">目录</string>
     <string name="sdcard_not_found">没有发现SD卡</string>
+    <string name="puzzles_have_been_exported">谜题被导出到%s。</string>
+    <string name="file_exists">文件已经存在，覆盖吗？</string>
+    <!-- localization of default folder names -->
     <string name="difficulty_hard">困难</string>
     <string name="difficulty_medium">中等</string>
     <string name="difficulty_easy">简单</string>
+
+    <!-- Strings added/changed in 1.1.0 -->
     <string name="generate_sudoku">生成新游戏</string>
     <string name="select_difficulty">选择难度</string>
     <string name="generating">生成谜题…</string>
-    <string name="current_developers_label">当前开发者</string>
-    <string name="import_file">导入</string>
-    <string name="import_file_title">导入文件%s</string>
-    <string name="old_developers_label">旧开发者</string>
-    <string name="set_checkpoint">设置检查点</string>
     <string name="show_number_totals">显示数字总数</string>
-    <string name="show_number_totals_summary">么每个数字的位置显示总数</string>
-    <string name="undo_to_checkpoint">撤销检查点</string>
-    <string name="what_is_new">更新内容</string>
+    <string name="show_number_totals_summary">显示每个数字的计数</string>
+    <string name="what_is_new">最新消息</string>
+
+    <!-- Strings added/changed in 1.1.1 -->
+    <string name="fill_in_notes_summary">启用“填充笔记”菜单。</string>
+
+    <!-- Strings added/changed in 1.1.2 -->
+    <string name="set_checkpoint">设置检查点</string>
+    <string name="undo_to_checkpoint">撤销到检查点</string>
+    <string name="undo_to_checkpoint_confirm">你确定想撤销从上次检查点开始的所有操作吗？</string>
+
+    <!-- Strings added/changed in 2.3.0 -->
+    <string name="highlight_similar_cells">高亮相似格子</string>
+    <string name="highlight_similar_cells_summary">高亮相似值的格子</string>
+
+    <!-- Strings added/changed in 2.4.0 -->
+    <string name="bidirectional_selection">双向选择</string>
+    <string name="bidirectional_selection_summary">
+        在单数输入面板，选择不可编辑的格子会自动选择相应的按钮（反之亦然）。
+    </string>
     <string name="contributors_label">贡献者</string>
+
+
+    <!-- Strings added/changed in 2.5.0 -->
     <string name="game_state_not_started">未开始</string>
-    <string name="game_state_playing">进行中</string>
+    <string name="game_state_playing">游戏中</string>
     <string name="game_state_solved">已解决</string>
+
     <string name="game_level_easy">简单</string>
     <string name="game_level_medium">中等</string>
     <string name="game_level_hard">困难</string>
-    <string name="theme_custom">自定义主题</string>
-    <string name="screen_custom_theme">自定义主题颜色</string>
-    <string name="default_lineColor">线</string>
-    <string name="default_textColor">文本</string>
-    <string name="default_textColorNote">提示文本</string>
-    <string name="file_exists">文件已经存在，你想覆盖它吗？</string>
-    <string name="screen_border_size_summary">有些显示器对屏幕边缘的触摸没有反应。在这种情况下，这会有所帮助。</string>
-    <string name="puzzles_have_been_exported">谜题已导出%s。</string>
-    <string name="undo_to_checkpoint_confirm">你确定想撤销从上次检查点开始的所有操作ma</string>
-    <string name="localization_contributors_label">本地化贡献者</string>
-    <string name="fill_in_notes_summary">启用填充提示菜单项。</string>
-    <string name="theme_light">亮</string>
+
     <string name="theme_paper">纸</string>
-    <string name="theme_graph_paper">图纸</string>
-    <string name="theme_paper_light">纸亮</string>
-    <string name="theme_graph_paper_light">图纸亮</string>
+    <string name="theme_graph_paper">方格纸</string>
+    <string name="theme_light">亮</string>
+    <string name="theme_paper_light">纸灯</string>
+    <string name="theme_graph_paper_light">方格纸灯</string>
     <string name="theme_high_contrast">高对比度</string>
     <string name="theme_inverted_high_contrast">反向高对比度</string>
+    <string name="theme_custom">自定义主题</string>
+
+    <string name="screen_custom_theme">自定义主题颜色</string>
     <string name="screen_custom_theme_summary">自定义自定义主题的颜色</string>
-    <string name="default_sectorLineColor">扇形线</string>
-    <string name="highlight_similar_cells">高亮相似格子</string>
-    <string name="highlight_similar_cells_summary">高亮相似值</string>
-    <string name="bidirectional_selection">双向选择</string>
-    <string name="bidirectional_selection_summary">在单数输入面板，被选择的非编辑格子自动选择相应的按钮，反之亦然。</string>
-    <string name="screen_custom_theme_summary_disabled">在上面的\"主题\"设置中选择\"自定义主题\"来启用这个功能。</string>
+    <string name="screen_custom_theme_summary_disabled">
+        在上面的“主题”设置中选择“自定义主题”来启用这个功能。
+    </string>
+
+    <string name="default_lineColor">线</string>
     <string name="default_lineColor_summary">格子周围的边框颜色</string>
+
+    <string name="default_sectorLineColor">界线</string>
     <string name="default_sectorLineColor_summary">3X3格子的边框颜色。</string>
+
+    <string name="default_textColor">文本</string>
     <string name="default_textColor_summary">可编辑格子的文本颜色。</string>
+
     <string name="default_textColorReadOnly">只读文本</string>
-    <string name="default_textColorReadOnly_summary">非编辑格子的文本颜色</string>
-    <string name="default_textColorNote_summary">可编辑格子的提示颜色。</string>
+    <string name="default_textColorReadOnly_summary">不可编辑格子的文本颜色</string>
+
+    <string name="default_textColorNote">笔记文本</string>
+    <string name="default_textColorNote_summary">可编辑格子的笔记文本颜色。</string>
+
     <string name="default_backgroundColor">原始背景</string>
     <string name="default_backgroundColor_summary">3X3基数格子的背景色。</string>
+
     <string name="default_backgroundColorSecondary">次级背景</string>
     <string name="default_backgroundColorSecondary_summary">3X3偶数格子的背景色。</string>
-    <string name="default_backgroundColorReadOnly_summary">非编辑格子背景。</string>
+
     <string name="default_backgroundColorReadOnly">只读格子背景</string>
+    <string name="default_backgroundColorReadOnly_summary">不可编辑格子的背景色。</string>
+
     <string name="default_backgroundColorTouched">选择器</string>
-    <string name="puzzle_updated">谜题已被更新。</string>
-    <string name="default_backgroundColorHighlighted_summary">高亮格子的背景色。</string>
+    <string name="default_backgroundColorTouched_summary">
+        当你在任何格子上按下时出现的选择十字的颜色。
+    </string>
+
+    <string name="default_backgroundColorSelected">被选格子的背景</string>
+    <string name="default_backgroundColorSelected_summary">被选格子的背景色。</string>
+
     <string name="default_backgroundColorHighlighted">高亮格子的背景</string>
-    <string name="default_backgroundColorSelected_summary">已选格子的背景色。</string>
-    <string name="default_backgroundColorSelected">已选格子的背景</string>
-    <string name="default_backgroundColorTouched_summary">当您按下任何单元格时出现的选择交叉的颜色。</string>
+    <string name="default_backgroundColorHighlighted_summary">高亮格子的背景色。</string>
+
+    <!-- Strings added/changed in 2.6.0 -->
+    <string name="solve_puzzle">解决谜题</string>
+    <string name="solve_puzzle_confirm">你确定想看这个解法？</string>
+    <string name="used_solver">你使用了求解器看这个解法！</string>
+    <string name="puzzle_not_solved">这个谜题没有解法。</string>
+
+    <string name="solver_hint">提示</string>
+    <string name="hint_confirm">将为所选格子填写正确的值。你想继续吗？</string>
+    <string name="cannot_give_hint">无法获得这个格子的提示。</string>
+
+    <string name="check_solvabitily">检查可解性</string>
+    <string name="puzzle_solvable">这个谜题有一个解法。</string>
+
+    <string name="copy_from_existing_theme">从已存在的主题复制…</string>
+
+    <!-- Strings added/changed in 3.0.0 -->
+    <string name="theme_default">黑暗</string>
+    <string name="theme_amoled">AMOLED</string>
+    <string name="theme_latte">焦糖拿铁</string>
+    <string name="theme_espresso">浓咖啡</string>
+    <string name="theme_sunrise">日出</string>
+    <string name="theme_honeybee">蜜蜂</string>
+    <string name="theme_crystal">水晶</string>
+    <string name="theme_midnight_blue">午夜蓝</string>
+    <string name="theme_emerald">翠绿</string>
+    <string name="theme_forest">森林</string>
+    <string name="theme_amethyst">紫水晶</string>
+    <string name="theme_ruby">红宝石</string>
+
+    <string name="is_light_theme_summary">更改应用程序颜色是基于浅色还是深色主题。</string>
+    <string name="is_light_theme_title">浅色主题</string>
+    <string name="app_color_primary_summary">此颜色用于标题栏的背景。</string>
+    <string name="app_color_primary_title">主应用程序颜色</string>
+    <string name="app_color_secondary_summary">此颜色用于安卓状态栏，通常是主应用程序颜色的较暗版本。</string>
+    <string name="app_color_secondary_title">辅助应用程序颜色</string>
+    <string name="app_color_accent_summary">此颜色用于强调各种用户接口控件。</string>
+    <string name="app_color_accent_title">应用强调颜色</string>
+    <string name="app_color_button_summary">此颜色用于按钮用户接口控件。</string>
+    <string name="app_color_button_title">应用按钮颜色</string>
+
+    <string name="highlight_similar_notes">高亮类似笔记</string>
+    <string name="highlight_similar_notes_summary">高亮相似笔记值的</string>
+
+    <string name="resume">恢复</string>
+    <string name="sudoku_lists">数独列表</string>
+
+    <!-- Strings added/changed in 3.1.0 -->
+    <string name="undo_to_before_mistake">撤销到错误之前</string>
+    <string name="undo_to_before_mistake_confirm">您确定要撤消自上一个可解决状态以来的所有操作吗？</string>
+
+    <!-- Strings added/changed in 3.2.0 -->
+    <string name="remove_notes_summary">输入数字时自动从同一列、行、框中移除笔记</string>
+    <string name="remove_notes_title">在数字输入时移除笔记</string>
+
+    <string name="create_from_single_color">从单色创建…</string>
+
+    <!-- Strings added/changed in 3.3.0 -->
+    <string name="show_sudoku_lists_on_startup_summary">在启动时显示数独列表，并跳过标题屏幕。</string>
+    <string name="show_sudoku_lists_on_startup_title">在启动时显示数独列表</string>
+    <string name="app_startup_category">应用启动</string>
+
+    <!-- Strings added/changed in 3.4.0 -->
+    <string name="sort">排序</string>
+    <string name="sort_puzzles_by">排序谜题基于</string>
+    <string name="sort_creation_date">创建日期</string>
+    <string name="sort_play_time">游戏时长</string>
+    <string name="sort_last_played">最后游戏</string>
 </resources>

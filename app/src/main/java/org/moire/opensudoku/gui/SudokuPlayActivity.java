@@ -22,16 +22,10 @@ package org.moire.opensudoku.gui;
 
 import android.app.Dialog;
 import android.content.ComponentName;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
-import android.preference.PreferenceManager;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.view.Display;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -40,6 +34,9 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.TextView;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.preference.PreferenceManager;
 
 import org.moire.opensudoku.R;
 import org.moire.opensudoku.db.SudokuDatabase;
@@ -51,7 +48,6 @@ import org.moire.opensudoku.gui.inputmethod.IMControlPanelStatePersister;
 import org.moire.opensudoku.gui.inputmethod.IMNumpad;
 import org.moire.opensudoku.gui.inputmethod.IMPopup;
 import org.moire.opensudoku.gui.inputmethod.IMSingleNumber;
-import org.moire.opensudoku.utils.AndroidUtils;
 import org.moire.opensudoku.utils.ThemeUtils;
 
 public class SudokuPlayActivity extends ThemedActivity {
@@ -110,6 +106,42 @@ public class SudokuPlayActivity extends ThemedActivity {
     private boolean mFillInNotesEnabled = false;
 
     private HintsQueue mHintsQueue;
+    /**
+     * Occurs when puzzle is solved.
+     */
+    private OnPuzzleSolvedListener onSolvedListener = new OnPuzzleSolvedListener() {
+
+        @Override
+        public void onPuzzleSolved() {
+            if (mShowTime) {
+                mGameTimer.stop();
+            }
+            mSudokuBoard.setReadOnly(true);
+            mOptionsMenu.findItem(MENU_ITEM_UNDO_ACTION).setEnabled(false);
+            if (mSudokuGame.usedSolver()) {
+                showDialog(DIALOG_USED_SOLVER);
+            } else {
+                showDialog(DIALOG_WELL_DONE);
+            }
+        }
+
+    };
+    private OnSelectedNumberChangedListener onSelectedNumberChangedListener = new OnSelectedNumberChangedListener() {
+        @Override
+        public void onSelectedNumberChanged(int number) {
+            if (number != 0) {
+                Cell cell = mSudokuGame.getCells().findFirstCell(number);
+                mSudokuBoard.setHighlightedValue(number);
+                if (cell != null) {
+                    mSudokuBoard.moveCellSelectionTo(cell.getRowIndex(), cell.getColumnIndex());
+                } else {
+                    mSudokuBoard.clearCellSelection();
+                }
+            } else {
+                mSudokuBoard.clearCellSelection();
+            }
+        }
+    };
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -310,8 +342,8 @@ public class SudokuPlayActivity extends ThemedActivity {
         final boolean isLightTheme = ThemeUtils.isLightTheme(ThemeUtils.getCurrentThemeFromPreferences(getApplicationContext()));
 
         menu.add(0, MENU_ITEM_UNDO_ACTION, 0, R.string.undo)
-            .setIcon(isLightTheme ? R.drawable.ic_undo_action_black : R.drawable.ic_undo_action_white)
-            .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
+                .setIcon(isLightTheme ? R.drawable.ic_undo_action_black : R.drawable.ic_undo_action_white)
+                .setShowAsAction(MenuItem.SHOW_AS_ACTION_ALWAYS);
 
         menu.add(0, MENU_ITEM_UNDO, 0, R.string.undo)
                 .setShortcut('1', 'u')
@@ -441,10 +473,9 @@ public class SudokuPlayActivity extends ThemedActivity {
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        switch (requestCode) {
-            case REQUEST_SETTINGS:
-                restartActivity();
-                break;
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_SETTINGS) {
+            restartActivity();
         }
     }
 
@@ -484,7 +515,8 @@ public class SudokuPlayActivity extends ThemedActivity {
                             menuItemSolve.setEnabled(true);
                             MenuItem menuItemHint = mOptionsMenu.findItem(MENU_ITEM_HINT);
                             menuItemHint.setEnabled(true);
-
+                            MenuItem menuItemUndoAction = mOptionsMenu.findItem(MENU_ITEM_UNDO_ACTION);
+                            menuItemUndoAction.setEnabled(true);
                         })
                         .setNegativeButton(android.R.string.no, null)
                         .create();
@@ -522,14 +554,11 @@ public class SudokuPlayActivity extends ThemedActivity {
                 return new AlertDialog.Builder(this)
                         .setTitle(R.string.app_name)
                         .setMessage(R.string.solve_puzzle_confirm)
-                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int whichButton) {
-                                if (mSudokuGame.isSolvable()) {
-                                    mSudokuGame.solve();
-                                }
-                                else {
-                                    showDialog(DIALOG_PUZZLE_NOT_SOLVED);
-                                }
+                        .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> {
+                            if (mSudokuGame.isSolvable()) {
+                                mSudokuGame.solve();
+                            } else {
+                                showDialog(DIALOG_PUZZLE_NOT_SOLVED);
                             }
                         })
                         .setNegativeButton(android.R.string.no, null)
@@ -550,20 +579,16 @@ public class SudokuPlayActivity extends ThemedActivity {
                 return new AlertDialog.Builder(this)
                         .setTitle(R.string.app_name)
                         .setMessage(R.string.hint_confirm)
-                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int whichButton) {
-                                Cell cell = mSudokuBoard.getSelectedCell();
-                                if (cell != null && cell.isEditable()) {
-                                    if (mSudokuGame.isSolvable()) {
-                                        mSudokuGame.solveCell(cell);
-                                    }
-                                    else {
-                                        showDialog(DIALOG_PUZZLE_NOT_SOLVED);
-                                    }
+                        .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> {
+                            Cell cell = mSudokuBoard.getSelectedCell();
+                            if (cell != null && cell.isEditable()) {
+                                if (mSudokuGame.isSolvable()) {
+                                    mSudokuGame.solveCell(cell);
+                                } else {
+                                    showDialog(DIALOG_PUZZLE_NOT_SOLVED);
                                 }
-                                else {
-                                    showDialog(DIALOG_CANNOT_GIVE_HINT);
-                                }
+                            } else {
+                                showDialog(DIALOG_CANNOT_GIVE_HINT);
                             }
                         })
                         .setNegativeButton(android.R.string.no, null)
@@ -585,48 +610,6 @@ public class SudokuPlayActivity extends ThemedActivity {
     }
 
     /**
-     * Occurs when puzzle is solved.
-     */
-    private OnPuzzleSolvedListener onSolvedListener = new OnPuzzleSolvedListener() {
-
-        @Override
-        public void onPuzzleSolved() {
-            if (mShowTime) {
-                mGameTimer.stop();
-            }
-            mSudokuBoard.setReadOnly(true);
-            if (mSudokuGame.usedSolver()) {
-                showDialog(DIALOG_USED_SOLVER);
-            }
-            else {
-                showDialog(DIALOG_WELL_DONE);
-            }
-        }
-
-    };
-
-    public interface OnSelectedNumberChangedListener {
-        void onSelectedNumberChanged(int number);
-    }
-
-    private OnSelectedNumberChangedListener onSelectedNumberChangedListener = new OnSelectedNumberChangedListener() {
-        @Override
-        public void onSelectedNumberChanged(int number) {
-            if (number != 0) {
-                Cell cell = mSudokuGame.getCells().findFirstCell(number);
-                mSudokuBoard.setHighlightedValue(number);
-                if (cell != null) {
-                    mSudokuBoard.moveCellSelectionTo(cell.getRowIndex(), cell.getColumnIndex());
-                } else {
-                    mSudokuBoard.clearCellSelection();
-                }
-            } else {
-                mSudokuBoard.clearCellSelection();
-            }
-        }
-    };
-
-    /**
      * Update the time of game-play.
      */
     void updateTime() {
@@ -637,6 +620,10 @@ public class SudokuPlayActivity extends ThemedActivity {
             setTitle(R.string.app_name);
         }
 
+    }
+
+    public interface OnSelectedNumberChangedListener {
+        void onSelectedNumberChanged(int number);
     }
 
     // This class implements the game clock.  All it does is update the

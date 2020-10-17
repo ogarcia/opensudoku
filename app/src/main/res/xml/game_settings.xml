@@ -6,8 +6,7 @@
             android:defaultValue="false"
             android:key="show_sudoku_lists_on_startup"
             android:summary="@string/show_sudoku_lists_on_startup_summary"
-            android:title="@string/show_sudoku_lists_on_startup_title"
-            />
+            android:title="@string/show_sudoku_lists_on_startup_title" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/game_helpers">
         <CheckBoxPreference
@@ -97,7 +96,7 @@
             android:entryValues="@array/theme_codes"
             android:key="theme"
             android:summary="@string/theme_summary"
-            android:title="@string/theme"/>
+            android:title="@string/theme" />
         <org.moire.opensudoku.gui.SudokuBoardCustomThemePreferenceGroup
             android:key="screen_custom_theme"
             android:title="@string/screen_custom_theme">

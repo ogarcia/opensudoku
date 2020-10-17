@@ -22,14 +22,9 @@ package org.moire.opensudoku.gui;
 
 import android.app.Dialog;
 import android.content.ComponentName;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.util.Log;
 import android.view.Display;
 import android.view.Menu;
@@ -39,12 +34,13 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
+
 import org.moire.opensudoku.R;
 import org.moire.opensudoku.db.SudokuDatabase;
 import org.moire.opensudoku.game.SudokuGame;
 import org.moire.opensudoku.gui.inputmethod.IMControlPanel;
 import org.moire.opensudoku.gui.inputmethod.InputMethod;
-import org.moire.opensudoku.utils.AndroidUtils;
 
 /**
  * Activity for editing content of puzzle.
@@ -230,8 +226,7 @@ public class SudokuEditActivity extends ThemedActivity {
                 boolean solvable = checkSolvability();
                 if (solvable) {
                     showDialog(DIALOG_PUZZLE_SOLVABLE);
-                }
-                else {
+                } else {
                     showDialog(DIALOG_PUZZLE_NOT_SOLVABLE);
                 }
                 return true;

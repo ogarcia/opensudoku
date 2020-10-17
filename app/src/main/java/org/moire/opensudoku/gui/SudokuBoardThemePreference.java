@@ -20,12 +20,8 @@
 
 package org.moire.opensudoku.gui;
 
-
-import android.app.Activity;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.preference.ListPreference;
 import android.preference.Preference;
@@ -33,10 +29,8 @@ import android.preference.PreferenceManager;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.LinearLayout;
 
 import org.moire.opensudoku.R;
-import org.moire.opensudoku.utils.AndroidUtils;
 import org.moire.opensudoku.utils.ThemeUtils;
 
 /**
@@ -65,12 +59,10 @@ public class SudokuBoardThemePreference extends ListPreference {
         }
         mClickedDialogEntryIndex = findIndexOfValue(selectedTheme);
         builder.setSingleChoiceItems(getEntries(), mClickedDialogEntryIndex,
-                new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        mClickedDialogEntryIndex = which;
-                        SudokuBoardThemePreference.this.applyThemePreview(
-                                getEntryValues()[mClickedDialogEntryIndex].toString());
-                    }
+                (dialog, which) -> {
+                    mClickedDialogEntryIndex = which;
+                    SudokuBoardThemePreference.this.applyThemePreview(
+                            getEntryValues()[mClickedDialogEntryIndex].toString());
                 });
 
         LayoutInflater inflater = LayoutInflater.from(getContext());
@@ -97,7 +89,7 @@ public class SudokuBoardThemePreference extends ListPreference {
     }
 
     private void prepareSudokuPreviewView(View view, String initialTheme) {
-        mBoard = (SudokuBoardView) view.findViewById(R.id.sudoku_board);
+        mBoard = view.findViewById(R.id.sudoku_board);
         mBoard.setOnCellSelectedListener((cell) -> {
             if (cell != null) {
                 mBoard.setHighlightedValue(cell.getValue());

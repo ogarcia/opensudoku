@@ -34,9 +34,8 @@ import java.util.StringTokenizer;
  */
 public class CellNote {
 
-    private final short mNotedNumbers;
-
     public static final CellNote EMPTY = new CellNote();
+    private final short mNotedNumbers;
 
     public CellNote() {
         mNotedNumbers = 0;
@@ -104,7 +103,7 @@ public class CellNote {
      * @param data
      */
     public void serialize(StringBuilder data) {
-        data.append((int) mNotedNumbers);
+        data.append(mNotedNumbers);
         data.append("|");
     }
 

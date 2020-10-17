@@ -24,19 +24,11 @@ import android.Manifest;
 import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -51,12 +43,16 @@ import android.widget.SimpleCursorAdapter.ViewBinder;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
+
 import org.moire.opensudoku.R;
 import org.moire.opensudoku.db.FolderColumns;
 import org.moire.opensudoku.db.SudokuDatabase;
 import org.moire.opensudoku.game.FolderInfo;
 import org.moire.opensudoku.utils.AndroidUtils;
-import org.moire.opensudoku.utils.ThemeUtils;
 
 /**
  * List of puzzle's folder. This activity also serves as root activity of application.
@@ -78,11 +74,8 @@ public class FolderListActivity extends ThemedActivity {
     private static final int DIALOG_ADD_FOLDER = 1;
     private static final int DIALOG_RENAME_FOLDER = 2;
     private static final int DIALOG_DELETE_FOLDER = 3;
-
-    private int STORAGE_PERMISSION_CODE = 1;
-
     private static final String TAG = "FolderListActivity";
-
+    private int STORAGE_PERMISSION_CODE = 1;
     private Cursor mCursor;
     private SudokuDatabase mDatabase;
     private FolderListViewBinder mFolderListBinder;
@@ -120,13 +113,10 @@ public class FolderListActivity extends ThemedActivity {
 
         mListView = findViewById(android.R.id.list);
         mListView.setAdapter(adapter);
-        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent i = new Intent(getApplicationContext(), SudokuListActivity.class);
-                i.putExtra(SudokuListActivity.EXTRA_FOLDER_ID, id);
-                startActivity(i);
-            }
+        mListView.setOnItemClickListener((parent, view, position, id) -> {
+            Intent i = new Intent(getApplicationContext(), SudokuListActivity.class);
+            i.putExtra(SudokuListActivity.EXTRA_FOLDER_ID, id);
+            startActivity(i);
         });
         registerForContextMenu(mListView);
 
@@ -176,7 +166,7 @@ public class FolderListActivity extends ThemedActivity {
                 .setIcon(R.drawable.ic_add);
         menu.add(0, MENU_ITEM_IMPORT, 0, R.string.import_file)
                 .setShortcut('8', 'i')
-                .setIcon(R.drawable.ic_cloud_upload);
+                .setIcon(R.drawable.ic_cloud_download);
         menu.add(0, MENU_ITEM_EXPORT_ALL, 1, R.string.export_all_folders)
                 .setShortcut('7', 'e')
                 .setIcon(R.drawable.ic_share);
@@ -353,8 +343,7 @@ public class FolderListActivity extends ThemedActivity {
                 // need to request permission before FileListActivity can even be started
                 if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                     requestStoragePermission();
-                }
-                else {
+                } else {
                     startActivity(intent);
                 }
                 return true;
@@ -381,18 +370,10 @@ public class FolderListActivity extends ThemedActivity {
             new AlertDialog.Builder(this)
                     .setTitle("Permission needed")
                     .setMessage("This permission is needed in order to access your SD Card")
-                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            ActivityCompat.requestPermissions(FolderListActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
-                        }
-                    })
-                    .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    })
+                    .setPositiveButton("ok", (dialog, which) ->
+                            ActivityCompat.requestPermissions(FolderListActivity.this,
+                                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE))
+                    .setNegativeButton("cancel", (dialog, which) -> dialog.dismiss())
                     .create().show();
         } else {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
@@ -404,8 +385,7 @@ public class FolderListActivity extends ThemedActivity {
         if (requestCode == STORAGE_PERMISSION_CODE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 onOptionsItemSelected(mMenu.findItem(MENU_ITEM_IMPORT));
-            }
-            else {
+            } else {
                 Toast.makeText(this, "Permission DENIED", Toast.LENGTH_SHORT).show();
             }
         }

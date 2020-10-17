@@ -25,8 +25,6 @@ import android.os.SystemClock;
 
 import androidx.annotation.Nullable;
 
-import java.util.ArrayList;
-
 import org.moire.opensudoku.game.command.AbstractCommand;
 import org.moire.opensudoku.game.command.ClearAllNotesCommand;
 import org.moire.opensudoku.game.command.CommandStack;
@@ -34,6 +32,8 @@ import org.moire.opensudoku.game.command.EditCellNoteCommand;
 import org.moire.opensudoku.game.command.FillInNotesCommand;
 import org.moire.opensudoku.game.command.SetCellValueAndRemoveNotesCommand;
 import org.moire.opensudoku.game.command.SetCellValueCommand;
+
+import java.util.ArrayList;
 
 public class SudokuGame {
 
@@ -57,20 +57,20 @@ public class SudokuGame {
     // Time when current activity has become active.
     private long mActiveFromTime = -1;
 
-    public static SudokuGame createEmptyGame() {
-        SudokuGame game = new SudokuGame();
-        game.setCells(CellCollection.createEmpty());
-        // set creation time
-        game.setCreated(System.currentTimeMillis());
-        return game;
-    }
-
     public SudokuGame() {
         mTime = 0;
         mLastPlayed = 0;
         mCreated = 0;
 
         mState = GAME_STATE_NOT_STARTED;
+    }
+
+    public static SudokuGame createEmptyGame() {
+        SudokuGame game = new SudokuGame();
+        game.setCells(CellCollection.createEmpty());
+        // set creation time
+        game.setCreated(System.currentTimeMillis());
+        return game;
     }
 
     public void saveState(Bundle outState) {
@@ -102,37 +102,28 @@ public class SudokuGame {
         mOnPuzzleSolvedListener = l;
     }
 
-    public void setNote(String note) {
-        mNote = note;
-    }
-
     public String getNote() {
         return mNote;
     }
 
-    public void setCreated(long created) {
-        mCreated = created;
+    public void setNote(String note) {
+        mNote = note;
     }
 
     public long getCreated() {
         return mCreated;
     }
 
-    public void setState(int state) {
-        mState = state;
+    public void setCreated(long created) {
+        mCreated = created;
     }
 
     public int getState() {
         return mState;
     }
 
-    /**
-     * Sets time of play in milliseconds.
-     *
-     * @param time
-     */
-    public void setTime(long time) {
-        mTime = time;
+    public void setState(int state) {
+        mState = state;
     }
 
     /**
@@ -148,12 +139,25 @@ public class SudokuGame {
         }
     }
 
-    public void setLastPlayed(long lastPlayed) {
-        mLastPlayed = lastPlayed;
+    /**
+     * Sets time of play in milliseconds.
+     *
+     * @param time
+     */
+    public void setTime(long time) {
+        mTime = time;
     }
 
     public long getLastPlayed() {
         return mLastPlayed;
+    }
+
+    public void setLastPlayed(long lastPlayed) {
+        mLastPlayed = lastPlayed;
+    }
+
+    public CellCollection getCells() {
+        return mCells;
     }
 
     public void setCells(CellCollection cells) {
@@ -162,24 +166,20 @@ public class SudokuGame {
         mCommandStack = new CommandStack(mCells);
     }
 
-    public CellCollection getCells() {
-        return mCells;
+    public long getId() {
+        return mId;
     }
 
     public void setId(long id) {
         mId = id;
     }
 
-    public long getId() {
-        return mId;
+    public CommandStack getCommandStack() {
+        return mCommandStack;
     }
 
     public void setCommandStack(CommandStack commandStack) {
         mCommandStack = commandStack;
-    }
-
-    public CommandStack getCommandStack() {
-        return mCommandStack;
     }
 
     public void setRemoveNotesOnEntry(boolean removeNotesOnEntry) {
@@ -300,7 +300,7 @@ public class SudokuGame {
     /**
      * Checks if a solution to the puzzle exists
      */
-    public boolean isSolvable () {
+    public boolean isSolvable() {
         mSolver = new SudokuSolver();
         mSolver.setPuzzle(mCells);
         ArrayList<int[]> finalValues = mSolver.solve();

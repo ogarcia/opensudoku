@@ -24,9 +24,9 @@ import android.content.Context;
 import android.content.DialogInterface.OnClickListener;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
-import android.preference.PreferenceManager;
 
 import androidx.appcompat.app.AlertDialog;
+import androidx.preference.PreferenceManager;
 
 import org.moire.opensudoku.R;
 
@@ -34,15 +34,12 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class HintsQueue {
+    private static final String PREF_FILE_NAME = "hints";
     // TODO: should be persisted in activity's state
     private final Queue<Message> mMessages;
-
-    private static final String PREF_FILE_NAME = "hints";
-
+    private final AlertDialog mHintDialog;
     private Context mContext;
     private SharedPreferences mPrefs;
-    private final AlertDialog mHintDialog;
-
     private boolean mOneTimeHintsEnabled;
 
     public HintsQueue(Context context) {

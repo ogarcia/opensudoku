@@ -3,23 +3,20 @@ package org.moire.opensudoku.gui;
 import android.Manifest;
 import android.app.Dialog;
 import android.app.ProgressDialog;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import org.moire.opensudoku.R;
 import org.moire.opensudoku.db.SudokuDatabase;
@@ -35,25 +32,22 @@ public class SudokuExportActivity extends ThemedActivity {
      * Id of folder to export. If -1, all folders will be exported.
      */
     public static final String EXTRA_FOLDER_ID = "FOLDER_ID";
+    public static final long ALL_FOLDERS = -1;
+    private static final int DIALOG_FILE_EXISTS = 1;
+    private static final int DIALOG_PROGRESS = 2;
+    private static final String TAG = SudokuExportActivity.class.getSimpleName();
     /**
      * Id of sudoku to export.
      */
 //	public static final String EXTRA_SUDOKU_ID = "SUDOKU_ID";
 
     private int STORAGE_PERMISSION_CODE = 1;
-
-    public static final long ALL_FOLDERS = -1;
-
-    private static final int DIALOG_FILE_EXISTS = 1;
-    private static final int DIALOG_PROGRESS = 2;
-
-    private static final String TAG = SudokuExportActivity.class.getSimpleName();
-
     private FileExportTask mFileExportTask;
     private FileExportTaskParams mExportParams;
 
     private EditText mFileNameEdit;
     private EditText mDirectoryEdit;
+    private OnClickListener mOnSaveClickListener = v -> exportToFile();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,8 +95,6 @@ public class SudokuExportActivity extends ThemedActivity {
         //showDialog(DIALOG_SELECT_EXPORT_METHOD);
     }
 
-    private OnClickListener mOnSaveClickListener = v -> exportToFile();
-
     @Override
     protected Dialog onCreateDialog(int id) {
         switch (id) {
@@ -129,8 +121,7 @@ public class SudokuExportActivity extends ThemedActivity {
         // check for permission to write to sd card
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
             requestStoragePermission();
-        }
-        else {
+        } else {
             File sdcard = new File("/sdcard");
             if (!sdcard.exists()) {
                 Toast.makeText(SudokuExportActivity.this, R.string.sdcard_not_found, Toast.LENGTH_LONG).show();
@@ -177,18 +168,10 @@ public class SudokuExportActivity extends ThemedActivity {
             new AlertDialog.Builder(this)
                     .setTitle("Permission needed")
                     .setMessage("This permission is needed in order to access your SD Card")
-                    .setPositiveButton("ok", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            ActivityCompat.requestPermissions(SudokuExportActivity.this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
-                        }
-                    })
-                    .setNegativeButton("cancel", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            dialog.dismiss();
-                        }
-                    })
+                    .setPositiveButton("ok", (dialog, which) ->
+                            ActivityCompat.requestPermissions(SudokuExportActivity.this,
+                                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE))
+                    .setNegativeButton("cancel", (dialog, which) -> dialog.dismiss())
                     .create().show();
         } else {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
@@ -200,8 +183,7 @@ public class SudokuExportActivity extends ThemedActivity {
         if (requestCode == STORAGE_PERMISSION_CODE) {
             if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 exportToFile();
-            }
-            else {
+            } else {
                 Toast.makeText(this, "Permission DENIED", Toast.LENGTH_SHORT).show();
             }
         }

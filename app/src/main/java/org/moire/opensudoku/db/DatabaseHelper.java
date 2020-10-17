@@ -33,10 +33,8 @@ import org.moire.opensudoku.game.SudokuGame;
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    private static final String TAG = "DatabaseHelper";
-
     public static final int DATABASE_VERSION = 9;
-
+    private static final String TAG = "DatabaseHelper";
     private Context mContext;
 
     DatabaseHelper(Context context) {

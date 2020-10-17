@@ -29,10 +29,10 @@ import java.util.StringTokenizer;
  * @author romario
  */
 public class Cell {
+    private final Object mCellCollectionLock = new Object();
     // if cell is included in collection, here are some additional information
     // about collection and cell's position in it
     private CellCollection mCellCollection;
-    private final Object mCellCollectionLock = new Object();
     private int mRowIndex = -1;
     private int mColumnIndex = -1;
     private CellGroup mSector; // sector containing this cell
@@ -69,6 +69,33 @@ public class Cell {
         mNote = note;
         mEditable = editable;
         mValid = valid;
+    }
+
+    /**
+     * Creates instance from given <code>StringTokenizer</code>.
+     *
+     * @param data
+     * @return
+     */
+    public static Cell deserialize(StringTokenizer data, int version) {
+        Cell cell = new Cell();
+        cell.setValue(Integer.parseInt(data.nextToken()));
+        cell.setNote(CellNote.deserialize(data.nextToken(), version));
+        cell.setEditable(data.nextToken().equals("1"));
+
+        return cell;
+    }
+
+    /**
+     * Creates instance from given string (string which has been
+     * created by {@link #serialize(StringBuilder)} or {@link #serialize()} method).
+     * earlier.
+     *
+     * @param cellData
+     */
+    public static Cell deserialize(String cellData) {
+        StringTokenizer data = new StringTokenizer(cellData, "|");
+        return deserialize(data, CellCollection.DATA_VERSION);
     }
 
     /**
@@ -143,6 +170,15 @@ public class Cell {
     }
 
     /**
+     * Gets cell's value. Value can be 1-9 or 0 if cell is empty.
+     *
+     * @return Cell's value. Value can be 1-9 or 0 if cell is empty.
+     */
+    public int getValue() {
+        return mValue;
+    }
+
+    /**
      * Sets cell's value. Value can be 1-9 or 0 if cell should be empty.
      *
      * @param value 1-9 or 0 if cell should be empty.
@@ -154,16 +190,6 @@ public class Cell {
         mValue = value;
         onChange();
     }
-
-    /**
-     * Gets cell's value. Value can be 1-9 or 0 if cell is empty.
-     *
-     * @return Cell's value. Value can be 1-9 or 0 if cell is empty.
-     */
-    public int getValue() {
-        return mValue;
-    }
-
 
     /**
      * Gets note attached to the cell.
@@ -204,16 +230,6 @@ public class Cell {
     }
 
     /**
-     * Sets whether cell contains valid value according to sudoku rules.
-     *
-     * @param valid
-     */
-    public void setValid(Boolean valid) {
-        mValid = valid;
-        onChange();
-    }
-
-    /**
      * Returns true, if cell contains valid value according to sudoku rules.
      *
      * @return True, if cell contains valid value according to sudoku rules.
@@ -222,34 +238,15 @@ public class Cell {
         return mValid;
     }
 
-
     /**
-     * Creates instance from given <code>StringTokenizer</code>.
+     * Sets whether cell contains valid value according to sudoku rules.
      *
-     * @param data
-     * @return
+     * @param valid
      */
-    public static Cell deserialize(StringTokenizer data, int version) {
-        Cell cell = new Cell();
-        cell.setValue(Integer.parseInt(data.nextToken()));
-        cell.setNote(CellNote.deserialize(data.nextToken(), version));
-        cell.setEditable(data.nextToken().equals("1"));
-
-        return cell;
+    public void setValid(Boolean valid) {
+        mValid = valid;
+        onChange();
     }
-
-    /**
-     * Creates instance from given string (string which has been
-     * created by {@link #serialize(StringBuilder)} or {@link #serialize()} method).
-     * earlier.
-     *
-     * @param cellData
-     */
-    public static Cell deserialize(String cellData) {
-        StringTokenizer data = new StringTokenizer(cellData, "|");
-        return deserialize(data, CellCollection.DATA_VERSION);
-    }
-
 
     /**
      * Appends string representation of this object to the given <code>StringBuilder</code>.

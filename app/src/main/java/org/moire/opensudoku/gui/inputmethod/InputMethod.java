@@ -21,8 +21,6 @@
 package org.moire.opensudoku.gui.inputmethod;
 
 import android.content.Context;
-import android.graphics.Color;
-import android.graphics.LightingColorFilter;
 import android.view.View;
 import android.widget.Button;
 
@@ -46,11 +44,9 @@ public abstract class InputMethod {
     protected SudokuGame mGame;
     protected SudokuBoardView mBoard;
     protected HintsQueue mHintsQueue;
-
-    private String mInputMethodName;
     protected View mInputMethodView;
-
     protected boolean mActive = false;
+    private String mInputMethodName;
     private boolean mEnabled = true;
 
     public InputMethod() {
@@ -117,16 +113,16 @@ public abstract class InputMethod {
      */
     public abstract String getAbbrName();
 
+    public boolean isEnabled() {
+        return mEnabled;
+    }
+
     public void setEnabled(boolean enabled) {
         mEnabled = enabled;
 
         if (!enabled) {
             mControlPanel.activateNextInputMethod();
         }
-    }
-
-    public boolean isEnabled() {
-        return mEnabled;
     }
 
     public void activate() {

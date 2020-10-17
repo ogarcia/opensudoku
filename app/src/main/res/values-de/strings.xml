@@ -1,120 +1,120 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">OpenSudoku</string>
-	<string name="edit_sudoku">Sudoku-Rätsel bearbeiten</string>
+    <string name="app_name">OpenSudoku</string>
+    <string name="edit_sudoku">Sudoku-Rätsel bearbeiten</string>
 
-	<string name="puzzle_folders">OpenSudoku Rätsel-Ordner</string>
+    <string name="puzzle_folders">OpenSudoku Rätsel-Ordner</string>
 
-	<string name="version">Version: %s</string>
-	<string name="send_me_bugs">Falls Sie einen Fehler finden, den Sie gerne behoben haben möchten oder falls Sie
+    <string name="version">Version: %s</string>
+    <string name="send_me_bugs">Falls Sie einen Fehler finden, den Sie gerne behoben haben möchten oder falls Sie
 		Verbesserungsvorschläge haben, zögern Sie nicht uns per E-Mail zu kontaktieren oder nutzen Sie den Issue-Tracker
 		auf der Projekt-Homepage. Alle Anfragen bitte nur in englischer Sprache, vielen Dank!
 	</string>
 
-	<string name="close">Schließen</string>
-	<string name="clear">Löschen</string>
-	<string name="save">Speichern</string>
+    <string name="close">Schließen</string>
+    <string name="clear">Löschen</string>
+    <string name="save">Speichern</string>
 
-	<string name="get_more_puzzles_online">Mehr Sudoku-Rätsel herunterladen</string>
+    <string name="get_more_puzzles_online">Mehr Sudoku-Rätsel herunterladen</string>
 
-	<string name="name">Name:</string>
-	<string name="note">Notiz:</string>
+    <string name="name">Name:</string>
+    <string name="note">Notiz:</string>
 
-	<string name="select_number">Zahl auswählen</string>
-	<string name="edit_note">Notiz bearbeiten</string>
+    <string name="select_number">Zahl auswählen</string>
+    <string name="edit_note">Notiz bearbeiten</string>
 
-	<string name="add_folder">Ordner hinzufügen</string>
-	<string name="about">Info</string>
-	<string name="rename_folder">Ordner umbenennen</string>
-	<string name="delete_folder">Ordner löschen</string>
-	<string name="rename_folder_title">%s umbenennen</string>
-	<string name="delete_folder_title">%s löschen</string>
-	<string name="delete_folder_confirm">Möchten Sie diesen Ordner wirklich löschen?</string>
+    <string name="add_folder">Ordner hinzufügen</string>
+    <string name="about">Info</string>
+    <string name="rename_folder">Ordner umbenennen</string>
+    <string name="delete_folder">Ordner löschen</string>
+    <string name="rename_folder_title">%s umbenennen</string>
+    <string name="delete_folder_title">%s löschen</string>
+    <string name="delete_folder_confirm">Möchten Sie diesen Ordner wirklich löschen?</string>
 
-	<string name="no_puzzles">Keine Sudoku-Rätsel</string>
-	<string name="one_puzzle">1 Sudoku-Rätsel</string>
-	<string name="n_puzzles">%d Sudoku-Rätsel</string>
-	<string name="all_solved">Alle gelöst</string>
-	<string name="n_solved">%s gelöst</string>
-	<string name="n_unsolved">%d neu</string>
-	<string name="n_playing">%d in Bearbeitung</string>
+    <string name="no_puzzles">Keine Sudoku-Rätsel</string>
+    <string name="one_puzzle">1 Sudoku-Rätsel</string>
+    <string name="n_puzzles">%d Sudoku-Rätsel</string>
+    <string name="all_solved">Alle gelöst</string>
+    <string name="n_solved">%s gelöst</string>
+    <string name="n_unsolved">%d neu</string>
+    <string name="n_playing">%d in Bearbeitung</string>
 
-	<string name="solved">Gelöst</string>
-	<string name="playing">In Bearbeitung</string>
-	<string name="not_started">Neu</string>
-	<string name="last_played_at">Zuletzt gespielt %s</string>
-	<string name="created_at">Erstellt %s</string>
-	<string name="at_time">um %s</string>
-	<string name="yesterday_at_time">gestern um %s</string>
-	<string name="on_date">am %s</string>
-	<string name="add_sudoku">Sudoku-Rätsel hinzufügen</string>
-	<string name="filter">Filtern</string>
-	<string name="filter_by_gamestate">Filtern nach Spiel-Status</string>
-	<string name="folders">Ordner</string>
-	<string name="delete_puzzle_confirm">Möchten Sie dieses Sudoku-Rätsel wirklich löschen?</string>
-	<string name="reset_puzzle_confirm">Möchten Sie die ausgewählten Sudoku-Rätsel wirklich zurücksetzen?</string>
-	<string name="play_puzzle">Dieses Sudoku-Rätsel spielen</string>
-	<string name="reset_puzzle">Sudoku-Rätsel zurücksetzen</string>
-	<string name="edit_puzzle">Sudoku-Rätsel bearbeiten</string>
-	<string name="delete_puzzle">Sudoku-Rätsel löschen</string>
-	<string name="filter_active">Gefiltert: %s</string>
+    <string name="solved">Gelöst</string>
+    <string name="playing">In Bearbeitung</string>
+    <string name="not_started">Neu</string>
+    <string name="last_played_at">Zuletzt gespielt %s</string>
+    <string name="created_at">Erstellt %s</string>
+    <string name="at_time">um %s</string>
+    <string name="yesterday_at_time">gestern um %s</string>
+    <string name="on_date">am %s</string>
+    <string name="add_sudoku">Sudoku-Rätsel hinzufügen</string>
+    <string name="filter">Filtern</string>
+    <string name="filter_by_gamestate">Filtern nach Spiel-Status</string>
+    <string name="folders">Ordner</string>
+    <string name="delete_puzzle_confirm">Möchten Sie dieses Sudoku-Rätsel wirklich löschen?</string>
+    <string name="reset_puzzle_confirm">Möchten Sie die ausgewählten Sudoku-Rätsel wirklich zurücksetzen?</string>
+    <string name="play_puzzle">Dieses Sudoku-Rätsel spielen</string>
+    <string name="reset_puzzle">Sudoku-Rätsel zurücksetzen</string>
+    <string name="edit_puzzle">Sudoku-Rätsel bearbeiten</string>
+    <string name="delete_puzzle">Sudoku-Rätsel löschen</string>
+    <string name="filter_active">Gefiltert: %s</string>
 
-	<string name="undo">Undo</string>
-	<string name="clear_all_notes">Alle Notizen löschen</string>
-	<string name="fill_in_notes">Notizen eintragen</string>
-	<string name="restart">Spiel neu starten</string>
-	<string name="congrats">Herzlichen Glückwunsch, Du hast das Sudoku-Rätsel in %s gelöst.</string>
-	<string name="restart_confirm">Möchten Sie dieses Spiel wirklich neu starten?</string>
-	<string name="well_done">Gut gemacht!</string>
-	<string name="clear_all_notes_confirm">Möchten Sie wirklich alle Notizen löschen?</string>
-	<string name="settings">Einstellungen</string>
-	<string name="game_settings">Spiel-Einstellungen</string>
+    <string name="undo">Undo</string>
+    <string name="clear_all_notes">Alle Notizen löschen</string>
+    <string name="fill_in_notes">Notizen eintragen</string>
+    <string name="restart">Spiel neu starten</string>
+    <string name="congrats">Herzlichen Glückwunsch, Du hast das Sudoku-Rätsel in %s gelöst.</string>
+    <string name="restart_confirm">Möchten Sie dieses Spiel wirklich neu starten?</string>
+    <string name="well_done">Gut gemacht!</string>
+    <string name="clear_all_notes_confirm">Möchten Sie wirklich alle Notizen löschen?</string>
+    <string name="settings">Einstellungen</string>
+    <string name="game_settings">Spiel-Einstellungen</string>
 
-	<string name="game_helpers">Spiel-Hilfen</string>
-	<string name="highlight_wrong_values">Falsche Zahlen hervorheben</string>
-	<string name="highlight_wrong_values_summary">Zahlen, die gegen die Sudoku-Regeln verstoßen, hervorheben.</string>
-	<string name="input_methods">Eingabe-Methoden</string>
-	<string name="popup">Popup</string>
-	<string name="popup_summary">Zahlen in einem Popup-Dialog bearbeiten.</string>
-	<string name="single_number">Einzelne Zahl</string>
-	<string name="single_number_summary">Eine Zahl auswählen, danach auf eine Zelle tippen um den Wert oder die Notiz zu
+    <string name="game_helpers">Spiel-Hilfen</string>
+    <string name="highlight_wrong_values">Falsche Zahlen hervorheben</string>
+    <string name="highlight_wrong_values_summary">Zahlen, die gegen die Sudoku-Regeln verstoßen, hervorheben.</string>
+    <string name="input_methods">Eingabe-Methoden</string>
+    <string name="popup">Popup</string>
+    <string name="popup_summary">Zahlen in einem Popup-Dialog bearbeiten.</string>
+    <string name="single_number">Einzelne Zahl</string>
+    <string name="single_number_summary">Eine Zahl auswählen, danach auf eine Zelle tippen um den Wert oder die Notiz zu
 		setzen.
 	</string>
-	<string name="numpad">Zahlenblock</string>
-	<string name="numpad_summary">Zahlenblock anzeigen, der wie eine Tastatur funktioniert.</string>
-	<string name="numpad_move_right">Fokus nach rechts verschieben</string>
-	<string name="numpad_move_right_summary">Nach Eingabe einer Zahl den Fokus nach rechts verschieben.</string>
+    <string name="numpad">Zahlenblock</string>
+    <string name="numpad_summary">Zahlenblock anzeigen, der wie eine Tastatur funktioniert.</string>
+    <string name="numpad_move_right">Fokus nach rechts verschieben</string>
+    <string name="numpad_move_right_summary">Nach Eingabe einer Zahl den Fokus nach rechts verschieben.</string>
 
-	<string name="numpad_abbr">ZB</string>
-	<string name="popup_abbr">Pop</string>
-	<string name="single_number_abbr">EZ</string>
-	<string name="welcome">Willkommen</string>
-	<string name="hint">Hinweis</string>
-	<string name="help">Hilfe</string>
-	<string name="that_is_all">Das ist alles!</string>
+    <string name="numpad_abbr">ZB</string>
+    <string name="popup_abbr">Pop</string>
+    <string name="single_number_abbr">EZ</string>
+    <string name="welcome">Willkommen</string>
+    <string name="hint">Hinweis</string>
+    <string name="help">Hilfe</string>
+    <string name="that_is_all">Das ist alles!</string>
 
 
-	<string name="first_run_hint">Es stehen verschiedene Eingabe-Modi zum lösen der Sudoku-Rätsel zur Verfügung. Um Sie
+    <string name="first_run_hint">Es stehen verschiedene Eingabe-Modi zum lösen der Sudoku-Rätsel zur Verfügung. Um Sie
 		mit diesen Modi vertraut zu machen, sehen Sie nun eine kurze Einführung.\n\nSie können diesen Hilfe-Text in den
 		Spiel-Einstellungen deaktivieren.\n
 	</string>
-	<string name="im_popup_hint">Sie befinden sich nun im<i>Popup</i>-Modus. Tippen Sie mit dem Finger auf eine Zelle um
+    <string name="im_popup_hint">Sie befinden sich nun im<i>Popup</i>-Modus. Tippen Sie mit dem Finger auf eine Zelle um
 		diese zu bearbeiten\n\nBeachten Sie den Schalter in der unteren rechten Ecke. Über diese können Sie jederzeit
 		den Eingabe-Modus wechseln.\n
 	</string>
-	<string name="im_single_number_hint">Sie befinden sich nun im<i>Einzelne Zahl</i>-Modus. Wählen Sie zunächst eine
+    <string name="im_single_number_hint">Sie befinden sich nun im<i>Einzelne Zahl</i>-Modus. Wählen Sie zunächst eine
 		Zahl aus. Dann tippen Sie die Zelle an, in die Sie die Zahl eintragen möchten.\n\nDrücken Sie die<i>Stift</i>
 		-Schaltfläche um Zellen-Notizen zu bearbeiten.\n
 	</string>
-	<string name="im_numpad_hint">Sie befinden sich nun im<i>Zahlenblock</i>-Modus. Die Zahlen von 1 bis 9 werden als
+    <string name="im_numpad_hint">Sie befinden sich nun im<i>Zahlenblock</i>-Modus. Die Zahlen von 1 bis 9 werden als
 		Bildschirm-Tastatur angezeigt.\n\nDrücken Sie die<i>Stift</i>-Schaltfläche um Zellen-Notizen zu bearbeiten.\n
 	</string>
-	<string name="im_disable_modes_hint">Bitte beachten Sie, das Sie nicht alle Eingabe-Modi verwenden müssen. Sie
+    <string name="im_disable_modes_hint">Bitte beachten Sie, das Sie nicht alle Eingabe-Modi verwenden müssen. Sie
 		können einzelnen Eingabe-Modi in den Einstellungen deaktivieren.\n\nSie können auch den Trackball oder die
 		Tastatur zur Steuerung des Spiels verwenden. Wenn Sie Notizen über die Tastatur eingeben möchten, drücken "Alt"
 		oder "Umschalt" + Zahl.\n
 	</string>
-	<string name="help_text"><b>Tastatur-Steuerung</b>\n\nVerwenden Sie den Trackball um zur gewünschten Zelle zu
+    <string name="help_text"><b>Tastatur-Steuerung</b>\n\nVerwenden Sie den Trackball um zur gewünschten Zelle zu
 		navigieren und drücken Sie dann eine Zahl auf der Tastatur. Um eine Zellen-Notiz zu bearbeiten, drücken Sie
 		Shift- oder Alt und die entsprechende Zahl.\n\n<b>Eingabe-Modi</b>\n\nÜber die Schaltfläche in der rechten
 		unteren Ecke können Sie zwischen verschiedenen Eingabe-Modi wechseln. Sie können jeden der Eingabe-Modi in den
@@ -125,85 +125,85 @@
 	</string>
 
 
-	<string name="game">Spiel</string>
-	<string name="show_hints">Zeige Bedienungsanleitung beim ersten Start</string>
-	<string name="show_hints_summary">Zeige Bedienungsanleitung</string>
-	<string name="show_time">Zeige Spiel-Zeit</string>
-	<string name="show_time_summary">Zeige Zeit während das Spiel läuft.</string>
+    <string name="game">Spiel</string>
+    <string name="show_hints">Zeige Bedienungsanleitung beim ersten Start</string>
+    <string name="show_hints_summary">Zeige Bedienungsanleitung</string>
+    <string name="show_time">Zeige Spiel-Zeit</string>
+    <string name="show_time_summary">Zeige Zeit während das Spiel läuft.</string>
 
-	<string name="puzzle_inserted">Das neue Sudoku-Rätsel wurde gespeichert.</string>
-	<string name="puzzle_updated">Das Sudoku-Rätsel wurde aktualisiert.</string>
+    <string name="puzzle_inserted">Das neue Sudoku-Rätsel wurde gespeichert.</string>
+    <string name="puzzle_updated">Das Sudoku-Rätsel wurde aktualisiert.</string>
 
-	<string name="puzzles_saved">Die Sudoku-Rätsel wurden im Ordner \'%s\' gespeichert.</string>
-	<string name="no_puzzles_found">Keine Sudoku-Rätsel gefunden.</string>
-	<string name="unknown_import_error">Unbekanntes Format, importieren wurde abgebrochen.</string>
-	<string name="invalid_format">Unbekanntes Format, importieren wurde abgebrochen.</string>
+    <string name="puzzles_saved">Die Sudoku-Rätsel wurden im Ordner \'%s\' gespeichert.</string>
+    <string name="no_puzzles_found">Keine Sudoku-Rätsel gefunden.</string>
+    <string name="unknown_import_error">Unbekanntes Format, importieren wurde abgebrochen.</string>
+    <string name="invalid_format">Unbekanntes Format, importieren wurde abgebrochen.</string>
 
-	<!-- Strings added in 0.7.0 -->
-	<string name="loading">Lade…</string>
+    <!-- Strings added in 0.7.0 -->
+    <string name="loading">Lade…</string>
 
-	<!-- Strings added/changed in 0.7.1 -->
-	<string name="more_settings">Mehr Einstellungen</string>
-	<string name="screen_border_size">Breite des Bildschirmrand</string>
-	<string name="screen_border_size_summary">Spielfeld verkleinern, falls Ihr Bildschirm nicht auf Berührungen am
+    <!-- Strings added/changed in 0.7.1 -->
+    <string name="more_settings">Mehr Einstellungen</string>
+    <string name="screen_border_size">Breite des Bildschirmrand</string>
+    <string name="screen_border_size_summary">Spielfeld verkleinern, falls Ihr Bildschirm nicht auf Berührungen am
 		Bildschirmrand reagiert.
 	</string>
-	<string name="highlight_touched_cell">Berührte Zelle hervorheben</string>
-	<string name="highlight_touched_cell_summary">Spalte und Zeile einer berührten Zelle hervorheben.</string>
-	<string name="export">Export</string>
-	<string name="export_folder">Exportiere Ordner</string>
-	<string name="export_all_folders">Exportiere alle Ordner</string>
-	<string name="folders_created">%d Ordner wurden importiert</string>
-	<string name="importing">Importiere Sudoku-Rätsel…</string>
-	<string name="exporting">Exportiere Sudoku-Rätsel…</string>
-	<string name="unknown_export_error">Ein unbekannter Fehler ist während des Exports aufgetreten.</string>
-	<string name="highlight_completed_values">Markiere vollständige Zahlen</string>
-	<string name="highlight_completed_values_summary">Markiere Zahlen die bereits vollständig eingegeben wurden.</string>
-	<string name="theme">Farbschema</string>
-	<string name="theme_summary">Farbschema für das Spielfeld auswählen.</string>
-	<string name="select_theme">Farbschema auswählen</string>
-	<string name="filename">Dateiname</string>
-	<string name="directory">Verzeichnis</string>
-	<string name="sdcard_not_found">SD-Karte nicht eingelegt.</string>
-	<string name="puzzles_have_been_exported">Sudoku-Rätsel wurden nach %s exportiert.</string>
-	<string name="file_exists">Die Datei existiert bereits, möchten Sie diese überschreiben?</string>
-	<!-- localization of default folder names -->
-	<string name="difficulty_hard">Schwer</string>
-	<string name="difficulty_medium">Mittel</string>
-	<string name="difficulty_easy">Leicht</string>
+    <string name="highlight_touched_cell">Berührte Zelle hervorheben</string>
+    <string name="highlight_touched_cell_summary">Spalte und Zeile einer berührten Zelle hervorheben.</string>
+    <string name="export">Export</string>
+    <string name="export_folder">Exportiere Ordner</string>
+    <string name="export_all_folders">Exportiere alle Ordner</string>
+    <string name="folders_created">%d Ordner wurden importiert</string>
+    <string name="importing">Importiere Sudoku-Rätsel…</string>
+    <string name="exporting">Exportiere Sudoku-Rätsel…</string>
+    <string name="unknown_export_error">Ein unbekannter Fehler ist während des Exports aufgetreten.</string>
+    <string name="highlight_completed_values">Markiere vollständige Zahlen</string>
+    <string name="highlight_completed_values_summary">Markiere Zahlen die bereits vollständig eingegeben wurden.</string>
+    <string name="theme">Farbschema</string>
+    <string name="theme_summary">Farbschema für das Spielfeld auswählen.</string>
+    <string name="select_theme">Farbschema auswählen</string>
+    <string name="filename">Dateiname</string>
+    <string name="directory">Verzeichnis</string>
+    <string name="sdcard_not_found">SD-Karte nicht eingelegt.</string>
+    <string name="puzzles_have_been_exported">Sudoku-Rätsel wurden nach %s exportiert.</string>
+    <string name="file_exists">Die Datei existiert bereits, möchten Sie diese überschreiben?</string>
+    <!-- localization of default folder names -->
+    <string name="difficulty_hard">Schwer</string>
+    <string name="difficulty_medium">Mittel</string>
+    <string name="difficulty_easy">Leicht</string>
 
-	<!-- Strings added/changed in 1.1.0 -->
-	<string name="generate_sudoku">Generiere neues Sudoku</string>
-	<string name="select_difficulty">Schwierigkeit auswählen</string>
-	<string name="generating">Generiere Sudoku-Rätsel…</string>
-	<string name="current_developers_label">Aktive Entwickler</string>
-	<string name="fill_in_notes_summary">Aktiviere den Menüpunkt \"Notizen eintragen\" im Spielmenü.</string>
-	<string name="import_file">Import</string>
-	<string name="import_file_title">Importiere Datei %s file</string>
-	<string name="localization_contributors_label">Mitwirkende Lokalisierung</string>
-	<string name="old_developers_label">Ehemalige Entwickler</string>
-	<string name="set_checkpoint">Setze Sicherungspunkt</string>
-	<string name="show_number_totals">Zeige Anzahl gesetzter Zahlen</string>
-	<string name="show_number_totals_summary">Zeigt auf der Tastatur, wie oft die jeweilige Zahl schon gesetzt wurde.</string>
-	<string name="undo_to_checkpoint">Zurück zu Sicherungspunkt</string>
-	<string name="undo_to_checkpoint_confirm">Sind Sie sicher, alle Eingaben bis zum letzten Sicherungspunkt zu Verwerfen?</string>
-	<string name="what_is_new">Neues</string>
+    <!-- Strings added/changed in 1.1.0 -->
+    <string name="generate_sudoku">Generiere neues Sudoku</string>
+    <string name="select_difficulty">Schwierigkeit auswählen</string>
+    <string name="generating">Generiere Sudoku-Rätsel…</string>
+    <string name="current_developers_label">Aktive Entwickler</string>
+    <string name="fill_in_notes_summary">Aktiviere den Menüpunkt \"Notizen eintragen\" im Spielmenü.</string>
+    <string name="import_file">Import</string>
+    <string name="import_file_title">Importiere Datei %s file</string>
+    <string name="localization_contributors_label">Mitwirkende Lokalisierung</string>
+    <string name="old_developers_label">Ehemalige Entwickler</string>
+    <string name="set_checkpoint">Setze Sicherungspunkt</string>
+    <string name="show_number_totals">Zeige Anzahl gesetzter Zahlen</string>
+    <string name="show_number_totals_summary">Zeigt auf der Tastatur, wie oft die jeweilige Zahl schon gesetzt wurde.</string>
+    <string name="undo_to_checkpoint">Zurück zu Sicherungspunkt</string>
+    <string name="undo_to_checkpoint_confirm">Sind Sie sicher, alle Eingaben bis zum letzten Sicherungspunkt zu Verwerfen?</string>
+    <string name="what_is_new">Neues</string>
     <string name="highlight_similar_cells">Hervorhebung ähnlicher Zellen</string>
-	<string name="highlight_similar_cells_summary">Hebe Zellen mit gleichen Zahlen hervor.</string>
+    <string name="highlight_similar_cells_summary">Hebe Zellen mit gleichen Zahlen hervor.</string>
     <string name="contributors_label">Mitwirkende</string>
-	<string name="bidirectional_selection">Bidirektionale Auswahl</string>
-	<string name="bidirectional_selection_summary">Im EZ Modus übernimmt die Auswahl einer feste Zahl die Zahl als nächste Eingabe.</string>
+    <string name="bidirectional_selection">Bidirektionale Auswahl</string>
+    <string name="bidirectional_selection_summary">Im EZ Modus übernimmt die Auswahl einer feste Zahl die Zahl als nächste Eingabe.</string>
 
-	<!-- Strings added/changed in 2.5.0 -->
-	<string name="game_state_not_started">neu</string>
-	<string name="game_state_playing">am spielen</string>
-	<string name="game_state_solved">gelöst</string>
+    <!-- Strings added/changed in 2.5.0 -->
+    <string name="game_state_not_started">neu</string>
+    <string name="game_state_playing">am spielen</string>
+    <string name="game_state_solved">gelöst</string>
 
-	<string name="game_level_easy">Einfach</string>
-	<string name="game_level_medium">Medium</string>
-	<string name="game_level_hard">Schwer</string>
+    <string name="game_level_easy">Einfach</string>
+    <string name="game_level_medium">Medium</string>
+    <string name="game_level_hard">Schwer</string>
 
-	<string name="theme_paper">Papier</string>
+    <string name="theme_paper">Papier</string>
     <string name="theme_graph_paper">Karopapier</string>
     <string name="theme_light">Hell</string>
     <string name="theme_paper_light">Papier Hell</string>
@@ -248,53 +248,53 @@
 
     <string name="default_backgroundColorHighlighted">Hintergrund hervorgehebene Zelle</string>
     <string name="default_backgroundColorHighlighted_summary">Hintergrundfarbe der Zellen, die gleiche Zahl wie die aktuellen Zelle haben</string>
-	<string name="resume">Fortsetzen</string>
-	<string name="show_sudoku_lists_on_startup_summary">Sudokuliste zum Start anzeigen und Titelbildschirm überspringen</string>
-	<string name="show_sudoku_lists_on_startup_title">Sudokuliste zum Start anzeigen</string>
-	<string name="solve_puzzle">Puzzle lösen</string>
-	<string name="solve_puzzle_confirm">Möchtest du die Lösung wirklich sehen?</string>
-	<string name="solver_hint">Hinweis</string>
-	<string name="sort">Sortieren</string>
-	<string name="sort_creation_date">Erstellungsdatum</string>
-	<string name="sort_last_played">Zuletzt gespiele</string>
-	<string name="sort_play_time">Spielzeit</string>
-	<string name="sort_puzzles_by">Puzzles sortieren nach</string>
-	<string name="sudoku_lists">Sudokulisten</string>
-	<string name="theme_amethyst">Amethyst</string>
-	<string name="theme_amoled">AMOLED</string>
-	<string name="theme_crystal">Kristall</string>
-	<string name="theme_default">Dunkel</string>
-	<string name="theme_espresso">Espresso</string>
-	<string name="theme_forest">Wald</string>
-	<string name="theme_honeybee">Honigbiene</string>
-	<string name="theme_latte">Karamelllatte</string>
-	<string name="theme_midnight_blue">Mitternachtsblau</string>
-	<string name="theme_emerald">Smaragd</string>
-	<string name="theme_ruby">Rubin</string>
-	<string name="theme_sunrise">Sonnenaufgang</string>
-	<string name="undo_to_before_mistake">Rückgänging auf vor Fehler</string>
-	<string name="undo_to_before_mistake_confirm">Möchtest du wirklich alle Aktionen seit dem letzten lösbaren Zustand zurücksetzen?</string>
-	<string name="used_solver">Du hast die Hilfe genutzt um die Lösung zu sehen!</string>
-	<string name="cannot_give_hint">Es gibt keinen Hinweis für dieses Feld</string>
-	<string name="check_solvabitily">Lösbarkeit prüfen</string>
-	<string name="copy_from_existing_theme">Von existierendem Schema kopieren…</string>
-	<string name="create_from_single_color">Aus einzelner Farbe erstellen…</string>
-	<string name="highlight_similar_notes">Gleiche Notizen hervorheben</string>
-	<string name="highlight_similar_notes_summary">Hebt Felder mit gleichen Notizwerten hervor</string>
-	<string name="hint_confirm">Dies wird den richtigen Wert in das gewählte Feld eintragen. Willst du das?</string>
-	<string name="is_light_theme_title">Helles Schema</string>
-	<string name="puzzle_not_solved">Dieses Puzzle hat keine Lösung.</string>
-	<string name="puzzle_solvable">Dieses Puzzle hat eine Lösung.</string>
-	<string name="remove_notes_summary">Entfernt die Notiz automatisch aus der gleichen Spalte, Zeile und Quadrat wenn eine Zahl eingegeben wird</string>
-	<string name="remove_notes_title">Notizen bei Eingabe entfernen</string>
-	<string name="app_startup_category">Appstart</string>
-	<string name="app_color_secondary_title">Zweite Appfarbe</string>
-	<string name="app_color_primary_title">Erste Appfarbe</string>
-	<string name="app_color_button_title">Knopffarbe</string>
-	<string name="app_color_accent_title">Akzentfarbe</string>
-	<string name="app_color_accent_summary">Diese Farbe wird benutzt um verschiedene Elemente zu akzentuieren</string>
-	<string name="app_color_button_summary">Diese Farbe wird für Knöpfe benutzt</string>
-	<string name="app_color_primary_summary">Diese Farbe wird für den Hintergrund der Titelzeile genutzt</string>
-	<string name="app_color_secondary_summary">Diese Farbe wird für die Android-Statusleiste genutzt und ist normalerweise eine dunklere Version der ersten Appfarbe</string>
-	<string name="is_light_theme_summary">Ändert die Appfarben basierend auf dem hellen oder dunklen Schema</string>
+    <string name="resume">Fortsetzen</string>
+    <string name="show_sudoku_lists_on_startup_summary">Sudokuliste zum Start anzeigen und Titelbildschirm überspringen</string>
+    <string name="show_sudoku_lists_on_startup_title">Sudokuliste zum Start anzeigen</string>
+    <string name="solve_puzzle">Puzzle lösen</string>
+    <string name="solve_puzzle_confirm">Möchtest du die Lösung wirklich sehen?</string>
+    <string name="solver_hint">Hinweis</string>
+    <string name="sort">Sortieren</string>
+    <string name="sort_creation_date">Erstellungsdatum</string>
+    <string name="sort_last_played">Zuletzt gespiele</string>
+    <string name="sort_play_time">Spielzeit</string>
+    <string name="sort_puzzles_by">Puzzles sortieren nach</string>
+    <string name="sudoku_lists">Sudokulisten</string>
+    <string name="theme_amethyst">Amethyst</string>
+    <string name="theme_amoled">AMOLED</string>
+    <string name="theme_crystal">Kristall</string>
+    <string name="theme_default">Dunkel</string>
+    <string name="theme_espresso">Espresso</string>
+    <string name="theme_forest">Wald</string>
+    <string name="theme_honeybee">Honigbiene</string>
+    <string name="theme_latte">Karamelllatte</string>
+    <string name="theme_midnight_blue">Mitternachtsblau</string>
+    <string name="theme_emerald">Smaragd</string>
+    <string name="theme_ruby">Rubin</string>
+    <string name="theme_sunrise">Sonnenaufgang</string>
+    <string name="undo_to_before_mistake">Rückgänging auf vor Fehler</string>
+    <string name="undo_to_before_mistake_confirm">Möchtest du wirklich alle Aktionen seit dem letzten lösbaren Zustand zurücksetzen?</string>
+    <string name="used_solver">Du hast die Hilfe genutzt um die Lösung zu sehen!</string>
+    <string name="cannot_give_hint">Es gibt keinen Hinweis für dieses Feld</string>
+    <string name="check_solvabitily">Lösbarkeit prüfen</string>
+    <string name="copy_from_existing_theme">Von existierendem Schema kopieren…</string>
+    <string name="create_from_single_color">Aus einzelner Farbe erstellen…</string>
+    <string name="highlight_similar_notes">Gleiche Notizen hervorheben</string>
+    <string name="highlight_similar_notes_summary">Hebt Felder mit gleichen Notizwerten hervor</string>
+    <string name="hint_confirm">Dies wird den richtigen Wert in das gewählte Feld eintragen. Willst du das?</string>
+    <string name="is_light_theme_title">Helles Schema</string>
+    <string name="puzzle_not_solved">Dieses Puzzle hat keine Lösung.</string>
+    <string name="puzzle_solvable">Dieses Puzzle hat eine Lösung.</string>
+    <string name="remove_notes_summary">Entfernt die Notiz automatisch aus der gleichen Spalte, Zeile und Quadrat wenn eine Zahl eingegeben wird</string>
+    <string name="remove_notes_title">Notizen bei Eingabe entfernen</string>
+    <string name="app_startup_category">Appstart</string>
+    <string name="app_color_secondary_title">Zweite Appfarbe</string>
+    <string name="app_color_primary_title">Erste Appfarbe</string>
+    <string name="app_color_button_title">Knopffarbe</string>
+    <string name="app_color_accent_title">Akzentfarbe</string>
+    <string name="app_color_accent_summary">Diese Farbe wird benutzt um verschiedene Elemente zu akzentuieren</string>
+    <string name="app_color_button_summary">Diese Farbe wird für Knöpfe benutzt</string>
+    <string name="app_color_primary_summary">Diese Farbe wird für den Hintergrund der Titelzeile genutzt</string>
+    <string name="app_color_secondary_summary">Diese Farbe wird für die Android-Statusleiste genutzt und ist normalerweise eine dunklere Version der ersten Appfarbe</string>
+    <string name="is_light_theme_summary">Ändert die Appfarben basierend auf dem hellen oder dunklen Schema</string>
 </resources>

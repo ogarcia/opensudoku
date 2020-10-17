@@ -1,14 +1,11 @@
 package org.moire.opensudoku.gui;
 
-import android.app.ListActivity;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
-
-import org.moire.opensudoku.R;
-import org.moire.opensudoku.utils.ThemeUtils;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import org.moire.opensudoku.utils.ThemeUtils;
 
 public class ThemedActivity extends AppCompatActivity {
     private int mThemeId = 0;

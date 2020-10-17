@@ -1,6 +1,5 @@
 package org.moire.opensudoku.game.command;
 
-import org.moire.opensudoku.game.Cell;
 import org.moire.opensudoku.game.CellCollection;
 import org.moire.opensudoku.game.CellNote;
 

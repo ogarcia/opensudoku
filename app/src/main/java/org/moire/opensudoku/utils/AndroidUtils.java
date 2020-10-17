@@ -1,16 +1,10 @@
 package org.moire.opensudoku.utils;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.pm.ResolveInfo;
-import android.content.res.Resources;
-import android.preference.PreferenceManager;
-
-import org.moire.opensudoku.R;
 
 import java.util.List;
 

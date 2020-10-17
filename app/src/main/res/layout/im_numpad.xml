@@ -98,11 +98,11 @@
 
         <Button
             android:id="@+id/switch_input_mode"
+            style="@style/Widget.AppCompat.Button.Colored"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
             android:layout_weight="1"
-            android:text="POP"
-            style="@style/Widget.AppCompat.Button.Colored"/>
+            android:text="POP" />
 
     </LinearLayout>
 

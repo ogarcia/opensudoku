@@ -32,7 +32,6 @@ import org.moire.opensudoku.game.CellCollection;
 import org.moire.opensudoku.game.FolderInfo;
 import org.moire.opensudoku.game.SudokuGame;
 import org.moire.opensudoku.game.command.CommandStack;
-import org.moire.opensudoku.gui.SudokuListActivity;
 import org.moire.opensudoku.gui.SudokuListFilter;
 import org.moire.opensudoku.gui.SudokuListSorter;
 
@@ -56,8 +55,9 @@ public class SudokuDatabase {
     public static final String FOLDER_TABLE_NAME = "folder";
 
     //private static final String TAG = "SudokuDatabase";
-
+    private static final String INBOX_FOLDER_NAME = "Inbox";
     private DatabaseHelper mOpenHelper;
+    private SQLiteStatement mInsertSudokuStatement;
 
     public SudokuDatabase(Context context) {
         mOpenHelper = new DatabaseHelper(context);
@@ -146,8 +146,6 @@ public class SudokuDatabase {
 
         return folder;
     }
-
-    private static final String INBOX_FOLDER_NAME = "Inbox";
 
     /**
      * Returns folder which acts as a holder for puzzles imported without folder.
@@ -333,7 +331,6 @@ public class SudokuDatabase {
 
     }
 
-
     /**
      * Inserts new puzzle into the database.
      *
@@ -364,8 +361,6 @@ public class SudokuDatabase {
 
         throw new SQLException("Failed to insert sudoku.");
     }
-
-    private SQLiteStatement mInsertSudokuStatement;
 
     public long importSudoku(long folderID, SudokuImportParams pars) throws SudokuInvalidFormatException {
         if (pars.data == null) {

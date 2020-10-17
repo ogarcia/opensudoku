@@ -2,18 +2,16 @@ apply plugin: 'com.android.application'
 
 android {
     compileSdkVersion 29
-    buildToolsVersion '28.0.3'
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "org.moire.opensudoku"
         minSdkVersion 14
         targetSdkVersion 29
-        versionCode 20200612
-        versionName "3.4.1"
+        versionCode 20200914
+        versionName "3.5.0"
 
-        vectorDrawables {
-            useSupportLibrary true
-        }
+        vectorDrawables.useSupportLibrary true
     }
 
     buildTypes {
@@ -32,19 +30,21 @@ android {
     }
 
     compileOptions {
-        encoding = 'UTF-8'
+        encoding "UTF-8"
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    packagingOptions {
+        exclude 'META-INF/*'
     }
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-
-    implementation 'androidx.annotation:annotation:1.1.0'
-    implementation 'androidx.appcompat:appcompat:1.1.0'
-    implementation 'com.google.android.material:material:1.3.0-alpha01'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.preference:preference:1.1.1'
 
     implementation 'net.margaritov.preference.colorpicker.ColorPickerPreference:ColorPickerPreference:1.0.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    // TODO: Migrate entirely to AndroidX Preference, using this version with it
+    //implementation 'com.github.attenzione:android-ColorPickerPreference:v1.2'
 }
