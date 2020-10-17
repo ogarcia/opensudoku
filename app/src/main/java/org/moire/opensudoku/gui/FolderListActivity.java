@@ -29,6 +29,7 @@ import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Log;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
@@ -339,7 +340,7 @@ public class FolderListActivity extends ThemedActivity {
             case MENU_ITEM_IMPORT:
                 intent = new Intent();
                 intent.setClass(this, FileListActivity.class);
-                intent.putExtra(FileListActivity.EXTRA_FOLDER_NAME, "/sdcard");
+                intent.putExtra(FileListActivity.EXTRA_FOLDER_NAME, Environment.getExternalStorageDirectory().getAbsolutePath());
                 // need to request permission before FileListActivity can even be started
                 if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
                     requestStoragePermission();
