@@ -43,7 +43,7 @@ public class SudokuGenerateActivity extends ThemedActivity {
         Intent intent = getIntent();
         String folderName = intent.getStringExtra(EXTRA_FOLDER_NAME);
         mFolderNameEdit.setText(folderName == null
-                ? "Gen_"+DateFormat.format("yyyy-MM-dd-hh-mm-ss", new Date()).toString()+"_{games}x{empty}"
+                ? "Gen_"+DateFormat.format("yyyy-MM-dd-hh-mm-ss", new Date()).toString()+"_{empty}"
                 : folderName);
 
         mNumEmptyCellsPicker.setMinValue(1);
@@ -59,7 +59,6 @@ public class SudokuGenerateActivity extends ThemedActivity {
         Button mGenButton = findViewById(R.id.gen_button);
         mGenButton.setOnClickListener(v -> {
             String folder = mFolderNameEdit.getText().toString()
-                    .replace("{games}", Integer.toString(mNumGamesPicker.getValue()))
                     .replace("{empty}", Integer.toString(mNumEmptyCellsPicker.getValue()));
 
             Intent i = new Intent(this, SudokuImportActivity.class);

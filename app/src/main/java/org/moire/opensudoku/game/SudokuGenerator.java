@@ -4,6 +4,9 @@ import android.util.Log;
 
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 
@@ -32,45 +35,59 @@ public class SudokuGenerator {
      */
     public SudokuGame generate(int numberOfEmptyCells)
     {
-        SudokuGame game = generateSolvedGame();
-        CellCollection cells = game.getCells();
-        print("Solution:\n", cells);
-
-        mAttempts = 1;
+        mAttempts=0;
         mGames++;
 
-        // loop through and randomly unset numberOfEmptyCells
-        int i = 0;
-        while (i < numberOfEmptyCells) {
-            int randomRow = mRandom.nextInt(SUDOKU_SIZE);
-            int randomColumn = mRandom.nextInt(SUDOKU_SIZE);
+        SudokuGame game;
+        int i;
+        do {
+            mAttempts++;
+            game = generateSolvedGame();
+            CellCollection cells = game.getCells();
+            print("Testing Solution "+mAttempts+" for game "+mGames+":\n", cells);
 
-            Cell cell = cells.getCell(randomRow, randomColumn);
-            int value = cell.getValue();
-            if (value != 0) {
-                // unset the cell and check that it only has 1 unique solution
-                // if so, move on, otherwise, attempt to unset a different cell
-                cell.setValue(0);
-                if (isUniqueSolution(cell, cells)) i++;
-                else {
-                    mAttempts++;
-                    Log.d(TAG, "generate: Game: "+mGames+" Attempt: "+mAttempts);
-                    cell.setValue(value); // restore the solved value
+            LinkedList<LinkedList<Integer>> heatMap = new LinkedList<>();
+            for (int r = 0; r < SUDOKU_SIZE; r++) {
+                List<Integer> values = Arrays.asList(0, 1, 2, 3, 4, 5, 6, 7, 8);
+                Collections.shuffle(values, mRandom);
+                heatMap.add(new LinkedList<>(values));
+            }
+
+            // loop through and randomly unset numberOfEmptyCells
+            i = 0;
+            while (i < numberOfEmptyCells) {
+
+                if (heatMap.isEmpty()) {
+                    Log.d(TAG, "generate: No more possible cells - could only unset "+i+" of "+numberOfEmptyCells);
+                    break;
+                }
+
+                int randomRow = mRandom.nextInt(heatMap.size());
+                LinkedList<Integer> heatRow = heatMap.get(randomRow);
+                int randomColumn = heatRow.removeFirst();
+                if (heatRow.isEmpty())
+                    heatMap.remove(heatRow);
+
+                Log.d(TAG, "generate: Using " + randomRow + ", " + randomColumn);
+
+                Cell cell = cells.getCell(randomRow, randomColumn);
+                int value = cell.getValue();
+                if (value != 0) {
+                    // unset the cell and check that it only has 1 unique solution
+                    // if so, move on, otherwise, attempt to unset a different cell
+                    cell.setValue(0);
+                    if (isUniqueSolution(cell, cells)) i++;
+                    else {
+                        Log.d(TAG, "generate: Cell "+randomRow+", "+randomColumn+" has multiple solution. Trying different cell.");
+                        cell.setValue(value); // restore the solved value
+                    }
                 }
             }
-        }
-
-//        mAttempts = 0;
-//        CellCollection cells;
-//        do {
-//            mAttempts++;
-//            Log.d(TAG, "generate: Attempt: "+mAttempts);
-//            cells = randomlyUnsetCells(game.getCells(), numberOfEmptyCells);
-//        } while(!isUniqueSolution(cells));
+        } while (i != numberOfEmptyCells);
 
         // success
         mTotalAttempts += mAttempts;
-        game.setCells(cells);
+        game.setCells(game.getCells()); // lock in as original cells
         print("Unsolved (attempts="+mAttempts+"):\n", game.getCells());
         return game;
     }
@@ -155,11 +172,12 @@ public class SudokuGenerator {
      **/
     private boolean isUniqueSolution(Cell cell, CellCollection cells)
     {
-        String subject = cell.getRow()+","+cell.getColumn();
+        String subject = cell.getRowIndex()+","+cell.getColumnIndex();
 
         // loop through possible solutions in that cell
         List<Integer> possibleSolutions = cell.getPossibleSolutions();
         Log.d(TAG, "isUniqueSolution: "+subject+" has possible solutions "+possibleSolutions);
+
         boolean solutionFound = false;
         for (int value : possibleSolutions) {
             Log.d(TAG, "isUniqueSolution: Testing "+subject+" = "+value);
