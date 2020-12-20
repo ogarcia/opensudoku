@@ -380,21 +380,6 @@ public class FolderListActivity extends ThemedActivity {
         }
     }
 
-    private void requestStoragePermission() {
-        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-            new AlertDialog.Builder(this)
-                    .setTitle("Permission needed")
-                    .setMessage("This permission is needed in order to access your SD Card")
-                    .setPositiveButton("ok", (dialog, which) ->
-                            ActivityCompat.requestPermissions(FolderListActivity.this,
-                                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE))
-                    .setNegativeButton("cancel", (dialog, which) -> dialog.dismiss())
-                    .create().show();
-        } else {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
-        }
-    }
-
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         if (requestCode == STORAGE_PERMISSION_CODE) {

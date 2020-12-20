@@ -10,7 +10,6 @@ import android.widget.ProgressBar;
 import org.moire.opensudoku.R;
 import org.moire.opensudoku.gui.importing.AbstractImportTask;
 import org.moire.opensudoku.gui.importing.AbstractImportTask.OnImportFinishedListener;
-import org.moire.opensudoku.gui.importing.ExtrasImportTask;
 import org.moire.opensudoku.gui.importing.OpenSudokuImportTask;
 import org.moire.opensudoku.gui.importing.SdmImportTask;
 
@@ -26,36 +25,22 @@ import java.net.URISyntaxException;
  * @author romario
  */
 public class SudokuImportActivity extends ThemedActivity {
-    /**
-     * Name of folder to which games should be imported.
-     */
-    public static final String EXTRA_FOLDER_NAME = "FOLDER_NAME";
-    /**
-     * Indicates whether games should be appended to the existing folder if such
-     * folder exists.
-     */
-    public static final String EXTRA_APPEND_TO_FOLDER = "APPEND_TO_FOLDER";
-    /**
-     * Games (puzzles) to import. String should be in this format:
-     * 120001232...0041\n 456000213...1100\n
-     */
-    public static final String EXTRA_GAMES = "GAMES";
-
     private static final String TAG = "ImportSudokuActivity";
+
     private final OnImportFinishedListener mOnImportFinishedListener = (importSuccessful, folderId) -> {
         if (importSuccessful) {
+            Intent i;
             if (folderId == -1) {
                 // multiple folders were imported, go to folder list
-                Intent i = new Intent(SudokuImportActivity.this,
+                i = new Intent(SudokuImportActivity.this,
                         FolderListActivity.class);
-                startActivity(i);
             } else {
                 // one folder was imported, go to this folder
-                Intent i = new Intent(SudokuImportActivity.this,
+                i = new Intent(SudokuImportActivity.this,
                         SudokuListActivity.class);
                 i.putExtra(SudokuListActivity.EXTRA_FOLDER_ID, folderId);
-                startActivity(i);
             }
+            startActivity(i);
         }
         // call finish, so this activity won't be part of history
         finish();
@@ -85,14 +70,12 @@ public class SudokuImportActivity extends ThemedActivity {
                     e.printStackTrace();
                 }
             } else {
-                java.net.URI juri = null;
+                java.net.URI juri;
                 try {
                     juri = new java.net.URI(dataUri.getScheme(), dataUri
                             .getSchemeSpecificPart(), dataUri.getFragment());
                     streamReader = new InputStreamReader(juri.toURL().openStream());
-                } catch (URISyntaxException e) {
-                    e.printStackTrace();
-                } catch (IOException e) {
+                } catch (URISyntaxException | IOException e) {
                     e.printStackTrace();
                 }
             }
@@ -102,13 +85,17 @@ public class SudokuImportActivity extends ThemedActivity {
             }
 
             char[] cbuf = new char[512];
-
+            int read;
             try {
                 // read first 512 bytes to check the type of file
-                streamReader.read(cbuf, 0, 512);
+                read = streamReader.read(cbuf, 0, 512);
                 streamReader.close();
             } catch (IOException e) {
-                e.printStackTrace();
+                return;
+            }
+            if (read < 81) {
+                // At least one full 9x9 game needed in case of SDM
+                return;
             }
 
             String cbuf_str = new String(cbuf);
@@ -116,7 +103,7 @@ public class SudokuImportActivity extends ThemedActivity {
             if (cbuf_str.contains("<opensudoku")) {
                 // Seems to be an OpenSudoku file
                 importTask = new OpenSudokuImportTask(dataUri);
-            } else if (cbuf_str.matches("[.0-9\\n\\r]{512}")) {
+            } else if (cbuf_str.matches("[.0-9\\n\\r]{" + read + "}")) {
                 // Seems to be a Sudoku SDM file
                 importTask = new SdmImportTask(dataUri);
             } else {
@@ -129,14 +116,6 @@ public class SudokuImportActivity extends ThemedActivity {
                 return;
 
             }
-        } else if (intent.getStringExtra(EXTRA_FOLDER_NAME) != null) {
-
-            String folderName = intent.getStringExtra(EXTRA_FOLDER_NAME);
-            String games = intent.getStringExtra(EXTRA_GAMES);
-            boolean appendToFolder = intent.getBooleanExtra(
-                    EXTRA_APPEND_TO_FOLDER, false);
-            importTask = new ExtrasImportTask(folderName, games, appendToFolder);
-
         } else {
             Log.e(TAG, "No data provided, exiting.");
             finish();
