@@ -13,7 +13,11 @@ import org.moire.opensudoku.gui.importing.AbstractImportTask.OnImportFinishedLis
 import org.moire.opensudoku.gui.importing.ExtrasImportTask;
 import org.moire.opensudoku.gui.importing.OpenSudokuImportTask;
 import org.moire.opensudoku.gui.importing.SdmImportTask;
-import org.moire.opensudoku.utils.Const;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.URISyntaxException;
 
 /**
  * This activity is responsible for importing puzzles from various sources
@@ -38,7 +42,7 @@ public class SudokuImportActivity extends ThemedActivity {
     public static final String EXTRA_GAMES = "GAMES";
 
     private static final String TAG = "ImportSudokuActivity";
-    private OnImportFinishedListener mOnImportFinishedListener = (importSuccessful, folderId) -> {
+    private final OnImportFinishedListener mOnImportFinishedListener = (importSuccessful, folderId) -> {
         if (importSuccessful) {
             if (folderId == -1) {
                 // multiple folders were imported, go to folder list
@@ -72,17 +76,50 @@ public class SudokuImportActivity extends ThemedActivity {
         Intent intent = getIntent();
         Uri dataUri = intent.getData();
         if (dataUri != null) {
-            if (Const.MIME_TYPE_OPENSUDOKU.equals(intent.getType())
-                    || dataUri.toString().endsWith(".opensudoku")) {
-
-                importTask = new OpenSudokuImportTask(dataUri);
-
-            } else if (dataUri.toString().endsWith(".sdm")) {
-
-                importTask = new SdmImportTask(dataUri);
-
+            Log.v(TAG, dataUri.toString());
+            InputStreamReader streamReader = null;
+            if (dataUri.getScheme().equals("content")) {
+                try {
+                    streamReader = new InputStreamReader(getContentResolver().openInputStream(dataUri));
+                } catch (FileNotFoundException e) {
+                    e.printStackTrace();
+                }
             } else {
+                java.net.URI juri = null;
+                try {
+                    juri = new java.net.URI(dataUri.getScheme(), dataUri
+                            .getSchemeSpecificPart(), dataUri.getFragment());
+                    streamReader = new InputStreamReader(juri.toURL().openStream());
+                } catch (URISyntaxException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
 
+            if (streamReader == null) {
+                return;
+            }
+
+            char[] cbuf = new char[512];
+
+            try {
+                // read first 512 bytes to check the type of file
+                streamReader.read(cbuf, 0, 512);
+                streamReader.close();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            String cbuf_str = new String(cbuf);
+
+            if (cbuf_str.contains("<opensudoku")) {
+                // Seems to be an OpenSudoku file
+                importTask = new OpenSudokuImportTask(dataUri);
+            } else if (cbuf_str.matches("[.0-9\\n\\r]{512}")) {
+                // Seems to be a Sudoku SDM file
+                importTask = new SdmImportTask(dataUri);
+            } else {
                 Log.e(
                         TAG,
                         String.format(

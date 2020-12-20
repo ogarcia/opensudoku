@@ -1,11 +1,13 @@
 package org.moire.opensudoku.gui;
 
-import android.Manifest;
+import android.app.Activity;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
-import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.OpenableColumns;
 import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View.OnClickListener;
@@ -13,10 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
+import androidx.annotation.Nullable;
 
 import org.moire.opensudoku.R;
 import org.moire.opensudoku.db.SudokuDatabase;
@@ -24,7 +23,7 @@ import org.moire.opensudoku.game.FolderInfo;
 import org.moire.opensudoku.gui.exporting.FileExportTask;
 import org.moire.opensudoku.gui.exporting.FileExportTaskParams;
 
-import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Date;
 
 public class SudokuExportActivity extends ThemedActivity {
@@ -33,21 +32,19 @@ public class SudokuExportActivity extends ThemedActivity {
      */
     public static final String EXTRA_FOLDER_ID = "FOLDER_ID";
     public static final long ALL_FOLDERS = -1;
-    private static final int DIALOG_FILE_EXISTS = 1;
     private static final int DIALOG_PROGRESS = 2;
     private static final String TAG = SudokuExportActivity.class.getSimpleName();
+    private static final int CREATE_FILE = 1;
     /**
      * Id of sudoku to export.
      */
 //	public static final String EXTRA_SUDOKU_ID = "SUDOKU_ID";
 
-    private int STORAGE_PERMISSION_CODE = 1;
     private FileExportTask mFileExportTask;
     private FileExportTaskParams mExportParams;
 
     private EditText mFileNameEdit;
-    private EditText mDirectoryEdit;
-    private OnClickListener mOnSaveClickListener = v -> exportToFile();
+    private final OnClickListener mOnSaveClickListener = v -> exportToFile();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,7 +53,7 @@ public class SudokuExportActivity extends ThemedActivity {
         setContentView(R.layout.sudoku_export);
 
         mFileNameEdit = findViewById(R.id.filename);
-        mDirectoryEdit = findViewById(R.id.directory);
+        EditText mDirectoryEdit = findViewById(R.id.directory);
         Button mSaveButton = findViewById(R.id.save_button);
         mSaveButton.setOnClickListener(mOnSaveClickListener);
 
@@ -98,14 +95,6 @@ public class SudokuExportActivity extends ThemedActivity {
     @Override
     protected Dialog onCreateDialog(int id) {
         switch (id) {
-            case DIALOG_FILE_EXISTS:
-
-                return new AlertDialog.Builder(this)
-                        .setTitle(R.string.export)
-                        .setMessage(R.string.file_exists)
-                        .setPositiveButton(android.R.string.yes, (dialog, which) -> startExportToFileTask())
-                        .setNegativeButton(android.R.string.no, null)
-                        .create();
             case DIALOG_PROGRESS:
                 ProgressDialog progressDialog = new ProgressDialog(this);
                 progressDialog.setIndeterminate(true);
@@ -118,75 +107,54 @@ public class SudokuExportActivity extends ThemedActivity {
     }
 
     private void exportToFile() {
-        // check for permission to write to sd card
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            requestStoragePermission();
+        Intent intent = new Intent(Intent.ACTION_CREATE_DOCUMENT);
+        intent.addCategory(Intent.CATEGORY_OPENABLE);
+        intent.setType("application/x-opensudoku");
+        intent.putExtra(Intent.EXTRA_TITLE, mFileNameEdit.getText().toString() + ".opensudoku");
+        startActivityForResult(intent, CREATE_FILE);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (requestCode == CREATE_FILE && resultCode == Activity.RESULT_OK) {
+            Uri uri = null;
+            if (data != null) {
+                uri = data.getData();
+                startExportToFileTask(uri);
+            }
         } else {
-            File sdcard = new File("/sdcard");
-            if (!sdcard.exists()) {
-                Toast.makeText(SudokuExportActivity.this, R.string.sdcard_not_found, Toast.LENGTH_LONG).show();
-                finish();
-            }
-
-            String directory = mDirectoryEdit.getText().toString();
-            String filename = mFileNameEdit.getText().toString();
-
-            File file = new File(directory, filename + ".opensudoku");
-            if (file.exists()) {
-                showDialog(DIALOG_FILE_EXISTS);
-            } else {
-                startExportToFileTask();
-            }
+            super.onActivityResult(requestCode, resultCode, data);
         }
     }
 
-    private void startExportToFileTask() {
+    private void startExportToFileTask(Uri uri) {
         mFileExportTask.setOnExportFinishedListener(result -> {
             dismissDialog(DIALOG_PROGRESS);
 
             if (result.successful) {
                 Toast.makeText(SudokuExportActivity.this, getString(
-                        R.string.puzzles_have_been_exported, result.file), Toast.LENGTH_SHORT).show();
+                        R.string.puzzles_have_been_exported, result.filename), Toast.LENGTH_SHORT).show();
             } else {
                 Toast.makeText(SudokuExportActivity.this, getString(
                         R.string.unknown_export_error), Toast.LENGTH_LONG).show();
             }
             finish();
         });
-
-        String directory = mDirectoryEdit.getText().toString();
-        String filename = mFileNameEdit.getText().toString();
-
-        mExportParams.file = new File(directory, filename + ".opensudoku");
+        try {
+            mExportParams.file = getContentResolver().openOutputStream(uri);
+            Cursor cursor = getContentResolver().query(uri, null, null, null, null);
+            if (cursor != null && cursor.moveToFirst()) {
+                mExportParams.filename = cursor.getString(cursor.getColumnIndex(OpenableColumns.DISPLAY_NAME));
+            }
+            assert cursor != null;
+            cursor.close();
+        } catch (FileNotFoundException e) {
+            Toast.makeText(SudokuExportActivity.this, getString(
+                    R.string.unknown_export_error), Toast.LENGTH_LONG).show();
+        }
 
         showDialog(DIALOG_PROGRESS);
         mFileExportTask.execute(mExportParams);
-    }
-
-    private void requestStoragePermission() {
-        if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-            new AlertDialog.Builder(this)
-                    .setTitle("Permission needed")
-                    .setMessage("This permission is needed in order to access your SD Card")
-                    .setPositiveButton("ok", (dialog, which) ->
-                            ActivityCompat.requestPermissions(SudokuExportActivity.this,
-                                    new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE))
-                    .setNegativeButton("cancel", (dialog, which) -> dialog.dismiss())
-                    .create().show();
-        } else {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, STORAGE_PERMISSION_CODE);
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        if (requestCode == STORAGE_PERMISSION_CODE) {
-            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                exportToFile();
-            } else {
-                Toast.makeText(this, "Permission DENIED", Toast.LENGTH_SHORT).show();
-            }
-        }
     }
 /*
     private void exportToMail() {

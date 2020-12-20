@@ -21,6 +21,7 @@
 package org.moire.opensudoku.gui;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.ComponentName;
 import android.content.Context;
@@ -45,6 +46,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -70,6 +72,8 @@ public class FolderListActivity extends ThemedActivity {
     public static final int MENU_ITEM_EXPORT_ALL = Menu.FIRST + 5;
     public static final int MENU_ITEM_IMPORT = Menu.FIRST + 6;
     public static final int MENU_ITEM_SETTINGS = Menu.FIRST + 7;
+
+    private static final int OPEN_FILE = 1;
 
     private static final int DIALOG_ABOUT = 0;
     private static final int DIALOG_ADD_FOLDER = 1;
@@ -338,15 +342,10 @@ public class FolderListActivity extends ThemedActivity {
                 showDialog(DIALOG_ADD_FOLDER);
                 return true;
             case MENU_ITEM_IMPORT:
-                intent = new Intent();
-                intent.setClass(this, FileListActivity.class);
-                intent.putExtra(FileListActivity.EXTRA_FOLDER_NAME, Environment.getExternalStorageDirectory().getAbsolutePath());
-                // need to request permission before FileListActivity can even be started
-                if (ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-                    requestStoragePermission();
-                } else {
-                    startActivity(intent);
-                }
+                intent = new Intent(Intent.ACTION_OPEN_DOCUMENT);
+                intent.addCategory(Intent.CATEGORY_OPENABLE);
+                intent.setType("*/*");
+                startActivityForResult(intent, OPEN_FILE);
                 return true;
             case MENU_ITEM_EXPORT_ALL:
                 intent = new Intent();
@@ -364,6 +363,21 @@ public class FolderListActivity extends ThemedActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        if (requestCode == OPEN_FILE && resultCode == Activity.RESULT_OK) {
+            Uri uri = null;
+            if (data != null) {
+                uri = data.getData();
+                Intent i = new Intent(this, SudokuImportActivity.class);
+                i.setData(uri);
+                startActivity(i);
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
+        }
     }
 
     private void requestStoragePermission() {

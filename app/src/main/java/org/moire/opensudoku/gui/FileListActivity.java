@@ -169,7 +169,7 @@ public class FileListActivity extends ListActivity {
                     .setPositiveButton(R.string.import_file, (dialog, whichButton) -> {
                         //importovani
                         File f = mSelectedFile;
-                        Intent i = new Intent(mContext, ImportSudokuActivity.class);
+                        Intent i = new Intent(mContext, SudokuImportActivity.class);
                         Uri u = Uri.fromFile(f);
                         i.setData(u);
                         startActivity(i);
