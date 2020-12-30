@@ -61,7 +61,10 @@ public class SudokuImportActivity extends ThemedActivity {
         Intent intent = getIntent();
         String action = intent.getAction();
         Uri dataUri;
-        if (action.equalsIgnoreCase("android.intent.action.SEND")) {
+        if (action == null) {
+            dataUri = intent.getData();
+        }
+        else if (action.equalsIgnoreCase("android.intent.action.SEND")) {
             dataUri = (Uri) intent.getExtras().get(Intent.EXTRA_STREAM);
         }
         else if (action.equalsIgnoreCase("android.intent.action.VIEW")) {
