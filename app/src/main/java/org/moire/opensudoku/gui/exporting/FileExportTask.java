@@ -16,6 +16,7 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStreamWriter;
 import java.io.Writer;
 
 /**
@@ -74,19 +75,12 @@ public class FileExportTask extends AsyncTask<FileExportTaskParams, Integer, Voi
 
         FileExportTaskResult result = new FileExportTaskResult();
         result.successful = false;
+        result.filename = par.filename;
 
         SudokuDatabase database = null;
         Cursor cursor = null;
         Writer writer = null;
         try {
-            // create dir if it does not exists already
-            File dir = new File(par.file.getParent());
-            if (!dir.exists()) {
-                dir.mkdirs();
-            }
-
-            result.file = par.file;
-
             database = new SudokuDatabase(mContext);
 
             boolean generateFolders;
@@ -99,7 +93,7 @@ public class FileExportTask extends AsyncTask<FileExportTaskParams, Integer, Voi
             }
 
             XmlSerializer serializer = Xml.newSerializer();
-            writer = new BufferedWriter(new FileWriter(result.file, false));
+            writer = new BufferedWriter(new OutputStreamWriter(par.file));
             serializer.setOutput(writer);
             serializer.startDocument("UTF-8", true);
             serializer.startTag("", "opensudoku");
@@ -177,8 +171,7 @@ public class FileExportTask extends AsyncTask<FileExportTaskParams, Integer, Voi
         /**
          * Occurs when export is finished.
          *
-         * @param importSuccessful Indicates whether export was successful.
-         * @param folderId         Contains id of imported folder, or -1 if multiple folders were imported.
+         * @param result The result of the export
          */
         void onExportFinished(FileExportTaskResult result);
     }

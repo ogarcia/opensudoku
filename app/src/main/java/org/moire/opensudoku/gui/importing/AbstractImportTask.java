@@ -11,7 +11,6 @@ import org.moire.opensudoku.db.SudokuDatabase;
 import org.moire.opensudoku.db.SudokuImportParams;
 import org.moire.opensudoku.db.SudokuInvalidFormatException;
 import org.moire.opensudoku.game.FolderInfo;
-import org.moire.opensudoku.gui.ImportSudokuActivity;
 import org.moire.opensudoku.utils.Const;
 
 /**
@@ -24,7 +23,7 @@ import org.moire.opensudoku.utils.Const;
  * {@link #importFolder(String, boolean)} and {@link #importGame(String)} methods. Note
  * that <code>importFolder</code> must be called first, otherwise <code>importGame</code>
  * doesn't know where to put puzzles.
- * 3) Add code to {@link ImportSudokuActivity} which creates instance of your new class and
+ * 3) Add code to {@link org.moire.opensudoku.gui.SudokuImportActivity} which creates instance of your new class and
  * passes it input parameters.
  * <p/>
  * TODO: add cancel support

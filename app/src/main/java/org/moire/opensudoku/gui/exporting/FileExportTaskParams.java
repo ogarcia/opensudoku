@@ -1,6 +1,6 @@
 package org.moire.opensudoku.gui.exporting;
 
-import java.io.File;
+import java.io.OutputStream;
 
 public class FileExportTaskParams {
 
@@ -16,6 +16,7 @@ public class FileExportTaskParams {
     /**
      * File where data should be saved.
      */
-    public File file;
+    public OutputStream file;
+    public String filename;
 
 }
