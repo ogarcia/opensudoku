@@ -3,6 +3,10 @@
 <body>
   <b>3.5.1</b>
   <ul>
+    <li>Fix import and export of sudokus in Android 11. Thanks @autinerd!</li>
+  </ul>
+  <b>3.5.1</b>
+  <ul>
     <li>Fixed a crash when import Sudokus on Android 10 or higher.</li>
     <li>Basque translation updated. Thanks @Porrumentzio!</li>
     <li>German translation updated. Thanks @cyclingcat!</li>

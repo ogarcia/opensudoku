@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Window;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import org.moire.opensudoku.R;
 import org.moire.opensudoku.gui.importing.AbstractImportTask;
@@ -127,6 +128,7 @@ public class SudokuImportActivity extends ThemedActivity {
                         String.format(
                                 "Unknown type of data provided (mime-type=%s; uri=%s), exiting.",
                                 intent.getType(), dataUri));
+                Toast.makeText(this, R.string.invalid_format, Toast.LENGTH_LONG).show();
                 finish();
                 return;
 
