@@ -59,7 +59,18 @@ public class SudokuImportActivity extends ThemedActivity {
 
         AbstractImportTask importTask;
         Intent intent = getIntent();
-        Uri dataUri = intent.getData();
+        String action = intent.getAction();
+        Uri dataUri;
+        if (action.equalsIgnoreCase("android.intent.action.SEND")) {
+            dataUri = (Uri) intent.getExtras().get(Intent.EXTRA_STREAM);
+        }
+        else if (action.equalsIgnoreCase("android.intent.action.VIEW")) {
+            dataUri = intent.getData();
+        }
+        else {
+            finish();
+            return;
+        }
         if (dataUri != null) {
             Log.v(TAG, dataUri.toString());
             InputStreamReader streamReader = null;
@@ -71,6 +82,7 @@ public class SudokuImportActivity extends ThemedActivity {
                 }
             } else {
                 java.net.URI juri;
+                Log.v(TAG, dataUri.toString());
                 try {
                     juri = new java.net.URI(dataUri.getScheme(), dataUri
                             .getSchemeSpecificPart(), dataUri.getFragment());

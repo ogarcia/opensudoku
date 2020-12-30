@@ -3,10 +3,7 @@
     package="org.moire.opensudoku"
     android:installLocation="auto">
 
-    <uses-permission android:name="android.permission.INTERNET" />
-
     <application
-        android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:requestLegacyExternalStorage="true"
@@ -50,9 +47,6 @@
                 <data
                     android:mimeType="application/x-opensudoku"
                     android:scheme="file" />
-                <data
-                    android:mimeType="application/x-opensudoku"
-                    android:scheme="http" />
             </intent-filter>
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
@@ -73,16 +67,6 @@
                 <data
                     android:host="*"
                     android:mimeType="*/*"
-                    android:pathPattern=".*\\.sdm"
-                    android:scheme="http" />
-                <data
-                    android:host="*"
-                    android:mimeType="*/*"
-                    android:pathPattern=".*\\.sdm"
-                    android:scheme="https" />
-                <data
-                    android:host="*"
-                    android:mimeType="*/*"
                     android:pathPattern=".*\\.opensudoku"
                     android:scheme="file" />
                 <data
@@ -90,16 +74,14 @@
                     android:mimeType="*/*"
                     android:pathPattern=".*\\.opensudoku"
                     android:scheme="content" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
                 <data
-                    android:host="*"
-                    android:mimeType="*/*"
-                    android:pathPattern=".*\\.opensudoku"
-                    android:scheme="http" />
-                <data
-                    android:host="*"
-                    android:mimeType="*/*"
-                    android:pathPattern=".*\\.opensudoku"
-                    android:scheme="https" />
+                    android:mimeType="*/*"/>
             </intent-filter>
         </activity>
         <activity

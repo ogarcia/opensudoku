@@ -1,8 +1,6 @@
 package org.moire.opensudoku.gui;
 
 import android.app.Activity;
-import android.app.Dialog;
-import android.app.ProgressDialog;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.Uri;
@@ -83,6 +81,8 @@ public class SudokuExportActivity extends ThemedActivity {
                 Uri uri = data.getData();
                 startExportToFileTask(uri);
             }
+        } else if (requestCode == CREATE_FILE && resultCode == Activity.RESULT_CANCELED) {
+            finish();
         } else {
             super.onActivityResult(requestCode, resultCode, data);
         }
