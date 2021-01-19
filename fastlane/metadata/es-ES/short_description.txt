@@ -1,0 +1,1 @@
+Open Sudoku es un juego de sudoku de código abierto y libre.

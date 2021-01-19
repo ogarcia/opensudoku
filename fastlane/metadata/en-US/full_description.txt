@@ -1,0 +1,12 @@
+Open Sudoku is an open source sudoku game.
+
+Features:
+- Without advertising (we hate it much as you)
+- Based on original code of Roman Mašek
+- Several input modes (finger-friendly, numpad in the bottom of screen etc.)
+- Puzzles can be downloaded from web, entered by hand or generated using GNOME Sudoku
+- Game time and history
+- Export to sdcard
+- Themes
+
+Any suggestions? Go to http://opensudoku.moire.org, your feedback is welcome

@@ -1,0 +1,12 @@
+Open Sudoku es un juego de sudoku de código abierto y libre.
+
+Características:
+- Sin publicidad (la odiamos tanto como tu)
+- Basado en el código original de Roman Mašek
+- Varios métodos de entrada (amigable tanto con las pantallas táctiles como con teclado)
+- Nuevos puzzles pueden descargarse desde la web, ser introducidos manualmente o generados con GNOME Sudoku
+- Tiempo de juego e historial
+- Posibilidad de exportar los puzzles a la sdcard
+- Temas
+
+¿Tienes alguna sugerencia? Ve a http://opensudoku.moire.org, tu feedback es bienvenido.

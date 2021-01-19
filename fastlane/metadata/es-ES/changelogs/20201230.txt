@@ -1,0 +1,1 @@
+Arreglada la importación y exportación de los sudokus en Android 11. Gracias @autinerd!
