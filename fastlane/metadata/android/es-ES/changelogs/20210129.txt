@@ -1,0 +1,1 @@
+Se corrigió un bux introducido en 3.6.0 que impedía la importación de sudokus en formato sdm.

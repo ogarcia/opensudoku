@@ -1,5 +1,6 @@
 package org.moire.opensudoku.gui.importing;
 
+import android.content.ContentResolver;
 import android.net.Uri;
 
 import org.moire.opensudoku.db.SudokuInvalidFormatException;
@@ -26,10 +27,16 @@ public class SdmImportTask extends AbstractImportTask {
     @Override
     protected void processImport() throws SudokuInvalidFormatException {
         importFolder(mUri.getLastPathSegment());
+        InputStreamReader isr;
 
         try {
-            URL url = new URL(mUri.toString());
-            InputStreamReader isr = new InputStreamReader(url.openStream());
+            if (mUri.getScheme().equals("content")) {
+                ContentResolver contentResolver = mContext.getContentResolver();
+                isr = new InputStreamReader(contentResolver.openInputStream(mUri));
+            } else {
+                URL url = new URL(mUri.toString());
+                isr = new InputStreamReader(url.openStream());
+            }
             try (BufferedReader br = new BufferedReader(isr)) {
                 String s;
                 while ((s = br.readLine()) != null) {

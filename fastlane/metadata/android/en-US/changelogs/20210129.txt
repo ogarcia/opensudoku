@@ -1,0 +1,1 @@
+Fixed a bux introduced in 3.6.0 that prevented the import of sudokus in sdm format.

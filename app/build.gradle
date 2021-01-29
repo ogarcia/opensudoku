@@ -8,8 +8,8 @@ android {
         applicationId "org.moire.opensudoku"
         minSdkVersion 19
         targetSdkVersion 30
-        versionCode 20201230
-        versionName "3.6.0"
+        versionCode 20210129
+        versionName "3.6.1"
 
         vectorDrawables.useSupportLibrary true
     }

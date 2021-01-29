@@ -1,13 +1,17 @@
 <html>
 <head><style type="text/css">body {font-size: smaller;}</style></head>
 <body>
-  <b>3.5.1</b>
+  <b>3.6.1</b>
+  <ul>
+    <li>Fixed a bux introduced in 3.6.0 that prevented the import of sudokus in sdm format.</li>
+  </ul>
+  <b>3.6.0</b>
   <ul>
     <li>Fix import and export of sudokus in Android 11. Thanks @autinerd!</li>
   </ul>
   <b>3.5.1</b>
   <ul>
-    <li>Fixed a crash when import Sudokus on Android 10 or higher.</li>
+    <li>Fixed a crash when import sudokus on Android 10 or higher.</li>
     <li>Basque translation updated. Thanks @Porrumentzio!</li>
     <li>German translation updated. Thanks @cyclingcat!</li>
   </ul>
