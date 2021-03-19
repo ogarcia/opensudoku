@@ -311,7 +311,7 @@ public class SudokuEditActivity extends ThemedActivity {
         if (mClipboard.hasPrimaryClip()) {
             CellCollection cells = mGame.getCells();
             String serializedCells = cells.serialize(CellCollection.DATA_VERSION_PLAIN);
-            ClipData clipData = ClipData.newPlainText(mGame.getNote(), serializedCells);
+            ClipData clipData = ClipData.newPlainText("Sudoku Puzzle", serializedCells);
             mClipboard.setPrimaryClip(clipData);
             Toast.makeText(getApplicationContext(), R.string.copied_to_clipboard, Toast.LENGTH_SHORT).show();
         }
