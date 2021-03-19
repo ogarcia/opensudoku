@@ -63,7 +63,8 @@ public class SudokuEditActivity extends ThemedActivity {
     public static final int MENU_ITEM_CHECK_SOLVABILITY = Menu.FIRST;
     public static final int MENU_ITEM_SAVE = Menu.FIRST + 1;
     public static final int MENU_ITEM_CANCEL = Menu.FIRST + 2;
-    public static final int MENU_ITEM_PASTE = Menu.FIRST + 3;
+    public static final int MENU_ITEM_COPY = Menu.FIRST + 3;
+    public static final int MENU_ITEM_PASTE = Menu.FIRST + 4;
 
     private static final int DIALOG_PUZZLE_SOLVABLE = 1;
     private static final int DIALOG_PUZZLE_NOT_SOLVABLE = 2;
@@ -215,7 +216,8 @@ public class SudokuEditActivity extends ThemedActivity {
         menu.add(0, MENU_ITEM_CANCEL, 2, android.R.string.cancel)
                 .setShortcut('3', 'c')
                 .setIcon(R.drawable.ic_close);
-        menu.add(0, MENU_ITEM_PASTE, 3, android.R.string.paste);
+        menu.add(0, MENU_ITEM_COPY,  3, android.R.string.copy);
+        menu.add(0, MENU_ITEM_PASTE, 4, android.R.string.paste);
 
         // Generate any additional actions that can be performed on the
         // overall list.  In a normal install, there are no additional
@@ -247,6 +249,9 @@ public class SudokuEditActivity extends ThemedActivity {
             case MENU_ITEM_CANCEL:
                 mState = STATE_CANCEL;
                 finish();
+                return true;
+            case MENU_ITEM_COPY:
+                copyToClipboard();
                 return true;
             case MENU_ITEM_PASTE:
                 pasteFromClipboard();
@@ -297,16 +302,41 @@ public class SudokuEditActivity extends ThemedActivity {
         }
     }
 
+    /**
+     * Copies puzzle to primary clipboard in a plain text format (81 character string).
+     *
+     * @see CellCollection#serialize(StringBuilder, int) for supported data format versions.
+     */
+    private void copyToClipboard() {
+        if (mClipboard.hasPrimaryClip()) {
+            CellCollection cells = mGame.getCells();
+            String serializedCells = cells.serialize(CellCollection.DATA_VERSION_PLAIN);
+            ClipData clipData = ClipData.newPlainText(mGame.getNote(), serializedCells);
+            mClipboard.setPrimaryClip(clipData);
+            Toast.makeText(getApplicationContext(), R.string.copied_to_clipboard, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    /**
+     * Pastes puzzle from primary clipboard in any of the supported formats.
+     *
+     * @see CellCollection#serialize(StringBuilder, int) for supported data format versions.
+     */
     private void pasteFromClipboard() {
-        if (mClipboard.hasPrimaryClip() && mClipboard.getPrimaryClipDescription().hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)) {
-            ClipData.Item clipDataItem = mClipboard.getPrimaryClip().getItemAt(0);
-            String clipDataText = clipDataItem.getText().toString();
-            if (CellCollection.isValid(clipDataText)) {
-                CellCollection cells = CellCollection.deserialize(clipDataText);
-                mGame.setCells(cells);
-                ((SudokuBoardView) mRootLayout.getChildAt(0)).setCells(cells);
+        if (mClipboard.hasPrimaryClip()) {
+            if (mClipboard.getPrimaryClipDescription().hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)) {
+                ClipData.Item clipDataItem = mClipboard.getPrimaryClip().getItemAt(0);
+                String clipDataText = clipDataItem.getText().toString();
+                if (CellCollection.isValid(clipDataText)) {
+                    CellCollection cells = CellCollection.deserialize(clipDataText);
+                    mGame.setCells(cells);
+                    ((SudokuBoardView) mRootLayout.getChildAt(0)).setCells(cells);
+                    Toast.makeText(getApplicationContext(), R.string.pasted_from_clipboard, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), R.string.invalid_puzzle_format, Toast.LENGTH_SHORT).show();
+                }
             } else {
-                Toast.makeText(getApplicationContext(), R.string.invalid_format, Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), R.string.invalid_mime_type, Toast.LENGTH_LONG).show();
             }
         }
     }

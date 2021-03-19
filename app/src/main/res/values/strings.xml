@@ -381,4 +381,10 @@
     <string name="sort_creation_date">Creation date</string>
     <string name="sort_play_time">Play time</string>
     <string name="sort_last_played">Last played</string>
+
+    <string name="pasted_from_clipboard">Pasted from clipboard</string>
+    <string name="copied_to_clipboard">Copied to clipboard</string>
+
+    <string name="invalid_puzzle_format">Invalid puzzle format</string>
+    <string name="invalid_mime_type">Invalid MIME type, please, check your clipboard contents</string>
 </resources>
