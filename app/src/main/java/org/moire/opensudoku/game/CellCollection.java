@@ -463,27 +463,67 @@ public class CellCollection {
         }
     }
 
+    /**
+     * Returns a string representation of this collection in a default
+     * ({@link #DATA_PATTERN_VERSION_3}) format version.
+     *
+     * @see #serialize(StringBuilder, int)
+     *
+     * @return A string representation of this collection.
+     */
     public String serialize() {
         StringBuilder sb = new StringBuilder();
-        serialize(sb);
+        serialize(sb, DATA_VERSION);
         return sb.toString();
     }
 
     /**
-     * Writes collection to given StringBuilder. You can later recreate the object instance
-     * by calling {@link #deserialize(String)} method.
+     * Returns a string representation of this collection in a given data format version.
      *
-     * @return
+     * @see #serialize(StringBuilder, int)
+     *
+     * @return A string representation of this collection.
+     */
+    public String serialize(int dataVersion) {
+        StringBuilder sb = new StringBuilder();
+        serialize(sb, dataVersion);
+        return sb.toString();
+    }
+
+    /**
+     * Writes collection to given <code>StringBuilder</code> in a default
+     * ({@link #DATA_PATTERN_VERSION_3}) data format version.
+     *
+     * @see #serialize(StringBuilder, int)
      */
     public void serialize(StringBuilder data) {
-        data.append("version: ");
-        data.append(DATA_VERSION);
-        data.append("\n");
+        serialize(data, DATA_VERSION);
+    }
 
+    /**
+     * Writes collection to given <code>StringBuilder</code> in a given data format version.
+     * You can later recreate object instance by calling {@link #deserialize(String)} method.
+     *
+     * Supports only {@link #DATA_PATTERN_VERSION_PLAIN} and {@link #DATA_PATTERN_VERSION_3} formats.
+     * All the other data format versions are ignored and treated as
+     * {@link #DATA_PATTERN_VERSION_3} format.
+     *
+     * @see #DATA_PATTERN_VERSION_PLAIN
+     * @see #DATA_PATTERN_VERSION_3
+     *
+     * @param data A <code>StringBuilder</code> where to write data.
+     * @param dataVersion A version of data format.
+     */
+    public void serialize(StringBuilder data, int dataVersion) {
+        if (dataVersion > DATA_VERSION_PLAIN) {
+            data.append("version: ");
+            data.append(dataVersion);
+            data.append("\n");
+        }
         for (int r = 0; r < SUDOKU_SIZE; r++) {
             for (int c = 0; c < SUDOKU_SIZE; c++) {
                 Cell cell = mCells[r][c];
-                cell.serialize(data);
+                cell.serialize(data, dataVersion);
             }
         }
     }

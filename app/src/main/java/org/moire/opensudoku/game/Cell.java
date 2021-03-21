@@ -249,24 +249,52 @@ public class Cell {
     }
 
     /**
-     * Appends string representation of this object to the given <code>StringBuilder</code>.
+     * Appends string representation of this object to the given <code>StringBuilder</code>
+     * in a given data format version.
      * You can later recreate object from this string by calling {@link #deserialize}.
      *
-     * @param data
+     * @see CellCollection#serialize(StringBuilder, int) for supported data format versions.
+     *
+     * @param data A <code>StringBuilder</code> where to write data.
      */
-    public void serialize(StringBuilder data) {
-        data.append(mValue).append("|");
-        if (mNote == null || mNote.isEmpty()) {
-            data.append("0").append("|");
+    public void serialize(StringBuilder data, int dataVersion) {
+        if (dataVersion == CellCollection.DATA_VERSION_PLAIN) {
+            data.append(mValue);
         } else {
-            mNote.serialize(data);
+            data.append(mValue).append("|");
+            if (mNote == null || mNote.isEmpty()) {
+                data.append("0").append("|");
+            } else {
+                mNote.serialize(data);
+            }
+            data.append(mEditable ? "1" : "0").append("|");
         }
-        data.append(mEditable ? "1" : "0").append("|");
     }
 
+    /**
+     * Returns a string representation of this object in a default data format version.
+     *
+     * @see #serialize(StringBuilder, int)
+     *
+     * @return A string representation of this object.
+     */
     public String serialize() {
         StringBuilder sb = new StringBuilder();
-        serialize(sb);
+        serialize(sb, CellCollection.DATA_VERSION);
+        return sb.toString();
+    }
+
+    /**
+     * Returns a string representation of this object in a given data format version.
+     *
+     * @see #serialize(StringBuilder, int)
+     *
+     * @param dataVersion A version of data format.
+     * @return A string representation of this object.
+     */
+    public String serialize(int dataVersion) {
+        StringBuilder sb = new StringBuilder();
+        serialize(sb, dataVersion);
         return sb.toString();
     }
 

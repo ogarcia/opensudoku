@@ -21,7 +21,11 @@
 package org.moire.opensudoku.gui;
 
 import android.app.Dialog;
+import android.content.ClipData;
+import android.content.ClipDescription;
+import android.content.ClipboardManager;
 import android.content.ComponentName;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -38,9 +42,13 @@ import androidx.appcompat.app.AlertDialog;
 
 import org.moire.opensudoku.R;
 import org.moire.opensudoku.db.SudokuDatabase;
+import org.moire.opensudoku.game.CellCollection;
 import org.moire.opensudoku.game.SudokuGame;
 import org.moire.opensudoku.gui.inputmethod.IMControlPanel;
 import org.moire.opensudoku.gui.inputmethod.InputMethod;
+
+import static android.content.ClipDescription.MIMETYPE_TEXT_HTML;
+import static android.content.ClipDescription.MIMETYPE_TEXT_PLAIN;
 
 /**
  * Activity for editing content of puzzle.
@@ -58,6 +66,8 @@ public class SudokuEditActivity extends ThemedActivity {
     public static final int MENU_ITEM_CHECK_SOLVABILITY = Menu.FIRST;
     public static final int MENU_ITEM_SAVE = Menu.FIRST + 1;
     public static final int MENU_ITEM_CANCEL = Menu.FIRST + 2;
+    public static final int MENU_ITEM_COPY = Menu.FIRST + 3;
+    public static final int MENU_ITEM_PASTE = Menu.FIRST + 4;
 
     private static final int DIALOG_PUZZLE_SOLVABLE = 1;
     private static final int DIALOG_PUZZLE_NOT_SOLVABLE = 2;
@@ -76,6 +86,7 @@ public class SudokuEditActivity extends ThemedActivity {
     private SudokuGame mGame;
     private ViewGroup mRootLayout;
     private Handler mGuiHandler;
+    private ClipboardManager mClipboard;
 
     private boolean mFullScreen;
 
@@ -153,6 +164,8 @@ public class SudokuEditActivity extends ThemedActivity {
         }
         mInputMethods.getInputMethod(IMControlPanel.INPUT_METHOD_NUMPAD).setEnabled(true);
         mInputMethods.activateInputMethod(IMControlPanel.INPUT_METHOD_NUMPAD);
+
+        mClipboard = (ClipboardManager) getSystemService(Context.CLIPBOARD_SERVICE);
     }
 
     @Override
@@ -199,11 +212,13 @@ public class SudokuEditActivity extends ThemedActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // This is our one standard application action -- inserting a
         // new note into the list.
-        menu.add(0, MENU_ITEM_CHECK_SOLVABILITY, 0, R.string.check_solvabitily);
-        menu.add(0, MENU_ITEM_SAVE, 1, R.string.save)
+        menu.add(0, MENU_ITEM_COPY,  0, android.R.string.copy);
+        menu.add(0, MENU_ITEM_PASTE, 1, android.R.string.paste);
+        menu.add(0, MENU_ITEM_CHECK_SOLVABILITY, 2, R.string.check_solvabitily);
+        menu.add(0, MENU_ITEM_SAVE, 3, R.string.save)
                 .setShortcut('1', 's')
                 .setIcon(R.drawable.ic_save);
-        menu.add(0, MENU_ITEM_CANCEL, 2, android.R.string.cancel)
+        menu.add(0, MENU_ITEM_CANCEL, 4, android.R.string.cancel)
                 .setShortcut('3', 'c')
                 .setIcon(R.drawable.ic_close);
 
@@ -220,8 +235,34 @@ public class SudokuEditActivity extends ThemedActivity {
     }
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+
+        if (!(mClipboard.hasPrimaryClip())) {
+            // If the clipboard doesn't contain data, disable the paste menu item.
+            menu.findItem(MENU_ITEM_PASTE).setEnabled(false);
+        } else if (!(mClipboard.getPrimaryClipDescription().hasMimeType(MIMETYPE_TEXT_PLAIN) ||
+                mClipboard.getPrimaryClipDescription().hasMimeType(MIMETYPE_TEXT_HTML))) {
+            // This disables the paste menu item, since the clipboard has data but it is not plain text
+            Toast.makeText(getApplicationContext(), mClipboard.getPrimaryClipDescription().getMimeType(0),Toast.LENGTH_SHORT).show();
+            menu.findItem(MENU_ITEM_PASTE).setEnabled(false);
+        } else {
+            // This enables the paste menu item, since the clipboard contains plain text.
+            menu.findItem(MENU_ITEM_PASTE).setEnabled(true);
+        }
+
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case MENU_ITEM_COPY:
+                copyToClipboard();
+                return true;
+            case MENU_ITEM_PASTE:
+                pasteFromClipboard();
+                return true;
             case MENU_ITEM_CHECK_SOLVABILITY:
                 boolean solvable = checkSolvability();
                 if (solvable) {
@@ -281,6 +322,44 @@ public class SudokuEditActivity extends ThemedActivity {
                 mDatabase.insertSudoku(mFolderID, mGame);
                 Toast.makeText(getApplicationContext(), R.string.puzzle_inserted, Toast.LENGTH_SHORT).show();
                 break;
+        }
+    }
+
+    /**
+     * Copies puzzle to primary clipboard in a plain text format (81 character string).
+     *
+     * @see CellCollection#serialize(StringBuilder, int) for supported data format versions.
+     */
+    private void copyToClipboard() {
+        CellCollection cells = mGame.getCells();
+        String serializedCells = cells.serialize(CellCollection.DATA_VERSION_PLAIN);
+        ClipData clipData = ClipData.newPlainText("Sudoku Puzzle", serializedCells);
+        mClipboard.setPrimaryClip(clipData);
+        Toast.makeText(getApplicationContext(), R.string.copied_to_clipboard, Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * Pastes puzzle from primary clipboard in any of the supported formats.
+     *
+     * @see CellCollection#serialize(StringBuilder, int) for supported data format versions.
+     */
+    private void pasteFromClipboard() {
+        if (mClipboard.hasPrimaryClip()) {
+            if (mClipboard.getPrimaryClipDescription().hasMimeType(MIMETYPE_TEXT_PLAIN) ||
+                    mClipboard.getPrimaryClipDescription().hasMimeType(MIMETYPE_TEXT_HTML)) {
+                ClipData.Item clipDataItem = mClipboard.getPrimaryClip().getItemAt(0);
+                String clipDataText = clipDataItem.getText().toString();
+                if (CellCollection.isValid(clipDataText)) {
+                    CellCollection cells = CellCollection.deserialize(clipDataText);
+                    mGame.setCells(cells);
+                    ((SudokuBoardView) mRootLayout.getChildAt(0)).setCells(cells);
+                    Toast.makeText(getApplicationContext(), R.string.pasted_from_clipboard, Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), R.string.invalid_puzzle_format, Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                Toast.makeText(getApplicationContext(), R.string.invalid_mime_type, Toast.LENGTH_LONG).show();
+            }
         }
     }
 }
