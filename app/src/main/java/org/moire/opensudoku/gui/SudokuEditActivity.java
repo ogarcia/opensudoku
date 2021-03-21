@@ -47,6 +47,9 @@ import org.moire.opensudoku.game.SudokuGame;
 import org.moire.opensudoku.gui.inputmethod.IMControlPanel;
 import org.moire.opensudoku.gui.inputmethod.InputMethod;
 
+import static android.content.ClipDescription.MIMETYPE_TEXT_HTML;
+import static android.content.ClipDescription.MIMETYPE_TEXT_PLAIN;
+
 /**
  * Activity for editing content of puzzle.
  *
@@ -209,15 +212,15 @@ public class SudokuEditActivity extends ThemedActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // This is our one standard application action -- inserting a
         // new note into the list.
-        menu.add(0, MENU_ITEM_CHECK_SOLVABILITY, 0, R.string.check_solvabitily);
-        menu.add(0, MENU_ITEM_SAVE, 1, R.string.save)
+        menu.add(0, MENU_ITEM_COPY,  0, android.R.string.copy);
+        menu.add(0, MENU_ITEM_PASTE, 1, android.R.string.paste);
+        menu.add(0, MENU_ITEM_CHECK_SOLVABILITY, 2, R.string.check_solvabitily);
+        menu.add(0, MENU_ITEM_SAVE, 3, R.string.save)
                 .setShortcut('1', 's')
                 .setIcon(R.drawable.ic_save);
-        menu.add(0, MENU_ITEM_CANCEL, 2, android.R.string.cancel)
+        menu.add(0, MENU_ITEM_CANCEL, 4, android.R.string.cancel)
                 .setShortcut('3', 'c')
                 .setIcon(R.drawable.ic_close);
-        menu.add(0, MENU_ITEM_COPY,  3, android.R.string.copy);
-        menu.add(0, MENU_ITEM_PASTE, 4, android.R.string.paste);
 
         // Generate any additional actions that can be performed on the
         // overall list.  In a normal install, there are no additional
@@ -232,8 +235,34 @@ public class SudokuEditActivity extends ThemedActivity {
     }
 
     @Override
+    public boolean onPrepareOptionsMenu(Menu menu) {
+        super.onPrepareOptionsMenu(menu);
+
+        if (!(mClipboard.hasPrimaryClip())) {
+            // If the clipboard doesn't contain data, disable the paste menu item.
+            menu.findItem(MENU_ITEM_PASTE).setEnabled(false);
+        } else if (!(mClipboard.getPrimaryClipDescription().hasMimeType(MIMETYPE_TEXT_PLAIN) ||
+                mClipboard.getPrimaryClipDescription().hasMimeType(MIMETYPE_TEXT_HTML))) {
+            // This disables the paste menu item, since the clipboard has data but it is not plain text
+            Toast.makeText(getApplicationContext(), mClipboard.getPrimaryClipDescription().getMimeType(0),Toast.LENGTH_SHORT).show();
+            menu.findItem(MENU_ITEM_PASTE).setEnabled(false);
+        } else {
+            // This enables the paste menu item, since the clipboard contains plain text.
+            menu.findItem(MENU_ITEM_PASTE).setEnabled(true);
+        }
+
+        return true;
+    }
+
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
+            case MENU_ITEM_COPY:
+                copyToClipboard();
+                return true;
+            case MENU_ITEM_PASTE:
+                pasteFromClipboard();
+                return true;
             case MENU_ITEM_CHECK_SOLVABILITY:
                 boolean solvable = checkSolvability();
                 if (solvable) {
@@ -249,12 +278,6 @@ public class SudokuEditActivity extends ThemedActivity {
             case MENU_ITEM_CANCEL:
                 mState = STATE_CANCEL;
                 finish();
-                return true;
-            case MENU_ITEM_COPY:
-                copyToClipboard();
-                return true;
-            case MENU_ITEM_PASTE:
-                pasteFromClipboard();
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -308,13 +331,11 @@ public class SudokuEditActivity extends ThemedActivity {
      * @see CellCollection#serialize(StringBuilder, int) for supported data format versions.
      */
     private void copyToClipboard() {
-        if (mClipboard.hasPrimaryClip()) {
-            CellCollection cells = mGame.getCells();
-            String serializedCells = cells.serialize(CellCollection.DATA_VERSION_PLAIN);
-            ClipData clipData = ClipData.newPlainText("Sudoku Puzzle", serializedCells);
-            mClipboard.setPrimaryClip(clipData);
-            Toast.makeText(getApplicationContext(), R.string.copied_to_clipboard, Toast.LENGTH_SHORT).show();
-        }
+        CellCollection cells = mGame.getCells();
+        String serializedCells = cells.serialize(CellCollection.DATA_VERSION_PLAIN);
+        ClipData clipData = ClipData.newPlainText("Sudoku Puzzle", serializedCells);
+        mClipboard.setPrimaryClip(clipData);
+        Toast.makeText(getApplicationContext(), R.string.copied_to_clipboard, Toast.LENGTH_SHORT).show();
     }
 
     /**
@@ -324,7 +345,8 @@ public class SudokuEditActivity extends ThemedActivity {
      */
     private void pasteFromClipboard() {
         if (mClipboard.hasPrimaryClip()) {
-            if (mClipboard.getPrimaryClipDescription().hasMimeType(ClipDescription.MIMETYPE_TEXT_PLAIN)) {
+            if (mClipboard.getPrimaryClipDescription().hasMimeType(MIMETYPE_TEXT_PLAIN) ||
+                    mClipboard.getPrimaryClipDescription().hasMimeType(MIMETYPE_TEXT_HTML)) {
                 ClipData.Item clipDataItem = mClipboard.getPrimaryClip().getItemAt(0);
                 String clipDataText = clipDataItem.getText().toString();
                 if (CellCollection.isValid(clipDataText)) {
