@@ -60,6 +60,9 @@ was contributed to by Vit Hnilica, Martin Sobola, Martin Helff, and Diego Pierot
 * [Jesus Fuentes](https://github.com/fuentesj11):
   * New menu option to sort puzzles by last played and play time
 
+* [Daniel](https://github.com/demield):
+  * Added copy and paste ability in sudoku editor
+
 ## Support or Contact
 
 Having trouble with Open Sudoku? Create an issue in https://github.com/ogarcia/opensudoku/issues or contact me via opensudoku@moire.org and I'll help you sort it out.

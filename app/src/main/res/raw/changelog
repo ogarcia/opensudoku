@@ -1,6 +1,10 @@
 <html>
 <head><style type="text/css">body {font-size: smaller;}</style></head>
 <body>
+  <b>3.7.0</b>
+  <ul>
+    <li>Add copy and paste ability in sudoku editor. Thanks @demield!</li>
+  </ul>
   <b>3.6.1</b>
   <ul>
     <li>Fixed a bux introduced in 3.6.0 that prevented the import of sudokus in sdm format.</li>
