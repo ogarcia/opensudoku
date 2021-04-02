@@ -35,6 +35,10 @@ import org.moire.opensudoku.game.command.CommandStack;
 import org.moire.opensudoku.gui.SudokuListFilter;
 import org.moire.opensudoku.gui.SudokuListSorter;
 
+import java.util.Collections;
+import java.util.LinkedList;
+import java.util.List;
+
 /**
  * Wrapper around opensudoku's database.
  * <p/>
@@ -165,7 +169,6 @@ public class SudokuDatabase {
      * Find folder by name. If no folder is found, null is returned.
      *
      * @param folderName
-     * @param db
      * @return
      */
     public FolderInfo findFolder(String folderName) {
@@ -281,6 +284,26 @@ public class SudokuDatabase {
     }
 
     /**
+     * Returns list of sudoku game objects
+     *
+     * @param folderID Primary key of folder.
+     * @return
+     */
+    public List<SudokuGame> getAllSudokuByFolder(long folderID, SudokuListSorter sorter) {
+        Cursor cursor = getSudokuList(folderID, null, sorter);
+        if (cursor.moveToFirst())
+        {
+            List<SudokuGame> sudokuList = new LinkedList<>();
+            while (!cursor.isAfterLast()) {
+                sudokuList.add(extractSudokuGameFromCursorRow(cursor));
+                cursor.moveToNext();
+            }
+            return sudokuList;
+        }
+        return Collections.emptyList();
+    }
+
+    /**
      * Returns sudoku game object.
      *
      * @param sudokuID Primary key of folder.
@@ -301,34 +324,38 @@ public class SudokuDatabase {
                 null, null, null, null)) {
 
             if (c.moveToFirst()) {
-                long id = c.getLong(c.getColumnIndex(SudokuColumns._ID));
-                long created = c.getLong(c.getColumnIndex(SudokuColumns.CREATED));
-                String data = c.getString(c.getColumnIndex(SudokuColumns.DATA));
-                long lastPlayed = c.getLong(c.getColumnIndex(SudokuColumns.LAST_PLAYED));
-                int state = c.getInt(c.getColumnIndex(SudokuColumns.STATE));
-                long time = c.getLong(c.getColumnIndex(SudokuColumns.TIME));
-                String note = c.getString(c.getColumnIndex(SudokuColumns.PUZZLE_NOTE));
-
-                s = new SudokuGame();
-                s.setId(id);
-                s.setCreated(created);
-                s.setCells(CellCollection.deserialize(data));
-                s.setLastPlayed(lastPlayed);
-                s.setState(state);
-                s.setTime(time);
-                s.setNote(note);
-
-                if (s.getState() == SudokuGame.GAME_STATE_PLAYING) {
-                    String command_stack = c.getString(c.getColumnIndex(SudokuColumns.COMMAND_STACK));
-                    if (command_stack != null && !command_stack.equals("")) {
-                        s.setCommandStack(CommandStack.deserialize(command_stack, s.getCells()));
-                    }
-                }
+                s = extractSudokuGameFromCursorRow(c);
             }
         }
 
         return s;
+    }
 
+    private SudokuGame extractSudokuGameFromCursorRow(Cursor cursor) {
+        long id = cursor.getLong(cursor.getColumnIndex(SudokuColumns._ID));
+        long created = cursor.getLong(cursor.getColumnIndex(SudokuColumns.CREATED));
+        String data = cursor.getString(cursor.getColumnIndex(SudokuColumns.DATA));
+        long lastPlayed = cursor.getLong(cursor.getColumnIndex(SudokuColumns.LAST_PLAYED));
+        int state = cursor.getInt(cursor.getColumnIndex(SudokuColumns.STATE));
+        long time = cursor.getLong(cursor.getColumnIndex(SudokuColumns.TIME));
+        String note = cursor.getString(cursor.getColumnIndex(SudokuColumns.PUZZLE_NOTE));
+
+        SudokuGame sudoku = new SudokuGame();
+        sudoku.setId(id);
+        sudoku.setCreated(created);
+        sudoku.setCells(CellCollection.deserialize(data));
+        sudoku.setLastPlayed(lastPlayed);
+        sudoku.setState(state);
+        sudoku.setTime(time);
+        sudoku.setNote(note);
+
+        if (sudoku.getState() == SudokuGame.GAME_STATE_PLAYING) {
+            String command_stack = cursor.getString(cursor.getColumnIndex(SudokuColumns.COMMAND_STACK));
+            if (command_stack != null && !command_stack.equals("")) {
+                sudoku.setCommandStack(CommandStack.deserialize(command_stack, sudoku.getCells()));
+            }
+        }
+        return sudoku;
     }
 
     /**

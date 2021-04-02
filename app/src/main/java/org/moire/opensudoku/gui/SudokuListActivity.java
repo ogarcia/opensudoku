@@ -54,6 +54,7 @@ import org.moire.opensudoku.utils.ThemeUtils;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
  * List of puzzles in folder.
@@ -74,12 +75,14 @@ public class SudokuListActivity extends ThemedActivity {
     public static final int MENU_ITEM_SORT = Menu.FIRST + 7;
     public static final int MENU_ITEM_FOLDERS = Menu.FIRST + 8;
     public static final int MENU_ITEM_SETTINGS = Menu.FIRST + 9;
+    public static final int MENU_ITEM_RESET_ALL = Menu.FIRST + 10;
 
     private static final int DIALOG_DELETE_PUZZLE = 0;
     private static final int DIALOG_RESET_PUZZLE = 1;
     private static final int DIALOG_EDIT_NOTE = 2;
     private static final int DIALOG_FILTER = 3;
     private static final int DIALOG_SORT = 4;
+    private static final int DIALOG_RESET_ALL = 5;
 
     private static final String FILTER_STATE_NOT_STARTED = "filter" + SudokuGame.GAME_STATE_NOT_STARTED;
     private static final String FILTER_STATE_PLAYING = "filter" + SudokuGame.GAME_STATE_PLAYING;
@@ -217,6 +220,7 @@ public class SudokuListActivity extends ThemedActivity {
                 .setIcon(R.drawable.ic_add);
         menu.add(0, MENU_ITEM_SETTINGS, 2, R.string.settings).setShortcut('4', 's')
                 .setIcon(R.drawable.ic_settings);
+        menu.add(0, MENU_ITEM_RESET_ALL, 3, R.string.reset_all_puzzles);
         // I'm not sure this one is ready for release
 //		menu.add(0, MENU_ITEM_GENERATE, 3, R.string.generate_sudoku).setShortcut('4', 'g')
 //		.setIcon(R.drawable.ic_add);
@@ -337,6 +341,19 @@ public class SudokuListActivity extends ThemedActivity {
                         .setNegativeButton(android.R.string.cancel, (dialog, whichButton) -> {
                         })
                         .create();
+            case DIALOG_RESET_ALL:
+                return new AlertDialog.Builder(this)
+                        .setIcon(R.drawable.ic_restore)
+                        .setTitle(R.string.reset_all_puzzles_confirm)
+                        .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> {
+                            List<SudokuGame> sudokuGames = mDatabase.getAllSudokuByFolder(mFolderID, mListSorter);
+                            for (SudokuGame sudokuGame: sudokuGames) {
+                                sudokuGame.reset();
+                                mDatabase.updateSudoku(sudokuGame);
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, (dialog, whichButton) -> { })
+                        .create();
         }
         return null;
     }
@@ -442,6 +459,9 @@ public class SudokuListActivity extends ThemedActivity {
                 finish();
                 return true;
             }
+            case MENU_ITEM_RESET_ALL:
+                showDialog(DIALOG_RESET_ALL);
+                return true;
         }
         return super.onOptionsItemSelected(item);
     }
