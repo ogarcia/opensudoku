@@ -387,4 +387,7 @@
 
     <string name="invalid_puzzle_format">Invalid puzzle format</string>
     <string name="invalid_mime_type">Invalid MIME type, please, check your clipboard contents</string>
+
+    <string name="sort_order_ascending">ASC</string>
+    <string name="sort_order_descending">DESC</string>
 </resources>
