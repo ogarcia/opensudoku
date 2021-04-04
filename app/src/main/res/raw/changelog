@@ -4,6 +4,7 @@
   <b>3.x.x</b>
   <ul>
     <li>Added <i>reset all</i> option in sudoku list menu. Thanks @D0ct0rZl0!</li>
+    <li>Added a new option to fill in notes with all values.</li>
   </ul>
   <b>3.7.0</b>
   <ul>

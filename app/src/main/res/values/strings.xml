@@ -392,4 +392,6 @@
     <!-- Strings added/changed in 3.x.x -->
     <string name="reset_all_puzzles">Reset all</string>
     <string name="reset_all_puzzles_confirm">Are you sure you want to reset all puzzles in this folder?</string>
+
+    <string name="fill_all_notes">Fill in notes with all values</string>
 </resources>

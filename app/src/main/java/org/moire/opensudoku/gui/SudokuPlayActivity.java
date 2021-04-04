@@ -57,17 +57,18 @@ public class SudokuPlayActivity extends ThemedActivity {
     public static final int MENU_ITEM_RESTART = Menu.FIRST;
     public static final int MENU_ITEM_CLEAR_ALL_NOTES = Menu.FIRST + 1;
     public static final int MENU_ITEM_FILL_IN_NOTES = Menu.FIRST + 2;
-    public static final int MENU_ITEM_UNDO_ACTION = Menu.FIRST + 3;
-    public static final int MENU_ITEM_UNDO = Menu.FIRST + 4;
-    public static final int MENU_ITEM_HELP = Menu.FIRST + 5;
-    public static final int MENU_ITEM_SETTINGS_ACTION = Menu.FIRST + 6;
-    public static final int MENU_ITEM_SETTINGS = Menu.FIRST + 7;
+    public static final int MENU_ITEM_FILL_IN_NOTES_WITH_ALL_VALUES = Menu.FIRST + 3;
+    public static final int MENU_ITEM_UNDO_ACTION = Menu.FIRST + 4;
+    public static final int MENU_ITEM_UNDO = Menu.FIRST + 5;
+    public static final int MENU_ITEM_HELP = Menu.FIRST + 6;
+    public static final int MENU_ITEM_SETTINGS_ACTION = Menu.FIRST + 7;
+    public static final int MENU_ITEM_SETTINGS = Menu.FIRST + 8;
 
-    public static final int MENU_ITEM_SET_CHECKPOINT = Menu.FIRST + 8;
-    public static final int MENU_ITEM_UNDO_TO_CHECKPOINT = Menu.FIRST + 9;
-    public static final int MENU_ITEM_UNDO_TO_BEFORE_MISTAKE = Menu.FIRST + 10;
-    public static final int MENU_ITEM_SOLVE = Menu.FIRST + 11;
-    public static final int MENU_ITEM_HINT = Menu.FIRST + 12;
+    public static final int MENU_ITEM_SET_CHECKPOINT = Menu.FIRST + 9;
+    public static final int MENU_ITEM_UNDO_TO_CHECKPOINT = Menu.FIRST + 10;
+    public static final int MENU_ITEM_UNDO_TO_BEFORE_MISTAKE = Menu.FIRST + 11;
+    public static final int MENU_ITEM_SOLVE = Menu.FIRST + 12;
+    public static final int MENU_ITEM_HINT = Menu.FIRST + 13;
 
     private static final int DIALOG_RESTART = 1;
     private static final int DIALOG_WELL_DONE = 2;
@@ -354,6 +355,9 @@ public class SudokuPlayActivity extends ThemedActivity {
                     .setIcon(R.drawable.ic_edit_grey);
         }
 
+        menu.add(0, MENU_ITEM_FILL_IN_NOTES_WITH_ALL_VALUES, 1, R.string.fill_all_notes)
+                .setIcon(R.drawable.ic_edit_grey);
+
         menu.add(0, MENU_ITEM_CLEAR_ALL_NOTES, 2, R.string.clear_all_notes)
                 .setShortcut('3', 'a')
                 .setIcon(R.drawable.ic_delete);
@@ -404,6 +408,7 @@ public class SudokuPlayActivity extends ThemedActivity {
             if (mFillInNotesEnabled) {
                 menu.findItem(MENU_ITEM_FILL_IN_NOTES).setEnabled(true);
             }
+            menu.findItem(MENU_ITEM_FILL_IN_NOTES_WITH_ALL_VALUES).setEnabled(true);
             menu.findItem(MENU_ITEM_UNDO).setEnabled(mSudokuGame.hasSomethingToUndo());
             menu.findItem(MENU_ITEM_UNDO_TO_CHECKPOINT).setEnabled(mSudokuGame.hasUndoCheckpoint());
         } else {
@@ -411,6 +416,7 @@ public class SudokuPlayActivity extends ThemedActivity {
             if (mFillInNotesEnabled) {
                 menu.findItem(MENU_ITEM_FILL_IN_NOTES).setEnabled(false);
             }
+            menu.findItem(MENU_ITEM_FILL_IN_NOTES_WITH_ALL_VALUES).setEnabled(false);
             menu.findItem(MENU_ITEM_UNDO).setEnabled(false);
             menu.findItem(MENU_ITEM_UNDO_TO_CHECKPOINT).setEnabled(false);
             menu.findItem(MENU_ITEM_UNDO_TO_BEFORE_MISTAKE).setEnabled(false);
@@ -432,6 +438,9 @@ public class SudokuPlayActivity extends ThemedActivity {
                 return true;
             case MENU_ITEM_FILL_IN_NOTES:
                 mSudokuGame.fillInNotes();
+                return true;
+            case MENU_ITEM_FILL_IN_NOTES_WITH_ALL_VALUES:
+                mSudokuGame.fillInNotesWithAllValues();
                 return true;
             case MENU_ITEM_UNDO_ACTION:
                 if (mSudokuGame.hasSomethingToUndo()) {

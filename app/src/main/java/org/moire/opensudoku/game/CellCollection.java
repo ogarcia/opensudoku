@@ -395,6 +395,22 @@ public class CellCollection {
         }
     }
 
+    /**
+     * Fills in notes with all values for all cells.
+     * This is a destructive operation in that the existing notes are overwritten.
+     */
+    public void fillInNotesWithAllValues() {
+        for (int r = 0; r < SUDOKU_SIZE; r++) {
+            for (int c = 0; c < SUDOKU_SIZE; c++) {
+                Cell cell = getCell(r, c);
+                cell.setNote(new CellNote());
+                for (int i = 1; i <= SUDOKU_SIZE; i++) {
+                    cell.setNote(cell.getNote().addNumber(i));
+                }
+            }
+        }
+    }
+
     public void removeNotesForChangedCell(Cell cell, int number) {
         if (number < 1 || number > 9) {
             return;

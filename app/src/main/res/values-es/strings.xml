@@ -346,4 +346,6 @@
     <!-- Strings added/changed in 3.x.x -->
     <string name="reset_all_puzzles">Reiniciar todo</string>
     <string name="reset_all_puzzles_confirm">¿Estas seguro de querer reiniciar todos los puzzles de esta carpeta?</string>
+
+    <string name="fill_all_notes">Autorellenar anotaciones con todos los valores</string>
 </resources>

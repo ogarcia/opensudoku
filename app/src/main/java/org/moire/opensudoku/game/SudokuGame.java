@@ -30,6 +30,7 @@ import org.moire.opensudoku.game.command.ClearAllNotesCommand;
 import org.moire.opensudoku.game.command.CommandStack;
 import org.moire.opensudoku.game.command.EditCellNoteCommand;
 import org.moire.opensudoku.game.command.FillInNotesCommand;
+import org.moire.opensudoku.game.command.FillInNotesWithAllValuesCommand;
 import org.moire.opensudoku.game.command.SetCellValueAndRemoveNotesCommand;
 import org.moire.opensudoku.game.command.SetCellValueCommand;
 
@@ -395,6 +396,11 @@ public class SudokuGame {
     public void fillInNotes() {
         executeCommand(new FillInNotesCommand());
     }
+
+    /**
+     * Fills in all values which can be entered in each cell.
+     */
+    public void fillInNotesWithAllValues() { executeCommand(new FillInNotesWithAllValuesCommand()); }
 
     public void validate() {
         mCells.validate();
