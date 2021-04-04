@@ -70,19 +70,19 @@ public class SudokuListActivity extends ThemedActivity {
     public static final int MENU_ITEM_DELETE = Menu.FIRST + 2;
     public static final int MENU_ITEM_PLAY = Menu.FIRST + 3;
     public static final int MENU_ITEM_RESET = Menu.FIRST + 4;
-    public static final int MENU_ITEM_EDIT_NOTE = Menu.FIRST + 5;
-    public static final int MENU_ITEM_FILTER = Menu.FIRST + 6;
-    public static final int MENU_ITEM_SORT = Menu.FIRST + 7;
-    public static final int MENU_ITEM_FOLDERS = Menu.FIRST + 8;
-    public static final int MENU_ITEM_SETTINGS = Menu.FIRST + 9;
-    public static final int MENU_ITEM_RESET_ALL = Menu.FIRST + 10;
+    public static final int MENU_ITEM_RESET_ALL = Menu.FIRST + 5;
+    public static final int MENU_ITEM_EDIT_NOTE = Menu.FIRST + 6;
+    public static final int MENU_ITEM_FILTER = Menu.FIRST + 7;
+    public static final int MENU_ITEM_SORT = Menu.FIRST + 8;
+    public static final int MENU_ITEM_FOLDERS = Menu.FIRST + 9;
+    public static final int MENU_ITEM_SETTINGS = Menu.FIRST + 10;
 
     private static final int DIALOG_DELETE_PUZZLE = 0;
     private static final int DIALOG_RESET_PUZZLE = 1;
-    private static final int DIALOG_EDIT_NOTE = 2;
-    private static final int DIALOG_FILTER = 3;
-    private static final int DIALOG_SORT = 4;
-    private static final int DIALOG_RESET_ALL = 5;
+    private static final int DIALOG_RESET_ALL = 2;
+    private static final int DIALOG_EDIT_NOTE = 3;
+    private static final int DIALOG_FILTER = 4;
+    private static final int DIALOG_SORT = 5;
 
     private static final String FILTER_STATE_NOT_STARTED = "filter" + SudokuGame.GAME_STATE_NOT_STARTED;
     private static final String FILTER_STATE_PLAYING = "filter" + SudokuGame.GAME_STATE_PLAYING;
@@ -212,15 +212,16 @@ public class SudokuListActivity extends ThemedActivity {
         // new note into the list.
         menu.add(0, MENU_ITEM_FOLDERS, 0, R.string.folders).setShortcut('1', 'f')
                 .setIcon(R.drawable.ic_folder);
-        menu.add(0, MENU_ITEM_FILTER, 1, R.string.filter).setShortcut('1', 'f')
-                .setIcon(R.drawable.ic_view);
-        menu.add(0, MENU_ITEM_SORT, 2, R.string.sort).setShortcut('1', 'f')
-                .setIcon(R.drawable.ic_sort);
-        menu.add(0, MENU_ITEM_INSERT, 2, R.string.add_sudoku).setShortcut('3', 'a')
+        menu.add(0, MENU_ITEM_INSERT, 1, R.string.add_sudoku).setShortcut('1', 'a')
                 .setIcon(R.drawable.ic_add);
-        menu.add(0, MENU_ITEM_SETTINGS, 2, R.string.settings).setShortcut('4', 's')
+        menu.add(0, MENU_ITEM_FILTER, 2, R.string.filter).setShortcut('2', 'f')
+                .setIcon(R.drawable.ic_view);
+        menu.add(0, MENU_ITEM_SORT, 2, R.string.sort).setShortcut('2', 'o')
+                .setIcon(R.drawable.ic_sort);
+        menu.add(0, MENU_ITEM_RESET_ALL, 3, R.string.reset_all_puzzles).setShortcut('3','r')
+                .setIcon(R.drawable.ic_undo);
+        menu.add(0, MENU_ITEM_SETTINGS, 4, R.string.settings).setShortcut('4', 's')
                 .setIcon(R.drawable.ic_settings);
-        menu.add(0, MENU_ITEM_RESET_ALL, 3, R.string.reset_all_puzzles);
         // I'm not sure this one is ready for release
 //		menu.add(0, MENU_ITEM_GENERATE, 3, R.string.generate_sudoku).setShortcut('4', 'g')
 //		.setIcon(R.drawable.ic_add);
@@ -351,6 +352,7 @@ public class SudokuListActivity extends ThemedActivity {
                                 sudokuGame.reset();
                                 mDatabase.updateSudoku(sudokuGame);
                             }
+                            updateList();
                         })
                         .setNegativeButton(android.R.string.no, (dialog, whichButton) -> { })
                         .create();

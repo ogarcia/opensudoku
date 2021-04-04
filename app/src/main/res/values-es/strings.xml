@@ -342,4 +342,8 @@
 
     <string name="invalid_puzzle_format">Formato de puzzle no válido</string>
     <string name="invalid_mime_type">Tipo MIME no válido, comprueba el contenido del portapapeles</string>
+
+    <!-- Strings added/changed in 3.x.x -->
+    <string name="reset_all_puzzles">Reiniciar todo</string>
+    <string name="reset_all_puzzles_confirm">¿Estas seguro de querer reiniciar todos los puzzles de esta carpeta?</string>
 </resources>

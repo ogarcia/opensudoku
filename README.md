@@ -63,6 +63,9 @@ was contributed to by Vit Hnilica, Martin Sobola, Martin Helff, and Diego Pierot
 * [Daniel](https://github.com/demield):
   * Added copy and paste ability in sudoku editor
 
+* [Роман](https://github.com/D0ct0rZl0):
+  * Added _reset all_ option in sudoku list menu
+
 ## Support or Contact
 
 Having trouble with Open Sudoku? Create an issue in https://github.com/ogarcia/opensudoku/issues or contact me via opensudoku@moire.org and I'll help you sort it out.
