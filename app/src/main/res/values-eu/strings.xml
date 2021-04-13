@@ -383,4 +383,17 @@
     <string name="sort_creation_date">Sortze-data</string>
     <string name="sort_play_time">Jolastutako denbora</string>
     <string name="sort_last_played">Azkenengoz jolastua</string>
+
+    <!-- Strings added/changed in 3.7.0 -->
+    <string name="pasted_from_clipboard">Arbeletik itsatsita</string>
+    <string name="copied_to_clipboard">Arbelean kopiatuta</string>
+
+    <string name="invalid_puzzle_format">Baliogabeko sudoku formatua</string>
+    <string name="invalid_mime_type">Baliogabeko MIME mota, begiratu arbelaren edukia</string>
+
+    <!-- Strings added/changed in 3.x.x -->
+    <string name="reset_all_puzzles">Berrezarri guztiak</string>
+    <string name="reset_all_puzzles_confirm">Ziur karpeta honetako sudoku guztiak berrezarri nahi dituzula?</string>
+
+    <string name="fill_all_notes">Bete oharrak balio guztiekin</string>
 </resources>
