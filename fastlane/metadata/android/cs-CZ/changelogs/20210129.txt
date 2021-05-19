@@ -1,0 +1,1 @@
+Opravena chyba pocházející z verze 3.6.0, která zabraňovala importování sudoku ve formátu SDM.
