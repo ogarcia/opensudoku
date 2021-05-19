@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">OpenSudoku</string>
+    <string name="app_name">Open Sudoku</string>
     <string name="edit_sudoku">Upravit sudoku</string>
 
     <string name="puzzle_folders">OpenSudoku - složky se sudoku</string>
 
     <string name="version">Verze: %s</string>
-    <string name="send_me_bugs">Pokud narazíte na chybu nebo máte nějaký návrh, nestyďte se mi poslat mail nebo použijte
-		issue tracker na stránkách projektu.
-	</string>
+    <string name="send_me_bugs">
+        Pokud narazíte na chybu nebo máte nějaký návrh, nestyďte se mi
+        poslat e-mail nebo použijte issue tracker na stránkách projektu.
+    </string>
+
+    <string name="current_developers_label">Současný vývojář</string>
+
+    <string name="old_developers_label">Původní vývojáři</string>
+
+    <string name="localization_contributors_label">Překladatelé</string>
 
     <string name="close">Zavřít</string>
     <string name="clear">Smazat</string>
@@ -23,6 +30,8 @@
     <string name="edit_note">Upravit poznámku</string>
 
     <string name="add_folder">Přidat složku</string>
+    <string name="import_file">Importovat sudoku</string>
+    <string name="import_file_title">Import souboru %s</string>
     <string name="about">O aplikaci</string>
     <string name="rename_folder">Přejmenovat složku</string>
     <string name="delete_folder">Smazat složku</string>
@@ -80,7 +89,8 @@
     <string name="numpad">Numpad</string>
     <string name="numpad_summary">Standardní numerická klávesnice.</string>
     <string name="numpad_move_right">Posun doprava</string>
-    <string name="numpad_move_right_summary">Posune buňku doprava po stisku klávesy.</string>
+    <string name="numpad_move_right_summary">Posune buňku doprava po stisku klávesy.
+    </string>
 
     <string name="numpad_abbr">Num\nPad</string>
     <string name="popup_abbr">Pop</string>
@@ -90,38 +100,63 @@
     <string name="help">Nápověda</string>
     <string name="that_is_all">To je vše</string>
 
+    <string name="first_run_hint">
+        Ve hře je několik vstupních módů, které můžete použít k vyplňování.
+        Abyste se rychleji seznámili s těmito módy, bude po první aktivaci módu zobrazena krátká nápověda vysvětlující
+        jeho funkčnost.
+        \n\nTuto nápovědu je možné vypnout v nastavení hry.\n
+    </string>
 
-    <string name="first_run_hint">Ve hře je několik vstupních módů, které můžete použít k vyplňování. Aby jste se
-		rychleji seznámili s těmito módy, bude po první aktivaci módu zobrazena krátká nápověda vysvětlující jeho
-		funkčnost. Tuto nápovědu je možné vypnout v nastavení hry.\n
-	</string>
-    <string name="im_popup_hint">Nyní jste ve vstupním módu<i>Popup</i>. K úpravě hodnoty pole se tohoto pole dotkněte
-		prstem.\n\nVšimněte si tlačítka ve spodním pravém rohu - pomocí tohoto tlačítka se můžete přepnout do dalšího
-		vstupního módu.\n
-	</string>
-    <string name="im_single_number_hint">Nyní jste ve vstupním módu<i>Single number</i>. Nejprve ve spodní části vyberte
-		nějaké číslo. Pak se už jen prstem dotýkejte polí, do kterých chcete vybranou hodnotu vyplnit.\n\nStiskněte
-		tlačítko s tužkou k přepnutí do módu, kdy budou vkládány poznámky.\n
-	</string>
-    <string name="im_numpad_hint">Nyní jste ve vstupním módu<i>Numpad</i>. Tlačítka se chovají jako tlačítka na
-		standardní numerické klávesnici.\n\nStiskněte tlačítko s tužkou k přepnutí do módu, kdy budou vkládány
-		poznámky.\n
-	</string>
-    <string name="im_disable_modes_hint">Pokud nechcete, nemusíte používat všechny vstupní módy. Jakýkoliv ze vstupních
-		módu může být zakázán v nastavení aplikace.\n\nK ovládání hry také můžete používat klávesnici nebo trackball.
-		Pokud chcete zadat poznámku na klávesnici, stiskněte číslo spolu s klávesou alt nebo shift.\n
-	</string>
-    <string name="help_text"><b>Klávesnice</b>\n\nDostaňte se pomocí trackballu s ukazatelem na pole, které chcete
-		upravit a stiskněte číslo na klávesnici k vyplnění tohoto pole. Pokud chcete zadávat poznámku, stiskněte číslo
-		zároveň s klávesou alt nebo shift.\n\n<b>Vstupní módy</b>\n\nPomocí tlačítka v pravém spodním rohu se můžete
-		přepínat mezi několika vstupními módy. Vstupní mód můžete v nastavení hry zakázat, takový mód pak bude kompletně
-		skryt.\n\n<b>Vstupní mód Popup</b>\n\nPo ťuknutí na pole je zobrazeno popup okno sloužící k výběru čísla, které
-		má být do pole vyplněno, nebo k úpravě poznámky v poli.\n\n<b>Vstupní mód Single Number</b>\n\nNejprve vyberete
-		číslo ve spodní části obrazovky. Pak už jen ťukáte na pole, v kterých chcete mít číslo vyplněné\n\nK přepnutí
-		mezi úpravou hodnoty a poznámky pole můžete použít tlačítko s tužkou.\n\n<b>Vstupní mód Numpad</b>\n\nTlačítka
-		se chovají jako klávesy na numerické klávesnici.\n\nK přepnutí mezi úpravou hodnoty a poznámky pole můžete
-		použít tlačítko s tužkou.\n
-	</string>
+    <string name="im_popup_hint">
+        Nyní jste ve vstupním módu<i>Popup</i>.
+        K úpravě hodnoty pole se tohoto pole dotkněte prstem.
+        \n\nNVšimněte si tlačítka ve spodním pravém rohu.
+        Pomocí tohoto tlačítka se můžete přepnout do dalšího vstupního módu.\n
+    </string>
+
+    <string name="im_single_number_hint">
+        Nyní jste ve vstupním módu<i>Single number</i>
+        Nejprve ve spodní části vyberte nějaké číslo.
+        TPak se už jen prstem dotýkejte polí, do kterých chcete vybranou hodnotu vyplnit.
+        \n\nStiskněte <i>tlačítko s tužkou</i> k přepnutí do módu, kdy budou vkládány poznámky.\n
+    </string>
+
+    <string name="im_numpad_hint">
+        Nyní jste ve vstupním módu<i>Numpad</i>.
+        Tlačítka se chovají jako tlačítka na standardní numerické klávesnici.
+        \n\nStiskněte <i>tlačítko s tužkou</i> k přepnutí do módu, kdy budou vkládány poznámky.\n
+    </string>
+
+    <string name="im_disable_modes_hint">
+        Pokud nechcete, nemusíte používat všechny vstupní módy.
+        Jakýkoliv ze vstupních módu můžete zakázat v nastavení aplikace.
+        \n\nK ovládání hry také můžete používat klávesnici nebo trackball.
+        Pokud chcete zadat poznámku na klávesnici, stiskněte číslo spolu s klávesou alt nebo shift.\n
+    </string>
+
+    <string name="help_text">
+        <b>Klávesnice</b>
+        \n\nDostaňte se pomocí trackballu s ukazatelem na pole, které chcete upravit a stiskněte číslo
+        na klávesnici k vyplnění tohoto pole. Pokud chcete zadávat poznámku, stiskněte číslo
+        zároveň s klávesou alt nebo shift.\n\n
+
+        <b>Vstupní módy</b>
+        \n\nPomocí tlačítka v pravém spodním rohu se můžete přepínat mezi několika vstupními módy. Vstupní mód
+        můžete v nastavení hry zakázat, takový mód pak bude kompletně skryt.\n\n
+
+        <b>Vstupní mód Popup</b>
+        \n\nPo ťuknutí na pole je zobrazeno popup okno sloužící k výběru čísla, které
+        má být do pole vyplněno, nebo k úpravě poznámky v poli.\n\n
+
+        <b>Vstupní mód Single Number</b>
+        \n\nejprve vyberete číslo ve spodní části obrazovky. Pak už jen ťukáte na pole, v kterých chcete
+        mít číslo vyplněné.
+        \n\nK přepnutí mezi úpravou hodnoty a poznámky pole můžete použít <i>tlačítko s tužkou</i>.\n\n
+
+        <b>Vstupní mód Numpad</b>
+        \n\nTlačítka se chovají jako klávesy na numerické klávesnici.
+        \n\nK přepnutí mezi úpravou hodnoty a poznámky pole můžete použít <i>tlačítko s tužkou</i>.\n
+    </string>
 
 
     <string name="game">Hra</string>
@@ -139,14 +174,15 @@
     <string name="invalid_format">Neplatný formát, import byl zrušen.</string>
 
     <!-- Strings added in 0.7.0 -->
-    <string name="loading">Loading…</string>
+    <string name="loading">Načítání…</string>
 
     <!-- Strings added/changed in 0.7.1 -->
     <string name="more_settings">Více nastavení</string>
     <string name="screen_border_size">Velikost okraje displaye</string>
-    <string name="screen_border_size_summary">Některé displaye špatně reagují na dotyky na okrajích displaye. Toto by
-		mohlo pomoci.
-	</string>
+    <string name="screen_border_size_summary">
+        Některé displaye špatně reagují na dotyky na okrajích displaye.
+        Toto by mohlo pomoci.
+    </string>
     <string name="highlight_touched_cell">Zvýraznit pole při dotyku</string>
     <string name="highlight_touched_cell_summary">Zvýrazní řádek a sloupec pole při dotyku.</string>
     <string name="export">Export</string>
@@ -158,8 +194,8 @@
     <string name="unknown_export_error">Při exportu sudoku došlo k neznámé chybě.</string>
     <string name="highlight_completed_values">Zvýrazni dokončená čísla</string>
     <string name="highlight_completed_values_summary">Zvýrazní tlačítka čísel, která byla zadána víc než 9-krát.
-	</string>
-    <string name="theme">Téma</string>
+    </string>
+    <string name="theme">Motiv</string>
     <string name="theme_summary">Vyberte barevné schéma pro hrací plochu.</string>
     <string name="select_theme">Vyberte téma</string>
     <string name="filename">Jméno souboru</string>
@@ -168,84 +204,175 @@
     <string name="puzzles_have_been_exported">Sudoku byla exportována do %s.</string>
     <string name="file_exists">Soubor existuje, chcete ho přepsat?</string>
     <!-- localization of default folder names -->
-    <string name="difficulty_hard">Hard</string>
-    <string name="difficulty_medium">Medium</string>
-    <string name="difficulty_easy">Easy</string>
+    <string name="difficulty_hard">Obtížné</string>
+    <string name="difficulty_medium">Střední obtížnost</string>
+    <string name="difficulty_easy">Snadné</string>
 
     <!-- Strings added/changed in 1.1.0 -->
-    <string name="generate_sudoku">Vygeneruj sudoku</string>
+    <string name="generate_sudoku">Vygeneruj nové sudoku</string>
     <string name="select_difficulty">Vyber obtížnost</string>
     <string name="generating">Generuji sudoku…</string>
-    <string name="current_developers_label">Current Developer</string>
-    <string name="fill_in_notes_summary">Enable "Fill in notes" menu item.</string>
-    <string name="import_file">Import</string>
-    <string name="import_file_title">Import file %s</string>
-    <string name="localization_contributors_label">Localization Contributors</string>
-    <string name="old_developers_label">Old Developers</string>
-    <string name="set_checkpoint">Set checkpoint</string>
-    <string name="show_number_totals">Show Number Totals</string>
-    <string name="show_number_totals_summary">Displays count of each number placed.</string>
-    <string name="undo_to_checkpoint">Undo to checkpoint</string>
-    <string name="undo_to_checkpoint_confirm">Are you sure you want to undo all actions since last checkpoint?</string>
-    <string name="what_is_new">What\'s new</string>
-    <string name="highlight_similar_cells">Highlight similar cells</string>
-    <string name="highlight_similar_cells_summary">Highlight cells with similar values</string>
-    <string name="contributors_label">Contributors</string>
-    <string name="bidirectional_selection">Bidirectional selection</string>
-    <string name="bidirectional_selection_summary">In single number input panel, the selection of a non editable cell automatically selects the corresponding button and vice versa.</string>
+    <string name="show_number_totals">Zobrazit počet zadaných čísel</string>
+    <string name="show_number_totals_summary">Zobrazuje, kolikrát bylo které číslo zadáno.</string>
+    <string name="what_is_new">Co je nového?</string>
+
+    <!-- Strings added/changed in 1.1.1 -->
+    <string name="fill_in_notes_summary">Povolit zobrazení položku \"Vyplnit poznámky\" v menu</string>
+
+    <!-- Strings added/changed in 1.1.2 -->
+    <string name="set_checkpoint">Nastavit záchytný bod</string>
+    <string name="undo_to_checkpoint">Obnovit do záchytného bodu</string>
+    <string name="undo_to_checkpoint_confirm">Opravdu chcete zahodit veškeré akce, které jste učinili od posledního záchytného bodu?</string>
+
+    <!-- Strings added/changed in 2.3.0 -->
+    <string name="highlight_similar_cells">Zvýraznit podobné buňky</string>
+    <string name="highlight_similar_cells_summary">Zvýrazní buňky s podobnými hodnotami</string>
+
+    <!-- Strings added/changed in 2.4.0 -->
+    <string name="bidirectional_selection">Obousměrný výběr</string>
+    <string name="bidirectional_selection_summary">
+        Pokud v módu Single Number vyberete buňku, kterou nelze upravovat, automaticky se vybere
+        odpovídající tlačítko (a obráceně).
+    </string>
+    <string name="contributors_label">Přispěvovatelé</string>
 
     <!-- Strings added/changed in 2.5.0 -->
     <string name="game_state_not_started">Nehrané</string>
     <string name="game_state_playing">Rozehráno</string>
     <string name="game_state_solved">Vyřešeno</string>
 
-    <string name="game_level_easy">Easy</string>
-    <string name="game_level_medium">Medium</string>
-    <string name="game_level_hard">Hard</string>
+    <string name="game_level_easy">Snadné</string>
+    <string name="game_level_medium">Střední obtížnost</string>
+    <string name="game_level_hard">Obtížné</string>
 
-    <string name="theme_paper">Paper</string>
-    <string name="theme_graph_paper">Graph Paper</string>
-    <string name="theme_light">Light</string>
-    <string name="theme_paper_light">Paper Light</string>
-    <string name="theme_graph_paper_light">Graph Paper Light</string>
-    <string name="theme_high_contrast">High Contrast</string>
-    <string name="theme_inverted_high_contrast">Inverted High Contrast</string>
-    <string name="theme_custom">Custom Theme</string>
+    <string name="theme_paper">Papír</string>
+    <string name="theme_graph_paper">Milimetrový papír</string>
+    <string name="theme_light">Světlý</string>
+    <string name="theme_paper_light">Světlý papír</string>
+    <string name="theme_graph_paper_light">Větlý milimetrový papír</string>
+    <string name="theme_high_contrast">Vysoký kontrast</string>
+    <string name="theme_inverted_high_contrast">Obrácený vysoký kontrast</string>
+    <string name="theme_custom">Vlastní motiv</string>
 
-    <string name="screen_custom_theme">Custom Theme colors</string>
-    <string name="screen_custom_theme_summary">Customize colors of the Custom Theme.</string>
-    <string name="screen_custom_theme_summary_disabled">Choose \"Custom Theme\" in \"Theme\" setting above to enable this section.</string>
+    <string name="screen_custom_theme">Vlastní barvy motivu</string>
+    <string name="screen_custom_theme_summary">Vyberte si barvy, které se použijí ve vlastním motivu</string>
+    <string name="screen_custom_theme_summary_disabled">
+        Pro povolení této sekce je nutné vybrat \"Vlastní motiv\" v nastavení \"Motiv\"
+    </string>
 
-    <string name="default_lineColor">Line</string>
-    <string name="default_lineColor_summary">Border color around a cell.</string>
+    <string name="default_lineColor">Mřížka</string>
+    <string name="default_lineColor_summary">Barva rámečku okolo buněk</string>
 
-    <string name="default_sectorLineColor">Sector line</string>
-    <string name="default_sectorLineColor_summary">Border color around a block of 3x3 cells.</string>
+    <string name="default_sectorLineColor">Okraj sektoru</string>
+    <string name="default_sectorLineColor_summary">Barva rámečku okolo skupin buněk o velikosti 3x3</string>
 
     <string name="default_textColor">Text</string>
-    <string name="default_textColor_summary">Text color of an editable cell.</string>
+    <string name="default_textColor_summary">Barva textu v upravovatelných buňkách</string>
 
-    <string name="default_textColorReadOnly">Read-only text</string>
-    <string name="default_textColorReadOnly_summary">Text color of a non editable cell.</string>
+    <string name="default_textColorReadOnly">Neupravovatelný text</string>
+    <string name="default_textColorReadOnly_summary">Barva textu v buňkách, které nelze upravovat</string>
 
-    <string name="default_textColorNote">Note text</string>
-    <string name="default_textColorNote_summary">Color of a note text of an editable cell.</string>
+    <string name="default_textColorNote">Poznámky</string>
+    <string name="default_textColorNote_summary">Barva poznámek v upravovatelných buňkách</string>
 
-    <string name="default_backgroundColor">Primary background</string>
-    <string name="default_backgroundColor_summary">Background color of odd groups of 3x3 cells.</string>
+    <string name="default_backgroundColor">Hlavní pozadí</string>
+    <string name="default_backgroundColor_summary">Barva pozadí lichých skupin buněk o velikosti 3x3</string>
 
-    <string name="default_backgroundColorSecondary">Secondary background</string>
-    <string name="default_backgroundColorSecondary_summary">Background color of even groups of 3x3 cells.</string>
+    <string name="default_backgroundColorSecondary">Vedlejší pozadí</string>
+    <string name="default_backgroundColorSecondary_summary">Barva pozadí sudých skupin buněk o velikosti 3x3</string>
 
-    <string name="default_backgroundColorReadOnly">Background of read-only cells</string>
-    <string name="default_backgroundColorReadOnly_summary">Background color of a non editable cells.</string>
+    <string name="default_backgroundColorReadOnly">Pozadí nezměnitelných buněk</string>
+    <string name="default_backgroundColorReadOnly_summary">Pozadí buněk, které není možné upravovat</string>
 
-    <string name="default_backgroundColorTouched">Selector</string>
-    <string name="default_backgroundColorTouched_summary">Color of the selection cross that appears when you press on any cell.</string>
+    <string name="default_backgroundColorTouched">Výběr</string>
+    <string name="default_backgroundColorTouched_summary">
+        Barva výběrového kříže, který se zobrazí po podržení prstu na nějaké buňce
+    </string>
 
-    <string name="default_backgroundColorSelected">Selected cell background</string>
-    <string name="default_backgroundColorSelected_summary">Background color of the selected cell.</string>
+    <string name="default_backgroundColorSelected">Pozadí vybrané buňky</string>
+    <string name="default_backgroundColorSelected_summary">Barva pozadí buňky, která je právě vybraná</string>
 
-    <string name="default_backgroundColorHighlighted">Highlighted cell background</string>
-    <string name="default_backgroundColorHighlighted_summary">Background color of the highlighted cells.</string>
+    <string name="default_backgroundColorHighlighted">Pozadí zvýrazněné buňky</string>
+    <string name="default_backgroundColorHighlighted_summary">Barva pozadí buňky, která je zvýrazněná</string>
+
+    <!-- Strings added/changed in 2.6.0 -->
+    <string name="solve_puzzle">Ukázat řešení</string>
+    <string name="solve_puzzle_confirm">Opravdu chcete vidět řešení?</string>
+    <string name="used_solver">Použil jste řešící algoritmus pro zobrazení řešení!</string>
+    <string name="puzzle_not_solved">Toto sudoku nemá řešení.</string>
+
+    <string name="solver_hint">Tip</string>
+    <string name="hint_confirm">Tato možnost vyplní do vybrané buňky správnou hodnotu. Přejete si pokračovat?</string>
+    <string name="cannot_give_hint">Pro tuto buňku není možné získat tip.</string>
+
+    <string name="check_solvabitily">Kontrola řešitelnosti</string>
+    <string name="puzzle_solvable">Toto sudoku má řešení.</string>
+
+    <string name="copy_from_existing_theme">Zkopírovat z existujícího motivu…</string>
+
+    <!-- Strings added/changed in 3.0.0 -->
+    <string name="theme_default">Temný</string>
+    <string name="theme_amoled">AMOLED</string>
+    <string name="theme_latte">Karamelové latte</string>
+    <string name="theme_espresso">Espresso</string>
+    <string name="theme_sunrise">Svítání</string>
+    <string name="theme_honeybee">Včelí med</string>
+    <string name="theme_crystal">Křišťál</string>
+    <string name="theme_midnight_blue">Půlnoční modrá</string>
+    <string name="theme_emerald">Smaragd</string>
+    <string name="theme_forest">Les</string>
+    <string name="theme_amethyst">Ametyst</string>
+    <string name="theme_ruby">Rubín</string>
+
+    <string name="is_light_theme_title">Svétlý motiv</string>
+    <string name="is_light_theme_summary">Vyberte, zda mají být barvy aplikace založené na světlém nebo tmavém motivu.</string>
+    <string name="app_color_primary_title">Hlavní barva aplikace</string>
+    <string name="app_color_primary_summary">Tato barva je použita na horní lištu.</string>
+    <string name="app_color_secondary_title">Vedlejší barva aplikace</string>
+    <string name="app_color_secondary_summary">Tato barva je použita na stavovou lištu systému Android a většinou je tmavší verzí hlavní barvy aplikace</string>
+    <string name="app_color_accent_title">Zvýrazňovací barva aplikace</string>
+    <string name="app_color_accent_summary">Tato barva je použita pro zvýraznění některých prvků uživatelského rozhraní aplikace</string>
+    <string name="app_color_button_title">Barva tlačítek aplikace</string>
+    <string name="app_color_button_summary">Tato barva je použita pro tlačítka aplikace</string>
+
+    <string name="highlight_similar_notes">Zvýraznit podobné poznámky</string>
+    <string name="highlight_similar_notes_summary">Zvýrazní buňky s podobnými poznámkami</string>
+
+    <string name="resume">Pokračovat</string>
+    <string name="sudoku_lists">Seznam sudoku</string>
+
+    <!-- Strings added/changed in 3.1.0 -->
+    <string name="undo_to_before_mistake">Vrátit do stavu bez chyby</string>
+    <string name="undo_to_before_mistake_confirm">Opravdu si přejete vše vrátit do stavu, kdy bylo sudoku ještě řešitelné?</string>
+
+    <!-- Strings added/changed in 3.2.0 -->
+    <string name="remove_notes_title">Odstranit poznámky po zadání čísla</string>
+    <string name="remove_notes_summary">Automaticky odstraní poznámky ze stejného sloupce, řádku a rámečku po zadání čísla</string>
+
+    <string name="create_from_single_color">Vytvořit z jednolité barvy…</string>
+
+    <!-- Strings added/changed in 3.3.0 -->
+    <string name="show_sudoku_lists_on_startup_title">Po zapnutí zobrazit seznam sudoku</string>
+    <string name="show_sudoku_lists_on_startup_summary">Po zapnutí přeskočí titulní obrazovku a rovnou zobrazí seznam sudoku.</string>
+    <string name="app_startup_category">Spuštění aplikace</string>
+
+    <!-- Strings added/changed in 3.4.0 -->
+    <string name="sort">Třídění</string>
+    <string name="sort_puzzles_by">Setřídit sudoku podle</string>
+    <string name="sort_creation_date">Data vytvoření</string>
+    <string name="sort_play_time">Odehraného času</string>
+    <string name="sort_last_played">Poslední hry</string>
+
+    <!-- Strings added/changed in 3.7.0 -->
+    <string name="pasted_from_clipboard">Vloženo ze schránky</string>
+    <string name="copied_to_clipboard">Kopírováno do schránky</string>
+
+    <string name="invalid_puzzle_format">Neplatný formát sudoku</string>
+    <string name="invalid_mime_type">Neplatný MIME typ, zkontrolujte si prosím obsah schránky</string>
+
+    <!-- Strings added/changed in 3.x.x -->
+    <string name="reset_all_puzzles">Resetovat vše</string>
+    <string name="reset_all_puzzles_confirm">Opravdu si přejete resetovat všechna sudoku v této složce?</string>
+
+    <string name="fill_all_notes">Vyplnit poznámky všemi hodnotami</string>
 </resources>
