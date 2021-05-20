@@ -1,0 +1,1 @@
+Open Sudoku je hra sudoku s otevřeným zdrojovým kódem.

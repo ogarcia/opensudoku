@@ -1,0 +1,12 @@
+Open Sudoku je hra sudoku s otevřeným zdrojovým kódem.
+
+Funkce:
+- Bez reklam (nesnášíme je stejně tak jako vy)
+- Založeno na originálním kódu od Romana Maška
+- Různé možnosti zadávání (přívětivé pro ovládání prsty, číselná klávesnice ve spodu obrazovky atd.)
+- Hlavolam může být stažen z webu, zadán ručně nebo vygenerován prostřednictvím programu GNOME Sudoku
+- Odehraný čas a historie
+- Exportování na SD kartu
+- Motivy
+
+Nějaké nápady? Běžte na http://opensudoku.moire.org, vaše zpětná vazba je vítána
