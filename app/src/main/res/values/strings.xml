@@ -395,4 +395,9 @@
     <string name="reset_all_puzzles_confirm">Are you sure you want to reset all puzzles in this folder?</string>
 
     <string name="fill_all_notes">Fill in notes with all values</string>
+
+    <string name="sort_order_ascending">ASC</string>
+    <string name="sort_order_descending">DESC</string>
+
+    <string name="press_color_to_apply">Press on Color to apply</string>
 </resources>

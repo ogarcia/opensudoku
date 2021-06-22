@@ -1,0 +1,3 @@
+Añadida la opción restablecer todo en el menú de la lista de sudokus. ¡Gracias @ D0ct0rZl0!
+Añadida una nueva opción para completar notas con todos los valores.
+Añadida clasificación ASC/DESC y la entrada hexadecimal de colores personalizados en el tema. ¡Gracias @demield!

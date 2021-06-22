@@ -62,6 +62,7 @@ was contributed to by Vit Hnilica, Martin Sobola, Martin Helff, and Diego Pierot
 
 * [Daniel](https://github.com/demield):
   * Added copy and paste ability in sudoku editor
+  * Added ASC/DESC sorting and hex input for custom theme colours
 
 * [Роман](https://github.com/D0ct0rZl0):
   * Added _reset all_ option in sudoku list menu

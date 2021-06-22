@@ -1,0 +1,3 @@
+Added reset all option in sudoku list menu. Thanks @D0ct0rZl0!
+Added a new option to fill in notes with all values.
+Added ASC/DESC sorting and hex input for custom theme colours. Thanks @demield!
