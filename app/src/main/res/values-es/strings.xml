@@ -348,4 +348,9 @@
     <string name="reset_all_puzzles_confirm">¿Estas seguro de querer reiniciar todos los puzzles de esta carpeta?</string>
 
     <string name="fill_all_notes">Rellenar notas con todos los valores</string>
+
+    <string name="sort_order_ascending">ASC</string>
+    <string name="sort_order_descending">DESC</string>
+
+    <string name="press_color_to_apply">Presiona el color para aplicar</string>
 </resources>
