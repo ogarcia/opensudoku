@@ -175,7 +175,7 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
     private void showCreateFromSingleColorDialog() {
         ColorPickerDialog colorDialog = new ColorPickerDialog(getContext(), mGameSettings.getInt("custom_theme_colorPrimary", Color.WHITE));
         colorDialog.setAlphaSliderVisible(false);
-        colorDialog.setHexValueEnabled(false);
+        colorDialog.setHexValueEnabled(true);
         colorDialog.setOnColorChangedListener(this::createCustomThemeFromSingleColor);
         colorDialog.show();
     }
@@ -215,6 +215,14 @@ public class SudokuBoardCustomThemePreferenceGroup extends PreferenceGroup imple
         ((ColorPickerPreference) findPreference("custom_theme_backgroundColorTouched")).onColorChanged(colorAccent);
         ((ColorPickerPreference) findPreference("custom_theme_backgroundColorSelected")).onColorChanged(colorPrimaryDark);
         ((ColorPickerPreference) findPreference("custom_theme_backgroundColorHighlighted")).onColorChanged(colorPrimary);
+    }
+
+    @Override
+    protected void onAttachedToActivity() {
+        for (int i = 1; i < getPreferenceCount(); i ++) {
+            ((ColorPickerPreference) getPreference(i)).setHexValueEnabled(true);
+        }
+        super.onAttachedToActivity();
     }
 
     public void onActivityDestroy() {

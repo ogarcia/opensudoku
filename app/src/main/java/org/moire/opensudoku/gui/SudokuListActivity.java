@@ -89,6 +89,7 @@ public class SudokuListActivity extends ThemedActivity {
     private static final String FILTER_STATE_SOLVED = "filter" + SudokuGame.GAME_STATE_COMPLETED;
 
     private static final String SORT_TYPE = "sort_type";
+    private static final String SORT_ORDER = "sort_order";
 
     private static final String TAG = "SudokuListActivity";
 
@@ -139,6 +140,7 @@ public class SudokuListActivity extends ThemedActivity {
 
         mListSorter = new SudokuListSorter(getApplicationContext());
         mListSorter.setSortType(settings.getInt(SORT_TYPE, SudokuListSorter.SORT_BY_CREATED));
+        mListSorter.setAscending(settings.getBoolean(SORT_ORDER, false));
 
         mAdapter = new SimpleCursorAdapter(this, R.layout.sudoku_list_item,
                 null, new String[]{SudokuColumns.DATA, SudokuColumns.STATE,
@@ -333,13 +335,23 @@ public class SudokuListActivity extends ThemedActivity {
                                 R.array.game_sort,
                                 mListSorter.getSortType(),
                                 (dialog, whichButton) -> mListSorter.setSortType(whichButton))
-                        .setPositiveButton(android.R.string.ok, (dialog, whichButton) -> {
+                        .setPositiveButton(R.string.sort_order_ascending, (dialog, whichButton) -> {
+                            mListSorter.setAscending(true);
                             settings.edit()
                                     .putInt(SORT_TYPE, mListSorter.getSortType())
+                                    .putBoolean(SORT_ORDER, true)
                                     .apply();
                             updateList();
                         })
-                        .setNegativeButton(android.R.string.cancel, (dialog, whichButton) -> {
+                        .setNegativeButton(R.string.sort_order_descending, (dialog, whichButton) -> {
+                            mListSorter.setAscending(false);
+                            settings.edit()
+                                    .putInt(SORT_TYPE, mListSorter.getSortType())
+                                    .putBoolean(SORT_ORDER, false)
+                                    .apply();
+                            updateList();
+                        })
+                        .setNeutralButton(android.R.string.cancel, (dialog, whichButton) -> {
                         })
                         .create();
             case DIALOG_RESET_ALL:
