@@ -400,4 +400,7 @@
     <string name="sort_order_descending">DESC</string>
 
     <string name="press_color_to_apply">Press on Color to apply</string>
+
+    <string name="disable_overwrite_summary">Disable overwrite of filled cells</string>
+    <string name="disable_overwrite_title">Cell overwrite protection</string>
 </resources>

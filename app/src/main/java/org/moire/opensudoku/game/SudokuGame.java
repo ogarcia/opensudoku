@@ -201,6 +201,10 @@ public class SudokuGame {
             throw new IllegalArgumentException("Value must be between 0-9.");
         }
 
+        if (cell.isProtected()) {
+            if ( cell.getValue() > 0 && value > 0) { return; }
+        }
+
         if (cell.isEditable()) {
             if (mRemoveNotesOnEntry) {
                 executeCommand(new SetCellValueAndRemoveNotesCommand(cell, value));

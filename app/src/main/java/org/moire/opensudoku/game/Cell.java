@@ -39,6 +39,8 @@ public class Cell {
     private CellGroup mRow; // row containing this cell
     private CellGroup mColumn; // column containing this cell
 
+    private static boolean mDisableOverwrite = false;
+
     private int mValue;
     private CellNote mNote;
     private boolean mEditable;
@@ -208,6 +210,24 @@ public class Cell {
     public void setNote(CellNote note) {
         mNote = note;
         onChange();
+    }
+
+    /**
+     * Sets whether an editable cell can be overwritten.
+     *
+     * @param disableOverwrite True, if cell cannot be overwritten (should be cleared first).
+     */
+    public static void setProtected(Boolean disableOverwrite) {
+        mDisableOverwrite = disableOverwrite;
+    }
+
+    /**
+     * Gets whether an editable cell can be overwritten.
+     *
+     * @return true, if cell cannot be overwritten (should be cleared first).
+     */
+    public boolean isProtected() {
+        return mDisableOverwrite;
     }
 
     /**

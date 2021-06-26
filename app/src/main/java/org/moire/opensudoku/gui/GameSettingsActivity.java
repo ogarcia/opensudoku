@@ -28,6 +28,7 @@ import android.preference.PreferenceActivity;
 import android.preference.PreferenceGroup;
 
 import org.moire.opensudoku.R;
+import org.moire.opensudoku.game.Cell;
 import org.moire.opensudoku.utils.ThemeUtils;
 
 public class GameSettingsActivity extends PreferenceActivity {
@@ -35,6 +36,7 @@ public class GameSettingsActivity extends PreferenceActivity {
     private PreferenceGroup mScreenCustomTheme;
     private long mTimestampWhenApplyingTheme;
     private CheckBoxPreference mHighlightSimilarNotesPreference;
+    private CheckBoxPreference mDisableOverwritePreference;
     private OnPreferenceChangeListener mShowHintsChanged = (preference, newValue) -> {
         boolean newVal = (Boolean) newValue;
 
@@ -67,6 +69,11 @@ public class GameSettingsActivity extends PreferenceActivity {
             return true;
         }));
 
+        mDisableOverwritePreference = (CheckBoxPreference) findPreference("disable_overwrite");
+        mDisableOverwritePreference.setOnPreferenceChangeListener((preference, newValue) -> {
+            Cell.setProtected((Boolean) newValue);
+            return true;
+        });
         ListPreference themePreference = (ListPreference) findPreference("theme");
         mScreenCustomTheme = (PreferenceGroup) findPreference("screen_custom_theme");
         enableScreenCustomTheme(themePreference.getValue());

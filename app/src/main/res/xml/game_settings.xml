@@ -49,6 +49,11 @@
             android:key="remove_notes_on_input"
             android:summary="@string/remove_notes_summary"
             android:title="@string/remove_notes_title" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="disable_overwrite"
+            android:summary="@string/disable_overwrite_summary"
+            android:title="@string/disable_overwrite_title" />
     </PreferenceCategory>
     <PreferenceCategory android:title="@string/input_methods">
         <CheckBoxPreference
