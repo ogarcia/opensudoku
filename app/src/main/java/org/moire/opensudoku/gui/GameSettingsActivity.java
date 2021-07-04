@@ -71,7 +71,7 @@ public class GameSettingsActivity extends PreferenceActivity {
 
         mDisableOverwritePreference = (CheckBoxPreference) findPreference("disable_overwrite");
         mDisableOverwritePreference.setOnPreferenceChangeListener((preference, newValue) -> {
-            Cell.setProtected((Boolean) newValue);
+            Cell.setProtected((boolean) newValue);
             return true;
         });
         ListPreference themePreference = (ListPreference) findPreference("theme");

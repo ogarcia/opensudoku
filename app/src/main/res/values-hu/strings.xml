@@ -100,6 +100,9 @@
     <string name="help">Súgó</string>
     <string name="that_is_all">Ennyi volt!</string>
 
+    <string name="yes_string">igen</string>
+    <string name="no_string">nem</string>
+
     <string name="first_run_hint">
 		Többféle beviteli mód létezik a rejtvények kitöltéséhez.
         A következőkben ezekkel segítünk megismerkedni.

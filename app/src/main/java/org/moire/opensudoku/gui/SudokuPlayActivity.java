@@ -33,6 +33,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AlertDialog;
@@ -43,6 +45,7 @@ import org.moire.opensudoku.db.SudokuDatabase;
 import org.moire.opensudoku.game.Cell;
 import org.moire.opensudoku.game.SudokuGame;
 import org.moire.opensudoku.game.SudokuGame.OnPuzzleSolvedListener;
+import org.moire.opensudoku.game.SudokuGame.OnCellValueChangedListener;
 import org.moire.opensudoku.gui.inputmethod.IMControlPanel;
 import org.moire.opensudoku.gui.inputmethod.IMControlPanelStatePersister;
 import org.moire.opensudoku.gui.inputmethod.IMNumpad;
@@ -80,6 +83,7 @@ public class SudokuPlayActivity extends ThemedActivity {
     private static final int DIALOG_PUZZLE_NOT_SOLVED = 8;
     private static final int DIALOG_HINT = 9;
     private static final int DIALOG_CANNOT_GIVE_HINT = 10;
+    private static final int DIALOG_OVERWRITE = 11;
 
     private static final int REQUEST_SETTINGS = 1;
 
@@ -127,6 +131,17 @@ public class SudokuPlayActivity extends ThemedActivity {
         }
 
     };
+
+    private OnCellValueChangedListener onCellChangedListener = new OnCellValueChangedListener() {
+
+        @Override
+        public void onCellChanged() {
+            if ( !Cell.isRememberOverwrite() ) {
+                showDialog(DIALOG_OVERWRITE);
+            }
+        }
+    };
+
     private OnSelectedNumberChangedListener onSelectedNumberChangedListener = new OnSelectedNumberChangedListener() {
         @Override
         public void onSelectedNumberChanged(int number) {
@@ -201,6 +216,7 @@ public class SudokuPlayActivity extends ThemedActivity {
 
         mSudokuBoard.setGame(mSudokuGame);
         mSudokuGame.setOnPuzzleSolvedListener(onSolvedListener);
+        mSudokuGame.setOnCellValueChangedListener(onCellChangedListener);
 
         mHintsQueue.showOneTimeHint("welcome", R.string.welcome, R.string.first_run_hint);
 
@@ -278,6 +294,8 @@ public class SudokuPlayActivity extends ThemedActivity {
 
         mIMControlPanel.activateFirstInputMethod(); // make sure that some input method is activated
         mIMControlPanelStatePersister.restoreState(mIMControlPanel);
+
+        Cell.setProtected(gameSettings.getBoolean("disable_overwrite", false));
 
         if (!mSudokuBoard.isReadOnly()) {
             mSudokuBoard.invokeOnCellSelected();
@@ -511,7 +529,7 @@ public class SudokuPlayActivity extends ThemedActivity {
                         .setIcon(R.drawable.ic_restore)
                         .setTitle(R.string.app_name)
                         .setMessage(R.string.restart_confirm)
-                        .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> {
+                        .setPositiveButton(R.string.yes_string, (dialog, whichButton) -> {
                             // Restart game
                             mSudokuGame.reset();
                             mSudokuGame.start();
@@ -527,50 +545,50 @@ public class SudokuPlayActivity extends ThemedActivity {
                             MenuItem menuItemUndoAction = mOptionsMenu.findItem(MENU_ITEM_UNDO_ACTION);
                             menuItemUndoAction.setEnabled(true);
                         })
-                        .setNegativeButton(android.R.string.no, null)
+                        .setNegativeButton(R.string.no_string, null)
                         .create();
             case DIALOG_CLEAR_NOTES:
                 return new AlertDialog.Builder(this)
                         .setIcon(R.drawable.ic_delete)
                         .setTitle(R.string.app_name)
                         .setMessage(R.string.clear_all_notes_confirm)
-                        .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> mSudokuGame.clearAllNotes())
-                        .setNegativeButton(android.R.string.no, null)
+                        .setPositiveButton(R.string.yes_string, (dialog, whichButton) -> mSudokuGame.clearAllNotes())
+                        .setNegativeButton(R.string.no_string, null)
                         .create();
             case DIALOG_UNDO_TO_CHECKPOINT:
                 return new AlertDialog.Builder(this)
                         .setIcon(R.drawable.ic_undo)
                         .setTitle(R.string.app_name)
                         .setMessage(R.string.undo_to_checkpoint_confirm)
-                        .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> {
+                        .setPositiveButton(R.string.yes_string, (dialog, whichButton) -> {
                             mSudokuGame.undoToCheckpoint();
                             selectLastChangedCell();
                         })
-                        .setNegativeButton(android.R.string.no, null)
+                        .setNegativeButton(R.string.no_string, null)
                         .create();
             case DIALOG_UNDO_TO_BEFORE_MISTAKE:
                 return new AlertDialog.Builder(this)
                         .setIcon(R.drawable.ic_undo)
                         .setTitle(R.string.app_name)
                         .setMessage(getString(R.string.undo_to_before_mistake_confirm))
-                        .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> {
+                        .setPositiveButton(R.string.yes_string, (dialog, whichButton) -> {
                             mSudokuGame.undoToBeforeMistake();
                             selectLastChangedCell();
                         })
-                        .setNegativeButton(android.R.string.no, null)
+                        .setNegativeButton(R.string.no_string, null)
                         .create();
             case DIALOG_SOLVE_PUZZLE:
                 return new AlertDialog.Builder(this)
                         .setTitle(R.string.app_name)
                         .setMessage(R.string.solve_puzzle_confirm)
-                        .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> {
+                        .setPositiveButton(R.string.yes_string, (dialog, whichButton) -> {
                             if (mSudokuGame.isSolvable()) {
                                 mSudokuGame.solve();
                             } else {
                                 showDialog(DIALOG_PUZZLE_NOT_SOLVED);
                             }
                         })
-                        .setNegativeButton(android.R.string.no, null)
+                        .setNegativeButton(R.string.no_string, null)
                         .create();
             case DIALOG_USED_SOLVER:
                 return new AlertDialog.Builder(this)
@@ -588,7 +606,7 @@ public class SudokuPlayActivity extends ThemedActivity {
                 return new AlertDialog.Builder(this)
                         .setTitle(R.string.app_name)
                         .setMessage(R.string.hint_confirm)
-                        .setPositiveButton(android.R.string.yes, (dialog, whichButton) -> {
+                        .setPositiveButton(R.string.yes_string, (dialog, whichButton) -> {
                             Cell cell = mSudokuBoard.getSelectedCell();
                             if (cell != null && cell.isEditable()) {
                                 if (mSudokuGame.isSolvable()) {
@@ -600,7 +618,7 @@ public class SudokuPlayActivity extends ThemedActivity {
                                 showDialog(DIALOG_CANNOT_GIVE_HINT);
                             }
                         })
-                        .setNegativeButton(android.R.string.no, null)
+                        .setNegativeButton(R.string.no_string, null)
                         .create();
             case DIALOG_CANNOT_GIVE_HINT:
                 return new AlertDialog.Builder(this)
@@ -608,8 +626,39 @@ public class SudokuPlayActivity extends ThemedActivity {
                         .setMessage(R.string.cannot_give_hint)
                         .setPositiveButton(android.R.string.ok, null)
                         .create();
+            case DIALOG_OVERWRITE:
+                View checkBoxView = View.inflate(this, R.layout.remember_checkbox, null);
+                CheckBox checkBox = (CheckBox) checkBoxView.findViewById(R.id.remember_checkbox);
+                checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+
+                    @Override
+                    public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                        // Save to shared preferences
+                        Cell.setRememberOverwrite(isChecked);
+                    }
+                });
+                checkBox.setText(R.string.remember_settings);
+                return new AlertDialog.Builder(this)
+                        .setView(checkBoxView)
+                        .setTitle(R.string.overwrite)
+                        .setPositiveButton(R.string.yes_string, (dialog, whichButton) -> {
+                            if ( Cell.isRememberOverwrite() ) {
+                                Cell.setProtected(false);
+                                saveSharedBooleanPreference("disable_overwrite", false);
+                            }
+                            mSudokuGame.setCellValueFinal();
+                        })
+                        .setNegativeButton(R.string.no_string, null)
+                        .create();
         }
         return null;
+    }
+
+    private void saveSharedBooleanPreference(String key, boolean value) {
+        SharedPreferences gameSettings = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        SharedPreferences.Editor editor = gameSettings.edit();
+        editor.putBoolean(key, value);
+        editor.apply();
     }
 
     private void selectLastChangedCell() {

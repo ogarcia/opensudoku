@@ -54,9 +54,13 @@ public class SudokuGame {
     private boolean mRemoveNotesOnEntry = false;
 
     private OnPuzzleSolvedListener mOnPuzzleSolvedListener;
+    private OnCellValueChangedListener mOnCellValueChangedListener;
     private CommandStack mCommandStack;
     // Time when current activity has become active.
     private long mActiveFromTime = -1;
+
+    private Cell mSelectedCell = null;
+    private int mNewValue = 0;
 
     public SudokuGame() {
         mTime = 0;
@@ -101,6 +105,10 @@ public class SudokuGame {
 
     public void setOnPuzzleSolvedListener(OnPuzzleSolvedListener l) {
         mOnPuzzleSolvedListener = l;
+    }
+
+    public void setOnCellValueChangedListener(OnCellValueChangedListener l) {
+        mOnCellValueChangedListener = l;
     }
 
     public String getNote() {
@@ -201,25 +209,40 @@ public class SudokuGame {
             throw new IllegalArgumentException("Value must be between 0-9.");
         }
 
+        if (!cell.isEditable()) {
+            return;
+        }
+
+        mSelectedCell = cell;
+        mNewValue = value;
+
         if (cell.isProtected()) {
-            if ( cell.getValue() > 0 && value > 0) { return; }
-        }
-
-        if (cell.isEditable()) {
-            if (mRemoveNotesOnEntry) {
-                executeCommand(new SetCellValueAndRemoveNotesCommand(cell, value));
-            } else {
-                executeCommand(new SetCellValueCommand(cell, value));
-            }
-
-            validate();
-            if (isCompleted()) {
-                finish();
-                if (mOnPuzzleSolvedListener != null) {
-                    mOnPuzzleSolvedListener.onPuzzleSolved();
+            if (cell.getValue() > 0 && value > 0) {
+                if (mOnCellValueChangedListener != null) {
+                    mOnCellValueChangedListener.onCellChanged();
                 }
+                return;
             }
         }
+        setCellValueFinal();
+    }
+
+    public void setCellValueFinal() {
+
+        if (mRemoveNotesOnEntry) {
+            executeCommand(new SetCellValueAndRemoveNotesCommand(mSelectedCell, mNewValue));
+        } else {
+            executeCommand(new SetCellValueCommand(mSelectedCell, mNewValue));
+        }
+
+        validate();
+        if (isCompleted()) {
+            finish();
+            if (mOnPuzzleSolvedListener != null) {
+                mOnPuzzleSolvedListener.onPuzzleSolved();
+            }
+        }
+
     }
 
     /**
@@ -418,4 +441,14 @@ public class SudokuGame {
          */
         void onPuzzleSolved();
     }
+
+    public interface OnCellValueChangedListener {
+        /**
+         * Occurs when a cell value will be set.
+         *
+         * @return
+         */
+        void onCellChanged();
+    }
+
 }

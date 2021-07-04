@@ -116,6 +116,11 @@
     <string name="help">Help</string>
     <string name="that_is_all">That\'s all</string>
 
+    <string name="remember_settings">Remember settings</string>
+    <string name="overwrite">Do you want to overwrite the Cell?</string>
+    <string name="yes_string">yes</string>
+    <string name="no_string">no</string>
+
     <string name="first_run_hint">
         There are several input modes which you can use to fill in the puzzle.
         In order to help you get familiar with these modes, there will be several hints displayed as you go through them.

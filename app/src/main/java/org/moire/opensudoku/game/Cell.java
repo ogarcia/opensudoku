@@ -40,6 +40,7 @@ public class Cell {
     private CellGroup mColumn; // column containing this cell
 
     private static boolean mDisableOverwrite = false;
+    private static boolean mRememberOverwrite = false;
 
     private int mValue;
     private CellNote mNote;
@@ -217,8 +218,9 @@ public class Cell {
      *
      * @param disableOverwrite True, if cell cannot be overwritten (should be cleared first).
      */
-    public static void setProtected(Boolean disableOverwrite) {
+    public static void setProtected(boolean disableOverwrite) {
         mDisableOverwrite = disableOverwrite;
+        mRememberOverwrite = false;
     }
 
     /**
@@ -226,8 +228,26 @@ public class Cell {
      *
      * @return true, if cell cannot be overwritten (should be cleared first).
      */
-    public boolean isProtected() {
+    public static boolean isProtected() {
         return mDisableOverwrite;
+    }
+
+    /**
+     * Sets whether overwrite dialog should remember to answer yes/no
+     *
+     * @param rememberOverwrite True, if dialog should not be displayed any more
+     */
+    public static void setRememberOverwrite(boolean rememberOverwrite) {
+        mRememberOverwrite = rememberOverwrite;
+    }
+
+    /**
+     * Gets whether remember overwrite was checked
+     *
+     * @return true, if the checkbox was set
+     */
+    public static boolean isRememberOverwrite() {
+        return mRememberOverwrite;
     }
 
     /**
