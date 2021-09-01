@@ -272,7 +272,7 @@ public class SudokuListActivity extends ThemedActivity {
                         .setView(noteView)
                         .setPositiveButton(R.string.save, (dialog, whichButton) -> {
                             SudokuGame game = mDatabase.getSudoku(mEditNotePuzzleID);
-                            game.setNote(mEditNoteInput.getText().toString());
+                            game.setCornerNote(mEditNoteInput.getText().toString());
                             mDatabase.updateSudoku(game);
                             updateList();
                         })
@@ -379,7 +379,7 @@ public class SudokuListActivity extends ThemedActivity {
         if (id == DIALOG_EDIT_NOTE) {
             SudokuDatabase db = new SudokuDatabase(getApplicationContext());
             SudokuGame game = db.getSudoku(mEditNotePuzzleID);
-            mEditNoteInput.setText(game.getNote());
+            mEditNoteInput.setText(game.getCornerNote());
         }
     }
 

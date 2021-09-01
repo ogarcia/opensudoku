@@ -66,9 +66,9 @@ public class IMNumpad extends InputMethod {
                 switch (mEditMode) {
                     case MODE_EDIT_NOTE:
                         if (selNumber == 0) {
-                            mGame.setCellNote(selCell, CellNote.EMPTY);
+                            mGame.setCellCornerNote(selCell, CellNote.EMPTY);
                         } else if (selNumber > 0 && selNumber <= 9) {
-                            mGame.setCellNote(selCell, selCell.getNote().toggleNumber(selNumber));
+                            mGame.setCellCornerNote(selCell, selCell.getCornerNote().toggleNumber(selNumber));
                         }
                         break;
                     case MODE_EDIT_VALUE:
@@ -214,7 +214,7 @@ public class IMNumpad extends InputMethod {
                 }
             }
         } else {
-            CellNote note = mSelectedCell == null ? new CellNote() : mSelectedCell.getNote();
+            CellNote note = mSelectedCell == null ? new CellNote() : mSelectedCell.getCornerNote();
             List<Integer> notedNumbers = note.getNotedNumbers();
             for (Button b : mNumberButtons.values()) {
                 if (notedNumbers.contains(b.getTag())) {

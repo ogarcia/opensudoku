@@ -25,17 +25,17 @@ import org.moire.opensudoku.game.CellNote;
 
 import java.util.StringTokenizer;
 
-public class EditCellNoteCommand extends AbstractSingleCellCommand {
+public class EditCellCentreNoteCommand extends AbstractSingleCellCommand {
 
     private CellNote mNote;
     private CellNote mOldNote;
 
-    public EditCellNoteCommand(Cell cell, CellNote note) {
+    public EditCellCentreNoteCommand(Cell cell, CellNote note) {
         super(cell);
         mNote = note;
     }
 
-    EditCellNoteCommand() {
+    EditCellCentreNoteCommand() {
 
     }
 
@@ -58,14 +58,14 @@ public class EditCellNoteCommand extends AbstractSingleCellCommand {
     @Override
     void execute() {
         Cell cell = getCell();
-        mOldNote = cell.getNote();
-        cell.setNote(mNote);
+        mOldNote = cell.getCentreNote();
+        cell.setCentreNote(mNote);
     }
 
     @Override
     void undo() {
         Cell cell = getCell();
-        cell.setNote(mOldNote);
+        cell.setCentreNote(mOldNote);
     }
 
 }

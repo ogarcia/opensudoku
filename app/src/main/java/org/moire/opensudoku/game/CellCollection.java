@@ -21,6 +21,7 @@
 package org.moire.opensudoku.game;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -61,11 +62,17 @@ public class CellCollection {
      */
     public static int DATA_VERSION_3 = 3;
 
-    public static int DATA_VERSION = DATA_VERSION_3;
+    /**
+     * Centre notes
+     */
+    public static int DATA_VERSION_4 = 4;
+
+    public static int DATA_VERSION = DATA_VERSION_4;
     private static Pattern DATA_PATTERN_VERSION_PLAIN = Pattern.compile("^\\d{81}$");
     private static Pattern DATA_PATTERN_VERSION_1 = Pattern.compile("^version: 1\\n((?#value)\\d\\|(?#note)((\\d,)+|-)\\|(?#editable)[01]\\|){0,81}$");
     private static Pattern DATA_PATTERN_VERSION_2 = Pattern.compile("^version: 2\\n((?#value)\\d\\|(?#note)(\\d){1,3}\\|{1,2}(?#editable)[01]\\|){0,81}$");
     private static Pattern DATA_PATTERN_VERSION_3 = Pattern.compile("^version: 3\\n((?#value)\\d\\|(?#note)(\\d){1,3}\\|(?#editable)[01]\\|){0,81}$");
+    private static Pattern DATA_PATTERN_VERSION_4 = Pattern.compile("^version: 4\\n((?#value)\\d\\|(?#note)(\\d){1,3}\\|(?#centreNote)\\|(?#editable)[01]\\|){0,81}$");
     private final List<OnChangeListener> mChangeListeners = new ArrayList<>();
     // TODO: An array of ints is a much better than an array of Integers, but this also generalizes to the fact that two parallel arrays of ints are also a lot more efficient than an array of (int,int) objects
     // Cell's data.
@@ -374,21 +381,21 @@ public class CellCollection {
     }
 
     /**
-     * Fills in all valid notes for all cells based on the values in each row, column, and sector.
-     * This is a destructive operation in that the existing notes are overwritten.
+     * Fills in all valid corner notes for all cells based on the values in each row, column,
+     * and sector. This is a destructive operation in that the existing notes are overwritten.
      */
-    public void fillInNotes() {
+    public void fillInCornerNotes() {
         for (int r = 0; r < SUDOKU_SIZE; r++) {
             for (int c = 0; c < SUDOKU_SIZE; c++) {
                 Cell cell = getCell(r, c);
-                cell.setNote(new CellNote());
+                cell.setCornerNote(new CellNote());
 
                 CellGroup row = cell.getRow();
                 CellGroup column = cell.getColumn();
                 CellGroup sector = cell.getSector();
                 for (int i = 1; i <= SUDOKU_SIZE; i++) {
                     if (row.DoesntContain(i) && column.DoesntContain(i) && sector.DoesntContain(i)) {
-                        cell.setNote(cell.getNote().addNumber(i));
+                        cell.setCornerNote(cell.getCornerNote().addNumber(i));
                     }
                 }
             }
@@ -396,16 +403,16 @@ public class CellCollection {
     }
 
     /**
-     * Fills in notes with all values for all cells.
+     * Fills in corner notes with all values for all cells.
      * This is a destructive operation in that the existing notes are overwritten.
      */
-    public void fillInNotesWithAllValues() {
+    public void fillInCornerNotesWithAllValues() {
         for (int r = 0; r < SUDOKU_SIZE; r++) {
             for (int c = 0; c < SUDOKU_SIZE; c++) {
                 Cell cell = getCell(r, c);
-                cell.setNote(new CellNote());
+                cell.setCornerNote(new CellNote());
                 for (int i = 1; i <= SUDOKU_SIZE; i++) {
-                    cell.setNote(cell.getNote().addNumber(i));
+                    cell.setCornerNote(cell.getCornerNote().addNumber(i));
                 }
             }
         }
@@ -416,13 +423,14 @@ public class CellCollection {
             return;
         }
 
-        CellGroup row = cell.getRow();
-        CellGroup column = cell.getColumn();
-        CellGroup sector = cell.getSector();
-        for (int i = 0; i < SUDOKU_SIZE; i++) {
-            row.getCells()[i].setNote(row.getCells()[i].getNote().removeNumber(number));
-            column.getCells()[i].setNote(column.getCells()[i].getNote().removeNumber(number));
-            sector.getCells()[i].setNote(sector.getCells()[i].getNote().removeNumber(number));
+        List<Cell> cells = new ArrayList<Cell>();
+        cells.addAll(Arrays.asList(cell.getRow().getCells()));
+        cells.addAll(Arrays.asList(cell.getColumn().getCells()));
+        cells.addAll(Arrays.asList(cell.getSector().getCells()));
+
+        for (Cell c : cells) {
+            c.setCornerNote(c.getCornerNote().removeNumber(number));
+            c.setCentreNote(c.getCentreNote().removeNumber(number));
         }
     }
 
@@ -481,7 +489,7 @@ public class CellCollection {
 
     /**
      * Returns a string representation of this collection in a default
-     * ({@link #DATA_PATTERN_VERSION_3}) format version.
+     * ({@link #DATA_PATTERN_VERSION_4}) format version.
      *
      * @see #serialize(StringBuilder, int)
      *
@@ -508,7 +516,7 @@ public class CellCollection {
 
     /**
      * Writes collection to given <code>StringBuilder</code> in a default
-     * ({@link #DATA_PATTERN_VERSION_3}) data format version.
+     * ({@link #DATA_PATTERN_VERSION_4}) data format version.
      *
      * @see #serialize(StringBuilder, int)
      */
@@ -520,12 +528,12 @@ public class CellCollection {
      * Writes collection to given <code>StringBuilder</code> in a given data format version.
      * You can later recreate object instance by calling {@link #deserialize(String)} method.
      *
-     * Supports only {@link #DATA_PATTERN_VERSION_PLAIN} and {@link #DATA_PATTERN_VERSION_3} formats.
+     * Supports only {@link #DATA_PATTERN_VERSION_PLAIN} and {@link #DATA_PATTERN_VERSION_4} formats.
      * All the other data format versions are ignored and treated as
-     * {@link #DATA_PATTERN_VERSION_3} format.
+     * {@link #DATA_PATTERN_VERSION_4} format.
      *
      * @see #DATA_PATTERN_VERSION_PLAIN
-     * @see #DATA_PATTERN_VERSION_3
+     * @see #DATA_PATTERN_VERSION_4
      *
      * @param data A <code>StringBuilder</code> where to write data.
      * @param dataVersion A version of data format.

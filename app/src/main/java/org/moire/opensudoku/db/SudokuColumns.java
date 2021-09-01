@@ -30,5 +30,6 @@ public abstract class SudokuColumns implements BaseColumns {
     public static final String LAST_PLAYED = "last_played";
     public static final String DATA = "data";
     public static final String PUZZLE_NOTE = "puzzle_note";
+    public static final String CENTRE_NOTE = "centre_note";
     public static final String COMMAND_STACK = "command_stack";
 }

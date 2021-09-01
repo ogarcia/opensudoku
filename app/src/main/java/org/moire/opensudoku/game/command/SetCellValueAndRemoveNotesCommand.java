@@ -46,7 +46,7 @@ public class SetCellValueAndRemoveNotesCommand extends AbstractMultiNoteCommand 
 
     @Override
     void execute() {
-        mOldNotes.clear();
+        mOldCornerNotes.clear();
         saveOldNotes();
 
         Cell cell = getCell();

@@ -313,11 +313,22 @@ public class IMSingleNumber extends InputMethod {
         switch (mEditMode) {
             case MODE_EDIT_CORNER_NOTE:
                 if (selNumber == 0) {
-                    mGame.setCellNote(cell, CellNote.EMPTY);
+                    mGame.setCellCornerNote(cell, CellNote.EMPTY);
                 } else if (selNumber > 0 && selNumber <= 9) {
-                    CellNote newNote = cell.getNote().toggleNumber(selNumber);
-                    mGame.setCellNote(cell, newNote);
+                    CellNote newNote = cell.getCornerNote().toggleNumber(selNumber);
+                    mGame.setCellCornerNote(cell, newNote);
                     // if we toggled the note off we want to de-select the cell
+                    if (!newNote.hasNumber(selNumber)) {
+                        mBoard.clearCellSelection();
+                    }
+                }
+                break;
+            case MODE_EDIT_CENTRE_NOTE:
+                if (selNumber == 0) {
+                    mGame.setCellCentreNote(cell, CellNote.EMPTY);
+                } else if (selNumber > 0 && selNumber <= 9) {
+                    CellNote newNote = cell.getCentreNote().toggleNumber(selNumber);
+                    mGame.setCellCentreNote(cell, newNote);
                     if (!newNote.hasNumber(selNumber)) {
                         mBoard.clearCellSelection();
                     }

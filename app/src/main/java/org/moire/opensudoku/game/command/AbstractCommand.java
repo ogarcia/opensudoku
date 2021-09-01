@@ -32,8 +32,8 @@ public abstract class AbstractCommand {
     private static final CommandDef[] commands = {
             new CommandDef(ClearAllNotesCommand.class.getSimpleName(), "c1",
                     ClearAllNotesCommand::new),
-            new CommandDef(EditCellNoteCommand.class.getSimpleName(), "c2",
-                    EditCellNoteCommand::new),
+            new CommandDef(EditCellCornerNoteCommand.class.getSimpleName(), "c2",
+                    EditCellCornerNoteCommand::new),
             new CommandDef(FillInNotesCommand.class.getSimpleName(), "c3",
                     FillInNotesCommand::new),
             new CommandDef(SetCellValueCommand.class.getSimpleName(), "c4",
@@ -43,7 +43,9 @@ public abstract class AbstractCommand {
             new CommandDef(SetCellValueAndRemoveNotesCommand.class.getSimpleName(), "c6",
                     SetCellValueAndRemoveNotesCommand::new),
             new CommandDef(FillInNotesWithAllValuesCommand.class.getSimpleName(), "c7",
-                    FillInNotesWithAllValuesCommand::new)
+                    FillInNotesWithAllValuesCommand::new),
+            new CommandDef(EditCellCentreNoteCommand.class.getSimpleName(), "c8",
+                    EditCellCentreNoteCommand::new)
     };
 
     public static AbstractCommand deserialize(StringTokenizer data) {

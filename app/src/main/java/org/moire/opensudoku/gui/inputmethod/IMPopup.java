@@ -61,7 +61,7 @@ public class IMPopup extends InputMethod {
         @Override
         public boolean onNoteEdit(Integer[] numbers) {
             if (mSelectedCell != null) {
-                mGame.setCellNote(mSelectedCell, CellNote.fromIntArray(numbers));
+                mGame.setCellCornerNote(mSelectedCell, CellNote.fromIntArray(numbers));
             }
             return true;
         }
@@ -121,7 +121,7 @@ public class IMPopup extends InputMethod {
 
             mEditCellDialog.resetButtons();
             mEditCellDialog.updateNumber(cell.getValue());
-            mEditCellDialog.updateNote(cell.getNote().getNotedNumbers());
+            mEditCellDialog.updateNote(cell.getCornerNote().getNotedNumbers());
 
             Map<Integer, Integer> valuesUseCount = null;
             if (mHighlightCompletedValues || mShowNumberTotals)

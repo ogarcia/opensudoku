@@ -338,7 +338,8 @@ public class SudokuDatabase {
         long lastPlayed = cursor.getLong(cursor.getColumnIndex(SudokuColumns.LAST_PLAYED));
         int state = cursor.getInt(cursor.getColumnIndex(SudokuColumns.STATE));
         long time = cursor.getLong(cursor.getColumnIndex(SudokuColumns.TIME));
-        String note = cursor.getString(cursor.getColumnIndex(SudokuColumns.PUZZLE_NOTE));
+        String cornerNote = cursor.getString(cursor.getColumnIndex(SudokuColumns.PUZZLE_NOTE));
+        String centreNote = cursor.getString(cursor.getColumnIndex(SudokuColumns.CENTRE_NOTE));
 
         SudokuGame sudoku = new SudokuGame();
         sudoku.setId(id);
@@ -347,7 +348,8 @@ public class SudokuDatabase {
         sudoku.setLastPlayed(lastPlayed);
         sudoku.setState(state);
         sudoku.setTime(time);
-        sudoku.setNote(note);
+        sudoku.setCornerNote(cornerNote);
+        sudoku.setCentreNote(centreNote);
 
         if (sudoku.getState() == SudokuGame.GAME_STATE_PLAYING) {
             String command_stack = cursor.getString(cursor.getColumnIndex(SudokuColumns.COMMAND_STACK));
@@ -373,7 +375,7 @@ public class SudokuDatabase {
         values.put(SudokuColumns.LAST_PLAYED, sudoku.getLastPlayed());
         values.put(SudokuColumns.STATE, sudoku.getState());
         values.put(SudokuColumns.TIME, sudoku.getTime());
-        values.put(SudokuColumns.PUZZLE_NOTE, sudoku.getNote());
+        values.put(SudokuColumns.PUZZLE_NOTE, sudoku.getCornerNote());
         values.put(SudokuColumns.FOLDER_ID, folderID);
         String command_stack = "";
         if (sudoku.getState() == SudokuGame.GAME_STATE_PLAYING) {
@@ -469,7 +471,7 @@ public class SudokuDatabase {
         values.put(SudokuColumns.LAST_PLAYED, sudoku.getLastPlayed());
         values.put(SudokuColumns.STATE, sudoku.getState());
         values.put(SudokuColumns.TIME, sudoku.getTime());
-        values.put(SudokuColumns.PUZZLE_NOTE, sudoku.getNote());
+        values.put(SudokuColumns.PUZZLE_NOTE, sudoku.getCornerNote());
         String command_stack = null;
         if (sudoku.getState() == SudokuGame.GAME_STATE_PLAYING) {
             command_stack = sudoku.getCommandStack().serialize();

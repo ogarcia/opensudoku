@@ -20,6 +20,8 @@
 
 package org.moire.opensudoku.game;
 
+import static org.moire.opensudoku.game.CellCollection.DATA_VERSION_4;
+
 import java.util.StringTokenizer;
 
 /**
@@ -40,7 +42,8 @@ public class Cell {
     private CellGroup mColumn; // column containing this cell
 
     private int mValue;
-    private CellNote mNote;
+    private CellNote mCornerNote;
+    private CellNote mCentreNote;
     private boolean mEditable;
     private boolean mValid;
 
@@ -48,7 +51,7 @@ public class Cell {
      * Creates empty editable cell.
      */
     public Cell() {
-        this(0, new CellNote(), true, true);
+        this(0, new CellNote(), new CellNote(), true, true);
     }
 
     /**
@@ -57,16 +60,17 @@ public class Cell {
      * @param value Value of the cell.
      */
     public Cell(int value) {
-        this(value, new CellNote(), true, true);
+        this(value, new CellNote(), new CellNote(), true, true);
     }
 
-    private Cell(int value, CellNote note, boolean editable, boolean valid) {
+    private Cell(int value, CellNote cornerNote, CellNote centreNote, boolean editable, boolean valid) {
         if (value < 0 || value > 9) {
             throw new IllegalArgumentException("Value must be between 0-9.");
         }
 
         mValue = value;
-        mNote = note;
+        mCornerNote = cornerNote;
+        mCentreNote = centreNote;
         mEditable = editable;
         mValid = valid;
     }
@@ -80,7 +84,10 @@ public class Cell {
     public static Cell deserialize(StringTokenizer data, int version) {
         Cell cell = new Cell();
         cell.setValue(Integer.parseInt(data.nextToken()));
-        cell.setNote(CellNote.deserialize(data.nextToken(), version));
+        cell.setCornerNote(CellNote.deserialize(data.nextToken(), version));
+        if (version >= DATA_VERSION_4) {
+            cell.setCentreNote(CellNote.deserialize(data.nextToken(), version));
+        }
         cell.setEditable(data.nextToken().equals("1"));
 
         return cell;
@@ -192,21 +199,40 @@ public class Cell {
     }
 
     /**
-     * Gets note attached to the cell.
+     * Gets corner note attached to the cell.
      *
      * @return Note attached to the cell.
      */
-    public CellNote getNote() {
-        return mNote;
+    public CellNote getCornerNote() {
+        return mCornerNote;
     }
 
     /**
-     * Sets note attached to the cell
+     * Gets centre note attached to the cell.
      *
-     * @param note Note attached to the cell
+     * @return Centre note attached to the cell.
      */
-    public void setNote(CellNote note) {
-        mNote = note;
+    public CellNote getCentreNote() {
+        return mCentreNote;
+    }
+
+    /**
+     * Sets corner note attached to the cell
+     *
+     * @param note Corner note attached to the cell
+     */
+    public void setCornerNote(CellNote note) {
+        mCornerNote = note;
+        onChange();
+    }
+
+    /**
+     * Sets centre note attached to the cell
+     *
+     * @param note Centre note attached to the cell
+     */
+    public void setCentreNote(CellNote note) {
+        mCentreNote = note;
         onChange();
     }
 
@@ -262,10 +288,15 @@ public class Cell {
             data.append(mValue);
         } else {
             data.append(mValue).append("|");
-            if (mNote == null || mNote.isEmpty()) {
+            if (mCornerNote == null || mCornerNote.isEmpty()) {
                 data.append("0").append("|");
             } else {
-                mNote.serialize(data);
+                mCornerNote.serialize(data);
+            }
+            if (mCentreNote == null || mCentreNote.isEmpty()) {
+                data.append("0").append("|");
+            } else {
+                mCentreNote.serialize(data);
             }
             data.append(mEditable ? "1" : "0").append("|");
         }
@@ -306,7 +337,6 @@ public class Cell {
             if (mCellCollection != null) {
                 mCellCollection.onChange();
             }
-
         }
     }
 }

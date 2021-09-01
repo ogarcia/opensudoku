@@ -506,7 +506,7 @@ public class ThemeUtils {
         cells.getCell(0, 1).setValue(2);
         cells.getCell(0, 2).setValue(3);
 
-        cells.fillInNotes();
+        cells.fillInCornerNotes();
         board.setCells(cells);
     }
 

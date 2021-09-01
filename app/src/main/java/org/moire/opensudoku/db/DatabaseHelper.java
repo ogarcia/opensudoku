@@ -20,6 +20,7 @@
 
 package org.moire.opensudoku.db;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -33,7 +34,7 @@ import org.moire.opensudoku.game.SudokuGame;
  */
 public class DatabaseHelper extends SQLiteOpenHelper {
 
-    public static final int DATABASE_VERSION = 9;
+    public static final int DATABASE_VERSION = 10;
     private static final String TAG = "DatabaseHelper";
     private Context mContext;
 
@@ -53,6 +54,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                 + SudokuColumns.LAST_PLAYED + " INTEGER,"
                 + SudokuColumns.DATA + " Text,"
                 + SudokuColumns.PUZZLE_NOTE + " Text,"
+                + SudokuColumns.CENTRE_NOTE + " Text,"
                 + SudokuColumns.COMMAND_STACK + " Text"
                 + ");");
 
@@ -166,8 +168,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     // TODO: sudokuName is not used
     private void insertSudoku(SQLiteDatabase db, long folderID, long sudokuID, String sudokuName, String data) {
-        String sql = "INSERT INTO " + SudokuDatabase.SUDOKU_TABLE_NAME + " VALUES (" + sudokuID + ", " + folderID + ", 0, " + SudokuGame.GAME_STATE_NOT_STARTED + ", 0, null, '" + data + "', null, null);";
-        db.execSQL(sql);
+        ContentValues cv = new ContentValues();
+
+        cv.put("_ID", sudokuID);
+        cv.put(SudokuColumns.FOLDER_ID, folderID);
+        cv.put(SudokuColumns.CREATED, 0);
+        cv.put(SudokuColumns.STATE, SudokuGame.GAME_STATE_NOT_STARTED);
+        cv.put(SudokuColumns.TIME, 0);
+        cv.put(SudokuColumns.DATA, data);
+
+        db.insert(SudokuDatabase.SUDOKU_TABLE_NAME, null, cv);
     }
 
     @Override
@@ -180,6 +190,10 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
         if (oldVersion <= 8) {
             db.execSQL("ALTER TABLE " + SudokuDatabase.SUDOKU_TABLE_NAME + " ADD COLUMN " + SudokuColumns.COMMAND_STACK + " TEXT");
+        }
+
+        if (oldVersion <= 9) {
+            db.execSQL("ALTER TABLE " + SudokuDatabase.SUDOKU_TABLE_NAME + " ADD COLUMN " + SudokuColumns.CENTRE_NOTE + " TEXT");
         }
     }
 

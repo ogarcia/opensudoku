@@ -74,7 +74,8 @@ public class SudokuBoardView extends View {
     private Paint mSectorLinePaint;
     private Paint mCellValuePaint;
     private Paint mCellValueReadonlyPaint;
-    private Paint mCellNotePaint;
+    private Paint mCellCornerNotePaint;
+    private Paint mCellCentreNotePaint;
     private int mNumberLeft;
     private int mNumberTop;
     private float mNoteTop;
@@ -102,7 +103,8 @@ public class SudokuBoardView extends View {
         mCellValuePaint = new Paint();
         mCellValueReadonlyPaint = new Paint();
         mCellValueInvalidPaint = new Paint();
-        mCellNotePaint = new Paint();
+        mCellCornerNotePaint = new Paint();
+        mCellCentreNotePaint = new Paint();
         mBackgroundColorSecondary = new Paint();
         mBackgroundColorReadOnly = new Paint();
         mBackgroundColorTouched = new Paint();
@@ -112,7 +114,9 @@ public class SudokuBoardView extends View {
         mCellValuePaint.setAntiAlias(true);
         mCellValueReadonlyPaint.setAntiAlias(true);
         mCellValueInvalidPaint.setAntiAlias(true);
-        mCellNotePaint.setAntiAlias(true);
+        mCellCornerNotePaint.setAntiAlias(true);
+        mCellCentreNotePaint.setAntiAlias(true);
+        mCellCentreNotePaint.setTextAlign(Paint.Align.CENTER);
         mCellValueInvalidPaint.setColor(Color.RED);
 
         TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.SudokuBoardView/*, defStyle, 0*/);
@@ -169,11 +173,12 @@ public class SudokuBoardView extends View {
     }
 
     public int getTextColorNote() {
-        return mCellNotePaint.getColor();
+        return mCellCornerNotePaint.getColor();
     }
 
     public void setTextColorNote(int color) {
-        mCellNotePaint.setColor(color);
+        mCellCornerNotePaint.setColor(color);
+        mCellCentreNotePaint.setColor(color);
     }
 
     public int getBackgroundColorSecondary() {
@@ -391,7 +396,8 @@ public class SudokuBoardView extends View {
 
         // add some offset because in some resolutions notes are cut-off in the top
         mNoteTop = mCellHeight / 50.0f;
-        mCellNotePaint.setTextSize((mCellHeight - mNoteTop * 2) / 3.0f);
+        mCellCornerNotePaint.setTextSize((mCellHeight - mNoteTop * 2) / 3.0f);
+        mCellCentreNotePaint.setTextSize(mCellCornerNotePaint.getTextSize());
 
         computeSectorLineWidth(width, height);
     }
@@ -439,7 +445,7 @@ public class SudokuBoardView extends View {
             boolean hasBackgroundColorReadOnly = mBackgroundColorReadOnly.getColor() != NO_COLOR;
 
             float numberAscent = mCellValuePaint.ascent();
-            float noteAscent = mCellNotePaint.ascent();
+            float noteAscent = mCellCornerNotePaint.ascent();
             float noteWidth = mCellWidth / 3f;
 
             for (int row = 0; row < 9; row++) {
@@ -485,7 +491,7 @@ public class SudokuBoardView extends View {
                                     cellIsNotAlreadySelected &&
                                             highlightedValueIsValid &&
                                             (mHighlightedValue == cell.getValue() ||
-                                                    (cell.getNote().getNotedNumbers().contains(mHighlightedValue)) &&
+                                                    (cell.getCornerNote().getNotedNumbers().contains(mHighlightedValue)) &&
                                                             cell.getValue() == 0);
                         }
                     }
@@ -547,14 +553,25 @@ public class SudokuBoardView extends View {
                                 cellTop + mNumberTop - numberAscent,
                                 cellValuePaint);
                     } else {
-                        if (!cell.getNote().isEmpty()) {
-                            Collection<Integer> numbers = cell.getNote().getNotedNumbers();
+                        if (!cell.getCornerNote().isEmpty()) {
+                            Collection<Integer> numbers = cell.getCornerNote().getNotedNumbers();
+                            int i = 0;
                             for (Integer number : numbers) {
-                                int n = number - 1;
-                                int c = n % 3;
-                                int r = n / 3;
-                                canvas.drawText(Integer.toString(number), cellLeft + c * noteWidth + 2, cellTop + mNoteTop - noteAscent + r * noteWidth - 1, mCellNotePaint);
+                                int c = i % 3;
+                                // First 3 numbers draw on row 1, remaining numbers draw on row 2.
+                                int r = i < 3 ? 0: 2;
+                                canvas.drawText(Integer.toString(number), cellLeft + c * noteWidth + 2, cellTop + mNoteTop - noteAscent + r * noteWidth - 1, mCellCornerNotePaint);
+                                i++;
                             }
+                        }
+                        if (!cell.getCentreNote().isEmpty()) {
+                            StringBuilder sb = new StringBuilder();
+                            Collection<Integer> numbers = cell.getCentreNote().getNotedNumbers();
+                            for (Integer number : numbers) {
+                                sb.append(Integer.toString(number));
+                            }
+                            String note = sb.toString();
+                            canvas.drawText(note, cellLeft + (mCellWidth / 2), cellTop + mNoteTop - noteAscent + 1 * noteWidth - 1, mCellCentreNotePaint);
                         }
                     }
                 }
@@ -663,7 +680,7 @@ public class SudokuBoardView extends View {
 
                 if (event.isShiftPressed() || event.isAltPressed()) {
                     // add or remove number in cell's note
-                    setCellNote(cell, cell.getNote().toggleNumber(selNumber));
+                    setCellNote(cell, cell.getCornerNote().toggleNumber(selNumber));
                 } else {
                     // enter number in cell
                     setCellValue(cell, selNumber);
@@ -705,9 +722,9 @@ public class SudokuBoardView extends View {
     private void setCellNote(Cell cell, CellNote note) {
         if (cell.isEditable()) {
             if (mGame != null) {
-                mGame.setCellNote(cell, note);
+                mGame.setCellCornerNote(cell, note);
             } else {
-                cell.setNote(note);
+                cell.setCornerNote(note);
             }
         }
     }

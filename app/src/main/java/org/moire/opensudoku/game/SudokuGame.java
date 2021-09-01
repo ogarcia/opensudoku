@@ -28,7 +28,8 @@ import androidx.annotation.Nullable;
 import org.moire.opensudoku.game.command.AbstractCommand;
 import org.moire.opensudoku.game.command.ClearAllNotesCommand;
 import org.moire.opensudoku.game.command.CommandStack;
-import org.moire.opensudoku.game.command.EditCellNoteCommand;
+import org.moire.opensudoku.game.command.EditCellCentreNoteCommand;
+import org.moire.opensudoku.game.command.EditCellCornerNoteCommand;
 import org.moire.opensudoku.game.command.FillInNotesCommand;
 import org.moire.opensudoku.game.command.FillInNotesWithAllValuesCommand;
 import org.moire.opensudoku.game.command.SetCellValueAndRemoveNotesCommand;
@@ -47,7 +48,8 @@ public class SudokuGame {
     private int mState;
     private long mTime;
     private long mLastPlayed;
-    private String mNote;
+    private String mCornerNote;
+    private String mCentreNote;
     private CellCollection mCells;
     private SudokuSolver mSolver;
     private boolean mUsedSolver = false;
@@ -76,7 +78,8 @@ public class SudokuGame {
 
     public void saveState(Bundle outState) {
         outState.putLong("id", mId);
-        outState.putString("note", mNote);
+        outState.putString("note", mCornerNote);
+        outState.putString("centre_note", mCentreNote);
         outState.putLong("created", mCreated);
         outState.putInt("state", mState);
         outState.putLong("time", mTime);
@@ -87,7 +90,8 @@ public class SudokuGame {
 
     public void restoreState(Bundle inState) {
         mId = inState.getLong("id");
-        mNote = inState.getString("note");
+        mCornerNote = inState.getString("note");
+        mCentreNote = inState.getString("centre_note");
         mCreated = inState.getLong("created");
         mState = inState.getInt("state");
         mTime = inState.getLong("time");
@@ -103,12 +107,20 @@ public class SudokuGame {
         mOnPuzzleSolvedListener = l;
     }
 
-    public String getNote() {
-        return mNote;
+    public String getCornerNote() {
+        return mCornerNote;
     }
 
-    public void setNote(String note) {
-        mNote = note;
+    public void setCornerNote(String note) {
+        mCornerNote = note;
+    }
+
+    public String getCentreNote() {
+        return mCentreNote;
+    }
+
+    public void setCentreNote(String note) {
+        mCentreNote = note;
     }
 
     public long getCreated() {
@@ -219,12 +231,12 @@ public class SudokuGame {
     }
 
     /**
-     * Sets note attached to the given cell.
+     * Sets corner note attached to the given cell.
      *
      * @param cell
      * @param note
      */
-    public void setCellNote(Cell cell, CellNote note) {
+    public void setCellCornerNote(Cell cell, CellNote note) {
         if (cell == null) {
             throw new IllegalArgumentException("Cell cannot be null.");
         }
@@ -233,7 +245,26 @@ public class SudokuGame {
         }
 
         if (cell.isEditable()) {
-            executeCommand(new EditCellNoteCommand(cell, note));
+            executeCommand(new EditCellCornerNoteCommand(cell, note));
+        }
+    }
+
+    /**
+     * Sets centre note attached to the given cell.
+     *
+     * @param cell
+     * @param note
+     */
+    public void setCellCentreNote(Cell cell, CellNote note) {
+        if (cell == null) {
+            throw new IllegalArgumentException("Cell cannot be null.");
+        }
+        if (note == null) {
+            throw new IllegalArgumentException("Note cannot be null.");
+        }
+
+        if (cell.isEditable()) {
+            executeCommand(new EditCellCentreNoteCommand(cell, note));
         }
     }
 
@@ -291,7 +322,7 @@ public class SudokuGame {
      * Pauses game-play (for example if activity pauses).
      */
     public void pause() {
-        // save time we have spent playing so far - it will be reseted after resuming
+        // save time we have spent playing so far - it will be reset after resuming
         mTime += SystemClock.uptimeMillis() - mActiveFromTime;
         mActiveFromTime = -1;
 
@@ -364,7 +395,8 @@ public class SudokuGame {
                 Cell cell = mCells.getCell(r, c);
                 if (cell.isEditable()) {
                     cell.setValue(0);
-                    cell.setNote(new CellNote());
+                    cell.setCornerNote(new CellNote());
+                    cell.setCentreNote(new CellNote());
                 }
             }
         }
