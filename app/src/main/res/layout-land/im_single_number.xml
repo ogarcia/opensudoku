@@ -1,144 +1,186 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    android:orientation="vertical">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+    <Button
+        android:id="@+id/button_1"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:text="1"
+        app:layout_constraintBottom_toTopOf="@+id/button_4"
+        app:layout_constraintDimensionRatio="h,1:1"
+        app:layout_constraintEnd_toStartOf="@id/button_2"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <Button
-            android:id="@+id/button_1"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:text="1" />
+    <Button
+        android:id="@+id/button_2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:text="2"
+        app:layout_constraintBottom_toTopOf="@+id/button_5"
+        app:layout_constraintDimensionRatio="h,1:1"
+        app:layout_constraintEnd_toStartOf="@id/button_3"
+        app:layout_constraintStart_toEndOf="@+id/button_1"
+        app:layout_constraintTop_toTopOf="@id/button_1" />
 
-        <Button
-            android:id="@+id/button_2"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:text="2" />
+    <Button
+        android:id="@+id/button_3"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:text="3"
+        app:layout_constraintBottom_toTopOf="@+id/button_6"
+        app:layout_constraintDimensionRatio="h,1:1"
+        app:layout_constraintStart_toEndOf="@+id/button_2"
+        app:layout_constraintTop_toTopOf="@id/button_1" />
 
-        <Button
-            android:id="@+id/button_3"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:text="3" />
+    <Button
+        android:id="@+id/button_4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:text="4"
+        app:layout_constraintBottom_toTopOf="@+id/button_7"
+        app:layout_constraintDimensionRatio="h,1:1"
+        app:layout_constraintEnd_toEndOf="@id/button_1"
+        app:layout_constraintStart_toStartOf="@id/button_1"
+        app:layout_constraintTop_toBottomOf="@+id/button_1" />
 
-    </LinearLayout>
+    <Button
+        android:id="@+id/button_5"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:text="5"
+        app:layout_constraintBottom_toTopOf="@+id/button_8"
+        app:layout_constraintDimensionRatio="h,1:1"
+        app:layout_constraintEnd_toEndOf="@id/button_2"
+        app:layout_constraintStart_toEndOf="@+id/button_4"
+        app:layout_constraintStart_toStartOf="@id/button_2"
+        app:layout_constraintTop_toBottomOf="@+id/button_2"
+        app:layout_constraintTop_toTopOf="@id/button_4" />
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+    <Button
+        android:id="@+id/button_6"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:text="6"
+        app:layout_constraintBottom_toTopOf="@+id/button_9"
+        app:layout_constraintDimensionRatio="h,1:1"
+        app:layout_constraintEnd_toEndOf="@id/button_3"
+        app:layout_constraintStart_toEndOf="@+id/button_5"
+        app:layout_constraintStart_toStartOf="@id/button_3"
+        app:layout_constraintTop_toBottomOf="@+id/button_3"
+        app:layout_constraintTop_toTopOf="@id/button_5" />
 
-        <Button
-            android:id="@+id/button_4"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:text="4" />
+    <Button
+        android:id="@+id/button_7"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:text="7"
+        app:layout_constraintDimensionRatio="h,1:1"
+        app:layout_constraintEnd_toEndOf="@id/button_4"
+        app:layout_constraintStart_toStartOf="@id/button_4"
+        app:layout_constraintTop_toBottomOf="@+id/button_4" />
 
-        <Button
-            android:id="@+id/button_5"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:text="5" />
+    <Button
+        android:id="@+id/button_8"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:text="8"
+        app:layout_constraintDimensionRatio="h,1:1"
+        app:layout_constraintEnd_toEndOf="@id/button_5"
+        app:layout_constraintStart_toEndOf="@+id/button_7"
+        app:layout_constraintStart_toStartOf="@id/button_5"
+        app:layout_constraintTop_toBottomOf="@+id/button_5"
+        app:layout_constraintTop_toTopOf="@id/button_7" />
 
-        <Button
-            android:id="@+id/button_6"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:text="6" />
+    <Button
+        android:id="@+id/button_9"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:text="9"
+        app:layout_constraintDimensionRatio="h,1:1"
+        app:layout_constraintStart_toEndOf="@+id/button_8"
+        app:layout_constraintTop_toBottomOf="@+id/button_6" />
 
-    </LinearLayout>
+    <ImageButton
+        android:id="@+id/enter_number"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_enter_number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@id/button_7"
+        app:layout_constraintStart_toStartOf="@id/button_1"
+        app:layout_constraintTop_toBottomOf="@+id/button_7" />
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+    <ImageButton
+        android:id="@+id/corner_note"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_corner_note"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintEnd_toEndOf="@id/button_8"
+        app:layout_constraintStart_toStartOf="@id/button_8"
+        app:layout_constraintTop_toBottomOf="@+id/button_8"
+        app:layout_constraintTop_toTopOf="@id/enter_number" />
 
-        <Button
-            android:id="@+id/button_7"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:text="7" />
+    <ImageButton
+        android:id="@+id/centre_note"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:src="@drawable/ic_centre_note"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/button_9"
+        app:layout_constraintStart_toStartOf="@id/button_9"
+        app:layout_constraintTop_toBottomOf="@+id/button_9" />
 
-        <Button
-            android:id="@+id/button_8"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:text="8" />
+    <ImageButton
+        android:id="@+id/button_clear"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:src="@drawable/ic_backspace"
+        app:layout_constraintBottom_toBottomOf="@id/button_9"
+        app:layout_constraintDimensionRatio="h,1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/button_3"
+        app:layout_constraintTop_toTopOf="@id/button_9" />
 
-        <Button
-            android:id="@+id/button_9"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:text="9" />
+    <Button
+        android:id="@+id/switch_input_mode"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/centre_note"
+        app:layout_constraintDimensionRatio="h,1:1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/centre_note"
+        app:layout_constraintTop_toTopOf="@id/centre_note" />
 
-    </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:layout_weight="1"
-        android:orientation="horizontal">
-
-        <ImageButton
-            android:id="@+id/switch_num_note"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:scaleType="centerInside" />
-
-        <Button
-            android:id="@+id/button_clear"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1"
-            android:focusable="true"
-            android:focusableInTouchMode="true"
-            android:text="C" />
-
-        <Button
-            android:id="@+id/switch_input_mode"
-            style="@style/Widget.AppCompat.Button.Colored"
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent"
-            android:layout_weight="1" />
-
-    </LinearLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

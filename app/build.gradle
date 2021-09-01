@@ -1,13 +1,11 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 30
-    buildToolsVersion "29.0.3"
+    compileSdkVersion 31
 
     defaultConfig {
         applicationId "org.moire.opensudoku"
-        minSdkVersion 19
-        targetSdkVersion 30
+        minSdkVersion 21
         versionCode 20210622
         versionName "3.8.0"
 
@@ -41,8 +39,12 @@ android {
 }
 
 dependencies {
-    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'androidx.preference:preference:1.1.1'
+
+    // ConstraintLayout, per https://developer.android.com/training/constraint-layout
+    implementation "androidx.constraintlayout:constraintlayout:2.1.0"
+    implementation "androidx.constraintlayout:constraintlayout-compose:1.0.0-beta02"
 
     implementation 'net.margaritov.preference.colorpicker.ColorPickerPreference:ColorPickerPreference:1.0.0'
     // TODO: Migrate entirely to AndroidX Preference, using this version with it

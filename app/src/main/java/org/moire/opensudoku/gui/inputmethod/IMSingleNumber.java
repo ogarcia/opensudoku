@@ -20,6 +20,7 @@
 
 package org.moire.opensudoku.gui.inputmethod;
 
+
 import android.content.Context;
 import android.os.Handler;
 import android.view.LayoutInflater;
@@ -27,6 +28,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import org.moire.opensudoku.R;
 import org.moire.opensudoku.game.Cell;
@@ -52,7 +54,8 @@ import java.util.Map;
 public class IMSingleNumber extends InputMethod {
 
     private static final int MODE_EDIT_VALUE = 0;
-    private static final int MODE_EDIT_NOTE = 1;
+    private static final int MODE_EDIT_CORNER_NOTE = 1;
+    private static final int MODE_EDIT_CENTRE_NOTE = 2;
 
     private boolean mHighlightCompletedValues = true;
     private boolean mShowNumberTotals = false;
@@ -63,8 +66,15 @@ public class IMSingleNumber extends InputMethod {
     private int mEditMode = MODE_EDIT_VALUE;
 
     private Handler mGuiHandler;
-    private Map<Integer, Button> mNumberButtons;
-    private ImageButton mSwitchNumNoteButton;
+    private Map<Integer, View> mNumberButtons;
+
+    // Conceptually these behave like RadioButtons. However, it's difficult to style a RadioButton
+    // without re-implementing all the drawables, and they would require a custom parent layout
+    // to work properly in a ConstraintLayout, so it's simpler and more consistent in the UI to
+    // handle the toggle logic in the code here.
+    private ImageButton mEnterNumberButton;
+    private ImageButton mCornerNoteButton;
+    private ImageButton mCentreNoteButton;
 
     private SudokuPlayActivity.OnSelectedNumberChangedListener mOnSelectedNumberChangedListener = null;
     private View.OnTouchListener mNumberButtonTouched = (view, motionEvent) -> {
@@ -82,6 +92,11 @@ public class IMSingleNumber extends InputMethod {
         if (mActive) {
             update();
         }
+    };
+
+    private OnClickListener mModeButtonClicked = v -> {
+        mEditMode = (Integer) v.getTag();
+        update();
     };
 
     public IMSingleNumber() {
@@ -173,42 +188,66 @@ public class IMSingleNumber extends InputMethod {
         mNumberButtons.put(0, controlPanel.findViewById(R.id.button_clear));
 
         for (Integer num : mNumberButtons.keySet()) {
-            Button b = mNumberButtons.get(num);
+            View b = mNumberButtons.get(num);
             b.setTag(num);
             b.setOnClickListener(mNumberButtonClicked);
             b.setOnTouchListener(mNumberButtonTouched);
         }
 
-        mSwitchNumNoteButton = controlPanel.findViewById(R.id.switch_num_note);
-        mSwitchNumNoteButton.setOnClickListener(v -> {
-            mEditMode = mEditMode == MODE_EDIT_VALUE ? MODE_EDIT_NOTE : MODE_EDIT_VALUE;
-            update();
-        });
+        mEnterNumberButton = controlPanel.findViewById(R.id.enter_number);
+        mEnterNumberButton.setTag(MODE_EDIT_VALUE);
+        mEnterNumberButton.setOnClickListener(mModeButtonClicked);
+
+        mCornerNoteButton = controlPanel.findViewById(R.id.corner_note);
+        mCornerNoteButton.setTag(MODE_EDIT_CORNER_NOTE);
+        mCornerNoteButton.setOnClickListener(mModeButtonClicked);
+
+        mCentreNoteButton = controlPanel.findViewById(R.id.centre_note);
+        mCentreNoteButton.setTag(MODE_EDIT_CENTRE_NOTE);
+        mCentreNoteButton.setOnClickListener(mModeButtonClicked);
 
         return controlPanel;
     }
 
     private void update() {
         switch (mEditMode) {
-            case MODE_EDIT_NOTE:
-                mSwitchNumNoteButton.setImageResource(R.drawable.ic_edit_white);
-                break;
             case MODE_EDIT_VALUE:
-                mSwitchNumNoteButton.setImageResource(R.drawable.ic_edit_grey);
+                ThemeUtils.applyIMButtonStateToImageButton(mEnterNumberButton, ThemeUtils.IMButtonStyle.ACCENT);
+                ThemeUtils.applyIMButtonStateToImageButton(mCornerNoteButton, ThemeUtils.IMButtonStyle.DEFAULT);
+                ThemeUtils.applyIMButtonStateToImageButton(mCentreNoteButton, ThemeUtils.IMButtonStyle.DEFAULT);
+                break;
+            case MODE_EDIT_CORNER_NOTE:
+                ThemeUtils.applyIMButtonStateToImageButton(mEnterNumberButton, ThemeUtils.IMButtonStyle.DEFAULT);
+                ThemeUtils.applyIMButtonStateToImageButton(mCornerNoteButton, ThemeUtils.IMButtonStyle.ACCENT);
+                ThemeUtils.applyIMButtonStateToImageButton(mCentreNoteButton, ThemeUtils.IMButtonStyle.DEFAULT);
+                break;
+            case MODE_EDIT_CENTRE_NOTE:
+                ThemeUtils.applyIMButtonStateToImageButton(mEnterNumberButton, ThemeUtils.IMButtonStyle.DEFAULT);
+                ThemeUtils.applyIMButtonStateToImageButton(mCornerNoteButton, ThemeUtils.IMButtonStyle.DEFAULT);
+                ThemeUtils.applyIMButtonStateToImageButton(mCentreNoteButton, ThemeUtils.IMButtonStyle.ACCENT);
                 break;
         }
 
         // TODO: sometimes I change background too early and button stays in pressed state
         // this is just ugly workaround
         mGuiHandler.postDelayed(() -> {
-            for (Button b : mNumberButtons.values()) {
+            for (View b : mNumberButtons.values()) {
+                Integer tag = (Integer) b.getTag();
                 if (b.getTag().equals(mSelectedNumber)) {
-                    b.setTextAppearance(mContext, ThemeUtils.getCurrentThemeStyle(mContext, android.R.attr.textAppearanceLarge));
-                    ThemeUtils.applyIMButtonStateToView(b, ThemeUtils.IMButtonStyle.ACCENT);
+                    if (mSelectedNumber == 0) {
+                        ThemeUtils.applyIMButtonStateToImageButton((ImageButton)b, ThemeUtils.IMButtonStyle.ACCENT);
+                    } else {
+                        ((Button) b).setTextAppearance(mContext, ThemeUtils.getCurrentThemeStyle(mContext, android.R.attr.textAppearanceLarge));
+                        ThemeUtils.applyIMButtonStateToView((TextView) b, ThemeUtils.IMButtonStyle.ACCENT);
+                    }
                     b.requestFocus();
                 } else {
-                    b.setTextAppearance(mContext, ThemeUtils.getCurrentThemeStyle(mContext, android.R.attr.textAppearanceButton));
-                    ThemeUtils.applyIMButtonStateToView(b, ThemeUtils.IMButtonStyle.DEFAULT);
+                    if (tag.equals(0)) {
+                        ThemeUtils.applyIMButtonStateToImageButton((ImageButton) b, ThemeUtils.IMButtonStyle.DEFAULT);
+                    } else {
+                        ((Button) b).setTextAppearance(mContext, ThemeUtils.getCurrentThemeStyle(mContext, android.R.attr.textAppearanceButton));
+                        ThemeUtils.applyIMButtonStateToView((TextView) b, ThemeUtils.IMButtonStyle.DEFAULT);
+                    }
                 }
             }
 
@@ -221,18 +260,18 @@ public class IMSingleNumber extends InputMethod {
                     boolean highlightValue = entry.getValue() >= CellCollection.SUDOKU_SIZE;
                     boolean selected = entry.getKey() == mSelectedNumber;
                     if (highlightValue && !selected) {
-                        ThemeUtils.applyIMButtonStateToView(mNumberButtons.get(entry.getKey()), ThemeUtils.IMButtonStyle.ACCENT_HIGHCONTRAST);
+                        ThemeUtils.applyIMButtonStateToView((TextView) mNumberButtons.get(entry.getKey()), ThemeUtils.IMButtonStyle.ACCENT_HIGHCONTRAST);
                     }
                 }
             }
 
             if (mShowNumberTotals) {
                 for (Map.Entry<Integer, Integer> entry : valuesUseCount.entrySet()) {
-                    Button b = mNumberButtons.get(entry.getKey());
-                    if (!b.getTag().equals(mSelectedNumber))
-                        b.setText(entry.getKey() + " (" + entry.getValue() + ")");
+                    View b = mNumberButtons.get(entry.getKey());
+                    if (!b.getTag().equals(mSelectedNumber) && mSelectedNumber != 0)
+                        ((Button) b).setText(entry.getKey() + " (" + entry.getValue() + ")");
                     else
-                        b.setText("" + entry.getKey());
+                        ((Button) b).setText("" + entry.getKey());
                 }
             }
 
@@ -272,7 +311,7 @@ public class IMSingleNumber extends InputMethod {
         int selNumber = mSelectedNumber;
 
         switch (mEditMode) {
-            case MODE_EDIT_NOTE:
+            case MODE_EDIT_CORNER_NOTE:
                 if (selNumber == 0) {
                     mGame.setCellNote(cell, CellNote.EMPTY);
                 } else if (selNumber > 0 && selNumber <= 9) {

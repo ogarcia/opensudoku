@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
 import android.view.ContextThemeWrapper;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.preference.PreferenceManager;
@@ -410,6 +411,25 @@ public class ThemeUtils {
                 view.getBackground().setColorFilter(new PorterDuffColorFilter(
                         getCurrentThemeColor(view.getContext(), android.R.attr.textColorPrimaryInverse), PorterDuff.Mode.SRC_ATOP));
                 view.setTextColor(getCurrentThemeColor(view.getContext(), android.R.attr.textColorPrimary));
+                break;
+        }
+    }
+
+    public static void applyIMButtonStateToImageButton(ImageButton view, IMButtonStyle style) {
+        switch (style) {
+            case DEFAULT:
+                view.getBackground().setColorFilter(null);
+                view.getDrawable().clearColorFilter();
+                break;
+
+            case ACCENT:
+                view.getBackground().setColorFilter(getCurrentThemeColor(view.getContext(), android.R.attr.colorAccent), PorterDuff.Mode.SRC_ATOP);
+                view.getDrawable().setColorFilter(getCurrentThemeColor(view.getContext(), android.R.attr.textColorPrimaryInverse), PorterDuff.Mode.SRC_ATOP);
+                break;
+
+            case ACCENT_HIGHCONTRAST:
+                view.getBackground().setColorFilter(getCurrentThemeColor(view.getContext(), android.R.attr.textColorPrimaryInverse), PorterDuff.Mode.SRC_ATOP);
+                view.getDrawable().setColorFilter(getCurrentThemeColor(view.getContext(), android.R.attr.textColorPrimary), PorterDuff.Mode.SRC_ATOP);
                 break;
         }
     }
