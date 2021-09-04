@@ -22,6 +22,7 @@ package org.moire.opensudoku.game;
 
 import static org.moire.opensudoku.game.CellCollection.DATA_VERSION_4;
 
+import java.util.List;
 import java.util.StringTokenizer;
 
 /**
@@ -234,6 +235,16 @@ public class Cell {
     public void setCentreNote(CellNote note) {
         mCentreNote = note;
         onChange();
+    }
+
+    /**
+     * @return All notes associated with the cell, irrespective of whether
+     * they are corner notes or centre notes.
+     */
+    public List<Integer> getNotedNumbers() {
+        List<Integer> notes = this.getCornerNote().getNotedNumbers();
+        notes.addAll(this.getCentreNote().getNotedNumbers());
+        return notes;
     }
 
     /**

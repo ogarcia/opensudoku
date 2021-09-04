@@ -490,9 +490,7 @@ public class SudokuBoardView extends View {
                             shouldHighlightCell =
                                     cellIsNotAlreadySelected &&
                                             highlightedValueIsValid &&
-                                            (mHighlightedValue == cell.getValue() ||
-                                                    (cell.getCornerNote().getNotedNumbers().contains(mHighlightedValue)) &&
-                                                            cell.getValue() == 0);
+                                            (mHighlightedValue == cell.getValue() || cell.getNotedNumbers().contains(mHighlightedValue) && cell.getValue() == 0);
                         }
                     }
 
