@@ -556,7 +556,7 @@ public class SudokuBoardView extends View {
                             int i = 0;
                             for (Integer number : numbers) {
                                 int c = i % 3;
-                                // First 3 numbers draw on row 1, remaining numbers draw on row 2.
+                                // First 3 numbers draw on row 0, remaining numbers draw on row 2.
                                 int r = i < 3 ? 0: 2;
                                 canvas.drawText(Integer.toString(number), cellLeft + c * noteWidth + 2, cellTop + mNoteTop - noteAscent + r * noteWidth - 1, mCellCornerNotePaint);
                                 i++;
