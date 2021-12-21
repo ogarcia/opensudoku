@@ -400,4 +400,5 @@
     <string name="sort_order_descending">DESC</string>
 
     <string name="press_color_to_apply">Press on Color to apply</string>
+    <string name="sudoku_new">New</string>
 </resources>

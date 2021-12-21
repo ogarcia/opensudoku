@@ -381,16 +381,7 @@ public class CellCollection {
         for (int r = 0; r < SUDOKU_SIZE; r++) {
             for (int c = 0; c < SUDOKU_SIZE; c++) {
                 Cell cell = getCell(r, c);
-                cell.setNote(new CellNote());
-
-                CellGroup row = cell.getRow();
-                CellGroup column = cell.getColumn();
-                CellGroup sector = cell.getSector();
-                for (int i = 1; i <= SUDOKU_SIZE; i++) {
-                    if (row.DoesntContain(i) && column.DoesntContain(i) && sector.DoesntContain(i)) {
-                        cell.setNote(cell.getNote().addNumber(i));
-                    }
-                }
+                cell.fillInNotes();
             }
         }
     }
@@ -542,6 +533,18 @@ public class CellCollection {
                 cell.serialize(data, dataVersion);
             }
         }
+    }
+
+    public String toBoardString() {
+        StringBuilder sb = new StringBuilder();
+        for (int r = 0; r < SUDOKU_SIZE; r++) {
+            for (int c = 0; c < SUDOKU_SIZE; c++) {
+                Cell cell = getCell(r, c);
+                sb.append(cell.getValue()).append("  ");
+            }
+            sb.append('\n');
+        }
+        return sb.toString();
     }
 
     public void addOnChangeListener(OnChangeListener listener) {

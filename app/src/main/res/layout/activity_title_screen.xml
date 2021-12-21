@@ -30,6 +30,13 @@
             android:text="@string/resume" />
 
         <Button
+            android:id="@+id/sudoku_new_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/sudoku_new" />
+
+        <Button
             android:id="@+id/sudoku_lists_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

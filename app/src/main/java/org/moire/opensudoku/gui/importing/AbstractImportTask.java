@@ -71,9 +71,10 @@ public abstract class AbstractImportTask extends
 
     @Override
     protected void onProgressUpdate(Integer... values) {
-        if (values.length == 2) {
+        if (mProgressBar == null)
+            return;
+        if (values.length == 2)
             mProgressBar.setMax(values[1]);
-        }
         mProgressBar.setProgress(values[0]);
     }
 
@@ -149,8 +150,8 @@ public abstract class AbstractImportTask extends
      *
      * @param name
      */
-    protected void importFolder(String name) {
-        importFolder(name, System.currentTimeMillis());
+    protected long importFolder(String name) {
+        return importFolder(name, System.currentTimeMillis());
     }
 
     /**
@@ -159,7 +160,7 @@ public abstract class AbstractImportTask extends
      * @param name
      * @param created
      */
-    protected void importFolder(String name, long created) {
+    protected long importFolder(String name, long created) {
         if (mDatabase == null) {
             throw new IllegalStateException("Database is not opened.");
         }
@@ -167,6 +168,7 @@ public abstract class AbstractImportTask extends
         mFolderCount++;
 
         mFolder = mDatabase.insertFolder(name, created);
+        return mFolder.id;
     }
 
     /**
@@ -175,7 +177,7 @@ public abstract class AbstractImportTask extends
      *
      * @param name
      */
-    protected void appendToFolder(String name) {
+    protected long appendToFolder(String name) {
         if (mDatabase == null) {
             throw new IllegalStateException("Database is not opened.");
         }
@@ -187,6 +189,8 @@ public abstract class AbstractImportTask extends
         if (mFolder == null) {
             mFolder = mDatabase.insertFolder(name, System.currentTimeMillis());
         }
+
+        return mFolder.id;
     }
 
     /**
@@ -196,10 +200,10 @@ public abstract class AbstractImportTask extends
      * @param game
      * @throws SudokuInvalidFormatException
      */
-    protected void importGame(String data) throws SudokuInvalidFormatException {
+    protected long importGame(String data) throws SudokuInvalidFormatException {
         mImportParams.clear();
         mImportParams.data = data;
-        importGame(mImportParams);
+        return importGame(mImportParams);
     }
 
     /**
@@ -208,12 +212,12 @@ public abstract class AbstractImportTask extends
      * @param game Fields to import (state of game, created, etc.)
      * @param data Data to import.
      */
-    protected void importGame(SudokuImportParams pars) throws SudokuInvalidFormatException {
+    protected long importGame(SudokuImportParams pars) throws SudokuInvalidFormatException {
         if (mDatabase == null) {
             throw new IllegalStateException("Database is not opened.");
         }
 
-        mDatabase.importSudoku(mFolder.id, pars);
+        return mDatabase.importSudoku(mFolder.id, pars);
     }
 
     protected void setError(String error) {

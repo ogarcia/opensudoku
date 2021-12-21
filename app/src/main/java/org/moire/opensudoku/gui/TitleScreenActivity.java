@@ -11,13 +11,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AlertDialog;
-import androidx.preference.PreferenceManager;
-
 import org.moire.opensudoku.R;
 import org.moire.opensudoku.db.SudokuDatabase;
 import org.moire.opensudoku.game.SudokuGame;
+import org.moire.opensudoku.gui.importing.GameGeneratorTask;
 import org.moire.opensudoku.utils.AndroidUtils;
+
+import androidx.appcompat.app.AlertDialog;
+import androidx.preference.PreferenceManager;
 
 public class TitleScreenActivity extends ThemedActivity {
 
@@ -32,10 +33,30 @@ public class TitleScreenActivity extends ThemedActivity {
         setContentView(R.layout.activity_title_screen);
 
         mResumeButton = findViewById(R.id.resume_button);
+        Button mNewButton = findViewById(R.id.sudoku_new_button);
         Button mSudokuListButton = findViewById(R.id.sudoku_lists_button);
         Button mSettingsButton = findViewById(R.id.settings_button);
 
-        setupResumeButton();
+        SharedPreferences gameSettings = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        setupResumeButton(gameSettings);
+
+        mNewButton.setOnClickListener((view) -> {
+            int numEmptyCells = gameSettings.getInt("gen_num_empty_cells", 60);
+
+            GameGeneratorTask gen = new GameGeneratorTask(1, numEmptyCells, true);
+            gen.initialize(this);
+            gen.setOnImportFinishedListener((success, fId) -> {
+                if (success) {
+                    Intent intentToPlay = new Intent(TitleScreenActivity.this, SudokuPlayActivity.class);
+                    intentToPlay.putExtra(SudokuPlayActivity.EXTRA_SUDOKU_ID, gen.getGameId(0));
+                    startActivity(intentToPlay);
+                }
+            });
+            gen.execute();
+        });
+
+        mSudokuListButton.setOnClickListener((view) ->
+                startActivity(new Intent(this, FolderListActivity.class)));
 
         mSudokuListButton.setOnClickListener((view) ->
                 startActivity(new Intent(this, FolderListActivity.class)));
@@ -45,7 +66,6 @@ public class TitleScreenActivity extends ThemedActivity {
 
         // check the preference to skip the title screen and launch the folder list activity
         // directly
-        SharedPreferences gameSettings = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
         boolean showSudokuFolderListOnStartup = gameSettings.getBoolean("show_sudoku_lists_on_startup", false);
         if (showSudokuFolderListOnStartup) {
             startActivity(new Intent(this, FolderListActivity.class));
@@ -65,8 +85,7 @@ public class TitleScreenActivity extends ThemedActivity {
         return false;
     }
 
-    private void setupResumeButton() {
-        SharedPreferences gameSettings = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+    private void setupResumeButton(SharedPreferences gameSettings) {
         long mSudokuGameID = gameSettings.getLong("most_recently_played_sudoku_id", 0);
         if (canResume(mSudokuGameID)) {
             mResumeButton.setVisibility(View.VISIBLE);
@@ -133,6 +152,7 @@ public class TitleScreenActivity extends ThemedActivity {
     protected void onResume() {
         super.onResume();
 
-        setupResumeButton();
+        SharedPreferences gameSettings = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+        setupResumeButton(gameSettings);
     }
 }

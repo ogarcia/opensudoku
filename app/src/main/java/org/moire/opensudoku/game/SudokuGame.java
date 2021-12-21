@@ -23,8 +23,6 @@ package org.moire.opensudoku.game;
 import android.os.Bundle;
 import android.os.SystemClock;
 
-import androidx.annotation.Nullable;
-
 import org.moire.opensudoku.game.command.AbstractCommand;
 import org.moire.opensudoku.game.command.ClearAllNotesCommand;
 import org.moire.opensudoku.game.command.CommandStack;
@@ -35,6 +33,8 @@ import org.moire.opensudoku.game.command.SetCellValueAndRemoveNotesCommand;
 import org.moire.opensudoku.game.command.SetCellValueCommand;
 
 import java.util.ArrayList;
+
+import androidx.annotation.Nullable;
 
 public class SudokuGame {
 
@@ -312,9 +312,16 @@ public class SudokuGame {
      * Solves puzzle from original state
      */
     public void solve() {
+        solve(true);
+    }
+
+    /**
+     * Solves puzzle from selected state
+     */
+    public void solve(boolean originalState) {
         mUsedSolver = true;
         mSolver = new SudokuSolver();
-        mSolver.setPuzzle(mCells);
+        mSolver.setPuzzle(mCells, originalState);
         ArrayList<int[]> finalValues = mSolver.solve();
         for (int[] rowColVal : finalValues) {
             int row = rowColVal[0];
