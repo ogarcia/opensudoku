@@ -3,6 +3,7 @@
   <head>
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-site-verification" content="4jVqyKkI-GW97B880p9fJnn2y6nYhjNWbZZB8PfVL_U" />
     <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
@@ -45,25 +46,34 @@
 <p>Open Sudoku can open sudoku files directly from the Web. Just click any link below and a folder with puzzles will be downloaded and imported directly into the Open Sudoku app.</p>
 
 <ul>
-<li><a href="sudoku/easy.opensudoku">Easy</a> (100 puzzles)</li>
-<li><a href="sudoku/medium.opensudoku">Medium</a> (100 puzzles)</li>
-<li><a href="sudoku/hard.opensudoku">Hard</a> (100 puzzles)</li>
-<li><a href="sudoku/very_hard.opensudoku">Very Hard</a> (100 puzzles)</li>
+  <li><a href="sudoku/easy.opensudoku">Easy</a> (100 puzzles)</li>
+  <li><a href="sudoku/medium.opensudoku">Medium</a> (100 puzzles)</li>
+  <li><a href="sudoku/hard.opensudoku">Hard</a> (100 puzzles)</li>
+  <li><a href="sudoku/very_hard.opensudoku">Very Hard</a> (100 puzzles)</li>
 </ul>
 
-<p>If you want more puzzles, the following links generate new ones every time you open them. Please note that puzzle generation takes a while, after clicking one of the following links, wait several seconds while it is generating. The page may seem to freeze!</p>
+<div id="puzzle-generation">
+	<p>If you want more puzzles, the following links generate new ones every time you open them.</p>
 
-<ul>
-<li><a id="easy" href="#about-puzzles">Easy</a> (20 puzzles)</li>
-<li><a id="medium" href="#about-puzzles">Medium</a> (20 puzzles)</li>
-<li><a id="hard" href="#about-puzzles">Hard</a> (20 puzzles)</li>
-<li><a id="veryhard" href="#about-puzzles">Very Hard</a> (20 puzzles)</li>
-</ul>
+	<ul id="generateLinks">
+	  <li><a id="easy" href="#about-puzzles">Easy</a> (20 puzzles)</li>
+	  <li><a id="medium" href="#about-puzzles">Medium</a> (20 puzzles)</li>
+	  <li><a id="hard" href="#about-puzzles">Hard</a> (20 puzzles)</li>
+	  <li><a id="veryhard" href="#about-puzzles">Very Hard</a> (20 puzzles)</li>
+	</ul>
+
+	<div id="progressDisplay" style="display:none">
+		<p>
+			<label for="progress">Puzzles generation in progress...</label>
+			<progress id="progress" max="20" value="0"></progress>
+		</p>
+	</div>
+</div>
 
 <p>You can find more puzzles on the following pages.</p>
 
 <ul>
-<li><a href="https://opensudoku.p43.eu/">P43</a>. The first list of gnome-sudoku/Open Sudoku files can be imported directly by the Open Sudoku app. The second one must be saved to the device and imported by either opening it with the Open Sudoku app or using the import option in the app menu.</li>
+  <li><a href="https://opensudoku.p43.eu/">P43</a>. The first list of gnome-sudoku/Open Sudoku files can be imported directly by the Open Sudoku app. The second one must be saved to the device and imported by either opening it with the Open Sudoku app or using the import option in the app menu.</li>
 </ul>
 
 <h3><a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
@@ -84,17 +94,16 @@
         </footer>
 
         <script src="javascripts/filesaver.min.js"></script>
-        <script src="javascripts/sudoku.js"></script>
         <script src="javascripts/opensudoku.js"></script>
 
-                  <script type="text/javascript">
+        <script type="text/javascript">
             var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
             document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
           </script>
           <script type="text/javascript">
             try {
               var pageTracker = _gat._getTracker("UA-6804437-5");
-            pageTracker._trackPageview();
+              pageTracker._trackPageview();
             } catch(err) {}
           </script>
 

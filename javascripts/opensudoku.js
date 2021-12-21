@@ -5,7 +5,14 @@
  * Distributed under terms of the GNU GPLv3 license.
  */
 
-function generateSudoku (level="easy", number=10) {
+var sudokuWorker
+var counter
+var puzzles
+var selectedLevel
+
+function savePuzzles (level="easy") {
+// generate and save .opensudoku file
+	
   var date = new Date().toJSON().slice(0,10);
   var header = '<?xml version="1.0" encoding="UTF-8"?>\n<opensudoku>\n';
   header += '  <name>' + level + ' generated at ' + date + '</name>\n';
@@ -17,45 +24,80 @@ function generateSudoku (level="easy", number=10) {
   header += '  <level>' + level + '</level>\n';
   header += '  <sourceURL>http://opensudoku.moire.org/#about-puzzles</sourceURL>\n'
   var footer = '</opensudoku>\n';
-  var puzzles = '';
-  for (i = 0; i < number; i++) {
-    var puzzle = sudoku.generate(level);
-    var serialized = sudoku.serialize(puzzle);
-    var osformat = serialized
-                  .replace(/a/g, '0')
-                  .replace(/b/g, '00')
-                  .replace(/c/g, '000')
-                  .replace(/d/g, '0000')
-                  .replace(/e/g, '00000')
-                  .replace(/f/g, '000000');
-    puzzles += '  <game data="' + osformat + '" />\n';
-  }
-  return header + puzzles + footer;
+  
+  var blob =  new Blob([header + puzzles + footer], {type: "text/xml"});
+  
+  let filePrefix = level === 'veryhard'? 'very_hard' : level;
+  
+  saveAs(blob, filePrefix +"_generated.opensudoku");
+  
 }
 
+
+
 window.onload = function() {
-  var easy = document.getElementById('easy');
-  var medium = document.getElementById("medium");
-  var hard = document.getElementById("hard");
-  var veryhard = document.getElementById("veryhard");
 
-  var data = [];
-  var properties = {type: 'text/xml'};
+  if (window.Worker) {
+	  
+	var progressBar = document.getElementById('progress');
+	  
+	// setup web worker
+    sudokuWorker = new Worker('javascripts/worker.js');
+    
+    sudokuWorker.onmessage = function(msg) {
+	
+	  progressBar.value++
+		
+      if (++counter === 20) {
+    	  savePuzzles(selectedLevel);
+    	  document.getElementById('progressDisplay').style.display = 'none';
+    	  progressBar.value = 0
+      }
+      else {
+		// more puzzles need to be generated. Append last generated puzzle to the puzzles variable and trigger next generation
+  	  
+        var osformat = msg.data
+                    .replace(/a/g, '0')
+                    .replace(/b/g, '00')
+                    .replace(/c/g, '000')
+                    .replace(/d/g, '0000')
+                    .replace(/e/g, '00000')
+                    .replace(/f/g, '000000');
+        puzzles += '  <game data="' + osformat + '" />\n';
+  	  
+        // generate next puzzle
+        sudokuWorker.postMessage({level: selectedLevel});
+      }
+    }
 
-  easy.onclick = function() {
-    var blob = new Blob([generateSudoku("easy", 20)], {type: "text/xml"});
-    saveAs(blob, "easy_generated.opensudoku");
+    // listen to click on generation links
+    var generateLinks = document.getElementById('generateLinks');
+    
+    generateLinks.onclick = function(event) {
+  	  
+  	  var level = event.target.id;
+  	
+      if(level) {
+		  
+		document.getElementById('progressDisplay').style.display = 'block';
+  		
+  	    event.preventDefault();
+  	    
+  	    // reset generated puzzles counter
+  	    counter = 0;
+  	    puzzles = '';
+  	    selectedLevel = level;
+  	    
+  	    // generate first puzzle
+  	    sudokuWorker.postMessage({level: selectedLevel});
+  	    
+  	  }
+  	
+    }
   }
-  medium.onclick = function() {
-    var blob = new Blob([generateSudoku("medium", 20)], {type: "text/xml"});
-    saveAs(blob, "medium_generated.opensudoku");
+  else {
+    // visitor's browser does not support web workers
+    document.getElementById('puzzle-generation').innerHTML = '<p>If you want more puzzles, this page offers a puzzle generation feature. However, this feature is not compatible with your browser and therefore disabled. Please try again from a browser supporting "web workers".</p>';
   }
-  hard.onclick = function() {
-    var blob = new Blob([generateSudoku("hard", 20)], {type: "text/xml"});
-    saveAs(blob, "hard_generated.opensudoku");
-  }
-  veryhard.onclick = function() {
-    var blob = new Blob([generateSudoku("veryhard", 20)], {type: "text/xml"});
-    saveAs(blob, "very_hard_generated.opensudoku");
-  }
+  
 }
