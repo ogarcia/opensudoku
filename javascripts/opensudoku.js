@@ -6,6 +6,8 @@
  */
 
 function generateSudoku (level="easy", number=10) {
+	
+  // set .opensudoku file header
   var date = new Date().toJSON().slice(0,10);
   var header = '<?xml version="1.0" encoding="UTF-8"?>\n<opensudoku>\n';
   header += '  <name>' + level + ' generated at ' + date + '</name>\n';
@@ -17,6 +19,8 @@ function generateSudoku (level="easy", number=10) {
   header += '  <level>' + level + '</level>\n';
   header += '  <sourceURL>http://opensudoku.moire.org/#about-puzzles</sourceURL>\n'
   var footer = '</opensudoku>\n';
+  
+  // generate puzzles
   var puzzles = '';
   for (i = 0; i < number; i++) {
     var puzzle = sudoku.generate(level);
@@ -30,32 +34,28 @@ function generateSudoku (level="easy", number=10) {
                   .replace(/f/g, '000000');
     puzzles += '  <game data="' + osformat + '" />\n';
   }
-  return header + puzzles + footer;
+  
+  // generate and save .opensudoku file
+  var blob =  new Blob([header + puzzles + footer], {type: "text/xml"});
+  
+  let filePrefix = level === 'veryhard'? 'very_hard' : level;
+  
+  saveAs(blob, filePrefix +"_generated.opensudoku");
+  
 }
 
 window.onload = function() {
-  var easy = document.getElementById('easy');
-  var medium = document.getElementById("medium");
-  var hard = document.getElementById("hard");
-  var veryhard = document.getElementById("veryhard");
 
-  var data = [];
-  var properties = {type: 'text/xml'};
-
-  easy.onclick = function() {
-    var blob = new Blob([generateSudoku("easy", 20)], {type: "text/xml"});
-    saveAs(blob, "easy_generated.opensudoku");
+  var generateLinks = document.getElementById('generateLinks');
+  
+  generateLinks.onclick = function(event) {
+	  
+	var level = event.target.id;
+	
+    if(level) {
+	  generateSudoku(level, 20);
+	}
+	
   }
-  medium.onclick = function() {
-    var blob = new Blob([generateSudoku("medium", 20)], {type: "text/xml"});
-    saveAs(blob, "medium_generated.opensudoku");
-  }
-  hard.onclick = function() {
-    var blob = new Blob([generateSudoku("hard", 20)], {type: "text/xml"});
-    saveAs(blob, "hard_generated.opensudoku");
-  }
-  veryhard.onclick = function() {
-    var blob = new Blob([generateSudoku("veryhard", 20)], {type: "text/xml"});
-    saveAs(blob, "very_hard_generated.opensudoku");
-  }
+  
 }
