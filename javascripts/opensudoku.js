@@ -39,15 +39,22 @@ window.onload = function() {
 
   if (window.Worker) {
 	  
+	var progressBar = document.getElementById('progress');
+	  
 	// setup web worker
     sudokuWorker = new Worker('javascripts/worker.js');
     
     sudokuWorker.onmessage = function(msg) {
 	
+	  progressBar.value++
+		
       if (++counter === 20) {
     	  savePuzzles(selectedLevel);
+    	  document.getElementById('progressDisplay').style.display = 'none';
+    	  progressBar.value = 0
       }
       else {
+		// more puzzles need to be generated. Append last generated puzzle to the puzzles variable and trigger next generation
   	  
         var osformat = msg.data
                     .replace(/a/g, '0')
@@ -71,6 +78,8 @@ window.onload = function() {
   	  var level = event.target.id;
   	
       if(level) {
+		  
+		document.getElementById('progressDisplay').style.display = 'block';
   		
   	    event.preventDefault();
   	    

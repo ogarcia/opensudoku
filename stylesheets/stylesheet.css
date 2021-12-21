@@ -369,3 +369,21 @@ footer a:hover {
 
 /* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
 @media only screen and (max-width: 479px) {}
+
+
+progress {
+  border-radius: 2px; 
+  height: .7em;
+}
+progress::-webkit-progress-bar {
+  background-color: transparent;
+  border-radius: 2px; 
+  border: 1px solid #6d6d6d;
+  border-radius: 7px;
+}
+progress::-webkit-progress-value {
+  background-color: #d5000d;
+}
+progress::-moz-progress-bar {
+  background-color: #d5000d;
+}
