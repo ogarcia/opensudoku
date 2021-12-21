@@ -53,6 +53,9 @@ window.onload = function() {
 	var level = event.target.id;
 	
     if(level) {
+		
+	  event.preventDefault();
+	  
 	  generateSudoku(level, 20);
 	}
 	
