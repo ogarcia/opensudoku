@@ -48,7 +48,7 @@ window.onload = function() {
 	
 	  progressBar.value++
 		
-      if (++counter === 20) {
+      if (++counter > 20) {
     	  savePuzzles(selectedLevel);
     	  document.getElementById('progressDisplay').style.display = 'none';
     	  progressBar.value = 0
